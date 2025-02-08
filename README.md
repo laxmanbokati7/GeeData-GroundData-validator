@@ -1,4 +1,4 @@
-# ERA5 vs Ground Station Precipitation Analysis
+## ERA5 vs Ground Station Precipitation Analysis
 
 ## Overview
 A Python-based analytical tool comparing ERA5 reanalysis precipitation data with ground station measurements across California. This tool fetches data from ERA5 and ground stations, performs statistical comparisons, and generates visualizations for analysis.
@@ -53,45 +53,33 @@ ERA5compare/
 - Google Earth Engine account
 - Git
 
-
-## Quick Start
-
-### Prerequisites
-- Python 3.8+
-- Google Earth Engine account
-- Git
-
 ### Installation
-## Clone Repository
 
+#### Clone Repository
 ```sh
-git clone https://github.com/Saurav-JSU/GeeData-GroundData-validator.git
+git clone https://github.com/Saurav-JSU/ERA5compare.git
 cd ERA5compare
 ```
 
-## Create Virtual Environment
-
+#### Create Virtual Environment
 ```sh
 python -m venv venv
 venv\Scripts\activate  # Windows
 source venv/bin/activate  # Linux/Mac
 ```
 
-## Install Dependencies
-
+#### Install Dependencies
 ```sh
 pip install -r requirements.txt
 ```
 
-## Authenticate Earth Engine
-
+#### Authenticate Earth Engine
 ```sh
 earthengine authenticate
 ```
 
 ### Basic Usage
-
-```
+```sh
 # Fetch new data
 python src/data_fetcher.py --start-year 1980 --end-year 2024
 
@@ -110,7 +98,7 @@ python main.py
 | `ca_stations_metadata.csv`  | Station metadata including ID, lat/lon, elevation             |
 ```
 
-# Source Files
+### Source Files
 ```
 | File               | Purpose                                                   |
 |--------------------|-----------------------------------------------------------|
@@ -136,11 +124,8 @@ python main.py
 ```
 
 All dependencies can be installed via:
-```python
+```sh
 pip install -r requirements.txt
-
-
-### License
 ```
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
