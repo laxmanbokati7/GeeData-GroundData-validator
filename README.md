@@ -24,7 +24,26 @@ A Python-based analytical tool comparing ERA5 reanalysis precipitation data with
 
 ## Project Structure
 ```
-ERA5compare/ ├── Data/ # Data storage │ ├── ca_daily_precipitation.csv │ ├── era5_daily_precipitation.csv │ └── ca_stations_metadata.csv ├── Results/ # Analysis outputs │ ├── station_statistics.csv │ ├── seasonal_statistics.csv │ └── plots/ ├── ShapeFile/ # Geographic data │ └── CA_State.shp ├── src/ # Source code │ ├── data_fetcher.py │ ├── data_loader.py │ ├── get_statistics.py │ └── plotting.py ├── tests/ # Unit tests ├── notebooks/ # Jupyter notebooks ├── requirements.txt # Dependencies └── main.py # Entry point
+ERA5compare/
+├── Data/                # Data storage
+│   ├── ca_daily_precipitation.csv
+│   ├── era5_daily_precipitation.csv
+│   └── ca_stations_metadata.csv
+├── Results/             # Analysis outputs
+│   ├── station_statistics.csv
+│   ├── seasonal_statistics.csv
+│   └── plots/
+├── ShapeFile/           # Geographic data
+│   └── CA_State.shp
+├── src/                 # Source code
+│   ├── data_fetcher.py
+│   ├── data_loader.py
+│   ├── get_statistics.py
+│   └── plotting.py
+├── tests/               # Unit tests
+├── notebooks/           # Jupyter notebooks
+├── requirements.txt     # Dependencies
+└── main.py              # Entry point
 ```
 
 ## Quick Start
@@ -79,7 +98,7 @@ python main.py
 | `ca_stations_metadata.csv`  | Station metadata including ID, lat/lon, elevation             |
 ```
 
-### Source Files
+# Source Files
 ```
 | File               | Purpose                                                   |
 |--------------------|-----------------------------------------------------------|
