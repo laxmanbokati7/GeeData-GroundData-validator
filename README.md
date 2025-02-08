@@ -62,23 +62,35 @@ ERA5compare/
 - Git
 
 ### Installation
+## Clone Repository
+
 ```sh
-# Clone repository
 git clone https://github.com/Saurav-JSU/GeeData-GroundData-validator.git
 cd ERA5compare
+```
 
-# Create virtual environment
+## Create Virtual Environment
+
+```sh
 python -m venv venv
 venv\Scripts\activate  # Windows
 source venv/bin/activate  # Linux/Mac
+```
 
-# Install dependencies
+## Install Dependencies
+
+```sh
 pip install -r requirements.txt
+```
 
-# Authenticate Earth Engine
+## Authenticate Earth Engine
+
+```sh
 earthengine authenticate
+```
 
-###Basic Usage
+### Basic Usage
+
 ```
 # Fetch new data
 python src/data_fetcher.py --start-year 1980 --end-year 2024
