@@ -35,8 +35,16 @@ ERA5compare/ ├── Data/ # Data storage │ ├── ca_daily_precipitation
 - Google Earth Engine account
 - Git
 
+
+## Quick Start
+
+### Prerequisites
+- Python 3.8+
+- Google Earth Engine account
+- Git
+
 ### Installation
-```
+```sh
 # Clone repository
 git clone https://github.com/yourusername/ERA5compare.git
 cd ERA5compare
@@ -51,7 +59,6 @@ pip install -r requirements.txt
 
 # Authenticate Earth Engine
 earthengine authenticate
-```
 
 ###Basic Usage
 ```
