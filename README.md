@@ -71,14 +71,16 @@ python main.py
 ## File Structure & Dependencies
 
 ### Data Files
+```
 | File                        | Description                                                   |
 |-----------------------------|---------------------------------------------------------------|
 | `ca_daily_precipitation.csv`| Daily precipitation measurements from California ground stations |
 | `era5_daily_precipitation.csv` | ERA5 reanalysis precipitation data for corresponding locations |
 | `ca_stations_metadata.csv`  | Station metadata including ID, lat/lon, elevation             |
+```
 
 ### Source Files
-### Source Files
+```
 | File               | Purpose                                                   |
 |--------------------|-----------------------------------------------------------|
 | `data_fetcher.py`  | Fetches data from ERA5 and ground stations via APIs       |
@@ -86,6 +88,7 @@ python main.py
 | `get_statistics.py`| Calculates comparison statistics (R², RMSE, MAE, PBIAS)   |
 | `plotting.py`      | Generates spatial and temporal visualizations             |
 | `main.py`          | Main execution script orchestrating the analysis          |
+```
 
 ### Core Dependencies
 ```
@@ -102,11 +105,11 @@ python main.py
 ```
 
 All dependencies can be installed via:
-```bash
+```python
 pip install -r requirements.txt
 
 
 ### License
-```markdown
+```
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
