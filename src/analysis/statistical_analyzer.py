@@ -2,6 +2,7 @@ from typing import Dict, List, Tuple
 import pandas as pd
 import numpy as np
 from pathlib import Path
+import warnings
 from utils.statistical_utils import (
     calculate_stats_for_all_stations,
     calculate_percentile_stats_by_station,
@@ -14,6 +15,9 @@ from utils.seasonal_utils import (
     save_seasonal_stats,
     get_seasonal_summary
 )
+
+# Temporarily suppress the FutureWarning about parse_dates
+warnings.filterwarnings("ignore", message="Support for nested sequences for 'parse_dates'", category=FutureWarning)
 
 class GriddedDataAnalyzer:
     """Analyzer for comparing gridded datasets with ground observations"""
@@ -31,6 +35,7 @@ class GriddedDataAnalyzer:
         if not ground_path.exists():
             raise FileNotFoundError("Ground data file not found")
         
+        # Properly load without parse_dates, then convert index
         self.ground_data = pd.read_csv(ground_path, index_col=0)
         self.ground_data.index = pd.to_datetime(self.ground_data.index)
         
@@ -38,6 +43,7 @@ class GriddedDataAnalyzer:
         for file in self.data_dir.glob('*_precipitation.csv'):
             if 'ground' not in file.name:
                 dataset_name = file.name.split('_')[0].upper()
+                # Properly load without parse_dates, then convert index
                 data = pd.read_csv(file, index_col=0)
                 data.index = pd.to_datetime(data.index)
                 self.gridded_datasets[dataset_name] = data
