@@ -142,11 +142,3 @@ class ResultPlotter:
         except Exception as e:
             print(f"Error during plot generation: {str(e)}")
             raise
-
-def main():
-    """Main function to run plotting"""
-    plotter = ResultPlotter()
-    plotter.run()
-
-if __name__ == "__main__":
-    main()

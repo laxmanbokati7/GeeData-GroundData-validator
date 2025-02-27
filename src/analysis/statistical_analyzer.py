@@ -145,6 +145,9 @@ class GriddedDataAnalyzer:
             # Load data
             self.load_data()
             
+            # Create results directory if it doesn't exist
+            self.results_dir.mkdir(parents=True, exist_ok=True)
+            
             # Analyze each dataset
             for dataset_name, data in self.gridded_datasets.items():
                 self.analyze_dataset(dataset_name, data)
