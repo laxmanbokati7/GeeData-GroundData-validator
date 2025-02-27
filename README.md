@@ -88,6 +88,9 @@ climate_data_fetcher/
 - **Results/**: Statistical analysis results
 - **Plots/**: Generated visualizations
 
-## License
+## Citation
 
-MIT License
+If you use this code in your research, please cite:
+
+**APA Style**
+Bhattarai, S., & Talchabhadel, R. (2024). Comparative Analysis of Satellite-Based Precipitation Data across the CONUS and Hawaii: Identifying Optimal Satellite Performance. *Remote Sensing*, *16*(16), 3058. https://doi.org/10.3390/rs16163058
