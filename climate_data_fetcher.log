@@ -1,0 +1,844 @@
+2025-03-17 14:17:39,953 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 14:17:39,992 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 14:17:39,993 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 14:17:39,993 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 14:17:39,993 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 14:17:39,994 - controller.app_controller - INFO - AppController initialized
+2025-03-17 14:17:40,505 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 14:17:40,518 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 14:17:40,524 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 14:17:40,528 - ui.app_window - INFO - Application window initialized
+2025-03-17 14:17:42,676 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:17:43,983 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 14:17:55,836 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:17:57,120 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 14:18:51,164 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['AL', 'NY'], 'gridded_datasets': ['ERA5']}
+2025-03-17 14:18:51,165 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 14:18:51,167 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 14:18:51,167 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 14:18:51,168 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 14:18:51,171 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 14:18:51,721 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 14:18:51,722 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 14:18:51,723 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 14:18:51,723 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 14:18:52,347 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 14:18:52,348 - src.data.gridded_fetcher - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-03-17 14:18:52,348 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-17 14:18:52,349 - src.data.gridded_fetcher - INFO - Loading existing ERA5 data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 14:18:52,859 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 14:18:52,859 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 14:18:52,864 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+   ERA5 16392        48 1980-01-01 2024-12-30     0.000000
+2025-03-17 14:18:55,312 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 14:18:56,765 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:19:01,892 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 14:19:05,860 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:19:11,864 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-17 14:19:13,584 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:19:39,821 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 14:19:46,598 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 14:19:46,609 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 14:19:46,609 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 14:19:46,609 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 14:19:46,610 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 14:19:46,610 - controller.app_controller - INFO - AppController initialized
+2025-03-17 14:19:47,003 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 14:19:47,011 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 14:19:47,015 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 14:19:47,019 - ui.app_window - INFO - Application window initialized
+2025-03-17 14:20:01,358 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['NY'], 'gridded_datasets': ['ERA5']}
+2025-03-17 14:20:01,359 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 14:20:01,361 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 14:20:01,361 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 14:20:01,362 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 14:20:01,366 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 14:20:01,705 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 14:20:01,706 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 14:20:01,707 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 14:20:01,707 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 14:20:02,301 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 14:20:02,301 - src.data.gridded_fetcher - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-03-17 14:20:02,301 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-17 14:20:02,302 - src.data.gridded_fetcher - INFO - Generating mock data for ERA5
+2025-03-17 14:20:03,300 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 14:20:03,300 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 14:20:03,304 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+   ERA5 16437        50 1980-01-01 2024-12-31     2.002312
+2025-03-17 14:20:07,105 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 14:20:59,460 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:21:06,572 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-17 14:21:09,355 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:21:29,173 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 14:21:34,950 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['NY'], 'gridded_datasets': ['DAYMET']}
+2025-03-17 14:21:34,951 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 14:21:34,953 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 14:21:34,953 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 14:21:34,953 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 14:21:34,956 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 14:21:35,376 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 14:21:35,377 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 14:21:35,377 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 14:21:35,378 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 14:21:35,859 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 14:21:35,860 - src.data.gridded_fetcher - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-03-17 14:21:35,860 - src.data.gridded_fetcher - INFO - Fetching DAYMET data...
+2025-03-17 14:21:35,860 - src.data.gridded_fetcher - INFO - Generating mock data for DAYMET
+2025-03-17 14:21:36,856 - src.data.gridded_fetcher - INFO - Saved DAYMET data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\daymet_precipitation.csv
+2025-03-17 14:21:36,857 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 14:21:36,860 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+ DAYMET 16437        50 1980-01-01 2024-12-31     1.987346
+2025-03-17 14:21:40,936 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 14:21:43,684 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:21:48,883 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 14:21:49,188 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 14:23:48,623 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 14:23:48,633 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 14:23:48,634 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 14:23:48,634 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 14:23:48,635 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 14:23:48,635 - controller.app_controller - INFO - AppController initialized
+2025-03-17 14:23:49,010 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 14:23:49,024 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 14:23:49,029 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 14:23:49,033 - ui.app_window - INFO - Application window initialized
+2025-03-17 14:24:14,659 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['NY'], 'gridded_datasets': ['ERA5']}
+2025-03-17 14:24:14,659 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 14:24:14,661 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 14:24:14,661 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 14:24:14,662 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 14:24:14,664 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 14:24:15,122 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 14:24:15,123 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 14:24:15,124 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 14:24:15,124 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 14:24:16,134 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-17 14:24:16,135 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-17 14:24:16,135 - src.data.gridded_fetcher - INFO - Loading existing ERA5 data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 14:24:16,614 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 14:24:16,615 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 14:24:16,619 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+   ERA5 16437        50 1980-01-01 2024-12-31     2.002312
+2025-03-17 14:24:19,191 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 14:24:38,541 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['NY'], 'gridded_datasets': ['ERA5']}
+2025-03-17 14:24:38,542 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 14:24:38,544 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 14:24:38,544 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 14:24:38,544 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 14:24:38,547 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 14:24:38,891 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 14:24:38,892 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 14:24:38,893 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 14:24:38,893 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 14:24:39,109 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-17 14:24:39,110 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-17 14:24:42,113 - src.data.gridded_fetcher - INFO - Generating mock data for ERA5
+2025-03-17 14:24:43,160 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 14:24:43,161 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 14:24:43,164 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+   ERA5 16437        50 1980-01-01 2024-12-31     1.988562
+2025-03-17 14:24:46,615 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 15:19:44,195 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 15:19:44,204 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 15:19:44,205 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 15:19:44,205 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 15:19:44,206 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 15:19:44,206 - controller.app_controller - INFO - AppController initialized
+2025-03-17 15:19:44,615 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 15:19:44,622 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 15:19:44,626 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 15:19:44,664 - utils.config_manager - INFO - Configuration file C:\Users\J01013381\.climate_data_fetcher\config.json does not exist
+2025-03-17 15:19:44,665 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 15:19:44,668 - ui.app_window - INFO - Application window initialized
+2025-03-17 15:19:58,857 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['NY'], 'gridded_datasets': ['ERA5'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 15:19:58,858 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 15:19:58,860 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 15:19:58,860 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 15:19:58,861 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 15:19:58,865 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 15:19:59,200 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 15:19:59,200 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 15:19:59,201 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 15:19:59,201 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 15:19:59,202 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 15:20:00,198 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-17 15:20:00,199 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-17 15:20:00,199 - src.data.gridded_fetcher - INFO - Loading existing ERA5 data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 15:20:00,700 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 15:20:00,701 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 15:20:00,705 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+   ERA5 16392        48 1980-01-01 2024-12-30     0.000000
+2025-03-17 15:20:09,552 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 15:20:12,947 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 15:20:18,809 - utils.earth_engine_utils - ERROR - Earth Engine authentication failed: Authenticate() got an unexpected keyword argument 'project'
+2025-03-17 15:20:23,790 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-17 15:20:23,790 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-17 15:20:31,003 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 15:20:32,676 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['NY'], 'gridded_datasets': ['ERA5'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 15:20:32,677 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 15:20:32,678 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 15:20:32,678 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 15:20:32,679 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 15:20:32,681 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 15:20:33,012 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 15:20:33,013 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 15:20:33,014 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 15:20:33,014 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 15:20:33,014 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 15:20:33,450 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-17 15:20:33,450 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-17 15:20:33,450 - src.data.gridded_fetcher - INFO - Loading existing ERA5 data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 15:20:33,944 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 15:20:33,945 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 15:20:33,948 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+   ERA5 16392        48 1980-01-01 2024-12-30     0.000000
+2025-03-17 15:20:35,854 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 15:20:56,643 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 15:21:04,214 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-17 15:21:05,394 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 15:21:12,539 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 15:21:31,386 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['AL'], 'gridded_datasets': ['PRISM'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 15:21:31,388 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 15:21:31,391 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 15:21:31,391 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 15:21:31,392 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 15:21:31,395 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 15:21:31,728 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 15:21:31,729 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 15:21:31,729 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 15:21:31,730 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 15:21:31,730 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 15:21:32,154 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-17 15:21:32,155 - src.data.gridded_fetcher - INFO - Fetching PRISM data...
+2025-03-17 15:21:32,155 - src.data.gridded_fetcher - INFO - Fetching PRISM data from 1980-01-01 to 2024-12-31
+2025-03-17 15:21:32,159 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-17 15:22:19,624 - src.data.gridded_fetcher - INFO - Processed batch 1/161 for PRISM
+2025-03-17 15:22:49,033 - src.data.gridded_fetcher - INFO - Processed batch 2/161 for PRISM
+2025-03-17 15:23:13,961 - src.data.gridded_fetcher - INFO - Processed batch 3/161 for PRISM
+2025-03-17 15:23:32,378 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 15:23:34,282 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-17 15:23:35,435 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 15:23:36,089 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 15:23:37,786 - src.data.gridded_fetcher - INFO - Processed batch 4/161 for PRISM
+2025-03-17 15:24:03,026 - src.data.gridded_fetcher - INFO - Processed batch 5/161 for PRISM
+2025-03-17 15:24:31,357 - src.data.gridded_fetcher - INFO - Processed batch 6/161 for PRISM
+2025-03-17 15:25:07,446 - src.data.gridded_fetcher - INFO - Processed batch 7/161 for PRISM
+2025-03-17 15:25:30,652 - src.data.gridded_fetcher - INFO - Processed batch 8/161 for PRISM
+2025-03-17 15:25:59,359 - src.data.gridded_fetcher - INFO - Processed batch 9/161 for PRISM
+2025-03-17 15:26:23,657 - src.data.gridded_fetcher - INFO - Processed batch 10/161 for PRISM
+2025-03-17 15:26:48,476 - src.data.gridded_fetcher - INFO - Processed batch 11/161 for PRISM
+2025-03-17 15:27:13,184 - src.data.gridded_fetcher - INFO - Processed batch 12/161 for PRISM
+2025-03-17 15:27:38,041 - src.data.gridded_fetcher - INFO - Processed batch 13/161 for PRISM
+2025-03-17 15:28:03,803 - src.data.gridded_fetcher - INFO - Processed batch 14/161 for PRISM
+2025-03-17 15:28:28,806 - src.data.gridded_fetcher - INFO - Processed batch 15/161 for PRISM
+2025-03-17 15:28:55,065 - src.data.gridded_fetcher - INFO - Processed batch 16/161 for PRISM
+2025-03-17 15:29:20,518 - src.data.gridded_fetcher - INFO - Processed batch 17/161 for PRISM
+2025-03-17 15:29:46,145 - src.data.gridded_fetcher - INFO - Processed batch 18/161 for PRISM
+2025-03-17 15:30:11,908 - src.data.gridded_fetcher - INFO - Processed batch 19/161 for PRISM
+2025-03-17 15:30:38,041 - src.data.gridded_fetcher - INFO - Processed batch 20/161 for PRISM
+2025-03-17 15:31:03,617 - src.data.gridded_fetcher - INFO - Processed batch 21/161 for PRISM
+2025-03-17 15:31:27,010 - src.data.gridded_fetcher - INFO - Processed batch 22/161 for PRISM
+2025-03-17 15:31:52,019 - src.data.gridded_fetcher - INFO - Processed batch 23/161 for PRISM
+2025-03-17 15:32:16,720 - src.data.gridded_fetcher - INFO - Processed batch 24/161 for PRISM
+2025-03-17 15:32:51,831 - src.data.gridded_fetcher - INFO - Processed batch 25/161 for PRISM
+2025-03-17 15:33:17,419 - src.data.gridded_fetcher - INFO - Processed batch 26/161 for PRISM
+2025-03-17 15:33:43,492 - src.data.gridded_fetcher - INFO - Processed batch 27/161 for PRISM
+2025-03-17 15:34:13,722 - src.data.gridded_fetcher - INFO - Processed batch 28/161 for PRISM
+2025-03-17 15:34:42,969 - src.data.gridded_fetcher - INFO - Processed batch 29/161 for PRISM
+2025-03-17 15:35:11,050 - src.data.gridded_fetcher - INFO - Processed batch 30/161 for PRISM
+2025-03-17 15:35:37,989 - src.data.gridded_fetcher - INFO - Processed batch 31/161 for PRISM
+2025-03-17 15:36:07,560 - src.data.gridded_fetcher - INFO - Processed batch 32/161 for PRISM
+2025-03-17 15:36:32,202 - src.data.gridded_fetcher - INFO - Processed batch 33/161 for PRISM
+2025-03-17 15:37:00,390 - src.data.gridded_fetcher - INFO - Processed batch 34/161 for PRISM
+2025-03-17 15:37:31,986 - src.data.gridded_fetcher - INFO - Processed batch 35/161 for PRISM
+2025-03-17 15:37:59,779 - src.data.gridded_fetcher - INFO - Processed batch 36/161 for PRISM
+2025-03-17 15:38:26,312 - src.data.gridded_fetcher - INFO - Processed batch 37/161 for PRISM
+2025-03-17 15:38:52,145 - src.data.gridded_fetcher - INFO - Processed batch 38/161 for PRISM
+2025-03-17 15:39:20,983 - src.data.gridded_fetcher - INFO - Processed batch 39/161 for PRISM
+2025-03-17 15:39:48,476 - src.data.gridded_fetcher - INFO - Processed batch 40/161 for PRISM
+2025-03-17 15:40:15,732 - src.data.gridded_fetcher - INFO - Processed batch 41/161 for PRISM
+2025-03-17 15:40:41,273 - src.data.gridded_fetcher - INFO - Processed batch 42/161 for PRISM
+2025-03-17 15:41:07,049 - src.data.gridded_fetcher - INFO - Processed batch 43/161 for PRISM
+2025-03-17 15:41:35,542 - src.data.gridded_fetcher - INFO - Processed batch 44/161 for PRISM
+2025-03-17 15:42:03,945 - src.data.gridded_fetcher - INFO - Processed batch 45/161 for PRISM
+2025-03-17 15:42:33,537 - src.data.gridded_fetcher - INFO - Processed batch 46/161 for PRISM
+2025-03-17 15:43:00,092 - src.data.gridded_fetcher - INFO - Processed batch 47/161 for PRISM
+2025-03-17 15:43:25,161 - src.data.gridded_fetcher - INFO - Processed batch 48/161 for PRISM
+2025-03-17 15:43:52,498 - src.data.gridded_fetcher - INFO - Processed batch 49/161 for PRISM
+2025-03-17 15:44:18,508 - src.data.gridded_fetcher - INFO - Processed batch 50/161 for PRISM
+2025-03-17 15:44:45,830 - src.data.gridded_fetcher - INFO - Processed batch 51/161 for PRISM
+2025-03-17 15:45:14,736 - src.data.gridded_fetcher - INFO - Processed batch 52/161 for PRISM
+2025-03-17 15:45:41,481 - src.data.gridded_fetcher - INFO - Processed batch 53/161 for PRISM
+2025-03-17 15:46:09,847 - src.data.gridded_fetcher - INFO - Processed batch 54/161 for PRISM
+2025-03-17 15:46:33,466 - src.data.gridded_fetcher - INFO - Processed batch 55/161 for PRISM
+2025-03-17 15:46:59,557 - src.data.gridded_fetcher - INFO - Processed batch 56/161 for PRISM
+2025-03-17 15:47:26,039 - src.data.gridded_fetcher - INFO - Processed batch 57/161 for PRISM
+2025-03-17 15:47:53,153 - src.data.gridded_fetcher - INFO - Processed batch 58/161 for PRISM
+2025-03-17 15:48:17,560 - src.data.gridded_fetcher - INFO - Processed batch 59/161 for PRISM
+2025-03-17 15:48:41,762 - src.data.gridded_fetcher - INFO - Processed batch 60/161 for PRISM
+2025-03-17 15:49:08,555 - src.data.gridded_fetcher - INFO - Processed batch 61/161 for PRISM
+2025-03-17 15:49:33,189 - src.data.gridded_fetcher - INFO - Processed batch 62/161 for PRISM
+2025-03-17 15:49:56,645 - src.data.gridded_fetcher - INFO - Processed batch 63/161 for PRISM
+2025-03-17 15:50:20,861 - src.data.gridded_fetcher - INFO - Processed batch 64/161 for PRISM
+2025-03-17 15:50:46,011 - src.data.gridded_fetcher - INFO - Processed batch 65/161 for PRISM
+2025-03-17 15:51:11,337 - src.data.gridded_fetcher - INFO - Processed batch 66/161 for PRISM
+2025-03-17 15:51:38,163 - src.data.gridded_fetcher - INFO - Processed batch 67/161 for PRISM
+2025-03-17 15:52:08,739 - src.data.gridded_fetcher - INFO - Processed batch 68/161 for PRISM
+2025-03-17 15:52:45,309 - src.data.gridded_fetcher - INFO - Processed batch 69/161 for PRISM
+2025-03-17 15:53:11,675 - src.data.gridded_fetcher - INFO - Processed batch 70/161 for PRISM
+2025-03-17 15:53:39,624 - src.data.gridded_fetcher - INFO - Processed batch 71/161 for PRISM
+2025-03-17 15:54:10,004 - src.data.gridded_fetcher - INFO - Processed batch 72/161 for PRISM
+2025-03-17 15:54:43,567 - src.data.gridded_fetcher - INFO - Processed batch 73/161 for PRISM
+2025-03-17 15:55:11,308 - src.data.gridded_fetcher - INFO - Processed batch 74/161 for PRISM
+2025-03-17 15:55:39,794 - src.data.gridded_fetcher - INFO - Processed batch 75/161 for PRISM
+2025-03-17 15:56:08,320 - src.data.gridded_fetcher - INFO - Processed batch 76/161 for PRISM
+2025-03-17 15:56:35,457 - src.data.gridded_fetcher - INFO - Processed batch 77/161 for PRISM
+2025-03-17 15:57:04,577 - src.data.gridded_fetcher - INFO - Processed batch 78/161 for PRISM
+2025-03-17 15:57:29,640 - src.data.gridded_fetcher - INFO - Processed batch 79/161 for PRISM
+2025-03-17 15:57:56,561 - src.data.gridded_fetcher - INFO - Processed batch 80/161 for PRISM
+2025-03-17 15:58:32,371 - src.data.gridded_fetcher - INFO - Processed batch 81/161 for PRISM
+2025-03-17 15:59:03,774 - src.data.gridded_fetcher - INFO - Processed batch 82/161 for PRISM
+2025-03-17 15:59:35,859 - src.data.gridded_fetcher - INFO - Processed batch 83/161 for PRISM
+2025-03-17 16:00:12,175 - src.data.gridded_fetcher - INFO - Processed batch 84/161 for PRISM
+2025-03-17 16:04:27,519 - googleapiclient.http - WARNING - Sleeping 1.04 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-17 16:04:43,029 - src.data.gridded_fetcher - INFO - Processed batch 85/161 for PRISM
+2025-03-17 16:05:33,575 - src.data.gridded_fetcher - INFO - Processed batch 86/161 for PRISM
+2025-03-17 16:06:32,806 - googleapiclient.http - WARNING - Sleeping 0.21 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-17 16:06:35,461 - src.data.gridded_fetcher - INFO - Processed batch 87/161 for PRISM
+2025-03-17 16:08:57,095 - src.data.gridded_fetcher - INFO - Processed batch 88/161 for PRISM
+2025-03-17 16:11:13,239 - googleapiclient.http - WARNING - Sleeping 0.33 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-17 16:13:49,022 - googleapiclient.http - WARNING - Sleeping 0.04 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-17 16:14:51,112 - googleapiclient.http - WARNING - Sleeping 0.95 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-17 16:14:58,293 - src.data.gridded_fetcher - INFO - Processed batch 89/161 for PRISM
+2025-03-17 16:15:31,716 - src.data.gridded_fetcher - INFO - Processed batch 90/161 for PRISM
+2025-03-17 16:16:01,131 - src.data.gridded_fetcher - INFO - Processed batch 91/161 for PRISM
+2025-03-17 16:16:31,087 - src.data.gridded_fetcher - INFO - Processed batch 92/161 for PRISM
+2025-03-17 16:18:59,060 - src.data.gridded_fetcher - INFO - Processed batch 93/161 for PRISM
+2025-03-17 16:20:14,319 - src.data.gridded_fetcher - INFO - Processed batch 94/161 for PRISM
+2025-03-17 16:20:48,025 - src.data.gridded_fetcher - INFO - Processed batch 95/161 for PRISM
+2025-03-17 16:21:18,490 - src.data.gridded_fetcher - INFO - Processed batch 96/161 for PRISM
+2025-03-17 16:21:47,673 - src.data.gridded_fetcher - INFO - Processed batch 97/161 for PRISM
+2025-03-17 16:22:15,657 - src.data.gridded_fetcher - INFO - Processed batch 98/161 for PRISM
+2025-03-17 16:22:44,816 - src.data.gridded_fetcher - INFO - Processed batch 99/161 for PRISM
+2025-03-17 16:23:13,606 - src.data.gridded_fetcher - INFO - Processed batch 100/161 for PRISM
+2025-03-17 16:23:40,934 - src.data.gridded_fetcher - INFO - Processed batch 101/161 for PRISM
+2025-03-17 16:24:14,527 - src.data.gridded_fetcher - INFO - Processed batch 102/161 for PRISM
+2025-03-17 16:24:53,170 - src.data.gridded_fetcher - INFO - Processed batch 103/161 for PRISM
+2025-03-17 16:25:23,925 - src.data.gridded_fetcher - INFO - Processed batch 104/161 for PRISM
+2025-03-17 16:26:04,081 - src.data.gridded_fetcher - INFO - Processed batch 105/161 for PRISM
+2025-03-17 16:26:36,274 - src.data.gridded_fetcher - INFO - Processed batch 106/161 for PRISM
+2025-03-17 16:27:24,175 - src.data.gridded_fetcher - INFO - Processed batch 107/161 for PRISM
+2025-03-17 16:29:12,813 - src.data.gridded_fetcher - INFO - Processed batch 108/161 for PRISM
+2025-03-17 16:29:39,609 - src.data.gridded_fetcher - INFO - Processed batch 109/161 for PRISM
+2025-03-17 16:30:07,571 - src.data.gridded_fetcher - INFO - Processed batch 110/161 for PRISM
+2025-03-17 16:30:35,951 - src.data.gridded_fetcher - INFO - Processed batch 111/161 for PRISM
+2025-03-17 16:31:01,757 - src.data.gridded_fetcher - INFO - Processed batch 112/161 for PRISM
+2025-03-17 16:31:28,220 - src.data.gridded_fetcher - INFO - Processed batch 113/161 for PRISM
+2025-03-17 16:31:53,749 - src.data.gridded_fetcher - INFO - Processed batch 114/161 for PRISM
+2025-03-17 16:32:22,452 - src.data.gridded_fetcher - INFO - Processed batch 115/161 for PRISM
+2025-03-17 16:32:50,435 - src.data.gridded_fetcher - INFO - Processed batch 116/161 for PRISM
+2025-03-17 16:33:19,257 - src.data.gridded_fetcher - INFO - Processed batch 117/161 for PRISM
+2025-03-17 16:33:49,260 - src.data.gridded_fetcher - INFO - Processed batch 118/161 for PRISM
+2025-03-17 16:34:13,717 - src.data.gridded_fetcher - INFO - Processed batch 119/161 for PRISM
+2025-03-17 16:34:37,748 - src.data.gridded_fetcher - INFO - Processed batch 120/161 for PRISM
+2025-03-17 16:35:05,089 - src.data.gridded_fetcher - INFO - Processed batch 121/161 for PRISM
+2025-03-17 16:35:29,219 - src.data.gridded_fetcher - INFO - Processed batch 122/161 for PRISM
+2025-03-17 16:35:55,392 - src.data.gridded_fetcher - INFO - Processed batch 123/161 for PRISM
+2025-03-17 16:37:34,495 - src.data.gridded_fetcher - INFO - Processed batch 124/161 for PRISM
+2025-03-17 16:40:04,033 - src.data.gridded_fetcher - INFO - Processed batch 125/161 for PRISM
+2025-03-17 16:40:47,321 - src.data.gridded_fetcher - INFO - Processed batch 126/161 for PRISM
+2025-03-17 16:41:25,168 - src.data.gridded_fetcher - INFO - Processed batch 127/161 for PRISM
+2025-03-17 16:41:53,309 - src.data.gridded_fetcher - INFO - Processed batch 128/161 for PRISM
+2025-03-17 16:42:26,127 - src.data.gridded_fetcher - INFO - Processed batch 129/161 for PRISM
+2025-03-17 16:43:03,196 - src.data.gridded_fetcher - INFO - Processed batch 130/161 for PRISM
+2025-03-17 16:43:32,670 - src.data.gridded_fetcher - INFO - Processed batch 131/161 for PRISM
+2025-03-17 16:44:03,010 - src.data.gridded_fetcher - INFO - Processed batch 132/161 for PRISM
+2025-03-17 16:44:29,809 - src.data.gridded_fetcher - INFO - Processed batch 133/161 for PRISM
+2025-03-17 16:44:55,076 - src.data.gridded_fetcher - INFO - Processed batch 134/161 for PRISM
+2025-03-17 16:45:23,944 - src.data.gridded_fetcher - INFO - Processed batch 135/161 for PRISM
+2025-03-17 16:45:51,776 - src.data.gridded_fetcher - INFO - Processed batch 136/161 for PRISM
+2025-03-17 16:49:00,675 - src.data.gridded_fetcher - INFO - Processed batch 137/161 for PRISM
+2025-03-17 16:51:28,319 - googleapiclient.http - WARNING - Sleeping 0.69 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-17 16:51:55,372 - src.data.gridded_fetcher - INFO - Processed batch 138/161 for PRISM
+2025-03-17 16:52:23,130 - src.data.gridded_fetcher - INFO - Processed batch 139/161 for PRISM
+2025-03-17 16:52:54,371 - src.data.gridded_fetcher - INFO - Processed batch 140/161 for PRISM
+2025-03-17 16:53:34,391 - src.data.gridded_fetcher - INFO - Processed batch 141/161 for PRISM
+2025-03-17 16:54:02,991 - src.data.gridded_fetcher - INFO - Processed batch 142/161 for PRISM
+2025-03-17 16:54:29,605 - src.data.gridded_fetcher - INFO - Processed batch 143/161 for PRISM
+2025-03-17 16:55:09,430 - src.data.gridded_fetcher - INFO - Processed batch 144/161 for PRISM
+2025-03-17 16:55:35,356 - src.data.gridded_fetcher - INFO - Processed batch 145/161 for PRISM
+2025-03-17 16:57:12,064 - src.data.gridded_fetcher - INFO - Processed batch 146/161 for PRISM
+2025-03-17 16:57:39,768 - src.data.gridded_fetcher - INFO - Processed batch 147/161 for PRISM
+2025-03-17 16:59:18,566 - src.data.gridded_fetcher - INFO - Processed batch 148/161 for PRISM
+2025-03-17 17:02:39,995 - googleapiclient.http - WARNING - Sleeping 1.77 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-17 17:03:45,153 - src.data.gridded_fetcher - INFO - Processed batch 149/161 for PRISM
+2025-03-17 17:04:14,559 - src.data.gridded_fetcher - INFO - Processed batch 150/161 for PRISM
+2025-03-17 17:04:42,183 - src.data.gridded_fetcher - INFO - Processed batch 151/161 for PRISM
+2025-03-17 17:05:06,959 - src.data.gridded_fetcher - INFO - Processed batch 152/161 for PRISM
+2025-03-17 17:05:31,695 - src.data.gridded_fetcher - INFO - Processed batch 153/161 for PRISM
+2025-03-17 17:05:57,621 - src.data.gridded_fetcher - INFO - Processed batch 154/161 for PRISM
+2025-03-17 17:06:23,344 - src.data.gridded_fetcher - INFO - Processed batch 155/161 for PRISM
+2025-03-17 17:06:46,568 - src.data.gridded_fetcher - INFO - Processed batch 156/161 for PRISM
+2025-03-17 17:07:10,870 - src.data.gridded_fetcher - INFO - Processed batch 157/161 for PRISM
+2025-03-17 17:07:35,919 - src.data.gridded_fetcher - INFO - Processed batch 158/161 for PRISM
+2025-03-17 17:08:03,621 - src.data.gridded_fetcher - INFO - Processed batch 159/161 for PRISM
+2025-03-17 17:08:30,432 - src.data.gridded_fetcher - INFO - Processed batch 160/161 for PRISM
+2025-03-17 17:08:47,853 - src.data.gridded_fetcher - INFO - Processed batch 161/161 for PRISM
+2025-03-17 17:08:48,056 - src.data.gridded_fetcher - INFO - Saved PRISM data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\prism_precipitation.csv
+2025-03-17 17:08:48,057 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 17:08:48,075 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+  PRISM 16437        48 1980-01-01 2024-12-31     2.226684
+2025-03-17 17:22:40,563 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 17:22:42,445 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 17:24:10,865 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 17:24:10,874 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 17:24:10,875 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 17:24:10,875 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 17:24:10,876 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 17:24:10,876 - controller.app_controller - INFO - AppController initialized
+2025-03-17 17:24:11,274 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 17:24:11,284 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 17:24:11,289 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 17:24:11,298 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 17:24:11,301 - ui.app_window - INFO - Application window initialized
+2025-03-17 17:24:18,659 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'states': ['AL'], 'gridded_datasets': ['PRISM'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 17:24:18,659 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 17:24:18,661 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 17:24:18,661 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 17:24:18,661 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 17:24:18,665 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 17:24:19,029 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 17:24:19,030 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 17:24:19,030 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 17:24:19,031 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 17:24:19,031 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 17:24:20,175 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-17 17:24:20,175 - src.data.gridded_fetcher - INFO - Fetching PRISM data...
+2025-03-17 17:24:20,176 - src.data.gridded_fetcher - INFO - Loading existing PRISM data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\prism_precipitation.csv
+2025-03-17 17:24:20,493 - src.data.gridded_fetcher - INFO - Saved PRISM data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\prism_precipitation.csv
+2025-03-17 17:24:20,494 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 17:24:20,498 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+  PRISM 16437        48 1980-01-01 2024-12-31     2.226684
+2025-03-17 17:24:23,251 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 17:24:24,249 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 17:25:04,216 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 17:25:06,273 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 17:27:00,063 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 17:27:11,088 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2020, 'end_year': 2024, 'states': ['AL'], 'gridded_datasets': ['ERA5', 'PRISM'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 17:27:11,089 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 17:27:11,092 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 17:27:11,092 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 17:27:11,092 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 17:27:11,096 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 17:27:11,242 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 17:27:11,243 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 17:27:11,244 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 17:27:11,244 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 17:27:11,245 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 17:27:11,536 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-17 17:27:11,536 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-17 17:27:11,536 - src.data.gridded_fetcher - INFO - Loading existing ERA5 data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 17:27:11,607 - src.data.gridded_fetcher - INFO - Fetching PRISM data...
+2025-03-17 17:27:11,608 - src.data.gridded_fetcher - INFO - Loading existing PRISM data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\prism_precipitation.csv
+2025-03-17 17:27:12,089 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-17 17:27:12,369 - src.data.gridded_fetcher - INFO - Saved PRISM data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\prism_precipitation.csv
+2025-03-17 17:27:12,370 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-17 17:27:12,374 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground  1827        47 2020-01-01 2024-12-31    24.137931
+   ERA5 16392        48 1980-01-01 2024-12-30     0.000000
+  PRISM 16437        48 1980-01-01 2024-12-31     2.226684
+2025-03-17 17:27:14,232 - controller.app_controller - INFO - Data fetching completed
+2025-03-17 17:27:15,429 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 17:27:51,973 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 17:29:47,057 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 17:29:47,066 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 17:29:47,067 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 17:29:47,067 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 17:29:47,067 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 17:29:47,068 - controller.app_controller - INFO - Found existing data files
+2025-03-17 17:29:47,068 - controller.app_controller - INFO - AppController initialized
+2025-03-17 17:29:47,506 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 17:29:47,527 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 17:29:47,531 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 17:29:47,534 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 17:29:47,538 - ui.app_window - INFO - Application window initialized
+2025-03-17 17:29:49,109 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 17:30:12,840 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-17 17:30:14,703 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 17:30:15,659 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 17:30:17,459 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-17 17:30:17,459 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-17 17:30:22,897 - utils.earth_engine_utils - ERROR - Earth Engine authentication failed: Authenticate() got an unexpected keyword argument 'project'
+2025-03-17 17:30:26,878 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-17 17:30:26,879 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-17 17:30:29,492 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 17:30:32,916 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:25:52,947 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:25:55,754 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:26:00,795 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 19:26:02,296 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-17 19:26:04,979 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:32:39,922 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 19:32:40,225 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 19:32:40,226 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 19:32:40,227 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 19:32:40,230 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 19:32:40,230 - controller.app_controller - INFO - Found existing data files
+2025-03-17 19:32:40,231 - controller.app_controller - INFO - AppController initialized
+2025-03-17 19:32:40,563 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 19:32:40,628 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 19:32:40,669 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 19:32:41,501 - utils.config_manager - INFO - Configuration file C:\Users\J01013381\.climate_data_fetcher\config.json does not exist
+2025-03-17 19:32:41,511 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 19:32:41,526 - ui.app_window - INFO - Application window initialized
+2025-03-17 19:32:46,859 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:33:20,619 - controller.data_fetching_controller - INFO - DataFetchingController reset
+2025-03-17 19:33:20,625 - controller.analysis_controller - INFO - AnalysisController reset
+2025-03-17 19:33:20,627 - controller.visualization_controller - INFO - VisualizationController reset
+2025-03-17 19:33:20,628 - controller.app_controller - INFO - Application state reset
+2025-03-17 19:33:20,642 - ui.panels.data_selection_panel - INFO - UI reset to default state
+2025-03-17 19:33:20,646 - ui.panels.analysis_panel - INFO - Analysis panel UI reset
+2025-03-17 19:33:20,649 - ui.panels.visualization_panel - INFO - Visualization panel UI reset
+2025-03-17 19:33:20,652 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:33:39,583 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:33:41,666 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:33:46,616 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:33:47,992 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:33:56,402 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 19:33:56,415 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 19:33:56,416 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 19:33:56,416 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 19:33:56,417 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 19:33:56,417 - controller.app_controller - INFO - Found existing data files
+2025-03-17 19:33:56,418 - controller.app_controller - INFO - AppController initialized
+2025-03-17 19:33:56,590 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 19:33:56,611 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 19:33:56,620 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 19:33:56,624 - utils.config_manager - INFO - Configuration file C:\Users\J01013381\.climate_data_fetcher\config.json does not exist
+2025-03-17 19:33:56,625 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 19:33:56,629 - ui.app_window - INFO - Application window initialized
+2025-03-17 19:34:13,478 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:34:34,118 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-17 19:34:35,595 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:36:26,548 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 19:36:26,561 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 19:36:26,562 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 19:36:26,562 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 19:36:26,563 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 19:36:26,564 - controller.app_controller - INFO - Found existing data files
+2025-03-17 19:36:26,564 - controller.app_controller - INFO - AppController initialized
+2025-03-17 19:36:26,708 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 19:36:26,732 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 19:36:26,742 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 19:36:26,748 - utils.config_manager - INFO - Configuration file C:\Users\J01013381\.climate_data_fetcher\config.json does not exist
+2025-03-17 19:36:26,750 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 19:36:26,754 - ui.app_window - INFO - Application window initialized
+2025-03-17 19:36:28,896 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:37:00,185 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:37:01,164 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:37:10,929 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-17 19:37:12,540 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:39:31,100 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 19:39:31,114 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 19:39:31,114 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 19:39:31,115 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 19:39:31,116 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 19:39:31,116 - controller.app_controller - INFO - Found existing data files
+2025-03-17 19:39:31,116 - controller.app_controller - INFO - AppController initialized
+2025-03-17 19:39:31,282 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 19:39:31,305 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 19:39:31,314 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 19:39:31,318 - utils.config_manager - INFO - Configuration file C:\Users\J01013381\.climate_data_fetcher\config.json does not exist
+2025-03-17 19:39:31,320 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 19:39:31,328 - ui.app_window - INFO - Application window initialized
+2025-03-17 19:39:33,553 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:42:50,700 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 19:42:50,714 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 19:42:50,714 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 19:42:50,715 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 19:42:50,717 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 19:42:50,720 - controller.app_controller - INFO - Found existing data files
+2025-03-17 19:42:50,722 - controller.app_controller - INFO - AppController initialized
+2025-03-17 19:42:50,896 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 19:42:50,926 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 19:42:50,937 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 19:42:50,941 - utils.config_manager - INFO - Configuration file C:\Users\J01013381\.climate_data_fetcher\config.json does not exist
+2025-03-17 19:42:50,943 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 19:42:50,947 - ui.app_window - INFO - Application window initialized
+2025-03-17 19:42:52,941 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:43:25,111 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:43:38,465 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2020, 'end_year': 2024, 'states': ['AL'], 'gridded_datasets': ['ERA5', 'DAYMET', 'PRISM'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 19:43:38,466 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 19:43:38,469 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 19:43:38,470 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 19:43:38,471 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 19:43:38,831 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 19:44:07,382 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 19:44:07,383 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 19:44:07,385 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 19:44:07,386 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 19:44:07,387 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 19:44:08,500 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:44:08,502 - src.data.gridded_fetcher - ERROR - Failed to initialize Earth Engine: Caller does not have required permission to use project ee-sauravbhattarai1999. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=ee-sauravbhattarai1999 and then retry. Propagation of the new permission may take a few minutes.
+2025-03-17 19:44:08,502 - src.data.gridded_fetcher - ERROR - Earth Engine initialization failed. Cannot fetch real data.
+2025-03-17 19:44:08,503 - controller.data_fetching_controller - ERROR - Error fetching data: Gridded data validation failed
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\controller\data_fetching_controller.py", line 117, in _fetch_data_thread
+    gridded_results = fetcher.process()
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 320, in process
+    raise ValueError("Gridded data validation failed")
+ValueError: Gridded data validation failed
+2025-03-17 19:44:14,659 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 19:44:16,459 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-17 19:44:16,460 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-17 19:44:21,583 - utils.earth_engine_utils - ERROR - Earth Engine authentication failed: Authenticate() got an unexpected keyword argument 'project'
+2025-03-17 19:44:25,401 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:44:30,472 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:44:41,720 - controller.data_fetching_controller - INFO - DataFetchingController reset
+2025-03-17 19:44:41,721 - controller.analysis_controller - INFO - AnalysisController reset
+2025-03-17 19:44:41,721 - controller.visualization_controller - INFO - VisualizationController reset
+2025-03-17 19:44:41,721 - controller.app_controller - INFO - Application state reset
+2025-03-17 19:44:41,723 - ui.panels.data_selection_panel - INFO - UI reset to default state
+2025-03-17 19:44:41,724 - ui.panels.analysis_panel - INFO - Analysis panel UI reset
+2025-03-17 19:44:41,727 - ui.panels.visualization_panel - INFO - Visualization panel UI reset
+2025-03-17 19:44:43,545 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 19:44:44,933 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:44:54,187 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2020, 'end_year': 2024, 'states': ['AL'], 'gridded_datasets': ['ERA5', 'DAYMET', 'PRISM'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 19:44:54,188 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 19:44:54,193 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 19:44:54,195 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 19:44:54,195 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 19:44:54,201 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 19:44:54,741 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 19:44:54,742 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 19:44:54,743 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 19:44:54,744 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 19:44:54,744 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 19:44:55,599 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:44:55,601 - src.data.gridded_fetcher - ERROR - Failed to initialize Earth Engine: Caller does not have required permission to use project ee-sauravbhattarai1999. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=ee-sauravbhattarai1999 and then retry. Propagation of the new permission may take a few minutes.
+2025-03-17 19:44:55,602 - src.data.gridded_fetcher - ERROR - Earth Engine initialization failed. Cannot fetch real data.
+2025-03-17 19:44:55,603 - controller.data_fetching_controller - ERROR - Error fetching data: Gridded data validation failed
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\controller\data_fetching_controller.py", line 117, in _fetch_data_thread
+    gridded_results = fetcher.process()
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 320, in process
+    raise ValueError("Gridded data validation failed")
+ValueError: Gridded data validation failed
+2025-03-17 19:45:00,725 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 19:45:13,642 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-17 19:45:13,643 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-17 19:45:18,356 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:45:24,900 - controller.data_fetching_controller - INFO - DataFetchingController reset
+2025-03-17 19:45:24,902 - controller.analysis_controller - INFO - AnalysisController reset
+2025-03-17 19:45:24,902 - controller.visualization_controller - INFO - VisualizationController reset
+2025-03-17 19:45:24,903 - controller.app_controller - INFO - Application state reset
+2025-03-17 19:45:24,904 - ui.panels.data_selection_panel - INFO - UI reset to default state
+2025-03-17 19:45:24,906 - ui.panels.analysis_panel - INFO - Analysis panel UI reset
+2025-03-17 19:45:24,908 - ui.panels.visualization_panel - INFO - Visualization panel UI reset
+2025-03-17 19:45:26,444 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 19:45:29,125 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-17 19:45:29,126 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-17 19:45:32,518 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:45:47,054 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2021, 'end_year': 2024, 'states': ['AL'], 'gridded_datasets': ['ERA5', 'DAYMET', 'PRISM'], 'ee_project_id': 'ee-074bce151saurav'}
+2025-03-17 19:45:47,055 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 19:45:47,060 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 19:45:47,060 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 19:45:47,061 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 19:45:47,067 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 19:45:47,271 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 19:45:47,271 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 19:45:47,273 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 19:45:47,273 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 19:45:47,273 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-074bce151saurav
+2025-03-17 19:45:48,308 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:45:48,308 - src.data.gridded_fetcher - ERROR - Failed to initialize Earth Engine: Caller does not have required permission to use project ee-074bce151saurav. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=ee-074bce151saurav and then retry. Propagation of the new permission may take a few minutes.
+2025-03-17 19:45:48,309 - src.data.gridded_fetcher - ERROR - Earth Engine initialization failed. Cannot fetch real data.
+2025-03-17 19:45:48,309 - controller.data_fetching_controller - ERROR - Error fetching data: Gridded data validation failed
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\controller\data_fetching_controller.py", line 117, in _fetch_data_thread
+    gridded_results = fetcher.process()
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 320, in process
+    raise ValueError("Gridded data validation failed")
+ValueError: Gridded data validation failed
+2025-03-17 19:46:17,300 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 19:46:17,316 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 19:46:17,317 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 19:46:17,317 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 19:46:17,318 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 19:46:17,318 - controller.app_controller - INFO - Found existing data files
+2025-03-17 19:46:17,319 - controller.app_controller - INFO - AppController initialized
+2025-03-17 19:46:17,479 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 19:46:17,502 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 19:46:17,513 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 19:46:17,519 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 19:46:17,524 - ui.app_window - INFO - Application window initialized
+2025-03-17 19:46:19,356 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-17 19:46:20,913 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:46:35,918 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 19:46:40,907 - utils.earth_engine_utils - ERROR - Earth Engine authentication failed: Authenticate() got an unexpected keyword argument 'project'
+2025-03-17 19:47:22,686 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 19:47:22,697 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 19:47:22,698 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 19:47:22,699 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 19:47:22,699 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 19:47:22,700 - controller.app_controller - INFO - Found existing data files
+2025-03-17 19:47:22,700 - controller.app_controller - INFO - AppController initialized
+2025-03-17 19:47:22,867 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 19:47:22,888 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 19:47:22,898 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 19:47:22,907 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 19:47:22,911 - ui.app_window - INFO - Application window initialized
+2025-03-17 19:47:24,796 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 19:47:28,092 - utils.earth_engine_utils - INFO - Initializing Earth Engine with project ID: ee-074bce151saurav
+2025-03-17 19:47:29,218 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:47:29,221 - utils.earth_engine_utils - ERROR - Failed to initialize Earth Engine: Caller does not have required permission to use project ee-074bce151saurav. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=ee-074bce151saurav and then retry. Propagation of the new permission may take a few minutes.
+2025-03-17 19:47:34,616 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:47:44,453 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:47:44,456 - utils.earth_engine_utils - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 19:47:45,546 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:47:45,547 - utils.earth_engine_utils - ERROR - Failed to initialize Earth Engine: Caller does not have required permission to use project ee-sauravbhattarai1999. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=ee-sauravbhattarai1999 and then retry. Propagation of the new permission may take a few minutes.
+2025-03-17 19:47:48,246 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:47:50,170 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-17 19:47:50,180 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-17 19:47:54,246 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-17 19:48:02,041 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2020, 'end_year': 2024, 'states': None, 'gridded_datasets': ['ERA5', 'DAYMET', 'PRISM'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 19:48:02,046 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 19:48:02,056 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-17 19:48:02,057 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-17 19:48:02,058 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-17 19:48:02,083 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-17 19:48:02,343 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-17 19:48:02,344 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-17 19:48:02,346 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 19:48:02,347 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 19:48:02,348 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 19:48:03,206 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:48:03,207 - src.data.gridded_fetcher - ERROR - Failed to initialize Earth Engine: Caller does not have required permission to use project ee-sauravbhattarai1999. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=ee-sauravbhattarai1999 and then retry. Propagation of the new permission may take a few minutes.
+2025-03-17 19:48:03,208 - src.data.gridded_fetcher - ERROR - Earth Engine initialization failed. Cannot fetch real data.
+2025-03-17 19:48:03,208 - controller.data_fetching_controller - ERROR - Error fetching data: Gridded data validation failed
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\controller\data_fetching_controller.py", line 117, in _fetch_data_thread
+    gridded_results = fetcher.process()
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 320, in process
+    raise ValueError("Gridded data validation failed")
+ValueError: Gridded data validation failed
+2025-03-17 19:49:42,006 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 19:49:42,019 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 19:49:42,020 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 19:49:42,020 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 19:49:42,021 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 19:49:42,021 - controller.app_controller - INFO - Found existing data files
+2025-03-17 19:49:42,022 - controller.app_controller - INFO - AppController initialized
+2025-03-17 19:49:42,179 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 19:49:42,205 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 19:49:42,213 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 19:49:42,226 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 19:49:42,230 - ui.app_window - INFO - Application window initialized
+2025-03-17 19:49:55,973 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'gridded', 'start_year': 2023, 'end_year': 2024, 'states': None, 'gridded_datasets': ['ERA5'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-17 19:49:55,976 - controller.app_controller - INFO - Starting data fetching process
+2025-03-17 19:49:55,989 - controller.data_fetching_controller - INFO - Started data fetching thread for gridded data
+2025-03-17 19:49:55,990 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-17 19:49:55,991 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-17 19:49:55,992 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-17 19:49:57,472 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-17 19:49:57,476 - src.data.gridded_fetcher - ERROR - Failed to initialize Earth Engine: Caller does not have required permission to use project ee-sauravbhattarai1999. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=ee-sauravbhattarai1999 and then retry. Propagation of the new permission may take a few minutes.
+2025-03-17 19:49:57,481 - src.data.gridded_fetcher - ERROR - Earth Engine initialization failed. Cannot fetch real data.
+2025-03-17 19:49:57,482 - controller.data_fetching_controller - ERROR - Error fetching data: Gridded data validation failed
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\controller\data_fetching_controller.py", line 117, in _fetch_data_thread
+    gridded_results = fetcher.process()
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 320, in process
+    raise ValueError("Gridded data validation failed")
+ValueError: Gridded data validation failed
+2025-03-17 21:58:16,653 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-17 21:58:16,670 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-17 21:58:16,672 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-17 21:58:16,672 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-17 21:58:16,673 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-17 21:58:16,673 - controller.app_controller - INFO - Found existing data files
+2025-03-17 21:58:16,673 - controller.app_controller - INFO - AppController initialized
+2025-03-17 21:58:16,840 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-17 21:58:16,858 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-17 21:58:16,866 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-17 21:58:16,873 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-17 21:58:16,878 - ui.app_window - INFO - Application window initialized
+2025-03-17 21:58:18,731 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-17 21:58:20,700 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-17 21:58:20,701 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-17 21:58:25,556 - utils.earth_engine_utils - ERROR - Earth Engine authentication failed: Authenticate() got an unexpected keyword argument 'project'
+2025-03-18 09:33:53,019 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-18 09:33:53,030 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-18 09:33:53,031 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-18 09:33:53,031 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-18 09:33:53,032 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-18 09:33:53,032 - controller.app_controller - INFO - Found existing data files
+2025-03-18 09:33:53,033 - controller.app_controller - INFO - AppController initialized
+2025-03-18 09:33:53,357 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-18 09:33:53,368 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-18 09:33:53,372 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-18 09:33:53,382 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-18 09:33:53,385 - ui.app_window - INFO - Application window initialized
+2025-03-18 09:34:04,878 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2023, 'end_year': 2024, 'states': ['NY'], 'gridded_datasets': ['ERA5', 'DAYMET', 'PRISM'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-18 09:34:04,880 - controller.app_controller - INFO - Starting data fetching process
+2025-03-18 09:34:04,883 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-18 09:34:04,883 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-18 09:34:04,884 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-18 09:34:04,898 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-03-18 09:34:05,222 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-18 09:34:05,223 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-18 09:34:05,223 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-18 09:34:05,224 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-18 09:34:05,224 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-18 09:34:06,258 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-18 09:34:06,258 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-18 09:34:06,259 - src.data.gridded_fetcher - INFO - Loading existing ERA5 data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-18 09:34:06,340 - src.data.gridded_fetcher - INFO - Fetching DAYMET data...
+2025-03-18 09:34:06,342 - src.data.gridded_fetcher - INFO - Fetching DAYMET data from 2023-01-01 to 2024-12-31
+2025-03-18 09:34:06,345 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-18 09:34:43,601 - src.data.gridded_fetcher - INFO - Processed batch 1/4 for DAYMET
+2025-03-18 09:35:17,141 - src.data.gridded_fetcher - INFO - Processed batch 2/4 for DAYMET
+2025-03-18 09:35:49,430 - src.data.gridded_fetcher - INFO - Processed batch 3/4 for DAYMET
+2025-03-18 09:36:09,787 - src.data.gridded_fetcher - INFO - Processed batch 4/4 for DAYMET
+2025-03-18 09:36:09,788 - src.data.gridded_fetcher - INFO - Fetching PRISM data...
+2025-03-18 09:36:09,789 - src.data.gridded_fetcher - INFO - Loading existing PRISM data from C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\prism_precipitation.csv
+2025-03-18 09:36:10,272 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-18 09:36:10,280 - src.data.gridded_fetcher - INFO - Saved DAYMET data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\daymet_precipitation.csv
+2025-03-18 09:36:10,557 - src.data.gridded_fetcher - INFO - Saved PRISM data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\ERA5compare\Approach5 - Copy (2)\Data\prism_precipitation.csv
+2025-03-18 09:36:10,557 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-18 09:36:10,563 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground   731        47 2023-01-01 2024-12-31     1.175888
+   ERA5 16392        48 1980-01-01 2024-12-30     0.000000
+ DAYMET   731        48 2023-01-01 2024-12-31    50.068399
+  PRISM 16437        48 1980-01-01 2024-12-31     2.226684
+2025-03-18 09:36:16,767 - controller.app_controller - INFO - Data fetching completed
+2025-03-18 09:36:19,850 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-18 09:36:26,478 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-18 09:36:28,477 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-18 09:36:29,877 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-18 09:36:30,248 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-18 09:36:34,345 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-18 09:36:36,073 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-18 09:36:36,074 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-18 09:36:38,950 - utils.earth_engine_utils - ERROR - Earth Engine authentication failed: Authenticate() got an unexpected keyword argument 'project'
+2025-03-18 09:36:46,165 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-18 09:36:50,118 - ui.app_window - INFO - Switched to Analysis tab

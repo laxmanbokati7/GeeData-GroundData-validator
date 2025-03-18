@@ -1,92 +1,130 @@
-# Climate Data Fetcher
+# Climate Data Fetcher GUI
 
-A comprehensive tool for fetching, analyzing, and visualizing climate data from multiple sources including ground stations (Meteostat), ERA5 reanalysis, DAYMET, and PRISM datasets across the United States.
+A comprehensive PyQt-based desktop application for fetching, analyzing, and visualizing climate data from multiple sources including ground stations (Meteostat), ERA5 reanalysis, DAYMET, and PRISM datasets across the United States.
 
-## Description
+## Overview
 
-Climate Data Fetcher provides researchers and climate analysts with an intuitive interface to download, compare, and analyze precipitation data from various sources. The tool supports temporal analysis (daily, monthly, yearly, seasonal) and generates publication-quality visualizations to help identify discrepancies and patterns across different climate datasets.
+Climate Data Fetcher GUI provides researchers and climate analysts with an intuitive graphical interface to download, compare, and analyze precipitation data from various sources. The tool supports temporal analysis (daily, monthly, yearly, seasonal) and generates publication-quality visualizations to help identify discrepancies and patterns across different climate datasets.
+
+![Application Screenshot](docs/screenshots/main_screen.png)
 
 ## Features
 
-- Interactive UI for data selection
-- Support for multiple data sources (ground stations, ERA5, DAYMET, PRISM)
-- Comprehensive statistical analysis
-- Spatial and temporal visualization
-- Comparison between ground observations and gridded datasets
-- Seasonal, monthly, and yearly aggregation
-
-## Prerequisites
-
-- Python 3.10+
-- Jupyter Notebook
-- Required Python packages (see `requirements.txt`)
-- Earth Engine account for accessing gridded datasets
+- **User-friendly GUI** for data selection and visualization
+- **Support for multiple data sources**:
+  - Ground station data (via Meteostat)
+  - ERA5 reanalysis data
+  - DAYMET data
+  - PRISM data
+- **Comprehensive statistical analysis**:
+  - Daily, monthly, and yearly comparisons
+  - Seasonal analysis
+  - Extreme value analysis
+- **Powerful visualization tools**:
+  - Spatial distribution maps
+  - Box plots
+  - Seasonal comparisons
+  - Time series analysis
+- **Extensible architecture** for adding new data sources and analysis methods
 
 ## Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/your-username/climate-data-fetcher.git
-cd climate-data-fetcher
-```
+See [INSTALL.md](INSTALL.md) for detailed installation instructions.
 
-2. Create and activate a virtual environment:
+Quick start:
+
 ```bash
+# Clone the repository
+git clone https://github.com/your-username/climate-data-fetcher-gui.git
+cd climate-data-fetcher-gui
+
+# Create and activate virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
 
-3. Install dependencies:
-```bash
+# Install dependencies
 pip install -r requirements.txt
+
+# Run the application
+python main.py
 ```
 
 ## Usage
 
-1. Launch Jupyter Notebook:
-```bash
-jupyter notebook
-```
-
-2. Open `main.ipynb`
-
-3. Run the cells in sequence:
-   - First cell: Set up the environment
-   - Second cell: Display the data selection UI
-   - Use the UI to select data sources, time periods, and geographic areas
-   - Click the "Download Data" button and wait for the process to complete
-   - Confirm data download is complete using the confirmation button
-   - Run the analysis cell
-   - Run the visualization cell
+See [USER_GUIDE.md](USER_GUIDE.md) for detailed usage instructions.
 
 ## Project Structure
 
+The project follows a modular architecture with clear separation of concerns:
+
+- **UI Layer**: PyQt-based user interface components
+- **Controller Layer**: Application logic and workflow management
+- **Business Logic Layer**: Core functionality for data fetching, analysis, and visualization
+- **Data Layer**: Configuration and data storage
+
 ```
-climate_data_fetcher/
-  ├── config.py                # Configuration classes
-  ├── main.ipynb               # Main notebook interface
-  ├── src/
-  │   ├── base_fetcher.py      # Abstract base classes
-  │   ├── cli.py               # Command-line interface
-  │   ├── data/                # Data fetching modules
-  │   ├── ui/                  # UI components
-  │   ├── analysis/            # Statistical analysis
-  │   └── visualization/       # Plotting and visualization
-  └── utils/                   # Utility functions
+climate_data_fetcher_gui/
+├── controller/        # Application controllers
+├── ui/                # User interface components
+├── src/               # Core functionality
+│   ├── data/          # Data fetching modules
+│   ├── analysis/      # Analysis modules
+│   └── visualization/ # Visualization modules
+└── utils/             # Utility functions
 ```
 
-## Data Sources
+See the [architecture documentation](docs/architecture.md) for more details.
 
-- **Ground Stations**: NOAA ground weather stations via Meteostat
-- **ERA5**: ECMWF Reanalysis v5 data
-- **DAYMET**: Daily Surface Weather Data on a 1-km Grid for North America
-- **PRISM**: Parameter-elevation Regressions on Independent Slopes Model
+## Development
 
-## Output
+### Development Setup
 
-- **Data/**: Raw data files
-- **Results/**: Statistical analysis results
-- **Plots/**: Generated visualizations
+```bash
+# Clone the repository
+git clone https://github.com/your-username/climate-data-fetcher-gui.git
+cd climate-data-fetcher-gui
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install development dependencies
+pip install -r requirements-dev.txt
+```
+
+### Coding Guidelines
+
+- Follow PEP 8 for Python code style
+- Use type hints for function signatures
+- Document all classes and functions using docstrings
+- Use logging instead of print statements
+- Write unit tests for new functionality
+
+### Running Tests
+
+```bash
+pytest
+```
+
+### Building Standalone Executable
+
+```bash
+pyinstaller --name=ClimateDataFetcher --windowed --icon=ui/resources/icons/app_icon.ico main.py
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Citation
 

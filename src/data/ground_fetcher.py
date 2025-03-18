@@ -1,11 +1,18 @@
-from typing import Optional
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+from typing import Optional, Callable, Dict, Any
 import pandas as pd
 from datetime import datetime
 from meteostat import Stations, Daily
 from src.base_fetcher import DataFetcher, MetadataProvider
 from config import GroundDataConfig
-from tqdm.notebook import tqdm
+from tqdm.auto import tqdm
 import warnings
+import logging
+from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 # Temporarily suppress the FutureWarning about parse_dates
 warnings.filterwarnings("ignore", message="Support for nested sequences for 'parse_dates'", category=FutureWarning)
@@ -36,7 +43,7 @@ class GroundMetadataProvider(MetadataProvider):
     def save_metadata(self, metadata: pd.DataFrame, path: str) -> None:
         """Save metadata to CSV file"""
         metadata.to_csv(path)
-        print(f"Saved station metadata to {path}")
+        logger.info(f"Saved station metadata to {path}")
 
     def load_metadata(self, path: str) -> pd.DataFrame:
         """Load metadata from CSV file"""
@@ -52,38 +59,65 @@ class GroundMetadataProvider(MetadataProvider):
         return df.set_index(df.columns[0])
 
 class GroundDataFetcher(DataFetcher):
-    """Fetches ground data using Meteostat"""
+    """Fetches ground data using Meteostat with progress reporting capability"""
     
     def __init__(self, config: GroundDataConfig):
         self.config = config
         self.metadata_provider = GroundMetadataProvider(config)
+        self.progress_callback = None
+        
+    def set_progress_callback(self, callback: Callable[[str, int], None]) -> None:
+        """
+        Set a callback function for progress reporting
+        
+        Args:
+            callback: Function that takes dataset_name and progress percentage
+        """
+        self.progress_callback = callback
 
     def fetch_data(self) -> pd.DataFrame:
-        """Fetch ground precipitation data"""
+        """Fetch ground precipitation data with progress reporting"""
         # Get or load metadata
         try:
             metadata = self.metadata_provider.load_metadata(self.config.get_metadata_path())
-            print("Using existing metadata file")
+            logger.info("Using existing metadata file")
+            
+            if self.progress_callback:
+                self.progress_callback("Ground", 10)
         except FileNotFoundError:
-            print("Fetching new station metadata...")
+            logger.info("Fetching new station metadata...")
             metadata = self.metadata_provider.get_metadata()
             self.metadata_provider.save_metadata(metadata, self.config.get_metadata_path())
+            
+            if self.progress_callback:
+                self.progress_callback("Ground", 20)
 
         start = datetime(self.config.start_year, 1, 1)
         end = datetime(self.config.end_year, 12, 31)
         
         precipitation_data = {}
         
-        # Use tqdm for progress bar
-        for idx, station_id in enumerate(tqdm(metadata.index, desc="Processing stations")):
+        # Calculate total stations for progress tracking
+        total_stations = len(metadata.index)
+        current_station = 0
+        
+        # Use tqdm for progress bar (will be visible in CLI, disabled in GUI when callback is set)
+        for idx, station_id in enumerate(tqdm(metadata.index, desc="Processing stations", 
+                                             disable=self.progress_callback is not None)):
             try:
                 data = Daily(station_id, start, end)
                 df = data.fetch()
                 if not df.empty and 'prcp' in df.columns:
                     precipitation_data[station_id] = df['prcp']
             except Exception as e:
-                print(f"Error with station {station_id}: {e}")
+                logger.error(f"Error with station {station_id}: {e}")
                 continue
+                
+            # Update progress
+            current_station += 1
+            if self.progress_callback:
+                progress = 20 + (current_station / total_stations * 70)
+                self.progress_callback("Ground", int(progress))
         
         if not precipitation_data:
             raise RuntimeError("No valid data was fetched from any station")
@@ -91,6 +125,11 @@ class GroundDataFetcher(DataFetcher):
         # Create DataFrame and ensure proper datetime index
         result = pd.DataFrame(precipitation_data)
         result.index = pd.to_datetime(result.index)
+        
+        # Final progress update
+        if self.progress_callback:
+            self.progress_callback("Ground", 100)
+            
         return result
 
     def validate_data(self, data: pd.DataFrame) -> bool:
@@ -107,15 +146,34 @@ class GroundDataFetcher(DataFetcher):
         """Save the data to CSV file"""
         # Save with datetime index properly formatted
         data.to_csv(path)
-        print(f"Saved ground data to {path}")
+        logger.info(f"Saved ground data to {path}")
 
     def process(self) -> pd.DataFrame:
-        """Main processing method"""
-        print("\nFetching ground data...")
+        """Main processing method with progress reporting"""
+        logger.info("Fetching ground data...")
+        
+        if self.progress_callback:
+            self.progress_callback("Ground", 0)
+            
         data = self.fetch_data()
         
         if not self.validate_data(data):
             raise ValueError("Ground data validation failed")
             
         self.save_data(data, self.config.get_data_path())
+        
+        if self.progress_callback:
+            self.progress_callback("Ground", 100)
+            
         return data
+
+    def get_summary(self, data: pd.DataFrame) -> Dict[str, Any]:
+        """Generate summary information for the fetched data"""
+        return {
+            'n_stations': len(data.columns),
+            'n_rows': len(data),
+            'start_date': data.index.min().strftime('%Y-%m-%d'),
+            'end_date': data.index.max().strftime('%Y-%m-%d'),
+            'data_type': 'Ground',
+            'missing_percentage': (data.isna().sum().sum() / (data.shape[0] * data.shape[1])) * 100
+        }

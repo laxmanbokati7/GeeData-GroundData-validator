@@ -45,6 +45,7 @@ class GriddedDatasetConfig:
 class GriddedDataConfig(DataConfig):
     """Configuration for gridded data fetching"""
     datasets: Dict[str, GriddedDatasetConfig] = None
+    ee_project_id: str = "ee-sauravbhattarai1999"  # Default project ID
     
     def __post_init__(self):
         super().__post_init__()
