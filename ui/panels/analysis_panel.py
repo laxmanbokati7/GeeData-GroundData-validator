@@ -38,7 +38,7 @@ class AnalysisPanel(QWidget):
         logger.info("Analysis Panel initialized")
     
     def init_ui(self):
-        """Initialize the UI components"""
+        """Initialize the UI components - FIXED VERSION"""
         # Create main layout
         main_layout = QVBoxLayout(self)
         main_layout.setContentsMargins(20, 20, 20, 20)
@@ -63,17 +63,11 @@ class AnalysisPanel(QWidget):
         self.data_status_label.setStyleSheet("font-size: 12px; color: #FF5733; margin-bottom: 10px;")
         main_layout.addWidget(self.data_status_label)
         
-        # Create main splitter for resizable sections
-        self.splitter = QSplitter(Qt.Vertical)
+        # FIXED: Instead of using a splitter, use separate widgets with fixed layouts
         
-        # Analysis options section
-        options_widget = QWidget()
-        options_layout = QVBoxLayout(options_widget)
-        options_layout.setContentsMargins(0, 0, 0, 0)
-        
-        # Analysis settings group
+        # Analysis settings section (TOP PANEL)
         settings_group = QGroupBox("Analysis Settings")
-        settings_layout = QVBoxLayout()
+        settings_layout = QVBoxLayout(settings_group)
         
         # Analysis type selection
         type_layout = QHBoxLayout()
@@ -83,56 +77,30 @@ class AnalysisPanel(QWidget):
             "Standard Analysis",
             "Custom Analysis"
         ])
-        self.analysis_type_combo.setToolTip("Standard Analysis includes all common metrics. Custom Analysis allows selecting specific metrics.")
-        
         type_layout.addWidget(type_label)
         type_layout.addWidget(self.analysis_type_combo)
         type_layout.addStretch()
+        settings_layout.addLayout(type_layout)
         
         # Optional settings
         options_layout = QHBoxLayout()
         self.include_seasonal = QCheckBox("Include Seasonal Analysis")
-        self.include_seasonal.setToolTip("Analyze data by seasons (Winter, Spring, Summer, Fall)")
         self.include_seasonal.setChecked(True)
-        
         self.include_extreme = QCheckBox("Include Extreme Value Analysis")
-        self.include_extreme.setToolTip("Analyze extreme precipitation events (10th and 90th percentiles)")
         self.include_extreme.setChecked(True)
-        
         options_layout.addWidget(self.include_seasonal)
         options_layout.addWidget(self.include_extreme)
         options_layout.addStretch()
+        settings_layout.addLayout(options_layout)
         
-        # Analysis description
-        description_layout = QVBoxLayout()
-        description_label = QLabel("Analysis Process:")
-        description_text = QLabel(
-            "The analysis will compare ground station data with gridded datasets "
-            "to calculate statistical metrics such as R², RMSE, bias, and more. "
-            "Results will be shown in the tables below and saved to the Results directory."
-        )
-        description_text.setWordWrap(True)
-        description_text.setStyleSheet("font-size: 11px; color: #555;")
-        
-        description_layout.addWidget(description_label)
-        description_layout.addWidget(description_text)
-        
-        # Run analysis button
+        # Run button
         self.run_button = QPushButton("Run Analysis")
         self.run_button.setMinimumHeight(40)
-        self.run_button.setToolTip("Start the analysis process with the selected settings")
-        
-        settings_layout.addLayout(type_layout)
-        settings_layout.addLayout(options_layout)
-        settings_layout.addLayout(description_layout)
         settings_layout.addWidget(self.run_button)
-        
-        settings_group.setLayout(settings_layout)
-        options_layout.addWidget(settings_group)
         
         # Progress section
         progress_group = QGroupBox("Analysis Progress")
-        progress_layout = QVBoxLayout()
+        progress_layout = QVBoxLayout(progress_group)
         
         self.progress_bar = QProgressBar()
         self.progress_bar.setRange(0, 100)
@@ -146,21 +114,13 @@ class AnalysisPanel(QWidget):
         progress_layout.addWidget(self.progress_bar)
         progress_layout.addWidget(self.status_text)
         
-        progress_group.setLayout(progress_layout)
-        options_layout.addWidget(progress_group)
+        # FIXED: Add settings and progress groups to main layout directly
+        main_layout.addWidget(settings_group)
+        main_layout.addWidget(progress_group)
         
-        # Add options widget to splitter
-        self.splitter.addWidget(options_widget)
-        
-        # Results section
-        results_widget = QWidget()
-        results_layout = QVBoxLayout(results_widget)
-        results_layout.setContentsMargins(0, 0, 0, 0)
-        
-        # Results header
-        results_header = QLabel("Analysis Results")
-        results_header.setStyleSheet("font-size: 14px; font-weight: bold;")
-        results_layout.addWidget(results_header)
+        # Results section (BOTTOM PANEL)
+        results_group = QGroupBox("Analysis Results")
+        results_layout = QVBoxLayout(results_group)
         
         # Results tabs
         self.results_tabs = QTabWidget()
@@ -225,17 +185,14 @@ class AnalysisPanel(QWidget):
         
         self.results_tabs.addTab(prism_widget, "PRISM")
         
-        # Add tables to results layout
+        # Add results tabs to layout
         results_layout.addWidget(self.results_tabs)
         
-        # Add results widget to splitter
-        self.splitter.addWidget(results_widget)
+        # FIXED: Add results group to main layout directly
+        main_layout.addWidget(results_group)
         
-        # Set initial sizes for splitter
-        self.splitter.setSizes([300, 400])
-        
-        # Add splitter to main layout
-        main_layout.addWidget(self.splitter)
+        # Set stretch factors to ensure proper sizing
+        main_layout.setStretch(2, 1)  # Give results section more space
         
         # Connect signals
         self.run_button.clicked.connect(self.on_run_analysis)
@@ -278,11 +235,8 @@ class AnalysisPanel(QWidget):
             self.data_status_label.setText(
                 "✅ Data is available for analysis. Configure your settings and click 'Run Analysis'."
             )
+            # Ensure button is definitely enabled
             self.run_button.setEnabled(True)
-            
-        # Check if analysis is already complete
-        if self.controller.is_analysis_complete():
-            self.load_existing_results()
     
     def load_existing_results(self):
         """Load existing analysis results if available"""

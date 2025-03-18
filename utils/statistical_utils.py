@@ -63,7 +63,11 @@ def calculate_stats_for_all_stations(df_obs: pd.DataFrame, df_pred: pd.DataFrame
             stats['station'] = station
             stats_list.append(stats)
     
-    return pd.DataFrame(stats_list).set_index('station')
+    if not stats_list:
+        # Return an empty DataFrame with the right structure
+        return pd.DataFrame(columns=['station', 'count', 'obs_mean', 'pred_mean', 'bias', 'mae', 'rmse', 'r2', 'rel_bias', 'rel_rmse', 'nse', 'corr', 'pbias'])
+    else:
+        return pd.DataFrame(stats_list).set_index('station')
 
 def calculate_percentile_stats_by_station(df_obs: pd.DataFrame, df_pred: pd.DataFrame, 
                                         percentile: float, higher: bool = True) -> pd.DataFrame:

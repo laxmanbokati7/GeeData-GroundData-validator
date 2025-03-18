@@ -116,7 +116,7 @@ class EarthEngineUtils:
         try:
             # Try to authenticate
             if project_id:
-                ee.Authenticate(project=project_id)
+                ee.Authenticate()
             else:
                 ee.Authenticate()
                 
