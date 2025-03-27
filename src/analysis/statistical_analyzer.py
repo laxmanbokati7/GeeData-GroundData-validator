@@ -116,73 +116,121 @@ class GriddedDataAnalyzer:
         self._update_status(f"Analyzing {dataset_name}...")
         
         try:
+            # Check if this is FLDAS (monthly dataset)
+            is_monthly_dataset = dataset_name == "FLDAS"
+            
             # Preprocess data
             ground, gridded = self.preprocess_data(self.ground_data, gridded_data)
+            
+            # For FLDAS, aggregate ground data to monthly before comparison
+            if is_monthly_dataset:
+                self._update_status("FLDAS detected - aggregating ground data to monthly...")
+                ground = self.aggregate_to_monthly(ground)
+                
+                # Also check if gridded data needs resampling to monthly
+                if not self.is_monthly_data(gridded):
+                    gridded = self.aggregate_to_monthly(gridded)
             
             # Create output directory
             output_dir = self.create_dataset_folder(dataset_name)
             
-            # Validate data length for each station
-            self._update_status("Validating data length for each station...")
-            validations = validate_data_length(ground)
-            
-            # Save validation results
-            validation_df = pd.DataFrame.from_dict(validations, orient='index')
-            validation_df.to_csv(output_dir / 'data_validation.csv')
-            
-            # Calculate and save regular statistics
-            self._update_status("Calculating daily statistics...")
-            daily_stats = calculate_stats_for_all_stations(ground, gridded)
-            daily_stats.to_csv(output_dir / 'daily_stats.csv')
-            
-            self._update_status("Calculating extreme value statistics...")
-            low_extreme_stats = calculate_percentile_stats_by_station(ground, gridded, 10, False)
-            high_extreme_stats = calculate_percentile_stats_by_station(ground, gridded, 90, True)
-            low_extreme_stats.to_csv(output_dir / 'low_extreme_stats.csv')
-            high_extreme_stats.to_csv(output_dir / 'high_extreme_stats.csv')
-            
-            self._update_status("Calculating monthly statistics...")
-            ground_monthly = aggregate_to_monthly(ground)
-            gridded_monthly = aggregate_to_monthly(gridded)
-            monthly_stats = calculate_stats_for_all_stations(ground_monthly, gridded_monthly)
-            monthly_stats.to_csv(output_dir / 'monthly_stats.csv')
-            
-            self._update_status("Calculating yearly statistics...")
-            ground_yearly = aggregate_to_yearly(ground)
-            gridded_yearly = aggregate_to_yearly(gridded)
-            yearly_stats = calculate_stats_for_all_stations(ground_yearly, gridded_yearly)
-            yearly_stats.to_csv(output_dir / 'yearly_stats.csv')
-            
-            # Calculate and save seasonal statistics
-            self._update_status("Calculating seasonal statistics...")
-            seasonal_stats = calculate_seasonal_stats(ground, gridded)
-            save_seasonal_stats(seasonal_stats, output_dir)
-            
-            # Create summary for seasons
-            seasonal_summary = get_seasonal_summary(seasonal_stats)
-            seasonal_summary.to_csv(output_dir / 'seasonal_summary.csv', index=False)
-            
-            self._update_status(f"Results saved to {output_dir}")
-            
-            # Create analysis summary
-            summary = {
-                'n_stations': len(ground.columns),
-                'start_date': ground.index.min(),
-                'end_date': ground.index.max(),
-                'total_days': len(ground),
-                'stations_with_sufficient_data': sum(1 for v in validations.values() 
-                                                   if v['daily'] and v['monthly'] and v['yearly'])
-            }
-            
-            summary_df = pd.DataFrame([summary])
-            summary_df.to_csv(output_dir / 'analysis_summary.csv', index=False)
-            
+            # Continue with existing analysis process, but skip daily stats for monthly data
+            if is_monthly_dataset:
+                # Skip daily stats, only compute monthly and yearly stats
+                self._update_status("Computing monthly statistics for FLDAS...")
+                monthly_stats = calculate_stats_for_all_stations(ground, gridded)
+                monthly_stats.to_csv(output_dir / 'monthly_stats.csv')
+                
+                # Add metadata about temporal resolution
+                with open(output_dir / 'temporal_info.json', 'w') as f:
+                    json.dump({
+                        'temporal_resolution': 'monthly',
+                        'note': 'Ground data aggregated to monthly for comparison with FLDAS'
+                    }, f)
+            else:
+                # Preprocess data
+                ground, gridded = self.preprocess_data(self.ground_data, gridded_data)
+                
+                # Create output directory
+                output_dir = self.create_dataset_folder(dataset_name)
+                
+                # Validate data length for each station
+                self._update_status("Validating data length for each station...")
+                validations = validate_data_length(ground)
+                
+                # Save validation results
+                validation_df = pd.DataFrame.from_dict(validations, orient='index')
+                validation_df.to_csv(output_dir / 'data_validation.csv')
+                
+                # Calculate and save regular statistics
+                self._update_status("Calculating daily statistics...")
+                daily_stats = calculate_stats_for_all_stations(ground, gridded)
+                daily_stats.to_csv(output_dir / 'daily_stats.csv')
+                
+                self._update_status("Calculating extreme value statistics...")
+                low_extreme_stats = calculate_percentile_stats_by_station(ground, gridded, 10, False)
+                high_extreme_stats = calculate_percentile_stats_by_station(ground, gridded, 90, True)
+                low_extreme_stats.to_csv(output_dir / 'low_extreme_stats.csv')
+                high_extreme_stats.to_csv(output_dir / 'high_extreme_stats.csv')
+                
+                self._update_status("Calculating monthly statistics...")
+                ground_monthly = aggregate_to_monthly(ground)
+                gridded_monthly = aggregate_to_monthly(gridded)
+                monthly_stats = calculate_stats_for_all_stations(ground_monthly, gridded_monthly)
+                monthly_stats.to_csv(output_dir / 'monthly_stats.csv')
+                
+                self._update_status("Calculating yearly statistics...")
+                ground_yearly = aggregate_to_yearly(ground)
+                gridded_yearly = aggregate_to_yearly(gridded)
+                yearly_stats = calculate_stats_for_all_stations(ground_yearly, gridded_yearly)
+                yearly_stats.to_csv(output_dir / 'yearly_stats.csv')
+                
+                # Calculate and save seasonal statistics
+                self._update_status("Calculating seasonal statistics...")
+                seasonal_stats = calculate_seasonal_stats(ground, gridded)
+                save_seasonal_stats(seasonal_stats, output_dir)
+                
+                # Create summary for seasons
+                seasonal_summary = get_seasonal_summary(seasonal_stats)
+                seasonal_summary.to_csv(output_dir / 'seasonal_summary.csv', index=False)
+                
+                self._update_status(f"Results saved to {output_dir}")
+                
+                # Create analysis summary
+                summary = {
+                    'n_stations': len(ground.columns),
+                    'start_date': ground.index.min(),
+                    'end_date': ground.index.max(),
+                    'total_days': len(ground),
+                    'stations_with_sufficient_data': sum(1 for v in validations.values() 
+                                                    if v['daily'] and v['monthly'] and v['yearly'])
+                }
+                
+                summary_df = pd.DataFrame([summary])
+                summary_df.to_csv(output_dir / 'analysis_summary.csv', index=False)
+                
             return summary
                     
         except Exception as e:
             logger.error(f"Error analyzing {dataset_name}: {str(e)}", exc_info=True)
             self._update_status(f"Error analyzing {dataset_name}: {str(e)}")
             return {}
+    
+    def is_monthly_data(self, df: pd.DataFrame) -> bool:
+        """Check if dataframe appears to have monthly data"""
+        # Check if the index has approximately one entry per month
+        if len(df) == 0:
+            return False
+            
+        # Get the start and end dates
+        start_date = df.index.min()
+        end_date = df.index.max()
+        
+        # Calculate the expected number of months
+        expected_months = (end_date.year - start_date.year) * 12 + end_date.month - start_date.month + 1
+        
+        # Allow for some missing data (80% coverage)
+        return len(df) >= expected_months * 0.8 and len(df) <= expected_months * 1.2
         
     def run_analysis(self):
         """Run analysis for all datasets"""

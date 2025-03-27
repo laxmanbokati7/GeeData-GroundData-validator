@@ -108,8 +108,10 @@ class VisualizationPanel(QWidget):
         dataset_layout = QHBoxLayout()
         dataset_label = QLabel("Dataset:")
         self.dataset_combo = QComboBox()
-        self.dataset_combo.addItems(["ERA5", "DAYMET", "PRISM"])
-        
+        self.dataset_combo.addItems([
+            "All", "ERA5", "DAYMET", "PRISM", "CHIRPS", 
+        "FLDAS", "GSMAP", "GLDAS"
+        ])
         dataset_layout.addWidget(dataset_label)
         dataset_layout.addWidget(self.dataset_combo)
         
@@ -387,3 +389,35 @@ class VisualizationPanel(QWidget):
         self.refresh_file_tree()
         
         logger.info("Visualization panel UI reset")
+    
+    def on_dataset_selection_changed(self, index):
+        """Handle dataset selection change in combo box"""
+        dataset = self.dataset_combo.currentText()
+        
+        # Show temporal resolution note for FLDAS
+        if dataset == "FLDAS":
+            # Show warning in status text
+            self.status_text.appendPlainText(
+                "NOTE: FLDAS data is at monthly resolution. Visualizations represent "
+                "monthly values, not daily values like other datasets."
+            )
+            
+            # Also change the visualization options
+            self.type_combo.clear()
+            self.type_combo.addItems([
+                "Monthly Comparison",
+                "Seasonal Comparison",
+                "Spatial Distribution",
+                "Error Distribution"
+            ])
+        else:
+            # Reset visualization options for daily datasets
+            if self.type_combo.count() != 5:  # If we previously changed the options
+                self.type_combo.clear()
+                self.type_combo.addItems([
+                    "Spatial Distribution",
+                    "Box Plots",
+                    "Time Series",
+                    "Seasonal Comparison",
+                    "Error Distribution"
+                ])

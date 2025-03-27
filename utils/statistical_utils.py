@@ -97,14 +97,14 @@ def calculate_percentile_stats_by_station(df_obs: pd.DataFrame, df_pred: pd.Data
     return pd.DataFrame(stats_list).set_index('station')
 
 def aggregate_to_monthly(df: pd.DataFrame) -> pd.DataFrame:
-    """Aggregate daily data to monthly"""
+    """Aggregate daily data to monthly with proper handling of missing values"""
     # Calculate required days for each month (80% threshold)
-    days_in_month = df.resample('ME').size()
+    days_in_month = df.resample('M').size()
     min_required = (days_in_month * 0.8).astype(int)
     
     # Calculate monthly sums and counts
-    monthly_sum = df.resample('ME').sum()
-    monthly_count = df.resample('ME').count()
+    monthly_sum = df.resample('M').sum()
+    monthly_count = df.resample('M').count()
     
     # Create mask for insufficient data
     insufficient_mask = monthly_count < min_required.values.reshape(-1, 1)

@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushBut
                             QGroupBox, QComboBox, QSplitter, QPlainTextEdit,
                             QHeaderView, QCheckBox, QFrame, QMessageBox)
 from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QColor
 
 logger = logging.getLogger(__name__)
 
@@ -184,6 +184,44 @@ class AnalysisPanel(QWidget):
         prism_layout.addWidget(self.prism_table)
         
         self.results_tabs.addTab(prism_widget, "PRISM")
+
+        # Add tabs for new datasets
+        chirps_widget = QWidget()
+        chirps_layout = QVBoxLayout(chirps_widget)
+        chirps_label = QLabel("Statistical comparison between ground stations and CHIRPS dataset:")
+        chirps_layout.addWidget(chirps_label)
+        self.chirps_table = QTableWidget()
+        self.setup_stats_table(self.chirps_table)
+        chirps_layout.addWidget(self.chirps_table)
+        self.results_tabs.addTab(chirps_widget, "CHIRPS")
+        
+        fldas_widget = QWidget()
+        fldas_layout = QVBoxLayout(fldas_widget)
+        fldas_label = QLabel("Statistical comparison between ground stations and FLDAS dataset:")
+        fldas_layout.addWidget(fldas_label)
+        self.fldas_table = QTableWidget()
+        self.setup_stats_table(self.fldas_table)
+        fldas_layout.addWidget(self.fldas_table)
+        self.results_tabs.addTab(fldas_widget, "FLDAS")
+        
+        gsmap_widget = QWidget()
+        gsmap_layout = QVBoxLayout(gsmap_widget)
+        gsmap_label = QLabel("Statistical comparison between ground stations and GSMAP dataset:")
+        gsmap_layout.addWidget(gsmap_label)
+        self.gsmap_table = QTableWidget()
+        self.setup_stats_table(self.gsmap_table)
+        gsmap_layout.addWidget(self.gsmap_table)
+        self.results_tabs.addTab(gsmap_widget, "GSMAP")
+        
+        gldas_widget = QWidget()
+        gldas_layout = QVBoxLayout(gldas_widget)
+        gldas_label = QLabel("Statistical comparison between ground stations and GLDAS dataset:")
+        gldas_layout.addWidget(gldas_label)
+        self.gldas_table = QTableWidget()
+        self.setup_stats_table(self.gldas_table)
+        gldas_layout.addWidget(self.gldas_table)
+        self.results_tabs.addTab(gldas_widget, "GLDAS")
+
         
         # Add results tabs to layout
         results_layout.addWidget(self.results_tabs)
@@ -399,6 +437,35 @@ class AnalysisPanel(QWidget):
                 self.update_stats_table(self.daymet_table, dataset_name)
             elif dataset_name == "PRISM":
                 self.update_stats_table(self.prism_table, dataset_name)
+            elif dataset_name == "CHIRPS":
+                self.update_stats_table(self.chirps_table, dataset_name)
+            elif dataset_name == "FLDAS":
+                # Create a warning label if it doesn't exist
+                if not hasattr(self, 'fldas_warning_label'):
+                    self.fldas_warning_label = QLabel()
+                    self.fldas_warning_label.setStyleSheet(
+                        "background-color: #FFF3CD; color: #856404; padding: 10px; border-radius: 4px;"
+                    )
+                    self.fldas_warning_label.setWordWrap(True)
+                    
+                    # Add to layout in the FLDAS tab
+                    fldas_tab_idx = self.results_tabs.indexOf(self.results_tabs.findChild(QWidget, "FLDAS"))
+                    if fldas_tab_idx >= 0:
+                        fldas_widget = self.results_tabs.widget(fldas_tab_idx)
+                        fldas_layout = fldas_widget.layout()
+                        fldas_layout.insertWidget(0, self.fldas_warning_label)
+                
+                # Update the warning text
+                self.fldas_warning_label.setText(
+                    "⚠️ TEMPORAL RESOLUTION NOTICE: FLDAS provides data at a monthly resolution. "
+                    "For this analysis, daily ground station data has been aggregated to monthly "
+                    "values. Daily and sub-monthly statistics are not available for FLDAS."
+                )
+                self.update_stats_table(self.fldas_table, dataset_name)
+            elif dataset_name == "GSMAP":
+                self.update_stats_table(self.gsmap_table, dataset_name)
+            elif dataset_name in ["GLDAS-Historical", "GLDAS-Current", "GLDAS-Combined"]:
+                self.update_stats_table(self.gldas_table, dataset_name)
         except Exception as e:
             logger.error(f"Error updating stats table: {str(e)}", exc_info=True)
             self.append_status(f"Error updating {dataset_name} statistics: {str(e)}")
@@ -407,6 +474,16 @@ class AnalysisPanel(QWidget):
         """Update a statistics table with data from results directory"""
         results_dir = Path(self.controller.results_dir) / dataset_name
         
+        # For FLDAS, disable daily stats columns
+        if dataset_name == "FLDAS":
+            # Gray out daily column
+            for row_idx in range(table.rowCount()):
+                if table.item(row_idx, 1):  # Daily column
+                    daily_item = table.item(row_idx, 1)
+                    daily_item.setText("N/A (Monthly)")
+                    daily_item.setBackground(QColor("#f0f0f0"))
+                    daily_item.setFlags(Qt.ItemIsEnabled)  # Make non-editable
+
         # Define files to load stats from
         stats_files = {
             'daily': results_dir / 'daily_stats.csv',

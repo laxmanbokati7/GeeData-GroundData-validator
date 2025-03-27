@@ -156,18 +156,49 @@ class DataSelectionPanel(QWidget):
         gridded_group = QGroupBox("Gridded Datasets")
         gridded_layout = QVBoxLayout()
         
+        # Existing checkboxes
         self.cb_era5 = QCheckBox("ERA5")
         self.cb_daymet = QCheckBox("DAYMET")
         self.cb_prism = QCheckBox("PRISM")
         
-        # Select all by default
+        # New checkboxes
+        self.cb_chirps = QCheckBox("CHIRPS (1981-present, Daily)")
+        self.cb_fldas = QCheckBox("FLDAS (1982-present, Monthly)")
+        self.cb_fldas.setToolTip(
+        "FLDAS provides monthly precipitation data. During analysis, ground station data "
+        "will be aggregated to monthly for valid comparisons. Daily statistics will not "
+        "be available for this dataset."
+        )
+        self.cb_gsmap = QCheckBox("GSMAP-v8 (1998-present, Hourly→Daily)")
+        self.cb_gldas_hist = QCheckBox("GLDAS Historical (1948-2014, 3-hourly→Daily)")
+        self.cb_gldas_curr = QCheckBox("GLDAS Current (2000-present, 3-hourly→Daily)")
+        
+        # Set default state
         self.cb_era5.setChecked(True)
         self.cb_daymet.setChecked(True)
         self.cb_prism.setChecked(True)
+        self.cb_chirps.setChecked(False)
+        self.cb_fldas.setChecked(False)
+        self.cb_gsmap.setChecked(False)
+        self.cb_gldas_hist.setChecked(False)
+        self.cb_gldas_curr.setChecked(False)
         
+        # Add tooltips with information about datasets
+        self.cb_chirps.setToolTip("Climate Hazards Group InfraRed Precipitation with Station data - 5.5km resolution")
+        self.cb_fldas.setToolTip("Famine Early Warning Systems Network Land Data Assimilation System - 11km resolution")
+        self.cb_gsmap.setToolTip("Global Satellite Mapping of Precipitation - 11km resolution")
+        self.cb_gldas_hist.setToolTip("Global Land Data Assimilation System (Historical) - 28km resolution")
+        self.cb_gldas_curr.setToolTip("Global Land Data Assimilation System (Current) - 28km resolution")
+        
+        # Add to layout
         gridded_layout.addWidget(self.cb_era5)
         gridded_layout.addWidget(self.cb_daymet)
         gridded_layout.addWidget(self.cb_prism)
+        gridded_layout.addWidget(self.cb_chirps)
+        gridded_layout.addWidget(self.cb_fldas)
+        gridded_layout.addWidget(self.cb_gsmap)
+        gridded_layout.addWidget(self.cb_gldas_hist)
+        gridded_layout.addWidget(self.cb_gldas_curr)
         
         gridded_group.setLayout(gridded_layout)
         scroll_layout.addWidget(gridded_group)
@@ -358,6 +389,16 @@ class DataSelectionPanel(QWidget):
             datasets.append("DAYMET")
         if self.cb_prism.isChecked():
             datasets.append("PRISM")
+        if self.cb_chirps.isChecked():
+            datasets.append("CHIRPS")
+        if self.cb_fldas.isChecked():
+            datasets.append("FLDAS")
+        if self.cb_gsmap.isChecked():
+            datasets.append("GSMAP")
+        if self.cb_gldas_hist.isChecked():
+            datasets.append("GLDAS-Historical")
+        if self.cb_gldas_curr.isChecked():
+            datasets.append("GLDAS-Current")
             
         return datasets
     
@@ -378,7 +419,11 @@ class DataSelectionPanel(QWidget):
         self.cb_era5.setChecked(True)
         self.cb_daymet.setChecked(True)
         self.cb_prism.setChecked(True)
-        
+        self.cb_chirps.setChecked(False)
+        self.cb_fldas.setChecked(False)
+        self.cb_gsmap.setChecked(False)
+        self.cb_gldas_hist.setChecked(False)
+        self.cb_gldas_curr.setChecked(False)
         # Reset progress bar
         self.progress_bar.setValue(0)
         

@@ -1,4 +1,4 @@
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Tuple
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -37,6 +37,8 @@ class GriddedDatasetConfig:
     variable_name: str
     conversion_factor: float = 1.0
     enabled: bool = False
+    time_scale: str = "daily"  # Added: daily, hourly, 3hourly, monthly
+    date_range: Optional[Tuple[int, Optional[int]]] = None
 
     def get_filename(self) -> str:
         return f"{self.name.lower()}_precipitation.csv"
@@ -66,6 +68,43 @@ class GriddedDataConfig(DataConfig):
                     name='PRISM',
                     collection_name="OREGONSTATE/PRISM/AN81d",
                     variable_name="ppt"
+                ),
+                'CHIRPS': GriddedDatasetConfig(
+                    name='CHIRPS',
+                    collection_name="UCSB-CHG/CHIRPS/DAILY",
+                    variable_name="precipitation",
+                    time_scale="daily",
+                    # Already in mm/day, no conversion needed
+                ),
+                'FLDAS': GriddedDatasetConfig(
+                    name='FLDAS',
+                    collection_name="NASA/FLDAS/NOAH01/C/GL/M/V001",
+                    variable_name="Rainf_f_tavg",
+                    conversion_factor=86400,  # Convert kg/m²/s to mm/day
+                    time_scale="monthly"
+                ),
+                'GSMAP': GriddedDatasetConfig(
+                    name='GSMAP',
+                    collection_name="JAXA/GPM_L3/GSMaP/v8/operational",
+                    variable_name="hourlyPrecipRateGC",
+                    conversion_factor=24,  # Convert mm/hr to mm/day
+                    time_scale="hourly"
+                ),
+                'GLDAS-Historical': GriddedDatasetConfig(
+                    name='GLDAS-Historical',
+                    collection_name="NASA/GLDAS/V20/NOAH/G025/T3H",
+                    variable_name="Rainf_f_tavg",
+                    conversion_factor=86400,  # Convert kg/m²/s to mm/day
+                    time_scale="3-hourly",
+                    date_range=(1948, 2014)
+                ),
+                'GLDAS-Current': GriddedDatasetConfig(
+                    name='GLDAS-Current',
+                    collection_name="NASA/GLDAS/V021/NOAH/G025/T3H",
+                    variable_name="Rainf_f_tavg",
+                    conversion_factor=86400,  # Convert kg/m²/s to mm/day
+                    time_scale="3-hourly",
+                    date_range=(2000, None)
                 )
             }
 
