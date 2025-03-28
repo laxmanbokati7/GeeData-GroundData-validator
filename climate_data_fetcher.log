@@ -4323,3 +4323,1889 @@ AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_mont
 2025-03-27 10:40:47,722 - src.visualization.plot_results - INFO - Setting up visualization environment...
 2025-03-27 10:40:47,724 - src.visualization.plot_results - INFO - Loading station metadata...
 2025-03-27 10:40:47,732 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-03-27 10:49:53,834 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-27 10:49:53,842 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-27 10:49:53,843 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-27 10:49:53,843 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-27 10:49:53,844 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-27 10:49:53,844 - controller.app_controller - INFO - Found existing data files
+2025-03-27 10:49:53,844 - controller.app_controller - INFO - AppController initialized
+2025-03-27 10:49:54,251 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-27 10:49:54,263 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-27 10:49:54,267 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-27 10:49:54,270 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-27 10:49:54,273 - ui.app_window - INFO - Application window initialized
+2025-03-27 10:49:55,451 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-27 10:49:56,547 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-27 10:49:58,039 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-27 10:49:59,944 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-03-27 10:49:59,944 - controller.app_controller - INFO - Starting data analysis process
+2025-03-27 10:49:59,946 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-03-27 10:49:59,946 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-03-27 10:49:59,956 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (1827, 50)
+2025-03-27 10:49:59,964 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (1827, 53)
+2025-03-27 10:49:59,968 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (1827, 53)
+2025-03-27 10:49:59,976 - src.analysis.statistical_analyzer - INFO - Loaded GLDAS-CURRENT data: (1827, 53)
+2025-03-27 10:49:59,976 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-03-27 10:49:59,977 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-03-27 10:49:59,984 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (1827, 50)
+2025-03-27 10:49:59,991 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (1827, 53)
+2025-03-27 10:49:59,995 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (1827, 53)
+2025-03-27 10:50:00,003 - src.analysis.statistical_analyzer - INFO - Loaded GLDAS-CURRENT data: (1827, 53)
+2025-03-27 10:50:00,004 - src.analysis.statistical_analyzer - INFO - Analyzing CHIRPS...
+2025-03-27 10:50:00,004 - src.analysis.statistical_analyzer - INFO - Found 50 common stations
+2025-03-27 10:50:00,005 - src.analysis.statistical_analyzer - INFO - Found 50 common stations
+2025-03-27 10:50:00,007 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-03-27 10:50:00,037 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-03-27 10:50:00,071 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-03-27 10:50:00,164 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-03-27 10:50:00,201 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-03-27 10:50:00,209 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-03-27 10:50:00,341 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results\CHIRPS
+2025-03-27 10:50:00,345 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-03-27 10:50:00,346 - src.analysis.statistical_analyzer - INFO - Found 50 common stations
+2025-03-27 10:50:00,347 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-03-27 10:50:00,347 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-03-27 10:50:00,349 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-03-27 10:50:00,350 - src.analysis.statistical_analyzer - INFO - Analyzing GLDAS-CURRENT...
+2025-03-27 10:50:00,350 - src.analysis.statistical_analyzer - INFO - Found 50 common stations
+2025-03-27 10:50:00,351 - src.analysis.statistical_analyzer - INFO - Found 50 common stations
+2025-03-27 10:50:00,353 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-03-27 10:50:00,391 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-03-27 10:50:00,421 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-03-27 10:50:00,511 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-03-27 10:50:00,546 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-03-27 10:50:00,553 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-03-27 10:50:00,677 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results\GLDAS-CURRENT
+2025-03-27 10:50:00,680 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-03-27 10:50:01,623 - controller.app_controller - INFO - Analysis completed
+2025-03-27 10:50:03,555 - ui.app_window - INFO - Switched to Visualization tab
+2025-03-27 10:50:08,637 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'FLDAS', 'type': 'Spatial Distribution', 'high_res': True}
+2025-03-27 10:50:08,637 - controller.app_controller - INFO - Starting visualization generation process
+2025-03-27 10:50:08,639 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'FLDAS', 'type': 'Spatial Distribution', 'high_res': True}
+2025-03-27 10:50:08,639 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-03-27 10:50:08,640 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-03-27 10:50:08,642 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-03-27 10:50:14,053 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-27 10:50:41,184 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-03-27 10:50:41,193 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-03-27 10:50:41,193 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-03-27 10:50:41,194 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-03-27 10:50:41,194 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results, C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Plots
+2025-03-27 10:50:41,195 - controller.app_controller - INFO - AppController initialized
+2025-03-27 10:50:41,575 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-03-27 10:50:41,586 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-03-27 10:50:41,592 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-03-27 10:50:41,595 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-03-27 10:50:41,598 - ui.app_window - INFO - Application window initialized
+2025-03-27 10:50:42,738 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-03-27 10:50:45,253 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-27 10:50:45,253 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-27 10:50:47,328 - utils.earth_engine_utils - INFO - Initializing Earth Engine with project ID: ee-074bce151saurav
+2025-03-27 10:50:47,973 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-27 10:50:47,974 - utils.earth_engine_utils - ERROR - Failed to initialize Earth Engine: Caller does not have required permission to use project ee-074bce151saurav. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=ee-074bce151saurav and then retry. Propagation of the new permission may take a few minutes.
+2025-03-27 10:50:49,578 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-27 10:51:01,117 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-03-27 10:51:01,117 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-03-27 10:51:03,179 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-27 10:51:03,180 - utils.earth_engine_utils - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-27 10:51:04,275 - utils.earth_engine_utils - INFO - Earth Engine initialized successfully
+2025-03-27 10:51:06,339 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-27 10:51:30,234 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2000, 'end_year': 2024, 'states': ['MT'], 'gridded_datasets': ['ERA5', 'DAYMET', 'PRISM', 'CHIRPS', 'FLDAS', 'GSMAP', 'GLDAS-Historical', 'GLDAS-Current'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-03-27 10:51:30,235 - controller.app_controller - INFO - Starting data fetching process
+2025-03-27 10:51:30,237 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-03-27 10:51:30,237 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-03-27 10:51:30,237 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-03-27 10:51:30,238 - src.data.ground_fetcher - INFO - Fetching new station metadata...
+2025-03-27 10:51:30,570 - src.data.ground_fetcher - INFO - Saved station metadata to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\stations_metadata.csv
+2025-03-27 10:51:57,165 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\ground_daily_precipitation.csv
+2025-03-27 10:51:57,165 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-03-27 10:51:57,166 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-03-27 10:51:57,166 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-03-27 10:51:57,166 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-03-27 10:51:57,407 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-03-27 10:51:57,408 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-03-27 10:51:57,408 - src.data.gridded_fetcher - INFO - Fetching ERA5 data from 2000-01-01 to 2024-12-31
+2025-03-27 10:51:57,417 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-27 10:52:29,720 - src.data.gridded_fetcher - INFO - Processed batch 1/92 for ERA5
+2025-03-27 10:52:57,683 - src.data.gridded_fetcher - INFO - Processed batch 2/92 for ERA5
+2025-03-27 10:53:24,153 - src.data.gridded_fetcher - INFO - Processed batch 3/92 for ERA5
+2025-03-27 10:53:50,226 - src.data.gridded_fetcher - INFO - Processed batch 4/92 for ERA5
+2025-03-27 10:54:16,728 - src.data.gridded_fetcher - INFO - Processed batch 5/92 for ERA5
+2025-03-27 10:54:45,028 - src.data.gridded_fetcher - INFO - Processed batch 6/92 for ERA5
+2025-03-27 10:55:11,890 - src.data.gridded_fetcher - INFO - Processed batch 7/92 for ERA5
+2025-03-27 10:55:39,767 - src.data.gridded_fetcher - INFO - Processed batch 8/92 for ERA5
+2025-03-27 10:56:06,166 - src.data.gridded_fetcher - INFO - Processed batch 9/92 for ERA5
+2025-03-27 10:56:30,587 - src.data.gridded_fetcher - INFO - Processed batch 10/92 for ERA5
+2025-03-27 10:56:57,303 - src.data.gridded_fetcher - INFO - Processed batch 11/92 for ERA5
+2025-03-27 10:57:22,009 - src.data.gridded_fetcher - INFO - Processed batch 12/92 for ERA5
+2025-03-27 10:57:47,756 - src.data.gridded_fetcher - INFO - Processed batch 13/92 for ERA5
+2025-03-27 10:58:13,991 - src.data.gridded_fetcher - INFO - Processed batch 14/92 for ERA5
+2025-03-27 10:58:40,713 - src.data.gridded_fetcher - INFO - Processed batch 15/92 for ERA5
+2025-03-27 10:59:06,212 - src.data.gridded_fetcher - INFO - Processed batch 16/92 for ERA5
+2025-03-27 10:59:32,547 - src.data.gridded_fetcher - INFO - Processed batch 17/92 for ERA5
+2025-03-27 10:59:58,263 - src.data.gridded_fetcher - INFO - Processed batch 18/92 for ERA5
+2025-03-27 11:00:26,999 - src.data.gridded_fetcher - INFO - Processed batch 19/92 for ERA5
+2025-03-27 11:00:53,347 - src.data.gridded_fetcher - INFO - Processed batch 20/92 for ERA5
+2025-03-27 11:01:21,477 - src.data.gridded_fetcher - INFO - Processed batch 21/92 for ERA5
+2025-03-27 11:02:03,036 - src.data.gridded_fetcher - INFO - Processed batch 22/92 for ERA5
+2025-03-27 11:02:30,433 - src.data.gridded_fetcher - INFO - Processed batch 23/92 for ERA5
+2025-03-27 11:03:00,360 - src.data.gridded_fetcher - INFO - Processed batch 24/92 for ERA5
+2025-03-27 11:03:26,866 - src.data.gridded_fetcher - INFO - Processed batch 25/92 for ERA5
+2025-03-27 11:03:56,226 - src.data.gridded_fetcher - INFO - Processed batch 26/92 for ERA5
+2025-03-27 11:04:33,139 - src.data.gridded_fetcher - INFO - Processed batch 27/92 for ERA5
+2025-03-27 11:05:03,023 - src.data.gridded_fetcher - INFO - Processed batch 28/92 for ERA5
+2025-03-27 11:05:29,651 - src.data.gridded_fetcher - INFO - Processed batch 29/92 for ERA5
+2025-03-27 11:05:54,421 - src.data.gridded_fetcher - INFO - Processed batch 30/92 for ERA5
+2025-03-27 11:06:21,074 - src.data.gridded_fetcher - INFO - Processed batch 31/92 for ERA5
+2025-03-27 11:06:49,926 - src.data.gridded_fetcher - INFO - Processed batch 32/92 for ERA5
+2025-03-27 11:07:39,128 - src.data.gridded_fetcher - INFO - Processed batch 33/92 for ERA5
+2025-03-27 11:08:05,428 - src.data.gridded_fetcher - INFO - Processed batch 34/92 for ERA5
+2025-03-27 11:08:34,090 - src.data.gridded_fetcher - INFO - Processed batch 35/92 for ERA5
+2025-03-27 11:08:58,898 - src.data.gridded_fetcher - INFO - Processed batch 36/92 for ERA5
+2025-03-27 11:09:23,971 - src.data.gridded_fetcher - INFO - Processed batch 37/92 for ERA5
+2025-03-27 11:09:50,830 - src.data.gridded_fetcher - INFO - Processed batch 38/92 for ERA5
+2025-03-27 11:10:21,737 - src.data.gridded_fetcher - INFO - Processed batch 39/92 for ERA5
+2025-03-27 11:10:48,200 - src.data.gridded_fetcher - INFO - Processed batch 40/92 for ERA5
+2025-03-27 11:11:14,191 - src.data.gridded_fetcher - INFO - Processed batch 41/92 for ERA5
+2025-03-27 11:11:39,351 - src.data.gridded_fetcher - INFO - Processed batch 42/92 for ERA5
+2025-03-27 11:12:04,517 - src.data.gridded_fetcher - INFO - Processed batch 43/92 for ERA5
+2025-03-27 11:12:28,892 - src.data.gridded_fetcher - INFO - Processed batch 44/92 for ERA5
+2025-03-27 11:12:52,229 - src.data.gridded_fetcher - INFO - Processed batch 45/92 for ERA5
+2025-03-27 11:13:15,732 - src.data.gridded_fetcher - INFO - Processed batch 46/92 for ERA5
+2025-03-27 11:13:42,159 - src.data.gridded_fetcher - INFO - Processed batch 47/92 for ERA5
+2025-03-27 11:14:12,161 - src.data.gridded_fetcher - INFO - Processed batch 48/92 for ERA5
+2025-03-27 11:14:37,184 - src.data.gridded_fetcher - INFO - Processed batch 49/92 for ERA5
+2025-03-27 11:15:02,416 - src.data.gridded_fetcher - INFO - Processed batch 50/92 for ERA5
+2025-03-27 11:15:32,136 - src.data.gridded_fetcher - INFO - Processed batch 51/92 for ERA5
+2025-03-27 11:15:57,186 - src.data.gridded_fetcher - INFO - Processed batch 52/92 for ERA5
+2025-03-27 11:16:22,517 - src.data.gridded_fetcher - INFO - Processed batch 53/92 for ERA5
+2025-03-27 11:16:48,442 - src.data.gridded_fetcher - INFO - Processed batch 54/92 for ERA5
+2025-03-27 11:17:15,040 - src.data.gridded_fetcher - INFO - Processed batch 55/92 for ERA5
+2025-03-27 11:17:40,372 - src.data.gridded_fetcher - INFO - Processed batch 56/92 for ERA5
+2025-03-27 11:18:04,809 - src.data.gridded_fetcher - INFO - Processed batch 57/92 for ERA5
+2025-03-27 11:18:27,131 - src.data.gridded_fetcher - INFO - Processed batch 58/92 for ERA5
+2025-03-27 11:18:49,825 - src.data.gridded_fetcher - INFO - Processed batch 59/92 for ERA5
+2025-03-27 11:19:14,947 - src.data.gridded_fetcher - INFO - Processed batch 60/92 for ERA5
+2025-03-27 11:19:39,401 - src.data.gridded_fetcher - INFO - Processed batch 61/92 for ERA5
+2025-03-27 11:20:06,891 - src.data.gridded_fetcher - INFO - Processed batch 62/92 for ERA5
+2025-03-27 11:20:31,183 - src.data.gridded_fetcher - INFO - Processed batch 63/92 for ERA5
+2025-03-27 11:20:54,756 - src.data.gridded_fetcher - INFO - Processed batch 64/92 for ERA5
+2025-03-27 11:21:22,312 - src.data.gridded_fetcher - INFO - Processed batch 65/92 for ERA5
+2025-03-27 11:21:47,146 - src.data.gridded_fetcher - INFO - Processed batch 66/92 for ERA5
+2025-03-27 11:22:14,469 - src.data.gridded_fetcher - INFO - Processed batch 67/92 for ERA5
+2025-03-27 11:22:44,560 - src.data.gridded_fetcher - INFO - Processed batch 68/92 for ERA5
+2025-03-27 11:23:09,929 - src.data.gridded_fetcher - INFO - Processed batch 69/92 for ERA5
+2025-03-27 11:23:34,547 - src.data.gridded_fetcher - INFO - Processed batch 70/92 for ERA5
+2025-03-27 11:23:58,153 - src.data.gridded_fetcher - INFO - Processed batch 71/92 for ERA5
+2025-03-27 11:24:25,310 - src.data.gridded_fetcher - INFO - Processed batch 72/92 for ERA5
+2025-03-27 11:24:49,878 - src.data.gridded_fetcher - INFO - Processed batch 73/92 for ERA5
+2025-03-27 11:25:12,581 - src.data.gridded_fetcher - INFO - Processed batch 74/92 for ERA5
+2025-03-27 11:25:36,575 - src.data.gridded_fetcher - INFO - Processed batch 75/92 for ERA5
+2025-03-27 11:26:00,531 - src.data.gridded_fetcher - INFO - Processed batch 76/92 for ERA5
+2025-03-27 11:26:23,273 - src.data.gridded_fetcher - INFO - Processed batch 77/92 for ERA5
+2025-03-27 11:26:48,889 - src.data.gridded_fetcher - INFO - Processed batch 78/92 for ERA5
+2025-03-27 11:27:16,362 - src.data.gridded_fetcher - INFO - Processed batch 79/92 for ERA5
+2025-03-27 11:27:42,074 - src.data.gridded_fetcher - INFO - Processed batch 80/92 for ERA5
+2025-03-27 11:28:06,577 - src.data.gridded_fetcher - INFO - Processed batch 81/92 for ERA5
+2025-03-27 11:28:34,377 - src.data.gridded_fetcher - INFO - Processed batch 82/92 for ERA5
+2025-03-27 11:29:00,809 - src.data.gridded_fetcher - INFO - Processed batch 83/92 for ERA5
+2025-03-27 11:29:24,850 - src.data.gridded_fetcher - INFO - Processed batch 84/92 for ERA5
+2025-03-27 11:29:49,257 - src.data.gridded_fetcher - INFO - Processed batch 85/92 for ERA5
+2025-03-27 11:30:14,119 - src.data.gridded_fetcher - INFO - Processed batch 86/92 for ERA5
+2025-03-27 11:30:39,013 - src.data.gridded_fetcher - INFO - Processed batch 87/92 for ERA5
+2025-03-27 11:31:01,245 - src.data.gridded_fetcher - INFO - Processed batch 88/92 for ERA5
+2025-03-27 11:31:25,224 - src.data.gridded_fetcher - INFO - Processed batch 89/92 for ERA5
+2025-03-27 11:31:49,175 - src.data.gridded_fetcher - INFO - Processed batch 90/92 for ERA5
+2025-03-27 11:32:14,997 - src.data.gridded_fetcher - INFO - Processed batch 91/92 for ERA5
+2025-03-27 11:32:22,567 - src.data.gridded_fetcher - INFO - Processed batch 92/92 for ERA5
+2025-03-27 11:32:22,630 - src.data.gridded_fetcher - INFO - Fetching DAYMET data...
+2025-03-27 11:32:22,632 - src.data.gridded_fetcher - INFO - Fetching DAYMET data from 2000-01-01 to 2024-12-31
+2025-03-27 11:32:22,637 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-27 11:32:50,632 - src.data.gridded_fetcher - INFO - Processed batch 1/88 for DAYMET
+2025-03-27 11:33:17,534 - src.data.gridded_fetcher - INFO - Processed batch 2/88 for DAYMET
+2025-03-27 11:33:44,694 - src.data.gridded_fetcher - INFO - Processed batch 3/88 for DAYMET
+2025-03-27 11:34:11,190 - src.data.gridded_fetcher - INFO - Processed batch 4/88 for DAYMET
+2025-03-27 11:34:41,607 - src.data.gridded_fetcher - INFO - Processed batch 5/88 for DAYMET
+2025-03-27 11:35:10,057 - src.data.gridded_fetcher - INFO - Processed batch 6/88 for DAYMET
+2025-03-27 11:35:39,247 - src.data.gridded_fetcher - INFO - Processed batch 7/88 for DAYMET
+2025-03-27 11:36:09,219 - src.data.gridded_fetcher - INFO - Processed batch 8/88 for DAYMET
+2025-03-27 11:36:39,310 - src.data.gridded_fetcher - INFO - Processed batch 9/88 for DAYMET
+2025-03-27 11:37:08,174 - src.data.gridded_fetcher - INFO - Processed batch 10/88 for DAYMET
+2025-03-27 11:37:35,982 - src.data.gridded_fetcher - INFO - Processed batch 11/88 for DAYMET
+2025-03-27 11:38:03,191 - src.data.gridded_fetcher - INFO - Processed batch 12/88 for DAYMET
+2025-03-27 11:38:30,451 - src.data.gridded_fetcher - INFO - Processed batch 13/88 for DAYMET
+2025-03-27 11:38:56,958 - src.data.gridded_fetcher - INFO - Processed batch 14/88 for DAYMET
+2025-03-27 11:39:25,805 - src.data.gridded_fetcher - INFO - Processed batch 15/88 for DAYMET
+2025-03-27 11:39:53,803 - src.data.gridded_fetcher - INFO - Processed batch 16/88 for DAYMET
+2025-03-27 11:40:21,410 - src.data.gridded_fetcher - INFO - Processed batch 17/88 for DAYMET
+2025-03-27 11:40:51,990 - src.data.gridded_fetcher - INFO - Processed batch 18/88 for DAYMET
+2025-03-27 11:41:18,919 - src.data.gridded_fetcher - INFO - Processed batch 19/88 for DAYMET
+2025-03-27 11:41:46,538 - src.data.gridded_fetcher - INFO - Processed batch 20/88 for DAYMET
+2025-03-27 11:42:13,077 - src.data.gridded_fetcher - INFO - Processed batch 21/88 for DAYMET
+2025-03-27 11:42:40,326 - src.data.gridded_fetcher - INFO - Processed batch 22/88 for DAYMET
+2025-03-27 11:43:09,183 - src.data.gridded_fetcher - INFO - Processed batch 23/88 for DAYMET
+2025-03-27 11:43:36,839 - src.data.gridded_fetcher - INFO - Processed batch 24/88 for DAYMET
+2025-03-27 11:44:05,052 - src.data.gridded_fetcher - INFO - Processed batch 25/88 for DAYMET
+2025-03-27 11:44:38,253 - src.data.gridded_fetcher - INFO - Processed batch 26/88 for DAYMET
+2025-03-27 11:45:06,356 - src.data.gridded_fetcher - INFO - Processed batch 27/88 for DAYMET
+2025-03-27 11:45:33,588 - src.data.gridded_fetcher - INFO - Processed batch 28/88 for DAYMET
+2025-03-27 11:45:59,096 - src.data.gridded_fetcher - INFO - Processed batch 29/88 for DAYMET
+2025-03-27 11:46:25,946 - src.data.gridded_fetcher - INFO - Processed batch 30/88 for DAYMET
+2025-03-27 11:46:55,981 - src.data.gridded_fetcher - INFO - Processed batch 31/88 for DAYMET
+2025-03-27 11:47:27,138 - src.data.gridded_fetcher - INFO - Processed batch 32/88 for DAYMET
+2025-03-27 11:48:00,413 - src.data.gridded_fetcher - INFO - Processed batch 33/88 for DAYMET
+2025-03-27 11:48:30,893 - src.data.gridded_fetcher - INFO - Processed batch 34/88 for DAYMET
+2025-03-27 11:48:39,064 - googleapiclient.http - WARNING - Sleeping 1.23 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 11:49:03,994 - src.data.gridded_fetcher - INFO - Processed batch 35/88 for DAYMET
+2025-03-27 11:49:37,451 - src.data.gridded_fetcher - INFO - Processed batch 36/88 for DAYMET
+2025-03-27 11:50:11,097 - src.data.gridded_fetcher - INFO - Processed batch 37/88 for DAYMET
+2025-03-27 11:50:45,540 - src.data.gridded_fetcher - INFO - Processed batch 38/88 for DAYMET
+2025-03-27 11:51:27,029 - src.data.gridded_fetcher - INFO - Processed batch 39/88 for DAYMET
+2025-03-27 11:52:00,032 - src.data.gridded_fetcher - INFO - Processed batch 40/88 for DAYMET
+2025-03-27 11:52:03,883 - googleapiclient.http - WARNING - Sleeping 1.60 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 11:52:35,171 - src.data.gridded_fetcher - INFO - Processed batch 41/88 for DAYMET
+2025-03-27 11:53:08,061 - src.data.gridded_fetcher - INFO - Processed batch 42/88 for DAYMET
+2025-03-27 11:53:38,606 - src.data.gridded_fetcher - INFO - Processed batch 43/88 for DAYMET
+2025-03-27 11:53:47,619 - googleapiclient.http - WARNING - Sleeping 0.30 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 11:54:10,766 - src.data.gridded_fetcher - INFO - Processed batch 44/88 for DAYMET
+2025-03-27 11:54:40,919 - src.data.gridded_fetcher - INFO - Processed batch 45/88 for DAYMET
+2025-03-27 11:55:09,166 - src.data.gridded_fetcher - INFO - Processed batch 46/88 for DAYMET
+2025-03-27 11:55:38,746 - src.data.gridded_fetcher - INFO - Processed batch 47/88 for DAYMET
+2025-03-27 11:56:08,475 - src.data.gridded_fetcher - INFO - Processed batch 48/88 for DAYMET
+2025-03-27 11:56:29,983 - googleapiclient.http - WARNING - Sleeping 0.65 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 11:56:37,453 - src.data.gridded_fetcher - INFO - Processed batch 49/88 for DAYMET
+2025-03-27 11:57:05,627 - src.data.gridded_fetcher - INFO - Processed batch 50/88 for DAYMET
+2025-03-27 11:57:36,337 - src.data.gridded_fetcher - INFO - Processed batch 51/88 for DAYMET
+2025-03-27 11:58:09,967 - src.data.gridded_fetcher - INFO - Processed batch 52/88 for DAYMET
+2025-03-27 11:58:54,083 - src.data.gridded_fetcher - INFO - Processed batch 53/88 for DAYMET
+2025-03-27 11:59:12,234 - googleapiclient.http - WARNING - Sleeping 1.24 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 11:59:38,631 - googleapiclient.http - WARNING - Sleeping 1.76 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 11:59:49,396 - src.data.gridded_fetcher - INFO - Processed batch 54/88 for DAYMET
+2025-03-27 11:59:51,011 - googleapiclient.http - WARNING - Sleeping 0.77 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 11:59:53,033 - googleapiclient.http - WARNING - Sleeping 2.29 seconds before retry 2 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 12:00:47,176 - src.data.gridded_fetcher - INFO - Processed batch 55/88 for DAYMET
+2025-03-27 12:00:49,985 - googleapiclient.http - WARNING - Sleeping 0.82 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 12:01:16,653 - googleapiclient.http - WARNING - Sleeping 1.77 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-27 12:01:20,163 - googleapiclient.http - WARNING - Sleeping 0.93 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 12:01:39,760 - src.data.gridded_fetcher - INFO - Processed batch 56/88 for DAYMET
+2025-03-27 12:02:20,164 - googleapiclient.http - WARNING - Sleeping 0.64 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 12:02:24,242 - src.data.gridded_fetcher - INFO - Processed batch 57/88 for DAYMET
+2025-03-27 12:03:05,214 - src.data.gridded_fetcher - INFO - Processed batch 58/88 for DAYMET
+2025-03-27 12:03:30,425 - googleapiclient.http - WARNING - Sleeping 0.02 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 12:03:47,659 - src.data.gridded_fetcher - INFO - Processed batch 59/88 for DAYMET
+2025-03-27 12:03:51,897 - googleapiclient.http - WARNING - Sleeping 1.34 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 12:04:24,748 - src.data.gridded_fetcher - INFO - Processed batch 60/88 for DAYMET
+2025-03-27 12:04:57,324 - src.data.gridded_fetcher - INFO - Processed batch 61/88 for DAYMET
+2025-03-27 12:05:28,408 - src.data.gridded_fetcher - INFO - Processed batch 62/88 for DAYMET
+2025-03-27 12:06:01,882 - src.data.gridded_fetcher - INFO - Processed batch 63/88 for DAYMET
+2025-03-27 12:06:32,954 - src.data.gridded_fetcher - INFO - Processed batch 64/88 for DAYMET
+2025-03-27 12:07:06,670 - src.data.gridded_fetcher - INFO - Processed batch 65/88 for DAYMET
+2025-03-27 12:07:40,195 - src.data.gridded_fetcher - INFO - Processed batch 66/88 for DAYMET
+2025-03-27 12:08:04,749 - googleapiclient.http - WARNING - Sleeping 0.15 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 12:08:10,420 - src.data.gridded_fetcher - INFO - Processed batch 67/88 for DAYMET
+2025-03-27 12:08:41,380 - src.data.gridded_fetcher - INFO - Processed batch 68/88 for DAYMET
+2025-03-27 12:09:09,770 - src.data.gridded_fetcher - INFO - Processed batch 69/88 for DAYMET
+2025-03-27 12:09:39,452 - src.data.gridded_fetcher - INFO - Processed batch 70/88 for DAYMET
+2025-03-27 12:10:13,714 - src.data.gridded_fetcher - INFO - Processed batch 71/88 for DAYMET
+2025-03-27 12:10:42,835 - src.data.gridded_fetcher - INFO - Processed batch 72/88 for DAYMET
+2025-03-27 12:11:13,673 - src.data.gridded_fetcher - INFO - Processed batch 73/88 for DAYMET
+2025-03-27 12:11:43,514 - src.data.gridded_fetcher - INFO - Processed batch 74/88 for DAYMET
+2025-03-27 12:12:12,129 - src.data.gridded_fetcher - INFO - Processed batch 75/88 for DAYMET
+2025-03-27 12:12:39,496 - src.data.gridded_fetcher - INFO - Processed batch 76/88 for DAYMET
+2025-03-27 12:13:07,051 - src.data.gridded_fetcher - INFO - Processed batch 77/88 for DAYMET
+2025-03-27 12:13:37,331 - src.data.gridded_fetcher - INFO - Processed batch 78/88 for DAYMET
+2025-03-27 12:14:09,717 - src.data.gridded_fetcher - INFO - Processed batch 79/88 for DAYMET
+2025-03-27 12:14:36,374 - src.data.gridded_fetcher - INFO - Processed batch 80/88 for DAYMET
+2025-03-27 12:15:02,598 - src.data.gridded_fetcher - INFO - Processed batch 81/88 for DAYMET
+2025-03-27 12:15:29,046 - src.data.gridded_fetcher - INFO - Processed batch 82/88 for DAYMET
+2025-03-27 12:15:54,642 - src.data.gridded_fetcher - INFO - Processed batch 83/88 for DAYMET
+2025-03-27 12:16:24,242 - src.data.gridded_fetcher - INFO - Processed batch 84/88 for DAYMET
+2025-03-27 12:16:54,814 - src.data.gridded_fetcher - INFO - Processed batch 85/88 for DAYMET
+2025-03-27 12:17:24,798 - src.data.gridded_fetcher - INFO - Processed batch 86/88 for DAYMET
+2025-03-27 12:17:53,640 - src.data.gridded_fetcher - INFO - Processed batch 87/88 for DAYMET
+2025-03-27 12:18:10,267 - src.data.gridded_fetcher - INFO - Processed batch 88/88 for DAYMET
+2025-03-27 12:18:10,268 - src.data.gridded_fetcher - INFO - Fetching PRISM data...
+2025-03-27 12:18:10,270 - src.data.gridded_fetcher - INFO - Fetching PRISM data from 2000-01-01 to 2024-12-31
+2025-03-27 12:18:10,275 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-27 12:18:38,517 - src.data.gridded_fetcher - INFO - Processed batch 1/92 for PRISM
+2025-03-27 12:19:05,086 - src.data.gridded_fetcher - INFO - Processed batch 2/92 for PRISM
+2025-03-27 12:19:30,490 - src.data.gridded_fetcher - INFO - Processed batch 3/92 for PRISM
+2025-03-27 12:19:54,014 - src.data.gridded_fetcher - INFO - Processed batch 4/92 for PRISM
+2025-03-27 12:20:18,701 - src.data.gridded_fetcher - INFO - Processed batch 5/92 for PRISM
+2025-03-27 12:20:44,316 - src.data.gridded_fetcher - INFO - Processed batch 6/92 for PRISM
+2025-03-27 12:21:09,166 - src.data.gridded_fetcher - INFO - Processed batch 7/92 for PRISM
+2025-03-27 12:21:33,826 - src.data.gridded_fetcher - INFO - Processed batch 8/92 for PRISM
+2025-03-27 12:21:58,636 - src.data.gridded_fetcher - INFO - Processed batch 9/92 for PRISM
+2025-03-27 12:22:26,377 - src.data.gridded_fetcher - INFO - Processed batch 10/92 for PRISM
+2025-03-27 12:22:51,262 - src.data.gridded_fetcher - INFO - Processed batch 11/92 for PRISM
+2025-03-27 12:23:15,088 - src.data.gridded_fetcher - INFO - Processed batch 12/92 for PRISM
+2025-03-27 12:23:39,105 - src.data.gridded_fetcher - INFO - Processed batch 13/92 for PRISM
+2025-03-27 12:24:01,859 - src.data.gridded_fetcher - INFO - Processed batch 14/92 for PRISM
+2025-03-27 12:24:24,581 - src.data.gridded_fetcher - INFO - Processed batch 15/92 for PRISM
+2025-03-27 12:24:47,571 - src.data.gridded_fetcher - INFO - Processed batch 16/92 for PRISM
+2025-03-27 12:25:10,670 - src.data.gridded_fetcher - INFO - Processed batch 17/92 for PRISM
+2025-03-27 12:25:34,173 - src.data.gridded_fetcher - INFO - Processed batch 18/92 for PRISM
+2025-03-27 12:25:57,135 - src.data.gridded_fetcher - INFO - Processed batch 19/92 for PRISM
+2025-03-27 12:26:20,148 - src.data.gridded_fetcher - INFO - Processed batch 20/92 for PRISM
+2025-03-27 12:26:43,346 - src.data.gridded_fetcher - INFO - Processed batch 21/92 for PRISM
+2025-03-27 12:27:06,291 - src.data.gridded_fetcher - INFO - Processed batch 22/92 for PRISM
+2025-03-27 12:27:28,877 - src.data.gridded_fetcher - INFO - Processed batch 23/92 for PRISM
+2025-03-27 12:27:52,020 - src.data.gridded_fetcher - INFO - Processed batch 24/92 for PRISM
+2025-03-27 12:28:17,762 - src.data.gridded_fetcher - INFO - Processed batch 25/92 for PRISM
+2025-03-27 12:28:42,938 - src.data.gridded_fetcher - INFO - Processed batch 26/92 for PRISM
+2025-03-27 12:29:09,007 - src.data.gridded_fetcher - INFO - Processed batch 27/92 for PRISM
+2025-03-27 12:29:31,697 - src.data.gridded_fetcher - INFO - Processed batch 28/92 for PRISM
+2025-03-27 12:29:55,034 - src.data.gridded_fetcher - INFO - Processed batch 29/92 for PRISM
+2025-03-27 12:30:18,995 - src.data.gridded_fetcher - INFO - Processed batch 30/92 for PRISM
+2025-03-27 12:30:43,530 - src.data.gridded_fetcher - INFO - Processed batch 31/92 for PRISM
+2025-03-27 12:31:06,496 - src.data.gridded_fetcher - INFO - Processed batch 32/92 for PRISM
+2025-03-27 12:31:29,629 - src.data.gridded_fetcher - INFO - Processed batch 33/92 for PRISM
+2025-03-27 12:31:52,938 - src.data.gridded_fetcher - INFO - Processed batch 34/92 for PRISM
+2025-03-27 12:32:16,003 - src.data.gridded_fetcher - INFO - Processed batch 35/92 for PRISM
+2025-03-27 12:32:40,026 - src.data.gridded_fetcher - INFO - Processed batch 36/92 for PRISM
+2025-03-27 12:33:02,843 - src.data.gridded_fetcher - INFO - Processed batch 37/92 for PRISM
+2025-03-27 12:33:27,374 - src.data.gridded_fetcher - INFO - Processed batch 38/92 for PRISM
+2025-03-27 12:33:53,426 - src.data.gridded_fetcher - INFO - Processed batch 39/92 for PRISM
+2025-03-27 12:34:17,967 - src.data.gridded_fetcher - INFO - Processed batch 40/92 for PRISM
+2025-03-27 12:34:42,143 - src.data.gridded_fetcher - INFO - Processed batch 41/92 for PRISM
+2025-03-27 12:35:05,798 - src.data.gridded_fetcher - INFO - Processed batch 42/92 for PRISM
+2025-03-27 12:35:31,106 - src.data.gridded_fetcher - INFO - Processed batch 43/92 for PRISM
+2025-03-27 12:35:57,193 - src.data.gridded_fetcher - INFO - Processed batch 44/92 for PRISM
+2025-03-27 12:36:20,509 - src.data.gridded_fetcher - INFO - Processed batch 45/92 for PRISM
+2025-03-27 12:36:42,799 - src.data.gridded_fetcher - INFO - Processed batch 46/92 for PRISM
+2025-03-27 12:37:04,942 - src.data.gridded_fetcher - INFO - Processed batch 47/92 for PRISM
+2025-03-27 12:37:26,866 - src.data.gridded_fetcher - INFO - Processed batch 48/92 for PRISM
+2025-03-27 12:37:47,686 - src.data.gridded_fetcher - INFO - Processed batch 49/92 for PRISM
+2025-03-27 12:38:09,201 - src.data.gridded_fetcher - INFO - Processed batch 50/92 for PRISM
+2025-03-27 12:38:34,788 - src.data.gridded_fetcher - INFO - Processed batch 51/92 for PRISM
+2025-03-27 12:38:56,496 - src.data.gridded_fetcher - INFO - Processed batch 52/92 for PRISM
+2025-03-27 12:39:19,423 - src.data.gridded_fetcher - INFO - Processed batch 53/92 for PRISM
+2025-03-27 12:39:42,156 - src.data.gridded_fetcher - INFO - Processed batch 54/92 for PRISM
+2025-03-27 12:40:04,759 - src.data.gridded_fetcher - INFO - Processed batch 55/92 for PRISM
+2025-03-27 12:40:26,969 - src.data.gridded_fetcher - INFO - Processed batch 56/92 for PRISM
+2025-03-27 12:40:49,560 - src.data.gridded_fetcher - INFO - Processed batch 57/92 for PRISM
+2025-03-27 12:41:11,590 - src.data.gridded_fetcher - INFO - Processed batch 58/92 for PRISM
+2025-03-27 12:41:33,276 - src.data.gridded_fetcher - INFO - Processed batch 59/92 for PRISM
+2025-03-27 12:41:56,157 - src.data.gridded_fetcher - INFO - Processed batch 60/92 for PRISM
+2025-03-27 12:42:17,241 - src.data.gridded_fetcher - INFO - Processed batch 61/92 for PRISM
+2025-03-27 12:42:38,475 - src.data.gridded_fetcher - INFO - Processed batch 62/92 for PRISM
+2025-03-27 12:43:00,767 - src.data.gridded_fetcher - INFO - Processed batch 63/92 for PRISM
+2025-03-27 12:43:22,454 - src.data.gridded_fetcher - INFO - Processed batch 64/92 for PRISM
+2025-03-27 12:43:46,012 - src.data.gridded_fetcher - INFO - Processed batch 65/92 for PRISM
+2025-03-27 12:44:07,536 - src.data.gridded_fetcher - INFO - Processed batch 66/92 for PRISM
+2025-03-27 12:44:30,483 - src.data.gridded_fetcher - INFO - Processed batch 67/92 for PRISM
+2025-03-27 12:44:52,164 - src.data.gridded_fetcher - INFO - Processed batch 68/92 for PRISM
+2025-03-27 12:45:14,228 - src.data.gridded_fetcher - INFO - Processed batch 69/92 for PRISM
+2025-03-27 12:45:35,465 - src.data.gridded_fetcher - INFO - Processed batch 70/92 for PRISM
+2025-03-27 12:45:57,133 - src.data.gridded_fetcher - INFO - Processed batch 71/92 for PRISM
+2025-03-27 12:46:19,937 - src.data.gridded_fetcher - INFO - Processed batch 72/92 for PRISM
+2025-03-27 12:46:43,083 - src.data.gridded_fetcher - INFO - Processed batch 73/92 for PRISM
+2025-03-27 12:47:07,674 - src.data.gridded_fetcher - INFO - Processed batch 74/92 for PRISM
+2025-03-27 12:47:29,232 - src.data.gridded_fetcher - INFO - Processed batch 75/92 for PRISM
+2025-03-27 12:47:50,599 - src.data.gridded_fetcher - INFO - Processed batch 76/92 for PRISM
+2025-03-27 12:48:13,420 - src.data.gridded_fetcher - INFO - Processed batch 77/92 for PRISM
+2025-03-27 12:48:35,749 - src.data.gridded_fetcher - INFO - Processed batch 78/92 for PRISM
+2025-03-27 12:48:58,758 - src.data.gridded_fetcher - INFO - Processed batch 79/92 for PRISM
+2025-03-27 12:49:19,703 - src.data.gridded_fetcher - INFO - Processed batch 80/92 for PRISM
+2025-03-27 12:49:41,501 - src.data.gridded_fetcher - INFO - Processed batch 81/92 for PRISM
+2025-03-27 12:50:03,176 - src.data.gridded_fetcher - INFO - Processed batch 82/92 for PRISM
+2025-03-27 12:50:24,355 - src.data.gridded_fetcher - INFO - Processed batch 83/92 for PRISM
+2025-03-27 12:50:45,032 - src.data.gridded_fetcher - INFO - Processed batch 84/92 for PRISM
+2025-03-27 12:51:06,998 - src.data.gridded_fetcher - INFO - Processed batch 85/92 for PRISM
+2025-03-27 12:51:27,527 - src.data.gridded_fetcher - INFO - Processed batch 86/92 for PRISM
+2025-03-27 12:51:52,931 - src.data.gridded_fetcher - INFO - Processed batch 87/92 for PRISM
+2025-03-27 12:52:17,154 - src.data.gridded_fetcher - INFO - Processed batch 88/92 for PRISM
+2025-03-27 12:52:39,263 - src.data.gridded_fetcher - INFO - Processed batch 89/92 for PRISM
+2025-03-27 12:53:01,488 - src.data.gridded_fetcher - INFO - Processed batch 90/92 for PRISM
+2025-03-27 12:53:23,012 - src.data.gridded_fetcher - INFO - Processed batch 91/92 for PRISM
+2025-03-27 12:53:31,044 - src.data.gridded_fetcher - INFO - Processed batch 92/92 for PRISM
+2025-03-27 12:53:31,046 - src.data.gridded_fetcher - INFO - Fetching CHIRPS data...
+2025-03-27 12:53:31,047 - src.data.gridded_fetcher - INFO - Fetching CHIRPS data from 2000-01-01 to 2024-12-31
+2025-03-27 12:53:31,053 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-27 12:53:52,653 - src.data.gridded_fetcher - INFO - Processed batch 1/92 for CHIRPS
+2025-03-27 12:54:13,584 - src.data.gridded_fetcher - INFO - Processed batch 2/92 for CHIRPS
+2025-03-27 12:54:40,447 - src.data.gridded_fetcher - INFO - Processed batch 3/92 for CHIRPS
+2025-03-27 12:55:02,240 - src.data.gridded_fetcher - INFO - Processed batch 4/92 for CHIRPS
+2025-03-27 12:55:23,869 - src.data.gridded_fetcher - INFO - Processed batch 5/92 for CHIRPS
+2025-03-27 12:55:47,124 - src.data.gridded_fetcher - INFO - Processed batch 6/92 for CHIRPS
+2025-03-27 12:56:10,036 - src.data.gridded_fetcher - INFO - Processed batch 7/92 for CHIRPS
+2025-03-27 12:56:32,688 - src.data.gridded_fetcher - INFO - Processed batch 8/92 for CHIRPS
+2025-03-27 12:56:55,353 - src.data.gridded_fetcher - INFO - Processed batch 9/92 for CHIRPS
+2025-03-27 12:57:15,618 - src.data.gridded_fetcher - INFO - Processed batch 10/92 for CHIRPS
+2025-03-27 12:57:37,737 - src.data.gridded_fetcher - INFO - Processed batch 11/92 for CHIRPS
+2025-03-27 12:57:58,311 - src.data.gridded_fetcher - INFO - Processed batch 12/92 for CHIRPS
+2025-03-27 12:58:18,803 - src.data.gridded_fetcher - INFO - Processed batch 13/92 for CHIRPS
+2025-03-27 12:58:39,673 - src.data.gridded_fetcher - INFO - Processed batch 14/92 for CHIRPS
+2025-03-27 12:59:01,637 - src.data.gridded_fetcher - INFO - Processed batch 15/92 for CHIRPS
+2025-03-27 12:59:22,124 - src.data.gridded_fetcher - INFO - Processed batch 16/92 for CHIRPS
+2025-03-27 12:59:44,218 - src.data.gridded_fetcher - INFO - Processed batch 17/92 for CHIRPS
+2025-03-27 13:00:07,618 - src.data.gridded_fetcher - INFO - Processed batch 18/92 for CHIRPS
+2025-03-27 13:00:35,658 - src.data.gridded_fetcher - INFO - Processed batch 19/92 for CHIRPS
+2025-03-27 13:01:00,065 - src.data.gridded_fetcher - INFO - Processed batch 20/92 for CHIRPS
+2025-03-27 13:01:23,071 - src.data.gridded_fetcher - INFO - Processed batch 21/92 for CHIRPS
+2025-03-27 13:01:45,936 - src.data.gridded_fetcher - INFO - Processed batch 22/92 for CHIRPS
+2025-03-27 13:02:07,959 - src.data.gridded_fetcher - INFO - Processed batch 23/92 for CHIRPS
+2025-03-27 13:02:32,038 - src.data.gridded_fetcher - INFO - Processed batch 24/92 for CHIRPS
+2025-03-27 13:02:59,730 - src.data.gridded_fetcher - INFO - Processed batch 25/92 for CHIRPS
+2025-03-27 13:03:25,038 - src.data.gridded_fetcher - INFO - Processed batch 26/92 for CHIRPS
+2025-03-27 13:03:50,043 - src.data.gridded_fetcher - INFO - Processed batch 27/92 for CHIRPS
+2025-03-27 13:04:17,005 - src.data.gridded_fetcher - INFO - Processed batch 28/92 for CHIRPS
+2025-03-27 13:04:41,947 - src.data.gridded_fetcher - INFO - Processed batch 29/92 for CHIRPS
+2025-03-27 13:04:43,080 - googleapiclient.http - WARNING - Sleeping 0.19 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 503
+2025-03-27 13:05:06,120 - src.data.gridded_fetcher - INFO - Processed batch 30/92 for CHIRPS
+2025-03-27 13:05:30,680 - src.data.gridded_fetcher - INFO - Processed batch 31/92 for CHIRPS
+2025-03-27 13:05:52,913 - src.data.gridded_fetcher - INFO - Processed batch 32/92 for CHIRPS
+2025-03-27 13:06:15,593 - src.data.gridded_fetcher - INFO - Processed batch 33/92 for CHIRPS
+2025-03-27 13:06:39,378 - src.data.gridded_fetcher - INFO - Processed batch 34/92 for CHIRPS
+2025-03-27 13:07:06,318 - src.data.gridded_fetcher - INFO - Processed batch 35/92 for CHIRPS
+2025-03-27 13:07:29,406 - src.data.gridded_fetcher - INFO - Processed batch 36/92 for CHIRPS
+2025-03-27 13:07:51,684 - src.data.gridded_fetcher - INFO - Processed batch 37/92 for CHIRPS
+2025-03-27 13:08:13,403 - src.data.gridded_fetcher - INFO - Processed batch 38/92 for CHIRPS
+2025-03-27 13:08:35,907 - src.data.gridded_fetcher - INFO - Processed batch 39/92 for CHIRPS
+2025-03-27 13:08:58,088 - src.data.gridded_fetcher - INFO - Processed batch 40/92 for CHIRPS
+2025-03-27 13:09:21,222 - src.data.gridded_fetcher - INFO - Processed batch 41/92 for CHIRPS
+2025-03-27 13:09:44,962 - src.data.gridded_fetcher - INFO - Processed batch 42/92 for CHIRPS
+2025-03-27 13:10:09,428 - src.data.gridded_fetcher - INFO - Processed batch 43/92 for CHIRPS
+2025-03-27 13:10:34,243 - src.data.gridded_fetcher - INFO - Processed batch 44/92 for CHIRPS
+2025-03-27 13:10:58,795 - src.data.gridded_fetcher - INFO - Processed batch 45/92 for CHIRPS
+2025-03-27 13:11:22,513 - src.data.gridded_fetcher - INFO - Processed batch 46/92 for CHIRPS
+2025-03-27 13:11:46,472 - src.data.gridded_fetcher - INFO - Processed batch 47/92 for CHIRPS
+2025-03-27 13:12:12,910 - src.data.gridded_fetcher - INFO - Processed batch 48/92 for CHIRPS
+2025-03-27 13:12:38,628 - src.data.gridded_fetcher - INFO - Processed batch 49/92 for CHIRPS
+2025-03-27 13:13:06,522 - src.data.gridded_fetcher - INFO - Processed batch 50/92 for CHIRPS
+2025-03-27 13:13:31,711 - src.data.gridded_fetcher - INFO - Processed batch 51/92 for CHIRPS
+2025-03-27 13:13:57,933 - src.data.gridded_fetcher - INFO - Processed batch 52/92 for CHIRPS
+2025-03-27 13:14:22,204 - src.data.gridded_fetcher - INFO - Processed batch 53/92 for CHIRPS
+2025-03-27 13:14:47,445 - src.data.gridded_fetcher - INFO - Processed batch 54/92 for CHIRPS
+2025-03-27 13:15:15,433 - src.data.gridded_fetcher - INFO - Processed batch 55/92 for CHIRPS
+2025-03-27 13:15:41,134 - src.data.gridded_fetcher - INFO - Processed batch 56/92 for CHIRPS
+2025-03-27 13:16:11,820 - src.data.gridded_fetcher - INFO - Processed batch 57/92 for CHIRPS
+2025-03-27 13:16:35,328 - src.data.gridded_fetcher - INFO - Processed batch 58/92 for CHIRPS
+2025-03-27 13:16:59,257 - src.data.gridded_fetcher - INFO - Processed batch 59/92 for CHIRPS
+2025-03-27 13:17:24,327 - src.data.gridded_fetcher - INFO - Processed batch 60/92 for CHIRPS
+2025-03-27 13:17:50,749 - src.data.gridded_fetcher - INFO - Processed batch 61/92 for CHIRPS
+2025-03-27 13:18:16,556 - src.data.gridded_fetcher - INFO - Processed batch 62/92 for CHIRPS
+2025-03-27 13:18:39,926 - src.data.gridded_fetcher - INFO - Processed batch 63/92 for CHIRPS
+2025-03-27 13:19:05,704 - src.data.gridded_fetcher - INFO - Processed batch 64/92 for CHIRPS
+2025-03-27 13:19:30,331 - src.data.gridded_fetcher - INFO - Processed batch 65/92 for CHIRPS
+2025-03-27 13:19:52,810 - src.data.gridded_fetcher - INFO - Processed batch 66/92 for CHIRPS
+2025-03-27 13:20:16,959 - src.data.gridded_fetcher - INFO - Processed batch 67/92 for CHIRPS
+2025-03-27 13:20:43,152 - src.data.gridded_fetcher - INFO - Processed batch 68/92 for CHIRPS
+2025-03-27 13:21:09,223 - src.data.gridded_fetcher - INFO - Processed batch 69/92 for CHIRPS
+2025-03-27 13:21:33,807 - src.data.gridded_fetcher - INFO - Processed batch 70/92 for CHIRPS
+2025-03-27 13:21:57,815 - src.data.gridded_fetcher - INFO - Processed batch 71/92 for CHIRPS
+2025-03-27 13:22:21,223 - src.data.gridded_fetcher - INFO - Processed batch 72/92 for CHIRPS
+2025-03-27 13:22:45,290 - src.data.gridded_fetcher - INFO - Processed batch 73/92 for CHIRPS
+2025-03-27 13:23:09,621 - src.data.gridded_fetcher - INFO - Processed batch 74/92 for CHIRPS
+2025-03-27 13:23:34,064 - src.data.gridded_fetcher - INFO - Processed batch 75/92 for CHIRPS
+2025-03-27 13:23:58,948 - src.data.gridded_fetcher - INFO - Processed batch 76/92 for CHIRPS
+2025-03-27 13:24:25,093 - src.data.gridded_fetcher - INFO - Processed batch 77/92 for CHIRPS
+2025-03-27 13:24:51,430 - src.data.gridded_fetcher - INFO - Processed batch 78/92 for CHIRPS
+2025-03-27 13:25:16,140 - src.data.gridded_fetcher - INFO - Processed batch 79/92 for CHIRPS
+2025-03-27 13:25:41,351 - src.data.gridded_fetcher - INFO - Processed batch 80/92 for CHIRPS
+2025-03-27 13:26:06,080 - src.data.gridded_fetcher - INFO - Processed batch 81/92 for CHIRPS
+2025-03-27 13:26:29,093 - src.data.gridded_fetcher - INFO - Processed batch 82/92 for CHIRPS
+2025-03-27 13:26:50,502 - src.data.gridded_fetcher - INFO - Processed batch 83/92 for CHIRPS
+2025-03-27 13:27:12,059 - src.data.gridded_fetcher - INFO - Processed batch 84/92 for CHIRPS
+2025-03-27 13:27:36,627 - src.data.gridded_fetcher - INFO - Processed batch 85/92 for CHIRPS
+2025-03-27 13:27:58,721 - src.data.gridded_fetcher - INFO - Processed batch 86/92 for CHIRPS
+2025-03-27 13:28:21,842 - src.data.gridded_fetcher - INFO - Processed batch 87/92 for CHIRPS
+2025-03-27 13:28:46,989 - src.data.gridded_fetcher - INFO - Processed batch 88/92 for CHIRPS
+2025-03-27 13:29:11,908 - src.data.gridded_fetcher - INFO - Processed batch 89/92 for CHIRPS
+2025-03-27 13:29:37,462 - src.data.gridded_fetcher - INFO - Processed batch 90/92 for CHIRPS
+2025-03-27 13:30:02,023 - src.data.gridded_fetcher - INFO - Processed batch 91/92 for CHIRPS
+2025-03-27 13:30:09,398 - src.data.gridded_fetcher - INFO - Processed batch 92/92 for CHIRPS
+2025-03-27 13:30:09,399 - src.data.gridded_fetcher - INFO - Fetching FLDAS data...
+2025-03-27 13:30:09,400 - src.data.gridded_fetcher - INFO - Fetching FLDAS data from 2000-01-01 to 2024-12-31
+2025-03-27 13:30:09,403 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-27 13:30:43,723 - src.data.gridded_fetcher - INFO - Processed batch 1/3 for FLDAS
+2025-03-27 13:31:15,551 - src.data.gridded_fetcher - INFO - Processed batch 2/3 for FLDAS
+2025-03-27 13:31:46,148 - src.data.gridded_fetcher - INFO - Processed batch 3/3 for FLDAS
+2025-03-27 13:31:46,183 - src.data.gridded_fetcher - INFO - Fetching GSMAP data...
+2025-03-27 13:31:46,184 - src.data.gridded_fetcher - INFO - Fetching GSMAP data from 2000-01-01 to 2024-12-31
+2025-03-27 13:31:46,185 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine...
+2025-03-27 13:31:46,186 - src.data.gridded_fetcher - INFO - Successfully aggregated to daily data in Earth Engine
+2025-03-27 13:31:46,189 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-27 13:34:24,902 - src.data.gridded_fetcher - ERROR - Error fetching Earth Engine data for GSMAP: User memory limit exceeded.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 408, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json returned "User memory limit exceeded.". Details: "User memory limit exceeded.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 200, in _fetch_ee_dataset
+    date_list = self._get_date_list(image_collection)
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 255, in _get_date_list
+    dates = image_collection.aggregate_array('system:time_start').getInfo()
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\computedobject.py", line 107, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 1128, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 410, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: User memory limit exceeded.
+2025-03-27 13:34:24,954 - src.data.gridded_fetcher - ERROR - Error fetching GSMAP data: User memory limit exceeded.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 408, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json returned "User memory limit exceeded.". Details: "User memory limit exceeded.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 103, in fetch_data
+    data = self._fetch_ee_dataset(dataset)
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 200, in _fetch_ee_dataset
+    date_list = self._get_date_list(image_collection)
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\src\data\gridded_fetcher.py", line 255, in _get_date_list
+    dates = image_collection.aggregate_array('system:time_start').getInfo()
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\computedobject.py", line 107, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 1128, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 410, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: User memory limit exceeded.
+2025-03-27 13:34:24,972 - src.data.gridded_fetcher - INFO - Fetching GLDAS-Historical data...
+2025-03-27 13:34:24,974 - src.data.gridded_fetcher - INFO - Fetching GLDAS-Historical data from 2000-01-01 to 2024-12-31
+2025-03-27 13:34:24,979 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-27 13:34:54,298 - src.data.gridded_fetcher - INFO - Processed batch 1/439 for GLDAS-Historical
+2025-03-27 13:35:14,469 - src.data.gridded_fetcher - INFO - Processed batch 2/439 for GLDAS-Historical
+2025-03-27 13:35:33,967 - src.data.gridded_fetcher - INFO - Processed batch 3/439 for GLDAS-Historical
+2025-03-27 13:35:55,102 - src.data.gridded_fetcher - INFO - Processed batch 4/439 for GLDAS-Historical
+2025-03-27 13:36:15,937 - src.data.gridded_fetcher - INFO - Processed batch 5/439 for GLDAS-Historical
+2025-03-27 13:36:36,144 - src.data.gridded_fetcher - INFO - Processed batch 6/439 for GLDAS-Historical
+2025-03-27 13:36:55,971 - src.data.gridded_fetcher - INFO - Processed batch 7/439 for GLDAS-Historical
+2025-03-27 13:37:15,155 - src.data.gridded_fetcher - INFO - Processed batch 8/439 for GLDAS-Historical
+2025-03-27 13:37:33,566 - src.data.gridded_fetcher - INFO - Processed batch 9/439 for GLDAS-Historical
+2025-03-27 13:37:54,917 - src.data.gridded_fetcher - INFO - Processed batch 10/439 for GLDAS-Historical
+2025-03-27 13:38:13,649 - src.data.gridded_fetcher - INFO - Processed batch 11/439 for GLDAS-Historical
+2025-03-27 13:38:33,059 - src.data.gridded_fetcher - INFO - Processed batch 12/439 for GLDAS-Historical
+2025-03-27 13:38:52,666 - src.data.gridded_fetcher - INFO - Processed batch 13/439 for GLDAS-Historical
+2025-03-27 13:39:11,852 - src.data.gridded_fetcher - INFO - Processed batch 14/439 for GLDAS-Historical
+2025-03-27 13:39:32,052 - src.data.gridded_fetcher - INFO - Processed batch 15/439 for GLDAS-Historical
+2025-03-27 13:39:51,077 - src.data.gridded_fetcher - INFO - Processed batch 16/439 for GLDAS-Historical
+2025-03-27 13:40:10,795 - src.data.gridded_fetcher - INFO - Processed batch 17/439 for GLDAS-Historical
+2025-03-27 13:40:29,747 - src.data.gridded_fetcher - INFO - Processed batch 18/439 for GLDAS-Historical
+2025-03-27 13:40:49,597 - src.data.gridded_fetcher - INFO - Processed batch 19/439 for GLDAS-Historical
+2025-03-27 13:41:09,944 - src.data.gridded_fetcher - INFO - Processed batch 20/439 for GLDAS-Historical
+2025-03-27 13:41:28,233 - src.data.gridded_fetcher - INFO - Processed batch 21/439 for GLDAS-Historical
+2025-03-27 13:41:46,123 - src.data.gridded_fetcher - INFO - Processed batch 22/439 for GLDAS-Historical
+2025-03-27 13:42:04,855 - src.data.gridded_fetcher - INFO - Processed batch 23/439 for GLDAS-Historical
+2025-03-27 13:42:22,900 - src.data.gridded_fetcher - INFO - Processed batch 24/439 for GLDAS-Historical
+2025-03-27 13:42:40,550 - src.data.gridded_fetcher - INFO - Processed batch 25/439 for GLDAS-Historical
+2025-03-27 13:42:58,464 - src.data.gridded_fetcher - INFO - Processed batch 26/439 for GLDAS-Historical
+2025-03-27 13:43:16,564 - src.data.gridded_fetcher - INFO - Processed batch 27/439 for GLDAS-Historical
+2025-03-27 13:43:34,914 - src.data.gridded_fetcher - INFO - Processed batch 28/439 for GLDAS-Historical
+2025-03-27 13:43:53,742 - src.data.gridded_fetcher - INFO - Processed batch 29/439 for GLDAS-Historical
+2025-03-27 13:44:12,602 - src.data.gridded_fetcher - INFO - Processed batch 30/439 for GLDAS-Historical
+2025-03-27 13:44:32,502 - src.data.gridded_fetcher - INFO - Processed batch 31/439 for GLDAS-Historical
+2025-03-27 13:44:51,470 - src.data.gridded_fetcher - INFO - Processed batch 32/439 for GLDAS-Historical
+2025-03-27 13:45:11,376 - src.data.gridded_fetcher - INFO - Processed batch 33/439 for GLDAS-Historical
+2025-03-27 13:45:29,689 - src.data.gridded_fetcher - INFO - Processed batch 34/439 for GLDAS-Historical
+2025-03-27 13:45:51,293 - src.data.gridded_fetcher - INFO - Processed batch 35/439 for GLDAS-Historical
+2025-03-27 13:46:11,912 - src.data.gridded_fetcher - INFO - Processed batch 36/439 for GLDAS-Historical
+2025-03-27 13:46:32,963 - src.data.gridded_fetcher - INFO - Processed batch 37/439 for GLDAS-Historical
+2025-03-27 13:46:52,582 - src.data.gridded_fetcher - INFO - Processed batch 38/439 for GLDAS-Historical
+2025-03-27 13:47:12,060 - src.data.gridded_fetcher - INFO - Processed batch 39/439 for GLDAS-Historical
+2025-03-27 13:47:32,379 - src.data.gridded_fetcher - INFO - Processed batch 40/439 for GLDAS-Historical
+2025-03-27 13:47:51,268 - src.data.gridded_fetcher - INFO - Processed batch 41/439 for GLDAS-Historical
+2025-03-27 13:48:09,964 - src.data.gridded_fetcher - INFO - Processed batch 42/439 for GLDAS-Historical
+2025-03-27 13:48:28,410 - src.data.gridded_fetcher - INFO - Processed batch 43/439 for GLDAS-Historical
+2025-03-27 13:48:47,437 - src.data.gridded_fetcher - INFO - Processed batch 44/439 for GLDAS-Historical
+2025-03-27 13:49:07,108 - src.data.gridded_fetcher - INFO - Processed batch 45/439 for GLDAS-Historical
+2025-03-27 13:49:26,978 - src.data.gridded_fetcher - INFO - Processed batch 46/439 for GLDAS-Historical
+2025-03-27 13:49:45,030 - src.data.gridded_fetcher - INFO - Processed batch 47/439 for GLDAS-Historical
+2025-03-27 13:50:03,856 - src.data.gridded_fetcher - INFO - Processed batch 48/439 for GLDAS-Historical
+2025-03-27 13:50:25,062 - src.data.gridded_fetcher - INFO - Processed batch 49/439 for GLDAS-Historical
+2025-03-27 13:50:45,069 - src.data.gridded_fetcher - INFO - Processed batch 50/439 for GLDAS-Historical
+2025-03-27 13:51:07,158 - src.data.gridded_fetcher - INFO - Processed batch 51/439 for GLDAS-Historical
+2025-03-27 13:51:28,514 - src.data.gridded_fetcher - INFO - Processed batch 52/439 for GLDAS-Historical
+2025-03-27 13:51:49,120 - src.data.gridded_fetcher - INFO - Processed batch 53/439 for GLDAS-Historical
+2025-03-27 13:52:08,814 - src.data.gridded_fetcher - INFO - Processed batch 54/439 for GLDAS-Historical
+2025-03-27 13:52:28,178 - src.data.gridded_fetcher - INFO - Processed batch 55/439 for GLDAS-Historical
+2025-03-27 13:52:48,254 - src.data.gridded_fetcher - INFO - Processed batch 56/439 for GLDAS-Historical
+2025-03-27 13:53:08,084 - src.data.gridded_fetcher - INFO - Processed batch 57/439 for GLDAS-Historical
+2025-03-27 13:53:29,107 - src.data.gridded_fetcher - INFO - Processed batch 58/439 for GLDAS-Historical
+2025-03-27 13:53:48,927 - src.data.gridded_fetcher - INFO - Processed batch 59/439 for GLDAS-Historical
+2025-03-27 13:54:07,387 - src.data.gridded_fetcher - INFO - Processed batch 60/439 for GLDAS-Historical
+2025-03-27 13:54:28,224 - src.data.gridded_fetcher - INFO - Processed batch 61/439 for GLDAS-Historical
+2025-03-27 13:54:46,857 - src.data.gridded_fetcher - INFO - Processed batch 62/439 for GLDAS-Historical
+2025-03-27 13:55:05,755 - src.data.gridded_fetcher - INFO - Processed batch 63/439 for GLDAS-Historical
+2025-03-27 13:55:24,657 - src.data.gridded_fetcher - INFO - Processed batch 64/439 for GLDAS-Historical
+2025-03-27 13:55:42,594 - src.data.gridded_fetcher - INFO - Processed batch 65/439 for GLDAS-Historical
+2025-03-27 13:56:01,226 - src.data.gridded_fetcher - INFO - Processed batch 66/439 for GLDAS-Historical
+2025-03-27 13:56:19,589 - src.data.gridded_fetcher - INFO - Processed batch 67/439 for GLDAS-Historical
+2025-03-27 13:56:38,211 - src.data.gridded_fetcher - INFO - Processed batch 68/439 for GLDAS-Historical
+2025-03-27 13:56:57,099 - src.data.gridded_fetcher - INFO - Processed batch 69/439 for GLDAS-Historical
+2025-03-27 13:57:16,954 - src.data.gridded_fetcher - INFO - Processed batch 70/439 for GLDAS-Historical
+2025-03-27 13:57:35,739 - src.data.gridded_fetcher - INFO - Processed batch 71/439 for GLDAS-Historical
+2025-03-27 13:57:54,348 - src.data.gridded_fetcher - INFO - Processed batch 72/439 for GLDAS-Historical
+2025-03-27 13:58:13,467 - src.data.gridded_fetcher - INFO - Processed batch 73/439 for GLDAS-Historical
+2025-03-27 13:58:31,835 - src.data.gridded_fetcher - INFO - Processed batch 74/439 for GLDAS-Historical
+2025-03-27 13:58:51,577 - src.data.gridded_fetcher - INFO - Processed batch 75/439 for GLDAS-Historical
+2025-03-27 13:59:10,008 - src.data.gridded_fetcher - INFO - Processed batch 76/439 for GLDAS-Historical
+2025-03-27 13:59:29,400 - src.data.gridded_fetcher - INFO - Processed batch 77/439 for GLDAS-Historical
+2025-03-27 13:59:47,723 - src.data.gridded_fetcher - INFO - Processed batch 78/439 for GLDAS-Historical
+2025-03-27 14:00:07,599 - src.data.gridded_fetcher - INFO - Processed batch 79/439 for GLDAS-Historical
+2025-03-27 14:00:26,031 - src.data.gridded_fetcher - INFO - Processed batch 80/439 for GLDAS-Historical
+2025-03-27 14:00:46,324 - src.data.gridded_fetcher - INFO - Processed batch 81/439 for GLDAS-Historical
+2025-03-27 14:01:05,955 - src.data.gridded_fetcher - INFO - Processed batch 82/439 for GLDAS-Historical
+2025-03-27 14:01:24,576 - src.data.gridded_fetcher - INFO - Processed batch 83/439 for GLDAS-Historical
+2025-03-27 14:01:42,848 - src.data.gridded_fetcher - INFO - Processed batch 84/439 for GLDAS-Historical
+2025-03-27 14:02:03,205 - src.data.gridded_fetcher - INFO - Processed batch 85/439 for GLDAS-Historical
+2025-03-27 14:02:22,599 - src.data.gridded_fetcher - INFO - Processed batch 86/439 for GLDAS-Historical
+2025-03-27 14:02:40,984 - src.data.gridded_fetcher - INFO - Processed batch 87/439 for GLDAS-Historical
+2025-03-27 14:03:00,204 - src.data.gridded_fetcher - INFO - Processed batch 88/439 for GLDAS-Historical
+2025-03-27 14:03:19,426 - src.data.gridded_fetcher - INFO - Processed batch 89/439 for GLDAS-Historical
+2025-03-27 14:03:40,061 - src.data.gridded_fetcher - INFO - Processed batch 90/439 for GLDAS-Historical
+2025-03-27 14:03:59,184 - src.data.gridded_fetcher - INFO - Processed batch 91/439 for GLDAS-Historical
+2025-03-27 14:04:18,013 - src.data.gridded_fetcher - INFO - Processed batch 92/439 for GLDAS-Historical
+2025-03-27 14:04:38,161 - src.data.gridded_fetcher - INFO - Processed batch 93/439 for GLDAS-Historical
+2025-03-27 14:04:56,889 - src.data.gridded_fetcher - INFO - Processed batch 94/439 for GLDAS-Historical
+2025-03-27 14:05:16,267 - src.data.gridded_fetcher - INFO - Processed batch 95/439 for GLDAS-Historical
+2025-03-27 14:05:35,145 - src.data.gridded_fetcher - INFO - Processed batch 96/439 for GLDAS-Historical
+2025-03-27 14:05:54,755 - src.data.gridded_fetcher - INFO - Processed batch 97/439 for GLDAS-Historical
+2025-03-27 14:06:14,697 - src.data.gridded_fetcher - INFO - Processed batch 98/439 for GLDAS-Historical
+2025-03-27 14:06:35,805 - src.data.gridded_fetcher - INFO - Processed batch 99/439 for GLDAS-Historical
+2025-03-27 14:06:55,632 - src.data.gridded_fetcher - INFO - Processed batch 100/439 for GLDAS-Historical
+2025-03-27 14:07:16,346 - src.data.gridded_fetcher - INFO - Processed batch 101/439 for GLDAS-Historical
+2025-03-27 14:07:36,921 - src.data.gridded_fetcher - INFO - Processed batch 102/439 for GLDAS-Historical
+2025-03-27 14:07:57,806 - src.data.gridded_fetcher - INFO - Processed batch 103/439 for GLDAS-Historical
+2025-03-27 14:08:17,945 - src.data.gridded_fetcher - INFO - Processed batch 104/439 for GLDAS-Historical
+2025-03-27 14:08:37,099 - src.data.gridded_fetcher - INFO - Processed batch 105/439 for GLDAS-Historical
+2025-03-27 14:08:56,515 - src.data.gridded_fetcher - INFO - Processed batch 106/439 for GLDAS-Historical
+2025-03-27 14:09:16,864 - src.data.gridded_fetcher - INFO - Processed batch 107/439 for GLDAS-Historical
+2025-03-27 14:09:35,541 - src.data.gridded_fetcher - INFO - Processed batch 108/439 for GLDAS-Historical
+2025-03-27 14:09:55,566 - src.data.gridded_fetcher - INFO - Processed batch 109/439 for GLDAS-Historical
+2025-03-27 14:10:15,096 - src.data.gridded_fetcher - INFO - Processed batch 110/439 for GLDAS-Historical
+2025-03-27 14:10:35,347 - src.data.gridded_fetcher - INFO - Processed batch 111/439 for GLDAS-Historical
+2025-03-27 14:10:54,065 - src.data.gridded_fetcher - INFO - Processed batch 112/439 for GLDAS-Historical
+2025-03-27 14:11:13,764 - src.data.gridded_fetcher - INFO - Processed batch 113/439 for GLDAS-Historical
+2025-03-27 14:11:33,010 - src.data.gridded_fetcher - INFO - Processed batch 114/439 for GLDAS-Historical
+2025-03-27 14:11:52,448 - src.data.gridded_fetcher - INFO - Processed batch 115/439 for GLDAS-Historical
+2025-03-27 14:12:11,177 - src.data.gridded_fetcher - INFO - Processed batch 116/439 for GLDAS-Historical
+2025-03-27 14:12:31,386 - src.data.gridded_fetcher - INFO - Processed batch 117/439 for GLDAS-Historical
+2025-03-27 14:12:50,524 - src.data.gridded_fetcher - INFO - Processed batch 118/439 for GLDAS-Historical
+2025-03-27 14:13:09,343 - src.data.gridded_fetcher - INFO - Processed batch 119/439 for GLDAS-Historical
+2025-03-27 14:13:27,951 - src.data.gridded_fetcher - INFO - Processed batch 120/439 for GLDAS-Historical
+2025-03-27 14:13:47,782 - src.data.gridded_fetcher - INFO - Processed batch 121/439 for GLDAS-Historical
+2025-03-27 14:14:08,492 - src.data.gridded_fetcher - INFO - Processed batch 122/439 for GLDAS-Historical
+2025-03-27 14:14:27,664 - src.data.gridded_fetcher - INFO - Processed batch 123/439 for GLDAS-Historical
+2025-03-27 14:14:47,092 - src.data.gridded_fetcher - INFO - Processed batch 124/439 for GLDAS-Historical
+2025-03-27 14:15:07,045 - src.data.gridded_fetcher - INFO - Processed batch 125/439 for GLDAS-Historical
+2025-03-27 14:15:26,532 - src.data.gridded_fetcher - INFO - Processed batch 126/439 for GLDAS-Historical
+2025-03-27 14:15:46,290 - src.data.gridded_fetcher - INFO - Processed batch 127/439 for GLDAS-Historical
+2025-03-27 14:16:06,547 - src.data.gridded_fetcher - INFO - Processed batch 128/439 for GLDAS-Historical
+2025-03-27 14:16:25,107 - src.data.gridded_fetcher - INFO - Processed batch 129/439 for GLDAS-Historical
+2025-03-27 14:16:42,768 - src.data.gridded_fetcher - INFO - Processed batch 130/439 for GLDAS-Historical
+2025-03-27 14:17:01,015 - src.data.gridded_fetcher - INFO - Processed batch 131/439 for GLDAS-Historical
+2025-03-27 14:17:19,251 - src.data.gridded_fetcher - INFO - Processed batch 132/439 for GLDAS-Historical
+2025-03-27 14:17:39,464 - src.data.gridded_fetcher - INFO - Processed batch 133/439 for GLDAS-Historical
+2025-03-27 14:17:58,863 - src.data.gridded_fetcher - INFO - Processed batch 134/439 for GLDAS-Historical
+2025-03-27 14:18:18,132 - src.data.gridded_fetcher - INFO - Processed batch 135/439 for GLDAS-Historical
+2025-03-27 14:18:37,411 - src.data.gridded_fetcher - INFO - Processed batch 136/439 for GLDAS-Historical
+2025-03-27 14:18:56,720 - src.data.gridded_fetcher - INFO - Processed batch 137/439 for GLDAS-Historical
+2025-03-27 14:19:16,733 - src.data.gridded_fetcher - INFO - Processed batch 138/439 for GLDAS-Historical
+2025-03-27 14:19:35,705 - src.data.gridded_fetcher - INFO - Processed batch 139/439 for GLDAS-Historical
+2025-03-27 14:19:53,914 - src.data.gridded_fetcher - INFO - Processed batch 140/439 for GLDAS-Historical
+2025-03-27 14:20:14,482 - src.data.gridded_fetcher - INFO - Processed batch 141/439 for GLDAS-Historical
+2025-03-27 14:20:34,465 - src.data.gridded_fetcher - INFO - Processed batch 142/439 for GLDAS-Historical
+2025-03-27 14:20:53,921 - src.data.gridded_fetcher - INFO - Processed batch 143/439 for GLDAS-Historical
+2025-03-27 14:21:14,397 - src.data.gridded_fetcher - INFO - Processed batch 144/439 for GLDAS-Historical
+2025-03-27 14:21:33,722 - src.data.gridded_fetcher - INFO - Processed batch 145/439 for GLDAS-Historical
+2025-03-27 14:21:53,267 - src.data.gridded_fetcher - INFO - Processed batch 146/439 for GLDAS-Historical
+2025-03-27 14:22:12,368 - src.data.gridded_fetcher - INFO - Processed batch 147/439 for GLDAS-Historical
+2025-03-27 14:22:32,025 - src.data.gridded_fetcher - INFO - Processed batch 148/439 for GLDAS-Historical
+2025-03-27 14:22:52,524 - src.data.gridded_fetcher - INFO - Processed batch 149/439 for GLDAS-Historical
+2025-03-27 14:23:11,515 - src.data.gridded_fetcher - INFO - Processed batch 150/439 for GLDAS-Historical
+2025-03-27 14:23:31,191 - src.data.gridded_fetcher - INFO - Processed batch 151/439 for GLDAS-Historical
+2025-03-27 14:23:49,821 - src.data.gridded_fetcher - INFO - Processed batch 152/439 for GLDAS-Historical
+2025-03-27 14:24:11,389 - src.data.gridded_fetcher - INFO - Processed batch 153/439 for GLDAS-Historical
+2025-03-27 14:24:31,514 - src.data.gridded_fetcher - INFO - Processed batch 154/439 for GLDAS-Historical
+2025-03-27 14:24:51,974 - src.data.gridded_fetcher - INFO - Processed batch 155/439 for GLDAS-Historical
+2025-03-27 14:25:10,998 - src.data.gridded_fetcher - INFO - Processed batch 156/439 for GLDAS-Historical
+2025-03-27 14:25:31,097 - src.data.gridded_fetcher - INFO - Processed batch 157/439 for GLDAS-Historical
+2025-03-27 14:25:50,528 - src.data.gridded_fetcher - INFO - Processed batch 158/439 for GLDAS-Historical
+2025-03-27 14:26:12,805 - src.data.gridded_fetcher - INFO - Processed batch 159/439 for GLDAS-Historical
+2025-03-27 14:26:32,223 - src.data.gridded_fetcher - INFO - Processed batch 160/439 for GLDAS-Historical
+2025-03-27 14:26:53,218 - src.data.gridded_fetcher - INFO - Processed batch 161/439 for GLDAS-Historical
+2025-03-27 14:27:11,536 - src.data.gridded_fetcher - INFO - Processed batch 162/439 for GLDAS-Historical
+2025-03-27 14:27:29,224 - src.data.gridded_fetcher - INFO - Processed batch 163/439 for GLDAS-Historical
+2025-03-27 14:27:48,118 - src.data.gridded_fetcher - INFO - Processed batch 164/439 for GLDAS-Historical
+2025-03-27 14:28:09,740 - src.data.gridded_fetcher - INFO - Processed batch 165/439 for GLDAS-Historical
+2025-03-27 14:28:29,268 - src.data.gridded_fetcher - INFO - Processed batch 166/439 for GLDAS-Historical
+2025-03-27 14:28:49,429 - src.data.gridded_fetcher - INFO - Processed batch 167/439 for GLDAS-Historical
+2025-03-27 14:29:10,294 - src.data.gridded_fetcher - INFO - Processed batch 168/439 for GLDAS-Historical
+2025-03-27 14:29:30,756 - src.data.gridded_fetcher - INFO - Processed batch 169/439 for GLDAS-Historical
+2025-03-27 14:29:50,045 - src.data.gridded_fetcher - INFO - Processed batch 170/439 for GLDAS-Historical
+2025-03-27 14:30:09,324 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-03-27 14:30:09,325 - src.data.gridded_fetcher - ERROR - Error sampling points for 2005-11-07: Not signed up for Earth Engine or project is not registered. Visit https://developers.google.com/earth-engine/guides/access
+2025-03-27 14:30:09,775 - src.data.gridded_fetcher - INFO - Processed batch 171/439 for GLDAS-Historical
+2025-03-27 14:30:29,535 - src.data.gridded_fetcher - INFO - Processed batch 172/439 for GLDAS-Historical
+2025-03-27 14:30:49,177 - src.data.gridded_fetcher - INFO - Processed batch 173/439 for GLDAS-Historical
+2025-03-27 14:31:14,446 - src.data.gridded_fetcher - INFO - Processed batch 174/439 for GLDAS-Historical
+2025-03-27 14:31:34,133 - src.data.gridded_fetcher - INFO - Processed batch 175/439 for GLDAS-Historical
+2025-03-27 14:31:52,886 - src.data.gridded_fetcher - INFO - Processed batch 176/439 for GLDAS-Historical
+2025-03-27 14:32:13,222 - src.data.gridded_fetcher - INFO - Processed batch 177/439 for GLDAS-Historical
+2025-03-27 14:32:32,221 - src.data.gridded_fetcher - INFO - Processed batch 178/439 for GLDAS-Historical
+2025-03-27 14:32:51,074 - src.data.gridded_fetcher - INFO - Processed batch 179/439 for GLDAS-Historical
+2025-03-27 14:33:09,339 - src.data.gridded_fetcher - INFO - Processed batch 180/439 for GLDAS-Historical
+2025-03-27 14:33:32,454 - src.data.gridded_fetcher - INFO - Processed batch 181/439 for GLDAS-Historical
+2025-03-27 14:33:52,024 - src.data.gridded_fetcher - INFO - Processed batch 182/439 for GLDAS-Historical
+2025-03-27 14:34:13,051 - src.data.gridded_fetcher - INFO - Processed batch 183/439 for GLDAS-Historical
+2025-03-27 14:34:32,490 - src.data.gridded_fetcher - INFO - Processed batch 184/439 for GLDAS-Historical
+2025-03-27 14:34:51,882 - src.data.gridded_fetcher - INFO - Processed batch 185/439 for GLDAS-Historical
+2025-03-27 14:35:12,273 - src.data.gridded_fetcher - INFO - Processed batch 186/439 for GLDAS-Historical
+2025-03-27 14:35:31,276 - src.data.gridded_fetcher - INFO - Processed batch 187/439 for GLDAS-Historical
+2025-03-27 14:35:51,365 - src.data.gridded_fetcher - INFO - Processed batch 188/439 for GLDAS-Historical
+2025-03-27 14:36:10,275 - src.data.gridded_fetcher - INFO - Processed batch 189/439 for GLDAS-Historical
+2025-03-27 14:36:30,831 - src.data.gridded_fetcher - INFO - Processed batch 190/439 for GLDAS-Historical
+2025-03-27 14:36:51,037 - src.data.gridded_fetcher - INFO - Processed batch 191/439 for GLDAS-Historical
+2025-03-27 14:37:10,701 - src.data.gridded_fetcher - INFO - Processed batch 192/439 for GLDAS-Historical
+2025-03-27 14:37:30,065 - src.data.gridded_fetcher - INFO - Processed batch 193/439 for GLDAS-Historical
+2025-03-27 14:37:47,939 - src.data.gridded_fetcher - INFO - Processed batch 194/439 for GLDAS-Historical
+2025-03-27 14:38:08,293 - src.data.gridded_fetcher - INFO - Processed batch 195/439 for GLDAS-Historical
+2025-03-27 14:38:28,607 - src.data.gridded_fetcher - INFO - Processed batch 196/439 for GLDAS-Historical
+2025-03-27 14:39:18,224 - src.data.gridded_fetcher - INFO - Processed batch 197/439 for GLDAS-Historical
+2025-03-27 14:39:38,226 - src.data.gridded_fetcher - INFO - Processed batch 198/439 for GLDAS-Historical
+2025-03-27 14:39:57,795 - src.data.gridded_fetcher - INFO - Processed batch 199/439 for GLDAS-Historical
+2025-03-27 14:40:18,043 - src.data.gridded_fetcher - INFO - Processed batch 200/439 for GLDAS-Historical
+2025-03-27 14:40:38,975 - src.data.gridded_fetcher - INFO - Processed batch 201/439 for GLDAS-Historical
+2025-03-27 14:40:59,594 - src.data.gridded_fetcher - INFO - Processed batch 202/439 for GLDAS-Historical
+2025-03-27 14:41:18,933 - src.data.gridded_fetcher - INFO - Processed batch 203/439 for GLDAS-Historical
+2025-03-27 14:41:38,358 - src.data.gridded_fetcher - INFO - Processed batch 204/439 for GLDAS-Historical
+2025-03-27 14:41:57,183 - src.data.gridded_fetcher - INFO - Processed batch 205/439 for GLDAS-Historical
+2025-03-27 14:42:15,462 - src.data.gridded_fetcher - INFO - Processed batch 206/439 for GLDAS-Historical
+2025-03-27 14:42:34,253 - src.data.gridded_fetcher - INFO - Processed batch 207/439 for GLDAS-Historical
+2025-03-27 14:42:52,980 - src.data.gridded_fetcher - INFO - Processed batch 208/439 for GLDAS-Historical
+2025-03-27 14:43:11,687 - src.data.gridded_fetcher - INFO - Processed batch 209/439 for GLDAS-Historical
+2025-03-27 14:43:30,106 - src.data.gridded_fetcher - INFO - Processed batch 210/439 for GLDAS-Historical
+2025-03-27 14:43:48,858 - src.data.gridded_fetcher - INFO - Processed batch 211/439 for GLDAS-Historical
+2025-03-27 14:44:07,041 - src.data.gridded_fetcher - INFO - Processed batch 212/439 for GLDAS-Historical
+2025-03-27 14:44:25,677 - src.data.gridded_fetcher - INFO - Processed batch 213/439 for GLDAS-Historical
+2025-03-27 14:44:43,805 - src.data.gridded_fetcher - INFO - Processed batch 214/439 for GLDAS-Historical
+2025-03-27 14:45:01,837 - src.data.gridded_fetcher - INFO - Processed batch 215/439 for GLDAS-Historical
+2025-03-27 14:45:19,867 - src.data.gridded_fetcher - INFO - Processed batch 216/439 for GLDAS-Historical
+2025-03-27 14:45:39,535 - src.data.gridded_fetcher - INFO - Processed batch 217/439 for GLDAS-Historical
+2025-03-27 14:45:57,268 - src.data.gridded_fetcher - INFO - Processed batch 218/439 for GLDAS-Historical
+2025-03-27 14:46:16,083 - src.data.gridded_fetcher - INFO - Processed batch 219/439 for GLDAS-Historical
+2025-03-27 14:46:35,268 - src.data.gridded_fetcher - INFO - Processed batch 220/439 for GLDAS-Historical
+2025-03-27 14:47:01,117 - src.data.gridded_fetcher - INFO - Processed batch 221/439 for GLDAS-Historical
+2025-03-27 14:47:22,684 - src.data.gridded_fetcher - INFO - Processed batch 222/439 for GLDAS-Historical
+2025-03-27 14:47:42,718 - src.data.gridded_fetcher - INFO - Processed batch 223/439 for GLDAS-Historical
+2025-03-27 14:48:01,812 - src.data.gridded_fetcher - INFO - Processed batch 224/439 for GLDAS-Historical
+2025-03-27 14:48:20,803 - src.data.gridded_fetcher - INFO - Processed batch 225/439 for GLDAS-Historical
+2025-03-27 14:48:40,360 - src.data.gridded_fetcher - INFO - Processed batch 226/439 for GLDAS-Historical
+2025-03-27 14:48:59,677 - src.data.gridded_fetcher - INFO - Processed batch 227/439 for GLDAS-Historical
+2025-03-27 14:49:17,612 - src.data.gridded_fetcher - INFO - Processed batch 228/439 for GLDAS-Historical
+2025-03-27 14:49:37,315 - src.data.gridded_fetcher - INFO - Processed batch 229/439 for GLDAS-Historical
+2025-03-27 14:49:56,163 - src.data.gridded_fetcher - INFO - Processed batch 230/439 for GLDAS-Historical
+2025-03-27 14:50:16,365 - src.data.gridded_fetcher - INFO - Processed batch 231/439 for GLDAS-Historical
+2025-03-27 14:50:35,454 - src.data.gridded_fetcher - INFO - Processed batch 232/439 for GLDAS-Historical
+2025-03-27 14:50:55,071 - src.data.gridded_fetcher - INFO - Processed batch 233/439 for GLDAS-Historical
+2025-03-27 14:51:14,372 - src.data.gridded_fetcher - INFO - Processed batch 234/439 for GLDAS-Historical
+2025-03-27 14:51:33,924 - src.data.gridded_fetcher - INFO - Processed batch 235/439 for GLDAS-Historical
+2025-03-27 14:51:55,002 - src.data.gridded_fetcher - INFO - Processed batch 236/439 for GLDAS-Historical
+2025-03-27 14:52:14,536 - src.data.gridded_fetcher - INFO - Processed batch 237/439 for GLDAS-Historical
+2025-03-27 14:52:32,867 - src.data.gridded_fetcher - INFO - Processed batch 238/439 for GLDAS-Historical
+2025-03-27 14:52:52,258 - src.data.gridded_fetcher - INFO - Processed batch 239/439 for GLDAS-Historical
+2025-03-27 14:53:11,412 - src.data.gridded_fetcher - INFO - Processed batch 240/439 for GLDAS-Historical
+2025-03-27 14:53:30,315 - src.data.gridded_fetcher - INFO - Processed batch 241/439 for GLDAS-Historical
+2025-03-27 14:53:53,459 - src.data.gridded_fetcher - INFO - Processed batch 242/439 for GLDAS-Historical
+2025-03-27 14:54:12,798 - src.data.gridded_fetcher - INFO - Processed batch 243/439 for GLDAS-Historical
+2025-03-27 14:54:31,205 - src.data.gridded_fetcher - INFO - Processed batch 244/439 for GLDAS-Historical
+2025-03-27 14:54:49,285 - src.data.gridded_fetcher - INFO - Processed batch 245/439 for GLDAS-Historical
+2025-03-27 14:55:08,146 - src.data.gridded_fetcher - INFO - Processed batch 246/439 for GLDAS-Historical
+2025-03-27 14:55:31,907 - src.data.gridded_fetcher - INFO - Processed batch 247/439 for GLDAS-Historical
+2025-03-27 14:55:50,003 - src.data.gridded_fetcher - INFO - Processed batch 248/439 for GLDAS-Historical
+2025-03-27 14:56:10,097 - src.data.gridded_fetcher - INFO - Processed batch 249/439 for GLDAS-Historical
+2025-03-27 14:56:29,607 - src.data.gridded_fetcher - INFO - Processed batch 250/439 for GLDAS-Historical
+2025-03-27 14:56:48,804 - src.data.gridded_fetcher - INFO - Processed batch 251/439 for GLDAS-Historical
+2025-03-27 14:57:10,243 - src.data.gridded_fetcher - INFO - Processed batch 252/439 for GLDAS-Historical
+2025-03-27 14:57:29,535 - src.data.gridded_fetcher - INFO - Processed batch 253/439 for GLDAS-Historical
+2025-03-27 14:57:47,740 - src.data.gridded_fetcher - INFO - Processed batch 254/439 for GLDAS-Historical
+2025-03-27 14:58:23,009 - src.data.gridded_fetcher - INFO - Processed batch 255/439 for GLDAS-Historical
+2025-03-27 14:58:42,107 - src.data.gridded_fetcher - INFO - Processed batch 256/439 for GLDAS-Historical
+2025-03-27 14:59:00,466 - src.data.gridded_fetcher - INFO - Processed batch 257/439 for GLDAS-Historical
+2025-03-27 14:59:19,396 - src.data.gridded_fetcher - INFO - Processed batch 258/439 for GLDAS-Historical
+2025-03-27 14:59:37,740 - src.data.gridded_fetcher - INFO - Processed batch 259/439 for GLDAS-Historical
+2025-03-27 14:59:55,641 - src.data.gridded_fetcher - INFO - Processed batch 260/439 for GLDAS-Historical
+2025-03-27 15:00:14,113 - src.data.gridded_fetcher - INFO - Processed batch 261/439 for GLDAS-Historical
+2025-03-27 15:00:32,333 - src.data.gridded_fetcher - INFO - Processed batch 262/439 for GLDAS-Historical
+2025-03-27 15:00:51,192 - src.data.gridded_fetcher - INFO - Processed batch 263/439 for GLDAS-Historical
+2025-03-27 15:01:10,064 - src.data.gridded_fetcher - INFO - Processed batch 264/439 for GLDAS-Historical
+2025-03-27 15:01:28,330 - src.data.gridded_fetcher - INFO - Processed batch 265/439 for GLDAS-Historical
+2025-03-27 15:01:47,245 - src.data.gridded_fetcher - INFO - Processed batch 266/439 for GLDAS-Historical
+2025-03-27 15:02:05,945 - src.data.gridded_fetcher - INFO - Processed batch 267/439 for GLDAS-Historical
+2025-03-27 15:02:25,226 - src.data.gridded_fetcher - INFO - Processed batch 268/439 for GLDAS-Historical
+2025-03-27 15:02:43,479 - src.data.gridded_fetcher - INFO - Processed batch 269/439 for GLDAS-Historical
+2025-03-27 15:03:02,125 - src.data.gridded_fetcher - INFO - Processed batch 270/439 for GLDAS-Historical
+2025-03-27 15:03:20,027 - src.data.gridded_fetcher - INFO - Processed batch 271/439 for GLDAS-Historical
+2025-03-27 15:03:39,756 - src.data.gridded_fetcher - INFO - Processed batch 272/439 for GLDAS-Historical
+2025-03-27 15:03:58,559 - src.data.gridded_fetcher - INFO - Processed batch 273/439 for GLDAS-Historical
+2025-03-27 15:04:16,850 - src.data.gridded_fetcher - INFO - Processed batch 274/439 for GLDAS-Historical
+2025-03-27 15:04:34,433 - src.data.gridded_fetcher - INFO - Processed batch 275/439 for GLDAS-Historical
+2025-03-27 15:04:53,061 - src.data.gridded_fetcher - INFO - Processed batch 276/439 for GLDAS-Historical
+2025-03-27 15:05:11,431 - src.data.gridded_fetcher - INFO - Processed batch 277/439 for GLDAS-Historical
+2025-03-27 15:05:29,151 - src.data.gridded_fetcher - INFO - Processed batch 278/439 for GLDAS-Historical
+2025-03-27 15:05:47,526 - src.data.gridded_fetcher - INFO - Processed batch 279/439 for GLDAS-Historical
+2025-03-27 15:06:05,836 - src.data.gridded_fetcher - INFO - Processed batch 280/439 for GLDAS-Historical
+2025-03-27 15:06:25,631 - src.data.gridded_fetcher - INFO - Processed batch 281/439 for GLDAS-Historical
+2025-03-27 15:06:44,890 - src.data.gridded_fetcher - INFO - Processed batch 282/439 for GLDAS-Historical
+2025-03-27 15:07:04,113 - src.data.gridded_fetcher - INFO - Processed batch 283/439 for GLDAS-Historical
+2025-03-27 15:07:22,857 - src.data.gridded_fetcher - INFO - Processed batch 284/439 for GLDAS-Historical
+2025-03-27 15:07:40,516 - src.data.gridded_fetcher - INFO - Processed batch 285/439 for GLDAS-Historical
+2025-03-27 15:07:57,914 - src.data.gridded_fetcher - INFO - Processed batch 286/439 for GLDAS-Historical
+2025-03-27 15:08:16,032 - src.data.gridded_fetcher - INFO - Processed batch 287/439 for GLDAS-Historical
+2025-03-27 15:08:34,797 - src.data.gridded_fetcher - INFO - Processed batch 288/439 for GLDAS-Historical
+2025-03-27 15:09:07,660 - src.data.gridded_fetcher - INFO - Processed batch 289/439 for GLDAS-Historical
+2025-03-27 15:09:25,665 - src.data.gridded_fetcher - INFO - Processed batch 290/439 for GLDAS-Historical
+2025-03-27 15:09:43,314 - src.data.gridded_fetcher - INFO - Processed batch 291/439 for GLDAS-Historical
+2025-03-27 15:10:01,395 - src.data.gridded_fetcher - INFO - Processed batch 292/439 for GLDAS-Historical
+2025-03-27 15:10:21,255 - src.data.gridded_fetcher - INFO - Processed batch 293/439 for GLDAS-Historical
+2025-03-27 15:10:51,487 - src.data.gridded_fetcher - INFO - Processed batch 294/439 for GLDAS-Historical
+2025-03-27 15:11:11,865 - src.data.gridded_fetcher - INFO - Processed batch 295/439 for GLDAS-Historical
+2025-03-27 15:11:29,870 - src.data.gridded_fetcher - INFO - Processed batch 296/439 for GLDAS-Historical
+2025-03-27 15:11:48,220 - src.data.gridded_fetcher - INFO - Processed batch 297/439 for GLDAS-Historical
+2025-03-27 15:12:07,272 - src.data.gridded_fetcher - INFO - Processed batch 298/439 for GLDAS-Historical
+2025-03-27 15:12:25,829 - src.data.gridded_fetcher - INFO - Processed batch 299/439 for GLDAS-Historical
+2025-03-27 15:12:44,154 - src.data.gridded_fetcher - INFO - Processed batch 300/439 for GLDAS-Historical
+2025-03-27 15:13:01,952 - src.data.gridded_fetcher - INFO - Processed batch 301/439 for GLDAS-Historical
+2025-03-27 15:13:19,201 - src.data.gridded_fetcher - INFO - Processed batch 302/439 for GLDAS-Historical
+2025-03-27 15:13:37,483 - src.data.gridded_fetcher - INFO - Processed batch 303/439 for GLDAS-Historical
+2025-03-27 15:13:55,522 - src.data.gridded_fetcher - INFO - Processed batch 304/439 for GLDAS-Historical
+2025-03-27 15:14:15,213 - src.data.gridded_fetcher - INFO - Processed batch 305/439 for GLDAS-Historical
+2025-03-27 15:14:33,413 - src.data.gridded_fetcher - INFO - Processed batch 306/439 for GLDAS-Historical
+2025-03-27 15:14:54,068 - src.data.gridded_fetcher - INFO - Processed batch 307/439 for GLDAS-Historical
+2025-03-27 15:15:12,698 - src.data.gridded_fetcher - INFO - Processed batch 308/439 for GLDAS-Historical
+2025-03-27 15:15:32,706 - src.data.gridded_fetcher - INFO - Processed batch 309/439 for GLDAS-Historical
+2025-03-27 15:15:51,931 - src.data.gridded_fetcher - INFO - Processed batch 310/439 for GLDAS-Historical
+2025-03-27 15:16:10,558 - src.data.gridded_fetcher - INFO - Processed batch 311/439 for GLDAS-Historical
+2025-03-27 15:16:29,934 - src.data.gridded_fetcher - INFO - Processed batch 312/439 for GLDAS-Historical
+2025-03-27 15:16:49,208 - src.data.gridded_fetcher - INFO - Processed batch 313/439 for GLDAS-Historical
+2025-03-27 15:17:08,543 - src.data.gridded_fetcher - INFO - Processed batch 314/439 for GLDAS-Historical
+2025-03-27 15:17:27,171 - src.data.gridded_fetcher - INFO - Processed batch 315/439 for GLDAS-Historical
+2025-03-27 15:17:44,374 - src.data.gridded_fetcher - INFO - Processed batch 316/439 for GLDAS-Historical
+2025-03-27 15:18:03,291 - src.data.gridded_fetcher - INFO - Processed batch 317/439 for GLDAS-Historical
+2025-03-27 15:18:23,052 - src.data.gridded_fetcher - INFO - Processed batch 318/439 for GLDAS-Historical
+2025-03-27 15:18:42,335 - src.data.gridded_fetcher - INFO - Processed batch 319/439 for GLDAS-Historical
+2025-03-27 15:19:01,064 - src.data.gridded_fetcher - INFO - Processed batch 320/439 for GLDAS-Historical
+2025-03-27 15:19:18,895 - src.data.gridded_fetcher - INFO - Processed batch 321/439 for GLDAS-Historical
+2025-03-27 15:19:37,119 - src.data.gridded_fetcher - INFO - Processed batch 322/439 for GLDAS-Historical
+2025-03-27 15:19:57,209 - src.data.gridded_fetcher - INFO - Processed batch 323/439 for GLDAS-Historical
+2025-03-27 15:20:15,406 - src.data.gridded_fetcher - INFO - Processed batch 324/439 for GLDAS-Historical
+2025-03-27 15:20:34,354 - src.data.gridded_fetcher - INFO - Processed batch 325/439 for GLDAS-Historical
+2025-03-27 15:20:53,011 - src.data.gridded_fetcher - INFO - Processed batch 326/439 for GLDAS-Historical
+2025-03-27 15:21:11,844 - src.data.gridded_fetcher - INFO - Processed batch 327/439 for GLDAS-Historical
+2025-03-27 15:21:29,850 - src.data.gridded_fetcher - INFO - Processed batch 328/439 for GLDAS-Historical
+2025-03-27 15:21:48,991 - src.data.gridded_fetcher - INFO - Processed batch 329/439 for GLDAS-Historical
+2025-03-27 15:22:08,089 - src.data.gridded_fetcher - INFO - Processed batch 330/439 for GLDAS-Historical
+2025-03-27 15:22:27,212 - src.data.gridded_fetcher - INFO - Processed batch 331/439 for GLDAS-Historical
+2025-03-27 15:22:45,320 - src.data.gridded_fetcher - INFO - Processed batch 332/439 for GLDAS-Historical
+2025-03-27 15:23:04,272 - src.data.gridded_fetcher - INFO - Processed batch 333/439 for GLDAS-Historical
+2025-03-27 15:23:22,249 - src.data.gridded_fetcher - INFO - Processed batch 334/439 for GLDAS-Historical
+2025-03-27 15:23:40,593 - src.data.gridded_fetcher - INFO - Processed batch 335/439 for GLDAS-Historical
+2025-03-27 15:23:59,585 - src.data.gridded_fetcher - INFO - Processed batch 336/439 for GLDAS-Historical
+2025-03-27 15:24:18,242 - src.data.gridded_fetcher - INFO - Processed batch 337/439 for GLDAS-Historical
+2025-03-27 15:24:35,672 - src.data.gridded_fetcher - INFO - Processed batch 338/439 for GLDAS-Historical
+2025-03-27 15:24:53,561 - src.data.gridded_fetcher - INFO - Processed batch 339/439 for GLDAS-Historical
+2025-03-27 15:25:11,598 - src.data.gridded_fetcher - INFO - Processed batch 340/439 for GLDAS-Historical
+2025-03-27 15:25:30,582 - src.data.gridded_fetcher - INFO - Processed batch 341/439 for GLDAS-Historical
+2025-03-27 15:25:51,327 - src.data.gridded_fetcher - INFO - Processed batch 342/439 for GLDAS-Historical
+2025-03-27 15:26:12,907 - src.data.gridded_fetcher - INFO - Processed batch 343/439 for GLDAS-Historical
+2025-03-27 15:26:30,342 - src.data.gridded_fetcher - INFO - Processed batch 344/439 for GLDAS-Historical
+2025-03-27 15:26:51,403 - src.data.gridded_fetcher - INFO - Processed batch 345/439 for GLDAS-Historical
+2025-03-27 15:27:10,753 - src.data.gridded_fetcher - INFO - Processed batch 346/439 for GLDAS-Historical
+2025-03-27 15:27:30,409 - src.data.gridded_fetcher - INFO - Processed batch 347/439 for GLDAS-Historical
+2025-03-27 15:31:26,098 - googleapiclient.http - WARNING - Sleeping 1.07 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-27 15:31:43,627 - src.data.gridded_fetcher - INFO - Processed batch 348/439 for GLDAS-Historical
+2025-03-27 15:32:05,482 - src.data.gridded_fetcher - INFO - Processed batch 349/439 for GLDAS-Historical
+2025-03-27 15:32:28,597 - src.data.gridded_fetcher - INFO - Processed batch 350/439 for GLDAS-Historical
+2025-03-27 15:32:58,646 - src.data.gridded_fetcher - INFO - Processed batch 351/439 for GLDAS-Historical
+2025-03-27 15:33:23,439 - src.data.gridded_fetcher - INFO - Processed batch 352/439 for GLDAS-Historical
+2025-03-27 15:34:36,455 - src.data.gridded_fetcher - INFO - Processed batch 353/439 for GLDAS-Historical
+2025-03-27 15:34:56,791 - src.data.gridded_fetcher - INFO - Processed batch 354/439 for GLDAS-Historical
+2025-03-27 15:35:18,334 - src.data.gridded_fetcher - INFO - Processed batch 355/439 for GLDAS-Historical
+2025-03-27 15:35:37,814 - src.data.gridded_fetcher - INFO - Processed batch 356/439 for GLDAS-Historical
+2025-03-27 15:36:01,397 - src.data.gridded_fetcher - INFO - Processed batch 357/439 for GLDAS-Historical
+2025-03-27 15:39:50,503 - googleapiclient.http - WARNING - Sleeping 1.98 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-27 15:40:08,652 - src.data.gridded_fetcher - INFO - Processed batch 358/439 for GLDAS-Historical
+2025-03-27 15:40:33,609 - src.data.gridded_fetcher - INFO - Processed batch 359/439 for GLDAS-Historical
+2025-03-27 15:40:53,049 - src.data.gridded_fetcher - INFO - Processed batch 360/439 for GLDAS-Historical
+2025-03-27 15:43:39,891 - src.data.gridded_fetcher - INFO - Processed batch 361/439 for GLDAS-Historical
+2025-03-27 15:43:58,750 - src.data.gridded_fetcher - INFO - Processed batch 362/439 for GLDAS-Historical
+2025-03-27 15:44:28,379 - src.data.gridded_fetcher - INFO - Processed batch 363/439 for GLDAS-Historical
+2025-03-27 15:44:50,349 - src.data.gridded_fetcher - INFO - Processed batch 364/439 for GLDAS-Historical
+2025-03-27 15:45:09,474 - src.data.gridded_fetcher - INFO - Processed batch 365/439 for GLDAS-Historical
+2025-03-27 15:45:32,404 - src.data.gridded_fetcher - INFO - Processed batch 366/439 for GLDAS-Historical
+2025-03-27 15:45:51,832 - src.data.gridded_fetcher - INFO - Processed batch 367/439 for GLDAS-Historical
+2025-03-27 15:46:09,604 - src.data.gridded_fetcher - INFO - Processed batch 368/439 for GLDAS-Historical
+2025-03-27 15:46:38,076 - src.data.gridded_fetcher - INFO - Processed batch 369/439 for GLDAS-Historical
+2025-03-27 15:46:56,769 - src.data.gridded_fetcher - INFO - Processed batch 370/439 for GLDAS-Historical
+2025-03-27 15:47:14,572 - src.data.gridded_fetcher - INFO - Processed batch 371/439 for GLDAS-Historical
+2025-03-27 15:47:32,474 - src.data.gridded_fetcher - INFO - Processed batch 372/439 for GLDAS-Historical
+2025-03-27 15:47:50,368 - src.data.gridded_fetcher - INFO - Processed batch 373/439 for GLDAS-Historical
+2025-03-27 15:48:12,000 - src.data.gridded_fetcher - INFO - Processed batch 374/439 for GLDAS-Historical
+2025-03-27 15:50:36,274 - src.data.gridded_fetcher - INFO - Processed batch 375/439 for GLDAS-Historical
+2025-03-27 15:52:34,239 - googleapiclient.http - WARNING - Sleeping 0.43 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-27 15:53:02,093 - src.data.gridded_fetcher - INFO - Processed batch 376/439 for GLDAS-Historical
+2025-03-27 15:53:26,104 - src.data.gridded_fetcher - INFO - Processed batch 377/439 for GLDAS-Historical
+2025-03-27 15:53:48,830 - src.data.gridded_fetcher - INFO - Processed batch 378/439 for GLDAS-Historical
+2025-03-27 15:54:10,398 - src.data.gridded_fetcher - INFO - Processed batch 379/439 for GLDAS-Historical
+2025-03-27 15:54:31,307 - src.data.gridded_fetcher - INFO - Processed batch 380/439 for GLDAS-Historical
+2025-03-27 15:54:52,215 - src.data.gridded_fetcher - INFO - Processed batch 381/439 for GLDAS-Historical
+2025-03-27 15:55:11,336 - src.data.gridded_fetcher - INFO - Processed batch 382/439 for GLDAS-Historical
+2025-03-27 15:55:31,461 - src.data.gridded_fetcher - INFO - Processed batch 383/439 for GLDAS-Historical
+2025-03-27 15:55:51,755 - src.data.gridded_fetcher - INFO - Processed batch 384/439 for GLDAS-Historical
+2025-03-27 15:56:12,863 - src.data.gridded_fetcher - INFO - Processed batch 385/439 for GLDAS-Historical
+2025-03-27 15:56:34,277 - src.data.gridded_fetcher - INFO - Processed batch 386/439 for GLDAS-Historical
+2025-03-27 15:57:08,301 - src.data.gridded_fetcher - INFO - Processed batch 387/439 for GLDAS-Historical
+2025-03-27 15:57:28,326 - src.data.gridded_fetcher - INFO - Processed batch 388/439 for GLDAS-Historical
+2025-03-27 15:57:50,250 - src.data.gridded_fetcher - INFO - Processed batch 389/439 for GLDAS-Historical
+2025-03-27 15:58:13,090 - src.data.gridded_fetcher - INFO - Processed batch 390/439 for GLDAS-Historical
+2025-03-27 15:58:32,924 - src.data.gridded_fetcher - INFO - Processed batch 391/439 for GLDAS-Historical
+2025-03-27 15:58:57,639 - src.data.gridded_fetcher - INFO - Processed batch 392/439 for GLDAS-Historical
+2025-03-27 15:59:20,691 - src.data.gridded_fetcher - INFO - Processed batch 393/439 for GLDAS-Historical
+2025-03-27 15:59:40,200 - src.data.gridded_fetcher - INFO - Processed batch 394/439 for GLDAS-Historical
+2025-03-27 16:01:43,787 - src.data.gridded_fetcher - INFO - Processed batch 395/439 for GLDAS-Historical
+2025-03-27 16:02:06,097 - src.data.gridded_fetcher - INFO - Processed batch 396/439 for GLDAS-Historical
+2025-03-27 16:02:28,016 - src.data.gridded_fetcher - INFO - Processed batch 397/439 for GLDAS-Historical
+2025-03-27 16:02:48,817 - src.data.gridded_fetcher - INFO - Processed batch 398/439 for GLDAS-Historical
+2025-03-27 16:03:09,881 - src.data.gridded_fetcher - INFO - Processed batch 399/439 for GLDAS-Historical
+2025-03-27 16:03:30,214 - src.data.gridded_fetcher - INFO - Processed batch 400/439 for GLDAS-Historical
+2025-03-27 16:03:50,637 - src.data.gridded_fetcher - INFO - Processed batch 401/439 for GLDAS-Historical
+2025-03-27 16:04:10,913 - src.data.gridded_fetcher - INFO - Processed batch 402/439 for GLDAS-Historical
+2025-03-27 16:04:31,740 - src.data.gridded_fetcher - INFO - Processed batch 403/439 for GLDAS-Historical
+2025-03-27 16:04:52,716 - src.data.gridded_fetcher - INFO - Processed batch 404/439 for GLDAS-Historical
+2025-03-27 16:05:14,587 - src.data.gridded_fetcher - INFO - Processed batch 405/439 for GLDAS-Historical
+2025-03-27 16:05:35,079 - src.data.gridded_fetcher - INFO - Processed batch 406/439 for GLDAS-Historical
+2025-03-27 16:05:55,142 - src.data.gridded_fetcher - INFO - Processed batch 407/439 for GLDAS-Historical
+2025-03-27 16:06:15,075 - src.data.gridded_fetcher - INFO - Processed batch 408/439 for GLDAS-Historical
+2025-03-27 16:06:35,298 - src.data.gridded_fetcher - INFO - Processed batch 409/439 for GLDAS-Historical
+2025-03-27 16:06:56,227 - src.data.gridded_fetcher - INFO - Processed batch 410/439 for GLDAS-Historical
+2025-03-27 16:07:16,746 - src.data.gridded_fetcher - INFO - Processed batch 411/439 for GLDAS-Historical
+2025-03-27 16:07:37,204 - src.data.gridded_fetcher - INFO - Processed batch 412/439 for GLDAS-Historical
+2025-03-27 16:07:58,035 - src.data.gridded_fetcher - INFO - Processed batch 413/439 for GLDAS-Historical
+2025-03-27 16:08:18,398 - src.data.gridded_fetcher - INFO - Processed batch 414/439 for GLDAS-Historical
+2025-03-27 16:08:40,877 - src.data.gridded_fetcher - INFO - Processed batch 415/439 for GLDAS-Historical
+2025-03-27 16:09:01,794 - src.data.gridded_fetcher - INFO - Processed batch 416/439 for GLDAS-Historical
+2025-03-27 16:09:21,469 - src.data.gridded_fetcher - INFO - Processed batch 417/439 for GLDAS-Historical
+2025-03-27 16:09:43,051 - src.data.gridded_fetcher - INFO - Processed batch 418/439 for GLDAS-Historical
+2025-03-27 16:10:03,670 - src.data.gridded_fetcher - INFO - Processed batch 419/439 for GLDAS-Historical
+2025-03-27 16:10:24,698 - src.data.gridded_fetcher - INFO - Processed batch 420/439 for GLDAS-Historical
+2025-03-27 16:13:20,105 - googleapiclient.http - WARNING - Sleeping 0.05 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-27 16:13:20,926 - src.data.gridded_fetcher - INFO - Processed batch 421/439 for GLDAS-Historical
+2025-03-27 16:13:47,255 - src.data.gridded_fetcher - INFO - Processed batch 422/439 for GLDAS-Historical
+2025-03-27 16:14:08,151 - src.data.gridded_fetcher - INFO - Processed batch 423/439 for GLDAS-Historical
+2025-03-27 16:14:27,905 - src.data.gridded_fetcher - INFO - Processed batch 424/439 for GLDAS-Historical
+2025-03-27 16:14:48,283 - src.data.gridded_fetcher - INFO - Processed batch 425/439 for GLDAS-Historical
+2025-03-27 16:15:11,889 - src.data.gridded_fetcher - INFO - Processed batch 426/439 for GLDAS-Historical
+2025-03-27 16:15:32,703 - src.data.gridded_fetcher - INFO - Processed batch 427/439 for GLDAS-Historical
+2025-03-27 16:15:51,912 - src.data.gridded_fetcher - INFO - Processed batch 428/439 for GLDAS-Historical
+2025-03-27 16:16:12,124 - src.data.gridded_fetcher - INFO - Processed batch 429/439 for GLDAS-Historical
+2025-03-27 16:16:31,551 - src.data.gridded_fetcher - INFO - Processed batch 430/439 for GLDAS-Historical
+2025-03-27 16:16:52,085 - src.data.gridded_fetcher - INFO - Processed batch 431/439 for GLDAS-Historical
+2025-03-27 16:17:14,389 - src.data.gridded_fetcher - INFO - Processed batch 432/439 for GLDAS-Historical
+2025-03-27 16:17:35,387 - src.data.gridded_fetcher - INFO - Processed batch 433/439 for GLDAS-Historical
+2025-03-27 16:17:54,483 - src.data.gridded_fetcher - INFO - Processed batch 434/439 for GLDAS-Historical
+2025-03-27 16:18:14,421 - src.data.gridded_fetcher - INFO - Processed batch 435/439 for GLDAS-Historical
+2025-03-27 16:18:34,485 - src.data.gridded_fetcher - INFO - Processed batch 436/439 for GLDAS-Historical
+2025-03-27 16:18:53,915 - src.data.gridded_fetcher - INFO - Processed batch 437/439 for GLDAS-Historical
+2025-03-27 16:19:14,157 - src.data.gridded_fetcher - INFO - Processed batch 438/439 for GLDAS-Historical
+2025-03-27 16:19:21,075 - src.data.gridded_fetcher - INFO - Processed batch 439/439 for GLDAS-Historical
+2025-03-27 16:19:21,103 - src.data.gridded_fetcher - INFO - Fetching GLDAS-Current data...
+2025-03-27 16:19:21,105 - src.data.gridded_fetcher - INFO - Fetching GLDAS-Current data from 2000-01-01 to 2024-12-31
+2025-03-27 16:19:21,118 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-03-27 16:19:44,920 - src.data.gridded_fetcher - INFO - Processed batch 1/731 for GLDAS-Current
+2025-03-27 16:20:04,918 - src.data.gridded_fetcher - INFO - Processed batch 2/731 for GLDAS-Current
+2025-03-27 16:20:25,057 - src.data.gridded_fetcher - INFO - Processed batch 3/731 for GLDAS-Current
+2025-03-27 16:20:45,244 - src.data.gridded_fetcher - INFO - Processed batch 4/731 for GLDAS-Current
+2025-03-27 16:21:05,054 - src.data.gridded_fetcher - INFO - Processed batch 5/731 for GLDAS-Current
+2025-03-27 16:21:23,814 - src.data.gridded_fetcher - INFO - Processed batch 6/731 for GLDAS-Current
+2025-03-27 16:21:42,699 - src.data.gridded_fetcher - INFO - Processed batch 7/731 for GLDAS-Current
+2025-03-27 16:22:01,981 - src.data.gridded_fetcher - INFO - Processed batch 8/731 for GLDAS-Current
+2025-03-27 16:22:21,965 - src.data.gridded_fetcher - INFO - Processed batch 9/731 for GLDAS-Current
+2025-03-27 16:22:41,095 - src.data.gridded_fetcher - INFO - Processed batch 10/731 for GLDAS-Current
+2025-03-27 16:23:01,555 - src.data.gridded_fetcher - INFO - Processed batch 11/731 for GLDAS-Current
+2025-03-27 16:23:22,019 - src.data.gridded_fetcher - INFO - Processed batch 12/731 for GLDAS-Current
+2025-03-27 16:23:42,539 - src.data.gridded_fetcher - INFO - Processed batch 13/731 for GLDAS-Current
+2025-03-27 16:24:02,465 - src.data.gridded_fetcher - INFO - Processed batch 14/731 for GLDAS-Current
+2025-03-27 16:24:21,520 - src.data.gridded_fetcher - INFO - Processed batch 15/731 for GLDAS-Current
+2025-03-27 16:24:40,379 - src.data.gridded_fetcher - INFO - Processed batch 16/731 for GLDAS-Current
+2025-03-27 16:28:22,748 - googleapiclient.http - WARNING - Sleeping 1.25 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-27 16:28:38,585 - src.data.gridded_fetcher - INFO - Processed batch 17/731 for GLDAS-Current
+2025-03-27 16:28:59,571 - src.data.gridded_fetcher - INFO - Processed batch 18/731 for GLDAS-Current
+2025-03-27 16:29:19,322 - src.data.gridded_fetcher - INFO - Processed batch 19/731 for GLDAS-Current
+2025-03-27 16:29:39,555 - src.data.gridded_fetcher - INFO - Processed batch 20/731 for GLDAS-Current
+2025-03-27 16:29:59,920 - src.data.gridded_fetcher - INFO - Processed batch 21/731 for GLDAS-Current
+2025-03-27 16:30:19,384 - src.data.gridded_fetcher - INFO - Processed batch 22/731 for GLDAS-Current
+2025-03-27 16:30:38,798 - src.data.gridded_fetcher - INFO - Processed batch 23/731 for GLDAS-Current
+2025-03-27 16:30:59,432 - src.data.gridded_fetcher - INFO - Processed batch 24/731 for GLDAS-Current
+2025-03-27 16:31:19,913 - src.data.gridded_fetcher - INFO - Processed batch 25/731 for GLDAS-Current
+2025-03-27 16:31:51,543 - src.data.gridded_fetcher - INFO - Processed batch 26/731 for GLDAS-Current
+2025-03-27 16:32:10,502 - src.data.gridded_fetcher - INFO - Processed batch 27/731 for GLDAS-Current
+2025-03-27 16:32:29,594 - src.data.gridded_fetcher - INFO - Processed batch 28/731 for GLDAS-Current
+2025-03-27 16:32:48,515 - src.data.gridded_fetcher - INFO - Processed batch 29/731 for GLDAS-Current
+2025-03-27 16:33:07,962 - src.data.gridded_fetcher - INFO - Processed batch 30/731 for GLDAS-Current
+2025-03-27 16:34:00,038 - src.data.gridded_fetcher - INFO - Processed batch 31/731 for GLDAS-Current
+2025-03-27 16:34:39,940 - src.data.gridded_fetcher - INFO - Processed batch 32/731 for GLDAS-Current
+2025-03-27 16:35:02,900 - src.data.gridded_fetcher - INFO - Processed batch 33/731 for GLDAS-Current
+2025-03-27 16:35:22,574 - src.data.gridded_fetcher - INFO - Processed batch 34/731 for GLDAS-Current
+2025-03-27 16:35:44,260 - src.data.gridded_fetcher - INFO - Processed batch 35/731 for GLDAS-Current
+2025-03-27 16:36:04,029 - src.data.gridded_fetcher - INFO - Processed batch 36/731 for GLDAS-Current
+2025-03-27 16:37:01,255 - src.data.gridded_fetcher - INFO - Processed batch 37/731 for GLDAS-Current
+2025-03-27 16:37:20,012 - src.data.gridded_fetcher - INFO - Processed batch 38/731 for GLDAS-Current
+2025-03-27 16:41:01,865 - googleapiclient.http - WARNING - Sleeping 0.02 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-27 16:41:23,342 - src.data.gridded_fetcher - INFO - Processed batch 39/731 for GLDAS-Current
+2025-03-27 16:41:43,781 - src.data.gridded_fetcher - INFO - Processed batch 40/731 for GLDAS-Current
+2025-03-27 16:42:02,370 - src.data.gridded_fetcher - INFO - Processed batch 41/731 for GLDAS-Current
+2025-03-27 16:42:21,422 - src.data.gridded_fetcher - INFO - Processed batch 42/731 for GLDAS-Current
+2025-03-27 16:42:40,395 - src.data.gridded_fetcher - INFO - Processed batch 43/731 for GLDAS-Current
+2025-03-27 16:43:00,983 - src.data.gridded_fetcher - INFO - Processed batch 44/731 for GLDAS-Current
+2025-03-27 16:43:20,473 - src.data.gridded_fetcher - INFO - Processed batch 45/731 for GLDAS-Current
+2025-03-27 16:43:39,441 - src.data.gridded_fetcher - INFO - Processed batch 46/731 for GLDAS-Current
+2025-03-27 16:43:57,807 - src.data.gridded_fetcher - INFO - Processed batch 47/731 for GLDAS-Current
+2025-03-27 16:44:16,628 - src.data.gridded_fetcher - INFO - Processed batch 48/731 for GLDAS-Current
+2025-03-27 16:44:35,539 - src.data.gridded_fetcher - INFO - Processed batch 49/731 for GLDAS-Current
+2025-03-27 16:44:54,186 - src.data.gridded_fetcher - INFO - Processed batch 50/731 for GLDAS-Current
+2025-03-27 16:45:13,144 - src.data.gridded_fetcher - INFO - Processed batch 51/731 for GLDAS-Current
+2025-03-27 16:45:31,452 - src.data.gridded_fetcher - INFO - Processed batch 52/731 for GLDAS-Current
+2025-03-27 16:45:50,226 - src.data.gridded_fetcher - INFO - Processed batch 53/731 for GLDAS-Current
+2025-03-27 16:46:10,053 - src.data.gridded_fetcher - INFO - Processed batch 54/731 for GLDAS-Current
+2025-03-27 16:46:30,213 - src.data.gridded_fetcher - INFO - Processed batch 55/731 for GLDAS-Current
+2025-03-27 16:46:51,671 - src.data.gridded_fetcher - INFO - Processed batch 56/731 for GLDAS-Current
+2025-03-27 16:47:12,401 - src.data.gridded_fetcher - INFO - Processed batch 57/731 for GLDAS-Current
+2025-03-27 16:50:49,076 - googleapiclient.http - WARNING - Sleeping 1.65 seconds before retry 1 of 5 for request: POST https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json, after 502
+2025-03-27 16:51:09,079 - src.data.gridded_fetcher - INFO - Processed batch 58/731 for GLDAS-Current
+2025-03-27 16:51:31,435 - src.data.gridded_fetcher - INFO - Processed batch 59/731 for GLDAS-Current
+2025-03-27 16:51:52,447 - src.data.gridded_fetcher - INFO - Processed batch 60/731 for GLDAS-Current
+2025-03-27 16:52:14,173 - src.data.gridded_fetcher - INFO - Processed batch 61/731 for GLDAS-Current
+2025-03-27 16:52:33,693 - src.data.gridded_fetcher - INFO - Processed batch 62/731 for GLDAS-Current
+2025-03-27 16:52:57,209 - src.data.gridded_fetcher - INFO - Processed batch 63/731 for GLDAS-Current
+2025-03-27 16:53:16,676 - src.data.gridded_fetcher - INFO - Processed batch 64/731 for GLDAS-Current
+2025-03-27 16:53:35,371 - src.data.gridded_fetcher - INFO - Processed batch 65/731 for GLDAS-Current
+2025-03-27 16:53:54,330 - src.data.gridded_fetcher - INFO - Processed batch 66/731 for GLDAS-Current
+2025-03-27 16:54:12,044 - src.data.gridded_fetcher - INFO - Processed batch 67/731 for GLDAS-Current
+2025-03-27 16:54:29,602 - src.data.gridded_fetcher - INFO - Processed batch 68/731 for GLDAS-Current
+2025-03-27 16:54:47,428 - src.data.gridded_fetcher - INFO - Processed batch 69/731 for GLDAS-Current
+2025-03-27 16:55:04,470 - src.data.gridded_fetcher - INFO - Processed batch 70/731 for GLDAS-Current
+2025-03-27 16:55:21,191 - src.data.gridded_fetcher - INFO - Processed batch 71/731 for GLDAS-Current
+2025-03-27 16:55:38,492 - src.data.gridded_fetcher - INFO - Processed batch 72/731 for GLDAS-Current
+2025-03-27 16:55:54,791 - src.data.gridded_fetcher - INFO - Processed batch 73/731 for GLDAS-Current
+2025-03-27 16:56:12,074 - src.data.gridded_fetcher - INFO - Processed batch 74/731 for GLDAS-Current
+2025-03-27 16:56:30,635 - src.data.gridded_fetcher - INFO - Processed batch 75/731 for GLDAS-Current
+2025-03-27 16:56:48,637 - src.data.gridded_fetcher - INFO - Processed batch 76/731 for GLDAS-Current
+2025-03-27 16:57:05,960 - src.data.gridded_fetcher - INFO - Processed batch 77/731 for GLDAS-Current
+2025-03-27 16:57:23,432 - src.data.gridded_fetcher - INFO - Processed batch 78/731 for GLDAS-Current
+2025-03-27 16:57:40,677 - src.data.gridded_fetcher - INFO - Processed batch 79/731 for GLDAS-Current
+2025-03-27 16:57:57,722 - src.data.gridded_fetcher - INFO - Processed batch 80/731 for GLDAS-Current
+2025-03-27 16:58:14,937 - src.data.gridded_fetcher - INFO - Processed batch 81/731 for GLDAS-Current
+2025-03-27 16:58:32,805 - src.data.gridded_fetcher - INFO - Processed batch 82/731 for GLDAS-Current
+2025-03-27 16:58:51,303 - src.data.gridded_fetcher - INFO - Processed batch 83/731 for GLDAS-Current
+2025-03-27 16:59:09,131 - src.data.gridded_fetcher - INFO - Processed batch 84/731 for GLDAS-Current
+2025-03-27 16:59:26,653 - src.data.gridded_fetcher - INFO - Processed batch 85/731 for GLDAS-Current
+2025-03-27 16:59:44,278 - src.data.gridded_fetcher - INFO - Processed batch 86/731 for GLDAS-Current
+2025-03-27 17:00:01,734 - src.data.gridded_fetcher - INFO - Processed batch 87/731 for GLDAS-Current
+2025-03-27 17:00:21,712 - src.data.gridded_fetcher - INFO - Processed batch 88/731 for GLDAS-Current
+2025-03-27 17:00:39,510 - src.data.gridded_fetcher - INFO - Processed batch 89/731 for GLDAS-Current
+2025-03-27 17:00:57,211 - src.data.gridded_fetcher - INFO - Processed batch 90/731 for GLDAS-Current
+2025-03-27 17:01:15,858 - src.data.gridded_fetcher - INFO - Processed batch 91/731 for GLDAS-Current
+2025-03-27 17:01:33,812 - src.data.gridded_fetcher - INFO - Processed batch 92/731 for GLDAS-Current
+2025-03-27 17:01:52,200 - src.data.gridded_fetcher - INFO - Processed batch 93/731 for GLDAS-Current
+2025-03-27 17:02:10,638 - src.data.gridded_fetcher - INFO - Processed batch 94/731 for GLDAS-Current
+2025-03-27 17:02:28,570 - src.data.gridded_fetcher - INFO - Processed batch 95/731 for GLDAS-Current
+2025-03-27 17:02:47,250 - src.data.gridded_fetcher - INFO - Processed batch 96/731 for GLDAS-Current
+2025-03-27 17:03:06,278 - src.data.gridded_fetcher - INFO - Processed batch 97/731 for GLDAS-Current
+2025-03-27 17:03:24,504 - src.data.gridded_fetcher - INFO - Processed batch 98/731 for GLDAS-Current
+2025-03-27 17:03:43,149 - src.data.gridded_fetcher - INFO - Processed batch 99/731 for GLDAS-Current
+2025-03-27 17:04:00,755 - src.data.gridded_fetcher - INFO - Processed batch 100/731 for GLDAS-Current
+2025-03-27 17:04:19,229 - src.data.gridded_fetcher - INFO - Processed batch 101/731 for GLDAS-Current
+2025-03-27 17:04:37,203 - src.data.gridded_fetcher - INFO - Processed batch 102/731 for GLDAS-Current
+2025-03-27 17:04:54,278 - src.data.gridded_fetcher - INFO - Processed batch 103/731 for GLDAS-Current
+2025-03-27 17:05:11,702 - src.data.gridded_fetcher - INFO - Processed batch 104/731 for GLDAS-Current
+2025-03-27 17:05:30,040 - src.data.gridded_fetcher - INFO - Processed batch 105/731 for GLDAS-Current
+2025-03-27 17:05:48,077 - src.data.gridded_fetcher - INFO - Processed batch 106/731 for GLDAS-Current
+2025-03-27 17:06:05,422 - src.data.gridded_fetcher - INFO - Processed batch 107/731 for GLDAS-Current
+2025-03-27 17:06:23,457 - src.data.gridded_fetcher - INFO - Processed batch 108/731 for GLDAS-Current
+2025-03-27 17:06:46,915 - src.data.gridded_fetcher - INFO - Processed batch 109/731 for GLDAS-Current
+2025-03-27 17:07:05,312 - src.data.gridded_fetcher - INFO - Processed batch 110/731 for GLDAS-Current
+2025-03-27 17:07:22,936 - src.data.gridded_fetcher - INFO - Processed batch 111/731 for GLDAS-Current
+2025-03-27 17:07:43,207 - src.data.gridded_fetcher - INFO - Processed batch 112/731 for GLDAS-Current
+2025-03-27 17:08:01,254 - src.data.gridded_fetcher - INFO - Processed batch 113/731 for GLDAS-Current
+2025-03-27 17:08:20,256 - src.data.gridded_fetcher - INFO - Processed batch 114/731 for GLDAS-Current
+2025-03-27 17:08:37,415 - src.data.gridded_fetcher - INFO - Processed batch 115/731 for GLDAS-Current
+2025-03-27 17:08:55,443 - src.data.gridded_fetcher - INFO - Processed batch 116/731 for GLDAS-Current
+2025-03-27 17:09:13,428 - src.data.gridded_fetcher - INFO - Processed batch 117/731 for GLDAS-Current
+2025-03-27 17:09:32,722 - src.data.gridded_fetcher - INFO - Processed batch 118/731 for GLDAS-Current
+2025-03-27 17:09:54,256 - src.data.gridded_fetcher - INFO - Processed batch 119/731 for GLDAS-Current
+2025-03-27 17:10:13,876 - src.data.gridded_fetcher - INFO - Processed batch 120/731 for GLDAS-Current
+2025-03-27 17:12:46,241 - src.data.gridded_fetcher - INFO - Processed batch 121/731 for GLDAS-Current
+2025-03-27 17:13:05,784 - src.data.gridded_fetcher - INFO - Processed batch 122/731 for GLDAS-Current
+2025-03-27 17:13:26,098 - src.data.gridded_fetcher - INFO - Processed batch 123/731 for GLDAS-Current
+2025-03-27 17:13:44,075 - src.data.gridded_fetcher - INFO - Processed batch 124/731 for GLDAS-Current
+2025-03-27 17:14:17,594 - src.data.gridded_fetcher - INFO - Processed batch 125/731 for GLDAS-Current
+2025-03-27 17:14:39,087 - src.data.gridded_fetcher - INFO - Processed batch 126/731 for GLDAS-Current
+2025-03-27 17:14:58,047 - src.data.gridded_fetcher - INFO - Processed batch 127/731 for GLDAS-Current
+2025-03-27 17:15:15,494 - src.data.gridded_fetcher - INFO - Processed batch 128/731 for GLDAS-Current
+2025-03-27 17:15:34,278 - src.data.gridded_fetcher - INFO - Processed batch 129/731 for GLDAS-Current
+2025-03-27 17:15:52,001 - src.data.gridded_fetcher - INFO - Processed batch 130/731 for GLDAS-Current
+2025-03-27 17:16:09,405 - src.data.gridded_fetcher - INFO - Processed batch 131/731 for GLDAS-Current
+2025-03-27 17:16:26,653 - src.data.gridded_fetcher - INFO - Processed batch 132/731 for GLDAS-Current
+2025-03-27 17:16:43,531 - src.data.gridded_fetcher - INFO - Processed batch 133/731 for GLDAS-Current
+2025-03-27 17:17:00,945 - src.data.gridded_fetcher - INFO - Processed batch 134/731 for GLDAS-Current
+2025-03-27 17:17:18,893 - src.data.gridded_fetcher - INFO - Processed batch 135/731 for GLDAS-Current
+2025-03-27 17:17:38,157 - src.data.gridded_fetcher - INFO - Processed batch 136/731 for GLDAS-Current
+2025-03-27 17:17:56,661 - src.data.gridded_fetcher - INFO - Processed batch 137/731 for GLDAS-Current
+2025-03-27 17:18:15,203 - src.data.gridded_fetcher - INFO - Processed batch 138/731 for GLDAS-Current
+2025-03-27 17:18:33,428 - src.data.gridded_fetcher - INFO - Processed batch 139/731 for GLDAS-Current
+2025-03-27 17:18:52,154 - src.data.gridded_fetcher - INFO - Processed batch 140/731 for GLDAS-Current
+2025-03-27 17:19:09,982 - src.data.gridded_fetcher - INFO - Processed batch 141/731 for GLDAS-Current
+2025-03-27 17:19:28,526 - src.data.gridded_fetcher - INFO - Processed batch 142/731 for GLDAS-Current
+2025-03-27 17:19:47,623 - src.data.gridded_fetcher - INFO - Processed batch 143/731 for GLDAS-Current
+2025-03-27 17:20:05,697 - src.data.gridded_fetcher - INFO - Processed batch 144/731 for GLDAS-Current
+2025-03-27 17:20:24,196 - src.data.gridded_fetcher - INFO - Processed batch 145/731 for GLDAS-Current
+2025-03-27 17:20:43,148 - src.data.gridded_fetcher - INFO - Processed batch 146/731 for GLDAS-Current
+2025-03-27 17:21:00,981 - src.data.gridded_fetcher - INFO - Processed batch 147/731 for GLDAS-Current
+2025-03-27 17:21:20,180 - src.data.gridded_fetcher - INFO - Processed batch 148/731 for GLDAS-Current
+2025-03-27 17:21:37,593 - src.data.gridded_fetcher - INFO - Processed batch 149/731 for GLDAS-Current
+2025-03-27 17:21:55,690 - src.data.gridded_fetcher - INFO - Processed batch 150/731 for GLDAS-Current
+2025-03-27 17:22:13,221 - src.data.gridded_fetcher - INFO - Processed batch 151/731 for GLDAS-Current
+2025-03-27 17:22:30,262 - src.data.gridded_fetcher - INFO - Processed batch 152/731 for GLDAS-Current
+2025-03-27 17:22:47,970 - src.data.gridded_fetcher - INFO - Processed batch 153/731 for GLDAS-Current
+2025-03-27 17:23:07,847 - src.data.gridded_fetcher - INFO - Processed batch 154/731 for GLDAS-Current
+2025-03-27 17:23:27,002 - src.data.gridded_fetcher - INFO - Processed batch 155/731 for GLDAS-Current
+2025-03-27 17:23:44,828 - src.data.gridded_fetcher - INFO - Processed batch 156/731 for GLDAS-Current
+2025-03-27 17:24:03,325 - src.data.gridded_fetcher - INFO - Processed batch 157/731 for GLDAS-Current
+2025-03-27 17:24:22,215 - src.data.gridded_fetcher - INFO - Processed batch 158/731 for GLDAS-Current
+2025-03-27 17:24:41,642 - src.data.gridded_fetcher - INFO - Processed batch 159/731 for GLDAS-Current
+2025-03-27 17:24:59,511 - src.data.gridded_fetcher - INFO - Processed batch 160/731 for GLDAS-Current
+2025-03-27 17:25:17,787 - src.data.gridded_fetcher - INFO - Processed batch 161/731 for GLDAS-Current
+2025-03-27 17:25:35,671 - src.data.gridded_fetcher - INFO - Processed batch 162/731 for GLDAS-Current
+2025-03-27 17:25:53,941 - src.data.gridded_fetcher - INFO - Processed batch 163/731 for GLDAS-Current
+2025-03-27 17:26:13,230 - src.data.gridded_fetcher - INFO - Processed batch 164/731 for GLDAS-Current
+2025-03-27 17:26:31,601 - src.data.gridded_fetcher - INFO - Processed batch 165/731 for GLDAS-Current
+2025-03-27 17:26:49,077 - src.data.gridded_fetcher - INFO - Processed batch 166/731 for GLDAS-Current
+2025-03-27 17:27:06,599 - src.data.gridded_fetcher - INFO - Processed batch 167/731 for GLDAS-Current
+2025-03-27 17:27:24,382 - src.data.gridded_fetcher - INFO - Processed batch 168/731 for GLDAS-Current
+2025-03-27 17:27:42,848 - src.data.gridded_fetcher - INFO - Processed batch 169/731 for GLDAS-Current
+2025-03-27 17:28:00,722 - src.data.gridded_fetcher - INFO - Processed batch 170/731 for GLDAS-Current
+2025-03-27 17:28:19,750 - src.data.gridded_fetcher - INFO - Processed batch 171/731 for GLDAS-Current
+2025-03-27 17:28:38,773 - src.data.gridded_fetcher - INFO - Processed batch 172/731 for GLDAS-Current
+2025-03-27 17:28:56,972 - src.data.gridded_fetcher - INFO - Processed batch 173/731 for GLDAS-Current
+2025-03-27 17:29:15,649 - src.data.gridded_fetcher - INFO - Processed batch 174/731 for GLDAS-Current
+2025-03-27 17:29:33,526 - src.data.gridded_fetcher - INFO - Processed batch 175/731 for GLDAS-Current
+2025-03-27 17:29:51,478 - src.data.gridded_fetcher - INFO - Processed batch 176/731 for GLDAS-Current
+2025-03-27 17:30:10,080 - src.data.gridded_fetcher - INFO - Processed batch 177/731 for GLDAS-Current
+2025-03-27 17:30:28,000 - src.data.gridded_fetcher - INFO - Processed batch 178/731 for GLDAS-Current
+2025-03-27 17:30:44,996 - src.data.gridded_fetcher - INFO - Processed batch 179/731 for GLDAS-Current
+2025-03-27 17:31:02,166 - src.data.gridded_fetcher - INFO - Processed batch 180/731 for GLDAS-Current
+2025-03-27 17:31:21,479 - src.data.gridded_fetcher - INFO - Processed batch 181/731 for GLDAS-Current
+2025-03-27 17:31:39,979 - src.data.gridded_fetcher - INFO - Processed batch 182/731 for GLDAS-Current
+2025-03-27 17:31:57,582 - src.data.gridded_fetcher - INFO - Processed batch 183/731 for GLDAS-Current
+2025-03-27 17:32:14,697 - src.data.gridded_fetcher - INFO - Processed batch 184/731 for GLDAS-Current
+2025-03-27 17:32:32,083 - src.data.gridded_fetcher - INFO - Processed batch 185/731 for GLDAS-Current
+2025-03-27 17:32:50,007 - src.data.gridded_fetcher - INFO - Processed batch 186/731 for GLDAS-Current
+2025-03-27 17:33:09,168 - src.data.gridded_fetcher - INFO - Processed batch 187/731 for GLDAS-Current
+2025-03-27 17:33:26,407 - src.data.gridded_fetcher - INFO - Processed batch 188/731 for GLDAS-Current
+2025-03-27 17:33:43,181 - src.data.gridded_fetcher - INFO - Processed batch 189/731 for GLDAS-Current
+2025-03-27 17:34:00,036 - src.data.gridded_fetcher - INFO - Processed batch 190/731 for GLDAS-Current
+2025-03-27 17:34:17,936 - src.data.gridded_fetcher - INFO - Processed batch 191/731 for GLDAS-Current
+2025-03-27 17:34:35,525 - src.data.gridded_fetcher - INFO - Processed batch 192/731 for GLDAS-Current
+2025-03-27 17:34:54,878 - src.data.gridded_fetcher - INFO - Processed batch 193/731 for GLDAS-Current
+2025-03-27 17:35:12,247 - src.data.gridded_fetcher - INFO - Processed batch 194/731 for GLDAS-Current
+2025-03-27 17:35:30,708 - src.data.gridded_fetcher - INFO - Processed batch 195/731 for GLDAS-Current
+2025-03-27 17:35:48,528 - src.data.gridded_fetcher - INFO - Processed batch 196/731 for GLDAS-Current
+2025-03-27 17:36:06,498 - src.data.gridded_fetcher - INFO - Processed batch 197/731 for GLDAS-Current
+2025-03-27 17:36:23,521 - src.data.gridded_fetcher - INFO - Processed batch 198/731 for GLDAS-Current
+2025-03-27 17:36:40,465 - src.data.gridded_fetcher - INFO - Processed batch 199/731 for GLDAS-Current
+2025-03-27 17:36:58,036 - src.data.gridded_fetcher - INFO - Processed batch 200/731 for GLDAS-Current
+2025-03-27 17:37:15,803 - src.data.gridded_fetcher - INFO - Processed batch 201/731 for GLDAS-Current
+2025-03-27 17:37:33,001 - src.data.gridded_fetcher - INFO - Processed batch 202/731 for GLDAS-Current
+2025-03-27 17:37:50,557 - src.data.gridded_fetcher - INFO - Processed batch 203/731 for GLDAS-Current
+2025-03-27 17:38:08,264 - src.data.gridded_fetcher - INFO - Processed batch 204/731 for GLDAS-Current
+2025-03-27 17:38:26,866 - src.data.gridded_fetcher - INFO - Processed batch 205/731 for GLDAS-Current
+2025-03-27 17:38:43,413 - src.data.gridded_fetcher - INFO - Processed batch 206/731 for GLDAS-Current
+2025-03-27 17:39:00,343 - src.data.gridded_fetcher - INFO - Processed batch 207/731 for GLDAS-Current
+2025-03-27 17:39:17,350 - src.data.gridded_fetcher - INFO - Processed batch 208/731 for GLDAS-Current
+2025-03-27 17:39:36,309 - src.data.gridded_fetcher - INFO - Processed batch 209/731 for GLDAS-Current
+2025-03-27 17:39:54,535 - src.data.gridded_fetcher - INFO - Processed batch 210/731 for GLDAS-Current
+2025-03-27 17:40:13,533 - src.data.gridded_fetcher - INFO - Processed batch 211/731 for GLDAS-Current
+2025-03-27 17:40:31,979 - src.data.gridded_fetcher - INFO - Processed batch 212/731 for GLDAS-Current
+2025-03-27 17:40:49,845 - src.data.gridded_fetcher - INFO - Processed batch 213/731 for GLDAS-Current
+2025-03-27 17:41:08,190 - src.data.gridded_fetcher - INFO - Processed batch 214/731 for GLDAS-Current
+2025-03-27 17:41:25,944 - src.data.gridded_fetcher - INFO - Processed batch 215/731 for GLDAS-Current
+2025-03-27 17:41:42,999 - src.data.gridded_fetcher - INFO - Processed batch 216/731 for GLDAS-Current
+2025-03-27 17:41:59,865 - src.data.gridded_fetcher - INFO - Processed batch 217/731 for GLDAS-Current
+2025-03-27 17:42:17,681 - src.data.gridded_fetcher - INFO - Processed batch 218/731 for GLDAS-Current
+2025-03-27 17:42:35,652 - src.data.gridded_fetcher - INFO - Processed batch 219/731 for GLDAS-Current
+2025-03-27 17:42:54,292 - src.data.gridded_fetcher - INFO - Processed batch 220/731 for GLDAS-Current
+2025-03-27 17:43:11,832 - src.data.gridded_fetcher - INFO - Processed batch 221/731 for GLDAS-Current
+2025-03-27 17:43:29,215 - src.data.gridded_fetcher - INFO - Processed batch 222/731 for GLDAS-Current
+2025-03-27 17:43:46,068 - src.data.gridded_fetcher - INFO - Processed batch 223/731 for GLDAS-Current
+2025-03-27 17:44:02,740 - src.data.gridded_fetcher - INFO - Processed batch 224/731 for GLDAS-Current
+2025-03-27 17:44:21,009 - src.data.gridded_fetcher - INFO - Processed batch 225/731 for GLDAS-Current
+2025-03-27 17:44:38,665 - src.data.gridded_fetcher - INFO - Processed batch 226/731 for GLDAS-Current
+2025-03-27 17:44:56,074 - src.data.gridded_fetcher - INFO - Processed batch 227/731 for GLDAS-Current
+2025-03-27 17:45:13,961 - src.data.gridded_fetcher - INFO - Processed batch 228/731 for GLDAS-Current
+2025-03-27 17:45:32,258 - src.data.gridded_fetcher - INFO - Processed batch 229/731 for GLDAS-Current
+2025-03-27 17:45:50,851 - src.data.gridded_fetcher - INFO - Processed batch 230/731 for GLDAS-Current
+2025-03-27 17:46:09,094 - src.data.gridded_fetcher - INFO - Processed batch 231/731 for GLDAS-Current
+2025-03-27 17:46:27,907 - src.data.gridded_fetcher - INFO - Processed batch 232/731 for GLDAS-Current
+2025-03-27 17:46:46,346 - src.data.gridded_fetcher - INFO - Processed batch 233/731 for GLDAS-Current
+2025-03-27 17:47:03,893 - src.data.gridded_fetcher - INFO - Processed batch 234/731 for GLDAS-Current
+2025-03-27 17:47:20,861 - src.data.gridded_fetcher - INFO - Processed batch 235/731 for GLDAS-Current
+2025-03-27 17:47:37,637 - src.data.gridded_fetcher - INFO - Processed batch 236/731 for GLDAS-Current
+2025-03-27 17:47:54,029 - src.data.gridded_fetcher - INFO - Processed batch 237/731 for GLDAS-Current
+2025-03-27 17:48:10,451 - src.data.gridded_fetcher - INFO - Processed batch 238/731 for GLDAS-Current
+2025-03-27 17:48:26,798 - src.data.gridded_fetcher - INFO - Processed batch 239/731 for GLDAS-Current
+2025-03-27 17:48:43,172 - src.data.gridded_fetcher - INFO - Processed batch 240/731 for GLDAS-Current
+2025-03-27 17:49:01,468 - src.data.gridded_fetcher - INFO - Processed batch 241/731 for GLDAS-Current
+2025-03-27 17:49:17,530 - src.data.gridded_fetcher - INFO - Processed batch 242/731 for GLDAS-Current
+2025-03-27 17:49:34,744 - src.data.gridded_fetcher - INFO - Processed batch 243/731 for GLDAS-Current
+2025-03-27 17:49:52,427 - src.data.gridded_fetcher - INFO - Processed batch 244/731 for GLDAS-Current
+2025-03-27 17:50:09,626 - src.data.gridded_fetcher - INFO - Processed batch 245/731 for GLDAS-Current
+2025-03-27 17:50:27,010 - src.data.gridded_fetcher - INFO - Processed batch 246/731 for GLDAS-Current
+2025-03-27 17:50:44,651 - src.data.gridded_fetcher - INFO - Processed batch 247/731 for GLDAS-Current
+2025-03-27 17:51:02,732 - src.data.gridded_fetcher - INFO - Processed batch 248/731 for GLDAS-Current
+2025-03-27 17:51:21,329 - src.data.gridded_fetcher - INFO - Processed batch 249/731 for GLDAS-Current
+2025-03-27 17:51:39,502 - src.data.gridded_fetcher - INFO - Processed batch 250/731 for GLDAS-Current
+2025-03-27 17:51:57,884 - src.data.gridded_fetcher - INFO - Processed batch 251/731 for GLDAS-Current
+2025-03-27 17:52:16,336 - src.data.gridded_fetcher - INFO - Processed batch 252/731 for GLDAS-Current
+2025-03-27 17:52:33,861 - src.data.gridded_fetcher - INFO - Processed batch 253/731 for GLDAS-Current
+2025-03-27 17:52:55,947 - src.data.gridded_fetcher - INFO - Processed batch 254/731 for GLDAS-Current
+2025-03-27 17:53:16,714 - src.data.gridded_fetcher - INFO - Processed batch 255/731 for GLDAS-Current
+2025-03-27 17:53:35,099 - src.data.gridded_fetcher - INFO - Processed batch 256/731 for GLDAS-Current
+2025-03-27 17:53:52,594 - src.data.gridded_fetcher - INFO - Processed batch 257/731 for GLDAS-Current
+2025-03-27 17:54:11,836 - src.data.gridded_fetcher - INFO - Processed batch 258/731 for GLDAS-Current
+2025-03-27 17:54:30,090 - src.data.gridded_fetcher - INFO - Processed batch 259/731 for GLDAS-Current
+2025-03-27 17:54:49,208 - src.data.gridded_fetcher - INFO - Processed batch 260/731 for GLDAS-Current
+2025-03-27 17:55:07,433 - src.data.gridded_fetcher - INFO - Processed batch 261/731 for GLDAS-Current
+2025-03-27 17:55:25,635 - src.data.gridded_fetcher - INFO - Processed batch 262/731 for GLDAS-Current
+2025-03-27 17:55:43,051 - src.data.gridded_fetcher - INFO - Processed batch 263/731 for GLDAS-Current
+2025-03-27 17:56:02,736 - src.data.gridded_fetcher - INFO - Processed batch 264/731 for GLDAS-Current
+2025-03-27 17:56:19,665 - src.data.gridded_fetcher - INFO - Processed batch 265/731 for GLDAS-Current
+2025-03-27 17:56:37,151 - src.data.gridded_fetcher - INFO - Processed batch 266/731 for GLDAS-Current
+2025-03-27 17:56:54,046 - src.data.gridded_fetcher - INFO - Processed batch 267/731 for GLDAS-Current
+2025-03-27 17:57:11,249 - src.data.gridded_fetcher - INFO - Processed batch 268/731 for GLDAS-Current
+2025-03-27 17:57:28,565 - src.data.gridded_fetcher - INFO - Processed batch 269/731 for GLDAS-Current
+2025-03-27 17:57:46,048 - src.data.gridded_fetcher - INFO - Processed batch 270/731 for GLDAS-Current
+2025-03-27 17:58:03,803 - src.data.gridded_fetcher - INFO - Processed batch 271/731 for GLDAS-Current
+2025-03-27 17:58:21,698 - src.data.gridded_fetcher - INFO - Processed batch 272/731 for GLDAS-Current
+2025-03-27 17:58:39,217 - src.data.gridded_fetcher - INFO - Processed batch 273/731 for GLDAS-Current
+2025-03-27 17:58:57,591 - src.data.gridded_fetcher - INFO - Processed batch 274/731 for GLDAS-Current
+2025-03-27 17:59:14,582 - src.data.gridded_fetcher - INFO - Processed batch 275/731 for GLDAS-Current
+2025-03-27 17:59:32,935 - src.data.gridded_fetcher - INFO - Processed batch 276/731 for GLDAS-Current
+2025-03-27 17:59:53,268 - src.data.gridded_fetcher - INFO - Processed batch 277/731 for GLDAS-Current
+2025-03-27 18:00:11,411 - src.data.gridded_fetcher - INFO - Processed batch 278/731 for GLDAS-Current
+2025-03-27 18:00:29,817 - src.data.gridded_fetcher - INFO - Processed batch 279/731 for GLDAS-Current
+2025-03-27 18:00:47,380 - src.data.gridded_fetcher - INFO - Processed batch 280/731 for GLDAS-Current
+2025-03-27 18:01:06,733 - src.data.gridded_fetcher - INFO - Processed batch 281/731 for GLDAS-Current
+2025-03-27 18:01:25,431 - src.data.gridded_fetcher - INFO - Processed batch 282/731 for GLDAS-Current
+2025-03-27 18:01:43,894 - src.data.gridded_fetcher - INFO - Processed batch 283/731 for GLDAS-Current
+2025-03-27 18:02:02,493 - src.data.gridded_fetcher - INFO - Processed batch 284/731 for GLDAS-Current
+2025-03-27 18:02:21,405 - src.data.gridded_fetcher - INFO - Processed batch 285/731 for GLDAS-Current
+2025-03-27 18:02:40,327 - src.data.gridded_fetcher - INFO - Processed batch 286/731 for GLDAS-Current
+2025-03-27 18:02:59,417 - src.data.gridded_fetcher - INFO - Processed batch 287/731 for GLDAS-Current
+2025-03-27 18:03:18,563 - src.data.gridded_fetcher - INFO - Processed batch 288/731 for GLDAS-Current
+2025-03-27 18:03:37,647 - src.data.gridded_fetcher - INFO - Processed batch 289/731 for GLDAS-Current
+2025-03-27 18:03:54,952 - src.data.gridded_fetcher - INFO - Processed batch 290/731 for GLDAS-Current
+2025-03-27 18:04:13,210 - src.data.gridded_fetcher - INFO - Processed batch 291/731 for GLDAS-Current
+2025-03-27 18:04:31,445 - src.data.gridded_fetcher - INFO - Processed batch 292/731 for GLDAS-Current
+2025-03-27 18:04:49,469 - src.data.gridded_fetcher - INFO - Processed batch 293/731 for GLDAS-Current
+2025-03-27 18:05:07,702 - src.data.gridded_fetcher - INFO - Processed batch 294/731 for GLDAS-Current
+2025-03-27 18:05:26,371 - src.data.gridded_fetcher - INFO - Processed batch 295/731 for GLDAS-Current
+2025-03-27 18:05:44,530 - src.data.gridded_fetcher - INFO - Processed batch 296/731 for GLDAS-Current
+2025-03-27 18:06:03,610 - src.data.gridded_fetcher - INFO - Processed batch 297/731 for GLDAS-Current
+2025-03-27 18:06:21,437 - src.data.gridded_fetcher - INFO - Processed batch 298/731 for GLDAS-Current
+2025-03-27 18:06:39,711 - src.data.gridded_fetcher - INFO - Processed batch 299/731 for GLDAS-Current
+2025-03-27 18:06:58,232 - src.data.gridded_fetcher - INFO - Processed batch 300/731 for GLDAS-Current
+2025-03-27 18:07:16,384 - src.data.gridded_fetcher - INFO - Processed batch 301/731 for GLDAS-Current
+2025-03-27 18:07:37,189 - src.data.gridded_fetcher - INFO - Processed batch 302/731 for GLDAS-Current
+2025-03-27 18:07:54,726 - src.data.gridded_fetcher - INFO - Processed batch 303/731 for GLDAS-Current
+2025-03-27 18:08:12,545 - src.data.gridded_fetcher - INFO - Processed batch 304/731 for GLDAS-Current
+2025-03-27 18:08:31,695 - src.data.gridded_fetcher - INFO - Processed batch 305/731 for GLDAS-Current
+2025-03-27 18:08:48,690 - src.data.gridded_fetcher - INFO - Processed batch 306/731 for GLDAS-Current
+2025-03-27 18:09:05,916 - src.data.gridded_fetcher - INFO - Processed batch 307/731 for GLDAS-Current
+2025-03-27 18:09:23,742 - src.data.gridded_fetcher - INFO - Processed batch 308/731 for GLDAS-Current
+2025-03-27 18:09:43,252 - src.data.gridded_fetcher - INFO - Processed batch 309/731 for GLDAS-Current
+2025-03-27 18:10:02,510 - src.data.gridded_fetcher - INFO - Processed batch 310/731 for GLDAS-Current
+2025-03-27 18:10:19,730 - src.data.gridded_fetcher - INFO - Processed batch 311/731 for GLDAS-Current
+2025-03-27 18:10:36,515 - src.data.gridded_fetcher - INFO - Processed batch 312/731 for GLDAS-Current
+2025-03-27 18:10:53,817 - src.data.gridded_fetcher - INFO - Processed batch 313/731 for GLDAS-Current
+2025-03-27 18:11:13,032 - src.data.gridded_fetcher - INFO - Processed batch 314/731 for GLDAS-Current
+2025-03-27 18:11:31,528 - src.data.gridded_fetcher - INFO - Processed batch 315/731 for GLDAS-Current
+2025-03-27 18:11:49,138 - src.data.gridded_fetcher - INFO - Processed batch 316/731 for GLDAS-Current
+2025-03-27 18:12:07,003 - src.data.gridded_fetcher - INFO - Processed batch 317/731 for GLDAS-Current
+2025-03-27 18:12:25,246 - src.data.gridded_fetcher - INFO - Processed batch 318/731 for GLDAS-Current
+2025-03-27 18:12:42,303 - src.data.gridded_fetcher - INFO - Processed batch 319/731 for GLDAS-Current
+2025-03-27 18:13:00,205 - src.data.gridded_fetcher - INFO - Processed batch 320/731 for GLDAS-Current
+2025-03-27 18:13:17,669 - src.data.gridded_fetcher - INFO - Processed batch 321/731 for GLDAS-Current
+2025-03-27 18:13:35,252 - src.data.gridded_fetcher - INFO - Processed batch 322/731 for GLDAS-Current
+2025-03-27 18:13:53,468 - src.data.gridded_fetcher - INFO - Processed batch 323/731 for GLDAS-Current
+2025-03-27 18:14:10,894 - src.data.gridded_fetcher - INFO - Processed batch 324/731 for GLDAS-Current
+2025-03-27 18:14:27,961 - src.data.gridded_fetcher - INFO - Processed batch 325/731 for GLDAS-Current
+2025-03-27 18:14:45,915 - src.data.gridded_fetcher - INFO - Processed batch 326/731 for GLDAS-Current
+2025-03-27 18:15:02,772 - src.data.gridded_fetcher - INFO - Processed batch 327/731 for GLDAS-Current
+2025-03-27 18:15:20,853 - src.data.gridded_fetcher - INFO - Processed batch 328/731 for GLDAS-Current
+2025-03-27 18:15:38,788 - src.data.gridded_fetcher - INFO - Processed batch 329/731 for GLDAS-Current
+2025-03-27 18:15:56,123 - src.data.gridded_fetcher - INFO - Processed batch 330/731 for GLDAS-Current
+2025-03-27 18:16:13,310 - src.data.gridded_fetcher - INFO - Processed batch 331/731 for GLDAS-Current
+2025-03-27 18:16:31,557 - src.data.gridded_fetcher - INFO - Processed batch 332/731 for GLDAS-Current
+2025-03-27 18:16:49,821 - src.data.gridded_fetcher - INFO - Processed batch 333/731 for GLDAS-Current
+2025-03-27 18:17:07,679 - src.data.gridded_fetcher - INFO - Processed batch 334/731 for GLDAS-Current
+2025-03-27 18:17:24,928 - src.data.gridded_fetcher - INFO - Processed batch 335/731 for GLDAS-Current
+2025-03-27 18:17:43,168 - src.data.gridded_fetcher - INFO - Processed batch 336/731 for GLDAS-Current
+2025-03-27 18:18:01,981 - src.data.gridded_fetcher - INFO - Processed batch 337/731 for GLDAS-Current
+2025-03-27 18:18:19,342 - src.data.gridded_fetcher - INFO - Processed batch 338/731 for GLDAS-Current
+2025-03-27 18:18:38,069 - src.data.gridded_fetcher - INFO - Processed batch 339/731 for GLDAS-Current
+2025-03-27 18:18:55,998 - src.data.gridded_fetcher - INFO - Processed batch 340/731 for GLDAS-Current
+2025-03-27 18:19:13,849 - src.data.gridded_fetcher - INFO - Processed batch 341/731 for GLDAS-Current
+2025-03-27 18:19:31,971 - src.data.gridded_fetcher - INFO - Processed batch 342/731 for GLDAS-Current
+2025-03-27 18:19:49,147 - src.data.gridded_fetcher - INFO - Processed batch 343/731 for GLDAS-Current
+2025-03-27 18:20:06,446 - src.data.gridded_fetcher - INFO - Processed batch 344/731 for GLDAS-Current
+2025-03-27 18:20:24,661 - src.data.gridded_fetcher - INFO - Processed batch 345/731 for GLDAS-Current
+2025-03-27 18:20:42,093 - src.data.gridded_fetcher - INFO - Processed batch 346/731 for GLDAS-Current
+2025-03-27 18:21:00,150 - src.data.gridded_fetcher - INFO - Processed batch 347/731 for GLDAS-Current
+2025-03-27 18:21:18,048 - src.data.gridded_fetcher - INFO - Processed batch 348/731 for GLDAS-Current
+2025-03-27 18:21:35,564 - src.data.gridded_fetcher - INFO - Processed batch 349/731 for GLDAS-Current
+2025-03-27 18:21:52,781 - src.data.gridded_fetcher - INFO - Processed batch 350/731 for GLDAS-Current
+2025-03-27 18:22:10,735 - src.data.gridded_fetcher - INFO - Processed batch 351/731 for GLDAS-Current
+2025-03-27 18:22:28,926 - src.data.gridded_fetcher - INFO - Processed batch 352/731 for GLDAS-Current
+2025-03-27 18:22:46,115 - src.data.gridded_fetcher - INFO - Processed batch 353/731 for GLDAS-Current
+2025-03-27 18:23:03,126 - src.data.gridded_fetcher - INFO - Processed batch 354/731 for GLDAS-Current
+2025-03-27 18:23:21,947 - src.data.gridded_fetcher - INFO - Processed batch 355/731 for GLDAS-Current
+2025-03-27 18:23:40,614 - src.data.gridded_fetcher - INFO - Processed batch 356/731 for GLDAS-Current
+2025-03-27 18:23:58,820 - src.data.gridded_fetcher - INFO - Processed batch 357/731 for GLDAS-Current
+2025-03-27 18:24:17,790 - src.data.gridded_fetcher - INFO - Processed batch 358/731 for GLDAS-Current
+2025-03-27 18:24:35,983 - src.data.gridded_fetcher - INFO - Processed batch 359/731 for GLDAS-Current
+2025-03-27 18:24:54,979 - src.data.gridded_fetcher - INFO - Processed batch 360/731 for GLDAS-Current
+2025-03-27 18:25:12,927 - src.data.gridded_fetcher - INFO - Processed batch 361/731 for GLDAS-Current
+2025-03-27 18:25:30,162 - src.data.gridded_fetcher - INFO - Processed batch 362/731 for GLDAS-Current
+2025-03-27 18:25:47,455 - src.data.gridded_fetcher - INFO - Processed batch 363/731 for GLDAS-Current
+2025-03-27 18:26:04,627 - src.data.gridded_fetcher - INFO - Processed batch 364/731 for GLDAS-Current
+2025-03-27 18:26:21,902 - src.data.gridded_fetcher - INFO - Processed batch 365/731 for GLDAS-Current
+2025-03-27 18:26:39,599 - src.data.gridded_fetcher - INFO - Processed batch 366/731 for GLDAS-Current
+2025-03-27 18:26:57,194 - src.data.gridded_fetcher - INFO - Processed batch 367/731 for GLDAS-Current
+2025-03-27 18:27:14,890 - src.data.gridded_fetcher - INFO - Processed batch 368/731 for GLDAS-Current
+2025-03-27 18:27:33,657 - src.data.gridded_fetcher - INFO - Processed batch 369/731 for GLDAS-Current
+2025-03-27 18:27:51,278 - src.data.gridded_fetcher - INFO - Processed batch 370/731 for GLDAS-Current
+2025-03-27 18:28:08,500 - src.data.gridded_fetcher - INFO - Processed batch 371/731 for GLDAS-Current
+2025-03-27 18:28:26,272 - src.data.gridded_fetcher - INFO - Processed batch 372/731 for GLDAS-Current
+2025-03-27 18:28:44,067 - src.data.gridded_fetcher - INFO - Processed batch 373/731 for GLDAS-Current
+2025-03-27 18:29:01,896 - src.data.gridded_fetcher - INFO - Processed batch 374/731 for GLDAS-Current
+2025-03-27 18:29:19,726 - src.data.gridded_fetcher - INFO - Processed batch 375/731 for GLDAS-Current
+2025-03-27 18:29:38,000 - src.data.gridded_fetcher - INFO - Processed batch 376/731 for GLDAS-Current
+2025-03-27 18:29:55,040 - src.data.gridded_fetcher - INFO - Processed batch 377/731 for GLDAS-Current
+2025-03-27 18:30:20,132 - src.data.gridded_fetcher - INFO - Processed batch 378/731 for GLDAS-Current
+2025-03-27 18:30:39,159 - src.data.gridded_fetcher - INFO - Processed batch 379/731 for GLDAS-Current
+2025-03-27 18:30:56,494 - src.data.gridded_fetcher - INFO - Processed batch 380/731 for GLDAS-Current
+2025-03-27 18:31:14,206 - src.data.gridded_fetcher - INFO - Processed batch 381/731 for GLDAS-Current
+2025-03-27 18:31:30,984 - src.data.gridded_fetcher - INFO - Processed batch 382/731 for GLDAS-Current
+2025-03-27 18:31:49,254 - src.data.gridded_fetcher - INFO - Processed batch 383/731 for GLDAS-Current
+2025-03-27 18:32:07,533 - src.data.gridded_fetcher - INFO - Processed batch 384/731 for GLDAS-Current
+2025-03-27 18:32:25,838 - src.data.gridded_fetcher - INFO - Processed batch 385/731 for GLDAS-Current
+2025-03-27 18:32:43,081 - src.data.gridded_fetcher - INFO - Processed batch 386/731 for GLDAS-Current
+2025-03-27 18:33:00,704 - src.data.gridded_fetcher - INFO - Processed batch 387/731 for GLDAS-Current
+2025-03-27 18:33:18,470 - src.data.gridded_fetcher - INFO - Processed batch 388/731 for GLDAS-Current
+2025-03-27 18:33:35,606 - src.data.gridded_fetcher - INFO - Processed batch 389/731 for GLDAS-Current
+2025-03-27 18:33:51,822 - src.data.gridded_fetcher - INFO - Processed batch 390/731 for GLDAS-Current
+2025-03-27 18:34:09,443 - src.data.gridded_fetcher - INFO - Processed batch 391/731 for GLDAS-Current
+2025-03-27 18:34:26,296 - src.data.gridded_fetcher - INFO - Processed batch 392/731 for GLDAS-Current
+2025-03-27 18:34:44,205 - src.data.gridded_fetcher - INFO - Processed batch 393/731 for GLDAS-Current
+2025-03-27 18:35:01,730 - src.data.gridded_fetcher - INFO - Processed batch 394/731 for GLDAS-Current
+2025-03-27 18:35:18,157 - src.data.gridded_fetcher - INFO - Processed batch 395/731 for GLDAS-Current
+2025-03-27 18:35:35,374 - src.data.gridded_fetcher - INFO - Processed batch 396/731 for GLDAS-Current
+2025-03-27 18:35:51,783 - src.data.gridded_fetcher - INFO - Processed batch 397/731 for GLDAS-Current
+2025-03-27 18:36:08,505 - src.data.gridded_fetcher - INFO - Processed batch 398/731 for GLDAS-Current
+2025-03-27 18:36:26,334 - src.data.gridded_fetcher - INFO - Processed batch 399/731 for GLDAS-Current
+2025-03-27 18:36:42,880 - src.data.gridded_fetcher - INFO - Processed batch 400/731 for GLDAS-Current
+2025-03-27 18:37:00,122 - src.data.gridded_fetcher - INFO - Processed batch 401/731 for GLDAS-Current
+2025-03-27 18:37:16,814 - src.data.gridded_fetcher - INFO - Processed batch 402/731 for GLDAS-Current
+2025-03-27 18:37:33,480 - src.data.gridded_fetcher - INFO - Processed batch 403/731 for GLDAS-Current
+2025-03-27 18:37:49,814 - src.data.gridded_fetcher - INFO - Processed batch 404/731 for GLDAS-Current
+2025-03-27 18:38:06,945 - src.data.gridded_fetcher - INFO - Processed batch 405/731 for GLDAS-Current
+2025-03-27 18:38:23,179 - src.data.gridded_fetcher - INFO - Processed batch 406/731 for GLDAS-Current
+2025-03-27 18:38:40,441 - src.data.gridded_fetcher - INFO - Processed batch 407/731 for GLDAS-Current
+2025-03-27 18:38:57,413 - src.data.gridded_fetcher - INFO - Processed batch 408/731 for GLDAS-Current
+2025-03-27 18:39:14,744 - src.data.gridded_fetcher - INFO - Processed batch 409/731 for GLDAS-Current
+2025-03-27 18:39:31,326 - src.data.gridded_fetcher - INFO - Processed batch 410/731 for GLDAS-Current
+2025-03-27 18:39:47,838 - src.data.gridded_fetcher - INFO - Processed batch 411/731 for GLDAS-Current
+2025-03-27 18:40:05,588 - src.data.gridded_fetcher - INFO - Processed batch 412/731 for GLDAS-Current
+2025-03-27 18:40:23,404 - src.data.gridded_fetcher - INFO - Processed batch 413/731 for GLDAS-Current
+2025-03-27 18:40:40,686 - src.data.gridded_fetcher - INFO - Processed batch 414/731 for GLDAS-Current
+2025-03-27 18:40:57,569 - src.data.gridded_fetcher - INFO - Processed batch 415/731 for GLDAS-Current
+2025-03-27 18:41:14,554 - src.data.gridded_fetcher - INFO - Processed batch 416/731 for GLDAS-Current
+2025-03-27 18:41:31,748 - src.data.gridded_fetcher - INFO - Processed batch 417/731 for GLDAS-Current
+2025-03-27 18:41:48,054 - src.data.gridded_fetcher - INFO - Processed batch 418/731 for GLDAS-Current
+2025-03-27 18:42:04,720 - src.data.gridded_fetcher - INFO - Processed batch 419/731 for GLDAS-Current
+2025-03-27 18:42:22,128 - src.data.gridded_fetcher - INFO - Processed batch 420/731 for GLDAS-Current
+2025-03-27 18:42:39,389 - src.data.gridded_fetcher - INFO - Processed batch 421/731 for GLDAS-Current
+2025-03-27 18:42:58,036 - src.data.gridded_fetcher - INFO - Processed batch 422/731 for GLDAS-Current
+2025-03-27 18:43:16,838 - src.data.gridded_fetcher - INFO - Processed batch 423/731 for GLDAS-Current
+2025-03-27 18:43:34,170 - src.data.gridded_fetcher - INFO - Processed batch 424/731 for GLDAS-Current
+2025-03-27 18:43:52,272 - src.data.gridded_fetcher - INFO - Processed batch 425/731 for GLDAS-Current
+2025-03-27 18:44:10,751 - src.data.gridded_fetcher - INFO - Processed batch 426/731 for GLDAS-Current
+2025-03-27 18:44:27,578 - src.data.gridded_fetcher - INFO - Processed batch 427/731 for GLDAS-Current
+2025-03-27 18:44:44,932 - src.data.gridded_fetcher - INFO - Processed batch 428/731 for GLDAS-Current
+2025-03-27 18:45:03,457 - src.data.gridded_fetcher - INFO - Processed batch 429/731 for GLDAS-Current
+2025-03-27 18:45:21,640 - src.data.gridded_fetcher - INFO - Processed batch 430/731 for GLDAS-Current
+2025-03-27 18:45:38,545 - src.data.gridded_fetcher - INFO - Processed batch 431/731 for GLDAS-Current
+2025-03-27 18:45:56,209 - src.data.gridded_fetcher - INFO - Processed batch 432/731 for GLDAS-Current
+2025-03-27 18:46:13,526 - src.data.gridded_fetcher - INFO - Processed batch 433/731 for GLDAS-Current
+2025-03-27 18:46:30,627 - src.data.gridded_fetcher - INFO - Processed batch 434/731 for GLDAS-Current
+2025-03-27 18:46:46,913 - src.data.gridded_fetcher - INFO - Processed batch 435/731 for GLDAS-Current
+2025-03-27 18:47:04,915 - src.data.gridded_fetcher - INFO - Processed batch 436/731 for GLDAS-Current
+2025-03-27 18:47:23,415 - src.data.gridded_fetcher - INFO - Processed batch 437/731 for GLDAS-Current
+2025-03-27 18:47:41,906 - src.data.gridded_fetcher - INFO - Processed batch 438/731 for GLDAS-Current
+2025-03-27 18:47:59,030 - src.data.gridded_fetcher - INFO - Processed batch 439/731 for GLDAS-Current
+2025-03-27 18:48:16,965 - src.data.gridded_fetcher - INFO - Processed batch 440/731 for GLDAS-Current
+2025-03-27 18:48:33,733 - src.data.gridded_fetcher - INFO - Processed batch 441/731 for GLDAS-Current
+2025-03-27 18:48:50,327 - src.data.gridded_fetcher - INFO - Processed batch 442/731 for GLDAS-Current
+2025-03-27 18:49:07,659 - src.data.gridded_fetcher - INFO - Processed batch 443/731 for GLDAS-Current
+2025-03-27 18:49:23,793 - src.data.gridded_fetcher - INFO - Processed batch 444/731 for GLDAS-Current
+2025-03-27 18:49:40,275 - src.data.gridded_fetcher - INFO - Processed batch 445/731 for GLDAS-Current
+2025-03-27 18:49:57,752 - src.data.gridded_fetcher - INFO - Processed batch 446/731 for GLDAS-Current
+2025-03-27 18:50:16,050 - src.data.gridded_fetcher - INFO - Processed batch 447/731 for GLDAS-Current
+2025-03-27 18:50:33,871 - src.data.gridded_fetcher - INFO - Processed batch 448/731 for GLDAS-Current
+2025-03-27 18:50:51,393 - src.data.gridded_fetcher - INFO - Processed batch 449/731 for GLDAS-Current
+2025-03-27 18:51:07,896 - src.data.gridded_fetcher - INFO - Processed batch 450/731 for GLDAS-Current
+2025-03-27 18:51:25,407 - src.data.gridded_fetcher - INFO - Processed batch 451/731 for GLDAS-Current
+2025-03-27 18:51:42,436 - src.data.gridded_fetcher - INFO - Processed batch 452/731 for GLDAS-Current
+2025-03-27 18:51:59,250 - src.data.gridded_fetcher - INFO - Processed batch 453/731 for GLDAS-Current
+2025-03-27 18:52:16,063 - src.data.gridded_fetcher - INFO - Processed batch 454/731 for GLDAS-Current
+2025-03-27 18:52:33,351 - src.data.gridded_fetcher - INFO - Processed batch 455/731 for GLDAS-Current
+2025-03-27 18:52:54,943 - src.data.gridded_fetcher - INFO - Processed batch 456/731 for GLDAS-Current
+2025-03-27 18:53:12,606 - src.data.gridded_fetcher - INFO - Processed batch 457/731 for GLDAS-Current
+2025-03-27 18:53:30,159 - src.data.gridded_fetcher - INFO - Processed batch 458/731 for GLDAS-Current
+2025-03-27 18:53:47,061 - src.data.gridded_fetcher - INFO - Processed batch 459/731 for GLDAS-Current
+2025-03-27 18:54:05,195 - src.data.gridded_fetcher - INFO - Processed batch 460/731 for GLDAS-Current
+2025-03-27 18:54:22,052 - src.data.gridded_fetcher - INFO - Processed batch 461/731 for GLDAS-Current
+2025-03-27 18:54:39,375 - src.data.gridded_fetcher - INFO - Processed batch 462/731 for GLDAS-Current
+2025-03-27 18:54:56,599 - src.data.gridded_fetcher - INFO - Processed batch 463/731 for GLDAS-Current
+2025-03-27 18:55:14,067 - src.data.gridded_fetcher - INFO - Processed batch 464/731 for GLDAS-Current
+2025-03-27 18:55:31,371 - src.data.gridded_fetcher - INFO - Processed batch 465/731 for GLDAS-Current
+2025-03-27 18:55:47,957 - src.data.gridded_fetcher - INFO - Processed batch 466/731 for GLDAS-Current
+2025-03-27 18:56:04,684 - src.data.gridded_fetcher - INFO - Processed batch 467/731 for GLDAS-Current
+2025-03-27 18:56:21,574 - src.data.gridded_fetcher - INFO - Processed batch 468/731 for GLDAS-Current
+2025-03-27 18:56:38,039 - src.data.gridded_fetcher - INFO - Processed batch 469/731 for GLDAS-Current
+2025-03-27 18:56:55,084 - src.data.gridded_fetcher - INFO - Processed batch 470/731 for GLDAS-Current
+2025-03-27 18:57:12,546 - src.data.gridded_fetcher - INFO - Processed batch 471/731 for GLDAS-Current
+2025-03-27 18:57:28,747 - src.data.gridded_fetcher - INFO - Processed batch 472/731 for GLDAS-Current
+2025-03-27 18:57:46,925 - src.data.gridded_fetcher - INFO - Processed batch 473/731 for GLDAS-Current
+2025-03-27 18:58:03,745 - src.data.gridded_fetcher - INFO - Processed batch 474/731 for GLDAS-Current
+2025-03-27 18:58:20,388 - src.data.gridded_fetcher - INFO - Processed batch 475/731 for GLDAS-Current
+2025-03-27 18:58:36,701 - src.data.gridded_fetcher - INFO - Processed batch 476/731 for GLDAS-Current
+2025-03-27 18:58:53,090 - src.data.gridded_fetcher - INFO - Processed batch 477/731 for GLDAS-Current
+2025-03-27 18:59:09,381 - src.data.gridded_fetcher - INFO - Processed batch 478/731 for GLDAS-Current
+2025-03-27 18:59:25,952 - src.data.gridded_fetcher - INFO - Processed batch 479/731 for GLDAS-Current
+2025-03-27 18:59:42,022 - src.data.gridded_fetcher - INFO - Processed batch 480/731 for GLDAS-Current
+2025-03-27 18:59:58,761 - src.data.gridded_fetcher - INFO - Processed batch 481/731 for GLDAS-Current
+2025-03-27 19:00:15,775 - src.data.gridded_fetcher - INFO - Processed batch 482/731 for GLDAS-Current
+2025-03-27 19:00:33,483 - src.data.gridded_fetcher - INFO - Processed batch 483/731 for GLDAS-Current
+2025-03-27 19:00:51,503 - src.data.gridded_fetcher - INFO - Processed batch 484/731 for GLDAS-Current
+2025-03-27 19:01:09,235 - src.data.gridded_fetcher - INFO - Processed batch 485/731 for GLDAS-Current
+2025-03-27 19:01:26,846 - src.data.gridded_fetcher - INFO - Processed batch 486/731 for GLDAS-Current
+2025-03-27 19:01:44,539 - src.data.gridded_fetcher - INFO - Processed batch 487/731 for GLDAS-Current
+2025-03-27 19:02:02,621 - src.data.gridded_fetcher - INFO - Processed batch 488/731 for GLDAS-Current
+2025-03-27 19:02:20,408 - src.data.gridded_fetcher - INFO - Processed batch 489/731 for GLDAS-Current
+2025-03-27 19:02:38,370 - src.data.gridded_fetcher - INFO - Processed batch 490/731 for GLDAS-Current
+2025-03-27 19:02:56,385 - src.data.gridded_fetcher - INFO - Processed batch 491/731 for GLDAS-Current
+2025-03-27 19:03:15,002 - src.data.gridded_fetcher - INFO - Processed batch 492/731 for GLDAS-Current
+2025-03-27 19:03:33,387 - src.data.gridded_fetcher - INFO - Processed batch 493/731 for GLDAS-Current
+2025-03-27 19:03:51,165 - src.data.gridded_fetcher - INFO - Processed batch 494/731 for GLDAS-Current
+2025-03-27 19:04:09,179 - src.data.gridded_fetcher - INFO - Processed batch 495/731 for GLDAS-Current
+2025-03-27 19:04:26,974 - src.data.gridded_fetcher - INFO - Processed batch 496/731 for GLDAS-Current
+2025-03-27 19:04:44,860 - src.data.gridded_fetcher - INFO - Processed batch 497/731 for GLDAS-Current
+2025-03-27 19:05:04,793 - src.data.gridded_fetcher - INFO - Processed batch 498/731 for GLDAS-Current
+2025-03-27 19:05:23,273 - src.data.gridded_fetcher - INFO - Processed batch 499/731 for GLDAS-Current
+2025-03-27 19:05:41,381 - src.data.gridded_fetcher - INFO - Processed batch 500/731 for GLDAS-Current
+2025-03-27 19:06:01,210 - src.data.gridded_fetcher - INFO - Processed batch 501/731 for GLDAS-Current
+2025-03-27 19:06:19,307 - src.data.gridded_fetcher - INFO - Processed batch 502/731 for GLDAS-Current
+2025-03-27 19:06:40,080 - src.data.gridded_fetcher - INFO - Processed batch 503/731 for GLDAS-Current
+2025-03-27 19:06:58,717 - src.data.gridded_fetcher - INFO - Processed batch 504/731 for GLDAS-Current
+2025-03-27 19:07:17,732 - src.data.gridded_fetcher - INFO - Processed batch 505/731 for GLDAS-Current
+2025-03-27 19:07:35,517 - src.data.gridded_fetcher - INFO - Processed batch 506/731 for GLDAS-Current
+2025-03-27 19:07:52,186 - src.data.gridded_fetcher - INFO - Processed batch 507/731 for GLDAS-Current
+2025-03-27 19:08:10,153 - src.data.gridded_fetcher - INFO - Processed batch 508/731 for GLDAS-Current
+2025-03-27 19:08:28,026 - src.data.gridded_fetcher - INFO - Processed batch 509/731 for GLDAS-Current
+2025-03-27 19:08:46,132 - src.data.gridded_fetcher - INFO - Processed batch 510/731 for GLDAS-Current
+2025-03-27 19:09:04,823 - src.data.gridded_fetcher - INFO - Processed batch 511/731 for GLDAS-Current
+2025-03-27 19:09:23,362 - src.data.gridded_fetcher - INFO - Processed batch 512/731 for GLDAS-Current
+2025-03-27 19:09:41,549 - src.data.gridded_fetcher - INFO - Processed batch 513/731 for GLDAS-Current
+2025-03-27 19:10:00,080 - src.data.gridded_fetcher - INFO - Processed batch 514/731 for GLDAS-Current
+2025-03-27 19:10:18,938 - src.data.gridded_fetcher - INFO - Processed batch 515/731 for GLDAS-Current
+2025-03-27 19:10:36,571 - src.data.gridded_fetcher - INFO - Processed batch 516/731 for GLDAS-Current
+2025-03-27 19:10:55,364 - src.data.gridded_fetcher - INFO - Processed batch 517/731 for GLDAS-Current
+2025-03-27 19:11:14,529 - src.data.gridded_fetcher - INFO - Processed batch 518/731 for GLDAS-Current
+2025-03-27 19:11:35,099 - src.data.gridded_fetcher - INFO - Processed batch 519/731 for GLDAS-Current
+2025-03-27 19:11:53,473 - src.data.gridded_fetcher - INFO - Processed batch 520/731 for GLDAS-Current
+2025-03-27 19:12:13,900 - src.data.gridded_fetcher - INFO - Processed batch 521/731 for GLDAS-Current
+2025-03-27 19:12:32,312 - src.data.gridded_fetcher - INFO - Processed batch 522/731 for GLDAS-Current
+2025-03-27 19:12:49,824 - src.data.gridded_fetcher - INFO - Processed batch 523/731 for GLDAS-Current
+2025-03-27 19:13:08,825 - src.data.gridded_fetcher - INFO - Processed batch 524/731 for GLDAS-Current
+2025-03-27 19:13:26,562 - src.data.gridded_fetcher - INFO - Processed batch 525/731 for GLDAS-Current
+2025-03-27 19:13:43,033 - src.data.gridded_fetcher - INFO - Processed batch 526/731 for GLDAS-Current
+2025-03-27 19:14:02,282 - src.data.gridded_fetcher - INFO - Processed batch 527/731 for GLDAS-Current
+2025-03-27 19:14:19,958 - src.data.gridded_fetcher - INFO - Processed batch 528/731 for GLDAS-Current
+2025-03-27 19:14:38,538 - src.data.gridded_fetcher - INFO - Processed batch 529/731 for GLDAS-Current
+2025-03-27 19:14:56,563 - src.data.gridded_fetcher - INFO - Processed batch 530/731 for GLDAS-Current
+2025-03-27 19:15:15,185 - src.data.gridded_fetcher - INFO - Processed batch 531/731 for GLDAS-Current
+2025-03-27 19:15:34,009 - src.data.gridded_fetcher - INFO - Processed batch 532/731 for GLDAS-Current
+2025-03-27 19:15:54,491 - src.data.gridded_fetcher - INFO - Processed batch 533/731 for GLDAS-Current
+2025-03-27 19:16:14,061 - src.data.gridded_fetcher - INFO - Processed batch 534/731 for GLDAS-Current
+2025-03-27 19:16:32,635 - src.data.gridded_fetcher - INFO - Processed batch 535/731 for GLDAS-Current
+2025-03-27 19:16:50,853 - src.data.gridded_fetcher - INFO - Processed batch 536/731 for GLDAS-Current
+2025-03-27 19:17:09,630 - src.data.gridded_fetcher - INFO - Processed batch 537/731 for GLDAS-Current
+2025-03-27 19:17:27,959 - src.data.gridded_fetcher - INFO - Processed batch 538/731 for GLDAS-Current
+2025-03-27 19:17:46,410 - src.data.gridded_fetcher - INFO - Processed batch 539/731 for GLDAS-Current
+2025-03-27 19:18:03,988 - src.data.gridded_fetcher - INFO - Processed batch 540/731 for GLDAS-Current
+2025-03-27 19:18:22,174 - src.data.gridded_fetcher - INFO - Processed batch 541/731 for GLDAS-Current
+2025-03-27 19:18:41,547 - src.data.gridded_fetcher - INFO - Processed batch 542/731 for GLDAS-Current
+2025-03-27 19:19:00,844 - src.data.gridded_fetcher - INFO - Processed batch 543/731 for GLDAS-Current
+2025-03-27 19:19:20,004 - src.data.gridded_fetcher - INFO - Processed batch 544/731 for GLDAS-Current
+2025-03-27 19:19:37,738 - src.data.gridded_fetcher - INFO - Processed batch 545/731 for GLDAS-Current
+2025-03-27 19:19:59,097 - src.data.gridded_fetcher - INFO - Processed batch 546/731 for GLDAS-Current
+2025-03-27 19:20:17,268 - src.data.gridded_fetcher - INFO - Processed batch 547/731 for GLDAS-Current
+2025-03-27 19:20:35,977 - src.data.gridded_fetcher - INFO - Processed batch 548/731 for GLDAS-Current
+2025-03-27 19:20:54,064 - src.data.gridded_fetcher - INFO - Processed batch 549/731 for GLDAS-Current
+2025-03-27 19:21:12,040 - src.data.gridded_fetcher - INFO - Processed batch 550/731 for GLDAS-Current
+2025-03-27 19:21:30,360 - src.data.gridded_fetcher - INFO - Processed batch 551/731 for GLDAS-Current
+2025-03-27 19:21:47,827 - src.data.gridded_fetcher - INFO - Processed batch 552/731 for GLDAS-Current
+2025-03-27 19:22:06,807 - src.data.gridded_fetcher - INFO - Processed batch 553/731 for GLDAS-Current
+2025-03-27 19:22:24,735 - src.data.gridded_fetcher - INFO - Processed batch 554/731 for GLDAS-Current
+2025-03-27 19:22:42,181 - src.data.gridded_fetcher - INFO - Processed batch 555/731 for GLDAS-Current
+2025-03-27 19:22:59,920 - src.data.gridded_fetcher - INFO - Processed batch 556/731 for GLDAS-Current
+2025-03-27 19:23:18,188 - src.data.gridded_fetcher - INFO - Processed batch 557/731 for GLDAS-Current
+2025-03-27 19:23:36,921 - src.data.gridded_fetcher - INFO - Processed batch 558/731 for GLDAS-Current
+2025-03-27 19:23:54,658 - src.data.gridded_fetcher - INFO - Processed batch 559/731 for GLDAS-Current
+2025-03-27 19:24:12,099 - src.data.gridded_fetcher - INFO - Processed batch 560/731 for GLDAS-Current
+2025-03-27 19:24:30,022 - src.data.gridded_fetcher - INFO - Processed batch 561/731 for GLDAS-Current
+2025-03-27 19:24:47,899 - src.data.gridded_fetcher - INFO - Processed batch 562/731 for GLDAS-Current
+2025-03-27 19:25:05,425 - src.data.gridded_fetcher - INFO - Processed batch 563/731 for GLDAS-Current
+2025-03-27 19:25:24,064 - src.data.gridded_fetcher - INFO - Processed batch 564/731 for GLDAS-Current
+2025-03-27 19:25:41,874 - src.data.gridded_fetcher - INFO - Processed batch 565/731 for GLDAS-Current
+2025-03-27 19:25:59,221 - src.data.gridded_fetcher - INFO - Processed batch 566/731 for GLDAS-Current
+2025-03-27 19:26:16,046 - src.data.gridded_fetcher - INFO - Processed batch 567/731 for GLDAS-Current
+2025-03-27 19:26:33,330 - src.data.gridded_fetcher - INFO - Processed batch 568/731 for GLDAS-Current
+2025-03-27 19:26:50,249 - src.data.gridded_fetcher - INFO - Processed batch 569/731 for GLDAS-Current
+2025-03-27 19:27:07,009 - src.data.gridded_fetcher - INFO - Processed batch 570/731 for GLDAS-Current
+2025-03-27 19:27:23,904 - src.data.gridded_fetcher - INFO - Processed batch 571/731 for GLDAS-Current
+2025-03-27 19:27:40,556 - src.data.gridded_fetcher - INFO - Processed batch 572/731 for GLDAS-Current
+2025-03-27 19:27:57,897 - src.data.gridded_fetcher - INFO - Processed batch 573/731 for GLDAS-Current
+2025-03-27 19:28:15,128 - src.data.gridded_fetcher - INFO - Processed batch 574/731 for GLDAS-Current
+2025-03-27 19:28:32,155 - src.data.gridded_fetcher - INFO - Processed batch 575/731 for GLDAS-Current
+2025-03-27 19:28:49,391 - src.data.gridded_fetcher - INFO - Processed batch 576/731 for GLDAS-Current
+2025-03-27 19:29:08,255 - src.data.gridded_fetcher - INFO - Processed batch 577/731 for GLDAS-Current
+2025-03-27 19:29:25,250 - src.data.gridded_fetcher - INFO - Processed batch 578/731 for GLDAS-Current
+2025-03-27 19:29:42,443 - src.data.gridded_fetcher - INFO - Processed batch 579/731 for GLDAS-Current
+2025-03-27 19:29:59,994 - src.data.gridded_fetcher - INFO - Processed batch 580/731 for GLDAS-Current
+2025-03-27 19:30:16,415 - src.data.gridded_fetcher - INFO - Processed batch 581/731 for GLDAS-Current
+2025-03-27 19:30:34,222 - src.data.gridded_fetcher - INFO - Processed batch 582/731 for GLDAS-Current
+2025-03-27 19:30:50,726 - src.data.gridded_fetcher - INFO - Processed batch 583/731 for GLDAS-Current
+2025-03-27 19:31:07,948 - src.data.gridded_fetcher - INFO - Processed batch 584/731 for GLDAS-Current
+2025-03-27 19:31:24,768 - src.data.gridded_fetcher - INFO - Processed batch 585/731 for GLDAS-Current
+2025-03-27 19:31:42,272 - src.data.gridded_fetcher - INFO - Processed batch 586/731 for GLDAS-Current
+2025-03-27 19:32:00,461 - src.data.gridded_fetcher - INFO - Processed batch 587/731 for GLDAS-Current
+2025-03-27 19:32:18,233 - src.data.gridded_fetcher - INFO - Processed batch 588/731 for GLDAS-Current
+2025-03-27 19:32:36,537 - src.data.gridded_fetcher - INFO - Processed batch 589/731 for GLDAS-Current
+2025-03-27 19:32:53,344 - src.data.gridded_fetcher - INFO - Processed batch 590/731 for GLDAS-Current
+2025-03-27 19:33:11,521 - src.data.gridded_fetcher - INFO - Processed batch 591/731 for GLDAS-Current
+2025-03-27 19:33:28,881 - src.data.gridded_fetcher - INFO - Processed batch 592/731 for GLDAS-Current
+2025-03-27 19:33:45,688 - src.data.gridded_fetcher - INFO - Processed batch 593/731 for GLDAS-Current
+2025-03-27 19:34:02,756 - src.data.gridded_fetcher - INFO - Processed batch 594/731 for GLDAS-Current
+2025-03-27 19:34:20,155 - src.data.gridded_fetcher - INFO - Processed batch 595/731 for GLDAS-Current
+2025-03-27 19:34:37,882 - src.data.gridded_fetcher - INFO - Processed batch 596/731 for GLDAS-Current
+2025-03-27 19:34:55,150 - src.data.gridded_fetcher - INFO - Processed batch 597/731 for GLDAS-Current
+2025-03-27 19:35:12,463 - src.data.gridded_fetcher - INFO - Processed batch 598/731 for GLDAS-Current
+2025-03-27 19:35:29,558 - src.data.gridded_fetcher - INFO - Processed batch 599/731 for GLDAS-Current
+2025-03-27 19:35:46,449 - src.data.gridded_fetcher - INFO - Processed batch 600/731 for GLDAS-Current
+2025-03-27 19:36:03,648 - src.data.gridded_fetcher - INFO - Processed batch 601/731 for GLDAS-Current
+2025-03-27 19:36:21,157 - src.data.gridded_fetcher - INFO - Processed batch 602/731 for GLDAS-Current
+2025-03-27 19:36:38,440 - src.data.gridded_fetcher - INFO - Processed batch 603/731 for GLDAS-Current
+2025-03-27 19:36:55,784 - src.data.gridded_fetcher - INFO - Processed batch 604/731 for GLDAS-Current
+2025-03-27 19:37:14,121 - src.data.gridded_fetcher - INFO - Processed batch 605/731 for GLDAS-Current
+2025-03-27 19:37:33,529 - src.data.gridded_fetcher - INFO - Processed batch 606/731 for GLDAS-Current
+2025-03-27 19:37:52,523 - src.data.gridded_fetcher - INFO - Processed batch 607/731 for GLDAS-Current
+2025-03-27 19:38:11,200 - src.data.gridded_fetcher - INFO - Processed batch 608/731 for GLDAS-Current
+2025-03-27 19:38:29,289 - src.data.gridded_fetcher - INFO - Processed batch 609/731 for GLDAS-Current
+2025-03-27 19:38:49,186 - src.data.gridded_fetcher - INFO - Processed batch 610/731 for GLDAS-Current
+2025-03-27 19:39:08,708 - src.data.gridded_fetcher - INFO - Processed batch 611/731 for GLDAS-Current
+2025-03-27 19:39:27,689 - src.data.gridded_fetcher - INFO - Processed batch 612/731 for GLDAS-Current
+2025-03-27 19:39:45,498 - src.data.gridded_fetcher - INFO - Processed batch 613/731 for GLDAS-Current
+2025-03-27 19:40:03,063 - src.data.gridded_fetcher - INFO - Processed batch 614/731 for GLDAS-Current
+2025-03-27 19:40:21,738 - src.data.gridded_fetcher - INFO - Processed batch 615/731 for GLDAS-Current
+2025-03-27 19:40:43,326 - src.data.gridded_fetcher - INFO - Processed batch 616/731 for GLDAS-Current
+2025-03-27 19:41:04,361 - src.data.gridded_fetcher - INFO - Processed batch 617/731 for GLDAS-Current
+2025-03-27 19:41:24,247 - src.data.gridded_fetcher - INFO - Processed batch 618/731 for GLDAS-Current
+2025-03-27 19:41:42,411 - src.data.gridded_fetcher - INFO - Processed batch 619/731 for GLDAS-Current
+2025-03-27 19:42:02,889 - src.data.gridded_fetcher - INFO - Processed batch 620/731 for GLDAS-Current
+2025-03-27 19:42:22,059 - src.data.gridded_fetcher - INFO - Processed batch 621/731 for GLDAS-Current
+2025-03-27 19:42:40,224 - src.data.gridded_fetcher - INFO - Processed batch 622/731 for GLDAS-Current
+2025-03-27 19:42:58,312 - src.data.gridded_fetcher - INFO - Processed batch 623/731 for GLDAS-Current
+2025-03-27 19:43:16,027 - src.data.gridded_fetcher - INFO - Processed batch 624/731 for GLDAS-Current
+2025-03-27 19:43:33,715 - src.data.gridded_fetcher - INFO - Processed batch 625/731 for GLDAS-Current
+2025-03-27 19:43:52,597 - src.data.gridded_fetcher - INFO - Processed batch 626/731 for GLDAS-Current
+2025-03-27 19:44:12,232 - src.data.gridded_fetcher - INFO - Processed batch 627/731 for GLDAS-Current
+2025-03-27 19:44:31,765 - src.data.gridded_fetcher - INFO - Processed batch 628/731 for GLDAS-Current
+2025-03-27 19:44:50,027 - src.data.gridded_fetcher - INFO - Processed batch 629/731 for GLDAS-Current
+2025-03-27 19:45:08,544 - src.data.gridded_fetcher - INFO - Processed batch 630/731 for GLDAS-Current
+2025-03-27 19:45:27,211 - src.data.gridded_fetcher - INFO - Processed batch 631/731 for GLDAS-Current
+2025-03-27 19:45:45,073 - src.data.gridded_fetcher - INFO - Processed batch 632/731 for GLDAS-Current
+2025-03-27 19:46:04,538 - src.data.gridded_fetcher - INFO - Processed batch 633/731 for GLDAS-Current
+2025-03-27 19:46:23,459 - src.data.gridded_fetcher - INFO - Processed batch 634/731 for GLDAS-Current
+2025-03-27 19:46:43,777 - src.data.gridded_fetcher - INFO - Processed batch 635/731 for GLDAS-Current
+2025-03-27 19:47:03,743 - src.data.gridded_fetcher - INFO - Processed batch 636/731 for GLDAS-Current
+2025-03-27 19:47:22,345 - src.data.gridded_fetcher - INFO - Processed batch 637/731 for GLDAS-Current
+2025-03-27 19:47:40,607 - src.data.gridded_fetcher - INFO - Processed batch 638/731 for GLDAS-Current
+2025-03-27 19:48:01,258 - src.data.gridded_fetcher - INFO - Processed batch 639/731 for GLDAS-Current
+2025-03-27 19:48:20,222 - src.data.gridded_fetcher - INFO - Processed batch 640/731 for GLDAS-Current
+2025-03-27 19:48:39,970 - src.data.gridded_fetcher - INFO - Processed batch 641/731 for GLDAS-Current
+2025-03-27 19:48:59,285 - src.data.gridded_fetcher - INFO - Processed batch 642/731 for GLDAS-Current
+2025-03-27 19:49:19,786 - src.data.gridded_fetcher - INFO - Processed batch 643/731 for GLDAS-Current
+2025-03-27 19:49:40,243 - src.data.gridded_fetcher - INFO - Processed batch 644/731 for GLDAS-Current
+2025-03-27 19:49:58,536 - src.data.gridded_fetcher - INFO - Processed batch 645/731 for GLDAS-Current
+2025-03-27 19:50:17,247 - src.data.gridded_fetcher - INFO - Processed batch 646/731 for GLDAS-Current
+2025-03-27 19:50:34,905 - src.data.gridded_fetcher - INFO - Processed batch 647/731 for GLDAS-Current
+2025-03-27 19:50:54,248 - src.data.gridded_fetcher - INFO - Processed batch 648/731 for GLDAS-Current
+2025-03-27 19:51:14,917 - src.data.gridded_fetcher - INFO - Processed batch 649/731 for GLDAS-Current
+2025-03-27 19:51:34,162 - src.data.gridded_fetcher - INFO - Processed batch 650/731 for GLDAS-Current
+2025-03-27 19:51:52,716 - src.data.gridded_fetcher - INFO - Processed batch 651/731 for GLDAS-Current
+2025-03-27 19:52:11,108 - src.data.gridded_fetcher - INFO - Processed batch 652/731 for GLDAS-Current
+2025-03-27 19:52:31,951 - src.data.gridded_fetcher - INFO - Processed batch 653/731 for GLDAS-Current
+2025-03-27 19:52:54,479 - src.data.gridded_fetcher - INFO - Processed batch 654/731 for GLDAS-Current
+2025-03-27 19:53:18,194 - src.data.gridded_fetcher - INFO - Processed batch 655/731 for GLDAS-Current
+2025-03-27 19:53:40,083 - src.data.gridded_fetcher - INFO - Processed batch 656/731 for GLDAS-Current
+2025-03-27 19:54:01,504 - src.data.gridded_fetcher - INFO - Processed batch 657/731 for GLDAS-Current
+2025-03-27 19:54:23,495 - src.data.gridded_fetcher - INFO - Processed batch 658/731 for GLDAS-Current
+2025-03-27 19:54:44,503 - src.data.gridded_fetcher - INFO - Processed batch 659/731 for GLDAS-Current
+2025-03-27 19:55:03,639 - src.data.gridded_fetcher - INFO - Processed batch 660/731 for GLDAS-Current
+2025-03-27 19:55:22,123 - src.data.gridded_fetcher - INFO - Processed batch 661/731 for GLDAS-Current
+2025-03-27 19:55:43,042 - src.data.gridded_fetcher - INFO - Processed batch 662/731 for GLDAS-Current
+2025-03-27 19:56:04,486 - src.data.gridded_fetcher - INFO - Processed batch 663/731 for GLDAS-Current
+2025-03-27 19:56:24,040 - src.data.gridded_fetcher - INFO - Processed batch 664/731 for GLDAS-Current
+2025-03-27 19:56:44,731 - src.data.gridded_fetcher - INFO - Processed batch 665/731 for GLDAS-Current
+2025-03-27 19:57:03,622 - src.data.gridded_fetcher - INFO - Processed batch 666/731 for GLDAS-Current
+2025-03-27 19:57:23,469 - src.data.gridded_fetcher - INFO - Processed batch 667/731 for GLDAS-Current
+2025-03-27 19:57:44,445 - src.data.gridded_fetcher - INFO - Processed batch 668/731 for GLDAS-Current
+2025-03-27 19:58:03,542 - src.data.gridded_fetcher - INFO - Processed batch 669/731 for GLDAS-Current
+2025-03-27 19:58:23,325 - src.data.gridded_fetcher - INFO - Processed batch 670/731 for GLDAS-Current
+2025-03-27 19:58:41,986 - src.data.gridded_fetcher - INFO - Processed batch 671/731 for GLDAS-Current
+2025-03-27 19:59:01,621 - src.data.gridded_fetcher - INFO - Processed batch 672/731 for GLDAS-Current
+2025-03-27 19:59:21,421 - src.data.gridded_fetcher - INFO - Processed batch 673/731 for GLDAS-Current
+2025-03-27 19:59:41,549 - src.data.gridded_fetcher - INFO - Processed batch 674/731 for GLDAS-Current
+2025-03-27 19:59:58,550 - src.data.gridded_fetcher - INFO - Processed batch 675/731 for GLDAS-Current
+2025-03-27 20:00:17,451 - src.data.gridded_fetcher - INFO - Processed batch 676/731 for GLDAS-Current
+2025-03-27 20:00:36,001 - src.data.gridded_fetcher - INFO - Processed batch 677/731 for GLDAS-Current
+2025-03-27 20:00:56,408 - src.data.gridded_fetcher - INFO - Processed batch 678/731 for GLDAS-Current
+2025-03-27 20:01:15,517 - src.data.gridded_fetcher - INFO - Processed batch 679/731 for GLDAS-Current
+2025-03-27 20:01:34,867 - src.data.gridded_fetcher - INFO - Processed batch 680/731 for GLDAS-Current
+2025-03-27 20:01:54,403 - src.data.gridded_fetcher - INFO - Processed batch 681/731 for GLDAS-Current
+2025-03-27 20:02:14,577 - src.data.gridded_fetcher - INFO - Processed batch 682/731 for GLDAS-Current
+2025-03-27 20:02:35,310 - src.data.gridded_fetcher - INFO - Processed batch 683/731 for GLDAS-Current
+2025-03-27 20:02:53,555 - src.data.gridded_fetcher - INFO - Processed batch 684/731 for GLDAS-Current
+2025-03-27 20:03:11,766 - src.data.gridded_fetcher - INFO - Processed batch 685/731 for GLDAS-Current
+2025-03-27 20:03:29,923 - src.data.gridded_fetcher - INFO - Processed batch 686/731 for GLDAS-Current
+2025-03-27 20:03:48,040 - src.data.gridded_fetcher - INFO - Processed batch 687/731 for GLDAS-Current
+2025-03-27 20:04:06,609 - src.data.gridded_fetcher - INFO - Processed batch 688/731 for GLDAS-Current
+2025-03-27 20:04:24,752 - src.data.gridded_fetcher - INFO - Processed batch 689/731 for GLDAS-Current
+2025-03-27 20:04:42,237 - src.data.gridded_fetcher - INFO - Processed batch 690/731 for GLDAS-Current
+2025-03-27 20:04:59,452 - src.data.gridded_fetcher - INFO - Processed batch 691/731 for GLDAS-Current
+2025-03-27 20:05:17,087 - src.data.gridded_fetcher - INFO - Processed batch 692/731 for GLDAS-Current
+2025-03-27 20:05:34,997 - src.data.gridded_fetcher - INFO - Processed batch 693/731 for GLDAS-Current
+2025-03-27 20:05:53,865 - src.data.gridded_fetcher - INFO - Processed batch 694/731 for GLDAS-Current
+2025-03-27 20:06:13,919 - src.data.gridded_fetcher - INFO - Processed batch 695/731 for GLDAS-Current
+2025-03-27 20:06:33,800 - src.data.gridded_fetcher - INFO - Processed batch 696/731 for GLDAS-Current
+2025-03-27 20:06:54,432 - src.data.gridded_fetcher - INFO - Processed batch 697/731 for GLDAS-Current
+2025-03-27 20:07:12,862 - src.data.gridded_fetcher - INFO - Processed batch 698/731 for GLDAS-Current
+2025-03-27 20:07:32,053 - src.data.gridded_fetcher - INFO - Processed batch 699/731 for GLDAS-Current
+2025-03-27 20:07:52,538 - src.data.gridded_fetcher - INFO - Processed batch 700/731 for GLDAS-Current
+2025-03-27 20:08:12,484 - src.data.gridded_fetcher - INFO - Processed batch 701/731 for GLDAS-Current
+2025-03-27 20:08:32,043 - src.data.gridded_fetcher - INFO - Processed batch 702/731 for GLDAS-Current
+2025-03-27 20:08:52,554 - src.data.gridded_fetcher - INFO - Processed batch 703/731 for GLDAS-Current
+2025-03-27 20:09:12,023 - src.data.gridded_fetcher - INFO - Processed batch 704/731 for GLDAS-Current
+2025-03-27 20:09:31,177 - src.data.gridded_fetcher - INFO - Processed batch 705/731 for GLDAS-Current
+2025-03-27 20:09:50,532 - src.data.gridded_fetcher - INFO - Processed batch 706/731 for GLDAS-Current
+2025-03-27 20:10:08,913 - src.data.gridded_fetcher - INFO - Processed batch 707/731 for GLDAS-Current
+2025-03-27 20:10:27,168 - src.data.gridded_fetcher - INFO - Processed batch 708/731 for GLDAS-Current
+2025-03-27 20:10:45,458 - src.data.gridded_fetcher - INFO - Processed batch 709/731 for GLDAS-Current
+2025-03-27 20:11:04,529 - src.data.gridded_fetcher - INFO - Processed batch 710/731 for GLDAS-Current
+2025-03-27 20:11:23,266 - src.data.gridded_fetcher - INFO - Processed batch 711/731 for GLDAS-Current
+2025-03-27 20:11:43,126 - src.data.gridded_fetcher - INFO - Processed batch 712/731 for GLDAS-Current
+2025-03-27 20:12:02,902 - src.data.gridded_fetcher - INFO - Processed batch 713/731 for GLDAS-Current
+2025-03-27 20:12:20,790 - src.data.gridded_fetcher - INFO - Processed batch 714/731 for GLDAS-Current
+2025-03-27 20:12:39,201 - src.data.gridded_fetcher - INFO - Processed batch 715/731 for GLDAS-Current
+2025-03-27 20:12:57,515 - src.data.gridded_fetcher - INFO - Processed batch 716/731 for GLDAS-Current
+2025-03-27 20:13:18,054 - src.data.gridded_fetcher - INFO - Processed batch 717/731 for GLDAS-Current
+2025-03-27 20:13:35,997 - src.data.gridded_fetcher - INFO - Processed batch 718/731 for GLDAS-Current
+2025-03-27 20:13:53,843 - src.data.gridded_fetcher - INFO - Processed batch 719/731 for GLDAS-Current
+2025-03-27 20:14:11,297 - src.data.gridded_fetcher - INFO - Processed batch 720/731 for GLDAS-Current
+2025-03-27 20:14:30,941 - src.data.gridded_fetcher - INFO - Processed batch 721/731 for GLDAS-Current
+2025-03-27 20:14:51,114 - src.data.gridded_fetcher - INFO - Processed batch 722/731 for GLDAS-Current
+2025-03-27 20:15:09,456 - src.data.gridded_fetcher - INFO - Processed batch 723/731 for GLDAS-Current
+2025-03-27 20:15:27,133 - src.data.gridded_fetcher - INFO - Processed batch 724/731 for GLDAS-Current
+2025-03-27 20:15:44,728 - src.data.gridded_fetcher - INFO - Processed batch 725/731 for GLDAS-Current
+2025-03-27 20:16:02,959 - src.data.gridded_fetcher - INFO - Processed batch 726/731 for GLDAS-Current
+2025-03-27 20:16:20,277 - src.data.gridded_fetcher - INFO - Processed batch 727/731 for GLDAS-Current
+2025-03-27 20:16:38,189 - src.data.gridded_fetcher - INFO - Processed batch 728/731 for GLDAS-Current
+2025-03-27 20:16:57,212 - src.data.gridded_fetcher - INFO - Processed batch 729/731 for GLDAS-Current
+2025-03-27 20:17:15,382 - src.data.gridded_fetcher - INFO - Processed batch 730/731 for GLDAS-Current
+2025-03-27 20:17:24,432 - src.data.gridded_fetcher - INFO - Processed batch 731/731 for GLDAS-Current
+2025-03-27 20:17:24,934 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\era5_precipitation.csv
+2025-03-27 20:17:25,107 - src.data.gridded_fetcher - INFO - Saved DAYMET data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\daymet_precipitation.csv
+2025-03-27 20:17:25,286 - src.data.gridded_fetcher - INFO - Saved PRISM data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\prism_precipitation.csv
+2025-03-27 20:17:25,463 - src.data.gridded_fetcher - INFO - Saved CHIRPS data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\chirps_precipitation.csv
+2025-03-27 20:17:25,523 - src.data.gridded_fetcher - INFO - Saved FLDAS data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\fldas_precipitation.csv
+2025-03-27 20:17:25,698 - src.data.gridded_fetcher - INFO - Saved GLDAS-Historical data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\gldas-historical_precipitation.csv
+2025-03-27 20:17:25,950 - src.data.gridded_fetcher - INFO - Saved GLDAS-Current data to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Data\gldas-current_precipitation.csv
+2025-03-27 20:17:25,950 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-03-27 20:17:26,084 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+         Dataset  Rows  Stations Start Date   End Date  Missing (%)
+          Ground  9132        47 2000-01-01 2024-12-31    60.960289
+            ERA5  9132        48 2000-01-01 2024-12-31     0.010951
+          DAYMET  9132        48 2000-01-01 2024-12-31     4.073587
+           PRISM  9132        48 2000-01-01 2024-12-31     0.010951
+          CHIRPS  9132        48 2000-01-01 2024-12-31     0.010951
+           FLDAS  9132        48 2000-01-01 2024-12-31    96.714849
+GLDAS-Historical  9132        48 2000-01-01 2024-12-31    40.002190
+   GLDAS-Current  9132        48 2000-01-01 2024-12-31     0.010951
+2025-03-28 06:35:40,228 - controller.app_controller - INFO - Data fetching completed
+2025-03-28 06:35:42,229 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-28 06:35:46,445 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-03-28 06:35:46,446 - controller.app_controller - INFO - Starting data analysis process
+2025-03-28 06:35:46,447 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-03-28 06:35:46,447 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-03-28 06:35:46,473 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (9132, 47)
+2025-03-28 06:35:46,504 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (9132, 48)
+2025-03-28 06:35:46,536 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (9132, 48)
+2025-03-28 06:35:46,589 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (9132, 48)
+2025-03-28 06:35:46,609 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (9132, 48)
+2025-03-28 06:35:46,646 - src.analysis.statistical_analyzer - INFO - Loaded GLDAS-CURRENT data: (9132, 48)
+2025-03-28 06:35:46,677 - src.analysis.statistical_analyzer - INFO - Loaded GLDAS-HISTORICAL data: (9132, 48)
+2025-03-28 06:35:46,711 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (9132, 48)
+2025-03-28 06:35:46,712 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-03-28 06:35:46,712 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-03-28 06:35:46,730 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (9132, 47)
+2025-03-28 06:35:46,755 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (9132, 48)
+2025-03-28 06:35:46,781 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (9132, 48)
+2025-03-28 06:35:46,826 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (9132, 48)
+2025-03-28 06:35:46,840 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (9132, 48)
+2025-03-28 06:35:46,870 - src.analysis.statistical_analyzer - INFO - Loaded GLDAS-CURRENT data: (9132, 48)
+2025-03-28 06:35:46,893 - src.analysis.statistical_analyzer - INFO - Loaded GLDAS-HISTORICAL data: (9132, 48)
+2025-03-28 06:35:46,922 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (9132, 48)
+2025-03-28 06:35:46,922 - src.analysis.statistical_analyzer - INFO - Analyzing CHIRPS...
+2025-03-28 06:35:46,923 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:46,928 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:46,934 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-03-28 06:35:46,973 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-03-28 06:35:47,007 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-03-28 06:35:47,103 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-03-28 06:35:47,147 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-03-28 06:35:47,169 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-03-28 06:35:47,309 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results\CHIRPS
+2025-03-28 06:35:47,318 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-03-28 06:35:47,320 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:47,325 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:47,331 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-03-28 06:35:47,369 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-03-28 06:35:47,400 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-03-28 06:35:47,498 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-03-28 06:35:47,542 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-03-28 06:35:47,564 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-03-28 06:35:47,705 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results\DAYMET
+2025-03-28 06:35:47,710 - src.analysis.statistical_analyzer - INFO - Analyzing ERA5...
+2025-03-28 06:35:47,711 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:47,717 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:47,722 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-03-28 06:35:47,761 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-03-28 06:35:47,794 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-03-28 06:35:47,891 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-03-28 06:35:47,934 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-03-28 06:35:47,957 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-03-28 06:35:48,095 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results\ERA5
+2025-03-28 06:35:48,100 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-03-28 06:35:48,101 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:48,106 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-03-28 06:35:48,107 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-03-28 06:35:48,117 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-03-28 06:35:48,118 - src.analysis.statistical_analyzer - INFO - Analyzing GLDAS-CURRENT...
+2025-03-28 06:35:48,118 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:48,125 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:48,133 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-03-28 06:35:48,167 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-03-28 06:35:48,198 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-03-28 06:35:48,292 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-03-28 06:35:48,334 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-03-28 06:35:48,356 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-03-28 06:35:48,491 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results\GLDAS-CURRENT
+2025-03-28 06:35:48,496 - src.analysis.statistical_analyzer - INFO - Analyzing GLDAS-HISTORICAL...
+2025-03-28 06:35:48,497 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:48,503 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:48,509 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-03-28 06:35:48,543 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-03-28 06:35:48,558 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-03-28 06:35:48,618 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-03-28 06:35:48,645 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-03-28 06:35:48,665 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-03-28 06:35:48,734 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results\GLDAS-HISTORICAL
+2025-03-28 06:35:48,739 - src.analysis.statistical_analyzer - INFO - Analyzing PRISM...
+2025-03-28 06:35:48,740 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:48,746 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-03-28 06:35:48,752 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-03-28 06:35:48,788 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-03-28 06:35:48,820 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-03-28 06:35:48,917 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-03-28 06:35:48,961 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-03-28 06:35:48,983 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-03-28 06:35:49,128 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\OneDrive - Jackson State University\Research Projects\2025\2 ORISE\2 ERA5compare\Approach5 - Copy (2)\Results\PRISM
+2025-03-28 06:35:49,132 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-03-28 06:35:50,570 - controller.app_controller - INFO - Analysis completed
+2025-03-28 06:42:08,382 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-28 06:42:14,257 - ui.app_window - INFO - Switched to Analysis tab
+2025-03-28 06:47:17,743 - ui.app_window - INFO - Switched to Data Selection tab
+2025-03-28 06:47:22,629 - ui.app_window - INFO - Switched to Analysis tab

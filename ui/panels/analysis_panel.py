@@ -31,6 +31,7 @@ class AnalysisPanel(QWidget):
         self.controller.analysis_controller.progress_updated.connect(self.update_progress)
         self.controller.analysis_controller.dataset_analyzed.connect(self.on_dataset_analyzed)
         self.controller.status_updated.connect(self.append_status)
+        self.controller.data_downloaded.connect(self.check_data_availability)
         
         # Check data availability
         self.check_data_availability()
