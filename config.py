@@ -87,7 +87,7 @@ class GriddedDataConfig(DataConfig):
                     name='GSMAP',
                     collection_name="JAXA/GPM_L3/GSMaP/v8/operational",
                     variable_name="hourlyPrecipRateGC",
-                    conversion_factor=24,  # Convert mm/hr to mm/day
+                    conversion_factor=1.0,  
                     time_scale="hourly"
                 ),
                 'GLDAS-Historical': GriddedDatasetConfig(
