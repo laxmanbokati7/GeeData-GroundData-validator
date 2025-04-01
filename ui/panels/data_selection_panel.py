@@ -7,6 +7,10 @@ from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, QComboBo
                             QListWidgetItem, QPushButton, QProgressBar, QCheckBox,
                             QScrollArea, QFrame)
 from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot
+from utils.huc_utils import HUCDataProvider
+from PyQt5.QtWidgets import QMessageBox, QProgressDialog
+from PyQt5.QtCore import QTimer
+from utils.workers import HUCLoadWorker, HUCBoundaryWorker
 
 logger = logging.getLogger(__name__)
 
@@ -20,6 +24,7 @@ class DataSelectionPanel(QWidget):
         super().__init__()
         
         self.controller = controller
+        self.active_threads = []
         
         # US states dictionary
         self.us_states = {
@@ -125,12 +130,29 @@ class DataSelectionPanel(QWidget):
         self.end_year_slider.valueChanged.connect(self.on_end_year_changed)
         
         # 3. State Selection
-        state_group = QGroupBox("State Selection")
-        state_layout = QVBoxLayout()
+        area_group = QGroupBox("Area Selection")
+        area_layout = QVBoxLayout()
+        
+        # Selection method
+        selection_method_layout = QHBoxLayout()
+        selection_method_label = QLabel("Selection Method:")
+        self.rb_states = QRadioButton("States")
+        self.rb_huc = QRadioButton("HUC Watershed")
+        self.rb_states.setChecked(True)  # Default selection
+        
+        selection_method_layout.addWidget(selection_method_label)
+        selection_method_layout.addWidget(self.rb_states)
+        selection_method_layout.addWidget(self.rb_huc)
+        
+        area_layout.addLayout(selection_method_layout)
+        
+        # Create State selection widgets (same as before)
+        self.state_selection_widget = QWidget()
+        state_selection_layout = QVBoxLayout(self.state_selection_widget)
         
         self.rb_all_states = QRadioButton("All US States")
         self.rb_specific_states = QRadioButton("Select specific states")
-        self.rb_all_states.setChecked(True)  # Default selection
+        self.rb_all_states.setChecked(True)
         
         self.state_list = QListWidget()
         self.state_list.setEnabled(False)
@@ -141,16 +163,69 @@ class DataSelectionPanel(QWidget):
             item = QListWidgetItem(f"{code} - {name}")
             self.state_list.addItem(item)
         
-        state_layout.addWidget(self.rb_all_states)
-        state_layout.addWidget(self.rb_specific_states)
-        state_layout.addWidget(self.state_list)
+        state_selection_layout.addWidget(self.rb_all_states)
+        state_selection_layout.addWidget(self.rb_specific_states)
+        state_selection_layout.addWidget(self.state_list)
         
-        state_group.setLayout(state_layout)
-        scroll_layout.addWidget(state_group)
+        # Create HUC selection widgets
+        self.huc_selection_widget = QWidget()
+        self.huc_selection_widget.setVisible(False)  # Initially hidden
+        huc_selection_layout = QVBoxLayout(self.huc_selection_widget)
         
-        # Connect signals
+        # HUC selection components
+        huc_info_label = QLabel("Select a HUC08 watershed:")
+        huc_info_label.setWordWrap(True)
+        
+        # Region filter
+        huc_region_layout = QHBoxLayout()
+        huc_region_label = QLabel("Region:")
+        self.huc_region_combo = QComboBox()
+        self.huc_region_combo.addItem("Loading regions...", None)
+        
+        huc_region_layout.addWidget(huc_region_label)
+        huc_region_layout.addWidget(self.huc_region_combo)
+        
+        # HUC selector
+        huc_selection_layout2 = QHBoxLayout()
+        huc_selection_label = QLabel("HUC:")
+        self.huc_selection_combo = QComboBox()
+        self.huc_selection_combo.addItem("Select region first", None)
+        self.huc_selection_combo.setEnabled(False)
+        
+        huc_selection_layout2.addWidget(huc_selection_label)
+        huc_selection_layout2.addWidget(self.huc_selection_combo)
+        
+        # Load HUC button
+        self.load_huc_button = QPushButton("Load HUC Data")
+        self.load_huc_button.setEnabled(False)
+        
+        # HUC info
+        self.huc_info_text = QLabel("No HUC selected")
+        self.huc_info_text.setWordWrap(True)
+        self.huc_info_text.setStyleSheet("font-size: 10px; color: #666;")
+        
+        # Add components to layout
+        huc_selection_layout.addWidget(huc_info_label)
+        huc_selection_layout.addLayout(huc_region_layout)
+        huc_selection_layout.addLayout(huc_selection_layout2)
+        huc_selection_layout.addWidget(self.load_huc_button)
+        huc_selection_layout.addWidget(self.huc_info_text)
+        
+        # Add both selection widgets to the area group
+        area_layout.addWidget(self.state_selection_widget)
+        area_layout.addWidget(self.huc_selection_widget)
+        
+        area_group.setLayout(area_layout)
+        scroll_layout.addWidget(area_group)
+        
+        # Connect signals for area selection
+        self.rb_states.toggled.connect(self.on_selection_method_changed)
+        self.rb_huc.toggled.connect(self.on_selection_method_changed)
         self.rb_all_states.toggled.connect(self.on_state_scope_changed)
         self.rb_specific_states.toggled.connect(self.on_state_scope_changed)
+        self.huc_region_combo.currentIndexChanged.connect(self.on_huc_region_changed)
+        self.huc_selection_combo.currentIndexChanged.connect(self.on_huc_selected)
+        self.load_huc_button.clicked.connect(self.on_load_huc_clicked)
         
         # 4. Gridded Dataset Selection
         gridded_group = QGroupBox("Gridded Datasets")
@@ -235,6 +310,8 @@ class DataSelectionPanel(QWidget):
         
         # Connect controller signals
         self.controller.data_controller.progress_updated.connect(self.update_progress)
+
+        QTimer.singleShot(1000, self.load_huc_metadata)  # Reset UI on startup
     
     @pyqtSlot(bool)
     def on_data_type_changed(self, checked):
@@ -324,12 +401,17 @@ class DataSelectionPanel(QWidget):
             # Reset progress bar
             self.progress_bar.setValue(0)
             
+            # Get selection type
+            selection_type = self.get_selection_type()
+            
             # Get data configuration
             data_config = {
                 'data_type': self.get_data_type(),
                 'start_year': self.start_year_slider.value(),
                 'end_year': self.end_year_slider.value(),
-                'states': self.get_selected_states(),
+                'selection_type': selection_type,
+                'states': self.get_selected_states() if selection_type == 'states' else None,
+                'huc_id': self.get_selected_huc() if selection_type == 'huc' else None,
                 'gridded_datasets': self.get_selected_datasets(),
                 'ee_project_id': getattr(self.controller, 'ee_config', {}).get('ee_project_id', "ee-sauravbhattarai1999")
             }
@@ -432,3 +514,187 @@ class DataSelectionPanel(QWidget):
         self.download_button.setText("Download Data")
         
         logger.info("UI reset to default state")
+
+    # Add new methods to handle HUC selection
+    def on_selection_method_changed(self, checked):
+        """Handle selection method change between States and HUC"""
+        if not checked:
+            return
+            
+        if self.rb_states.isChecked():
+            self.state_selection_widget.setVisible(True)
+            self.huc_selection_widget.setVisible(False)
+        else:  # HUC selected
+            self.state_selection_widget.setVisible(False)
+            self.huc_selection_widget.setVisible(True)
+            
+            # If HUC metadata not loaded yet, load it
+            if self.huc_region_combo.count() <= 1:
+                self.load_huc_metadata()
+
+    def load_huc_metadata(self):
+        """Load HUC metadata in the background"""
+        try:
+            # Create progress dialog
+            progress = QProgressDialog("Loading HUC data...", "Cancel", 0, 100, self)
+            progress.setWindowModality(Qt.WindowModal)
+            progress.show()
+            
+            # Create worker thread - passing self as parent and project_id as parameter
+            project_id = getattr(self.controller, 'ee_config', {}).get('ee_project_id', "ee-sauravbhattarai1999")
+            worker = HUCLoadWorker(parent=self)  # Pass parent first
+            worker.set_project_id(project_id)  # Set project_id through a method
+            
+            worker.progress_updated.connect(progress.setValue)
+            worker.finished.connect(self.on_huc_metadata_loaded)
+            worker.failed.connect(self.on_huc_metadata_failed)
+            
+            # Add cleanup handler
+            worker.finished.connect(lambda: self.cleanup_thread(worker))
+            worker.failed.connect(lambda e: self.cleanup_thread(worker))
+            
+            # Keep reference to prevent garbage collection
+            self.active_threads.append(worker)
+            
+            # Start worker
+            worker.start()
+            
+        except Exception as e:
+            QMessageBox.warning(self, "Error", f"Failed to load HUC metadata: {str(e)}")
+            logger.error(f"Error loading HUC metadata: {str(e)}", exc_info=True)
+
+    def on_huc_metadata_loaded(self, regions):
+        """Handle loaded HUC metadata"""
+        # Clear and populate region combo
+        self.huc_region_combo.clear()
+        self.huc_region_combo.addItem("Select a region", None)
+        
+        for region_name, region_data in regions.items():
+            self.huc_region_combo.addItem(region_name, region_data)
+            
+        self.huc_region_combo.setEnabled(True)
+
+    def on_huc_metadata_failed(self, error):
+        """Handle HUC metadata loading failure"""
+        # Update UI with error message
+        self.huc_info_text.setText(f"Error loading HUC metadata: {str(error)}")
+        QMessageBox.warning(
+            self, 
+            "HUC Data Error", 
+            f"Failed to load HUC watershed data: {str(error)}\n\nPlease try again later."
+        )
+        
+        # Reset the HUC combo boxes
+        self.huc_region_combo.clear()
+        self.huc_region_combo.addItem("Error loading data", None)
+        self.huc_selection_combo.clear()
+        self.huc_selection_combo.addItem("Error loading data", None)
+        self.huc_selection_combo.setEnabled(False)
+
+    def on_huc_region_changed(self, index):
+        """Handle HUC region selection change"""
+        # Get selected region data
+        region_data = self.huc_region_combo.currentData()
+        
+        # Clear and populate HUC combo
+        self.huc_selection_combo.clear()
+        self.huc_selection_combo.addItem("Select a HUC", None)
+        
+        if region_data:
+            # Add HUCs in this region
+            for huc_id, huc_info in region_data.items():
+                display_text = f"{huc_id} - {huc_info['name']}"
+                self.huc_selection_combo.addItem(display_text, huc_id)
+                
+            self.huc_selection_combo.setEnabled(True)
+        else:
+            self.huc_selection_combo.setEnabled(False)
+
+    def on_huc_selected(self, index):
+        """Handle HUC selection change"""
+        # Get selected HUC
+        huc_id = self.huc_selection_combo.currentData()
+        
+        if huc_id:
+            # Get region data
+            region_data = self.huc_region_combo.currentData()
+            
+            if region_data and huc_id in region_data:
+                huc_info = region_data[huc_id]
+                
+                # Update info display
+                info_text = (
+                    f"HUC ID: {huc_id}\n"
+                    f"Name: {huc_info['name']}\n"
+                    f"States: {huc_info['states']}\n"
+                    f"Area: {huc_info['area_sqkm']:.2f} km²"
+                )
+                self.huc_info_text.setText(info_text)
+                
+                # Enable load button
+                self.load_huc_button.setEnabled(True)
+            else:
+                self.huc_info_text.setText("No HUC selected")
+                self.load_huc_button.setEnabled(False)
+        else:
+            self.huc_info_text.setText("No HUC selected")
+            self.load_huc_button.setEnabled(False)
+
+    def on_load_huc_clicked(self):
+        """Handle load HUC button click"""
+        # This will trigger loading/displaying the HUC boundary
+        huc_id = self.huc_selection_combo.currentData()
+        
+        if not huc_id:
+            return
+            
+        # Show loading message
+        self.huc_info_text.setText(f"Loading HUC {huc_id} boundary...")
+        
+        # Create worker to load boundary
+        worker = HUCBoundaryWorker(huc_id)
+        worker.finished.connect(lambda: self.on_huc_boundary_loaded(huc_id))
+        worker.failed.connect(lambda e: self.on_huc_boundary_failed(huc_id, e))
+        
+        # Start worker
+        worker.start()
+
+    def on_huc_boundary_loaded(self, huc_id):
+        """Handle loaded HUC boundary"""
+        # Update info with success message
+        region_data = self.huc_region_combo.currentData()
+        if region_data and huc_id in region_data:
+            huc_info = region_data[huc_id]
+            
+            # Update info display with success
+            info_text = (
+                f"HUC ID: {huc_id}\n"
+                f"Name: {huc_info['name']}\n"
+                f"States: {huc_info['states']}\n"
+                f"Area: {huc_info['area_sqkm']:.2f} km²\n"
+                f"Status: Boundary loaded successfully"
+            )
+            self.huc_info_text.setText(info_text)
+
+    def on_huc_boundary_failed(self, huc_id, error):
+        """Handle HUC boundary loading failure"""
+        # Update info with error message
+        self.huc_info_text.setText(f"Error loading HUC {huc_id} boundary: {str(error)}")
+
+    # Update the get_selection_type method
+    def get_selection_type(self):
+        """Get the current selection type (states or huc)"""
+        return "huc" if self.rb_huc.isChecked() else "states"
+
+    # Update the get_selected_huc method
+    def get_selected_huc(self):
+        """Get the selected HUC ID or None if no HUC selected"""
+        if not self.rb_huc.isChecked():
+            return None
+            
+        return self.huc_selection_combo.currentData()
+    
+    def cleanup_thread(self, worker):
+        """Remove completed thread from active threads list"""
+        if worker in self.active_threads:
+            self.active_threads.remove(worker)

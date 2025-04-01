@@ -109,8 +109,11 @@ class AppController(QObject):
             self.status_updated.emit("Starting data download...")
             
             # Create configurations
+            selection_type = data_config.get('selection_type', 'states')
+            
             ground_config = GroundDataConfig(
                 states=data_config.get('states'),
+                huc_id=data_config.get('huc_id') if selection_type == 'huc' else None,
                 start_year=data_config.get('start_year', 1980),
                 end_year=data_config.get('end_year', 2024),
                 data_dir=str(self.data_dir)

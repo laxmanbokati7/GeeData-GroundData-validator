@@ -20,6 +20,7 @@ class DataConfig:
 class GroundDataConfig(DataConfig):
     """Configuration for ground data fetching"""
     states: Optional[List[str]] = None  # None means entire US
+    huc_id: Optional[str] = None  # None means all HUCs
     metadata_filename: str = "stations_metadata.csv"
     data_filename: str = "ground_daily_precipitation.csv"
 

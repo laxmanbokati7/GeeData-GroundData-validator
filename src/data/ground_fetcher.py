@@ -11,6 +11,7 @@ from tqdm.auto import tqdm
 import warnings
 import logging
 from pathlib import Path
+from utils.huc_utils import HUCDataProvider
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +28,12 @@ class GroundMetadataProvider(MetadataProvider):
         """Get weather stations for specified states or all US states"""
         stations = Stations()
         try:
-            if self.config.states:
+            if self.config.huc_id:
+                stations_df = stations.region('US').fetch()
+
+                return stations_df
+
+            elif self.config.states:
                 all_stations = []
                 for state in self.config.states:
                     state_stations = stations.region('US', state)
@@ -87,6 +93,18 @@ class GroundDataFetcher(DataFetcher):
         except FileNotFoundError:
             logger.info("Fetching new station metadata...")
             metadata = self.metadata_provider.get_metadata()
+
+            # Apply HUC filtering if specified
+            if self.config.huc_id:
+                logger.info(f"Filtering stations by HUC: {self.config.huc_id}")
+                huc_provider = HUCDataProvider()
+                metadata = huc_provider.filter_stations_by_huc(metadata, self.config.huc_id)
+                
+                if metadata.empty:
+                    raise ValueError(f"No stations found within HUC {self.config.huc_id}")
+                    
+                logger.info(f"Filtered to {len(metadata)} stations within HUC")
+            
             self.metadata_provider.save_metadata(metadata, self.config.get_metadata_path())
             
             if self.progress_callback:

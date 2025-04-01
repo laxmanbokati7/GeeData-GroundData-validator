@@ -8556,3 +8556,775 @@ IndexError: index 0 is out of bounds for axis 0 with size 0
         GSMAP   731        48 2023-01-01 2024-12-31     0.000000
 GLDAS-Current   731        48 2023-01-01 2024-12-31     0.000000
 2025-04-01 12:40:59,468 - controller.app_controller - INFO - Data fetching completed
+2025-04-01 12:41:26,390 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 12:41:26,399 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 12:41:26,399 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 12:41:26,400 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 12:41:26,401 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 12:41:26,401 - controller.app_controller - INFO - AppController initialized
+2025-04-01 12:41:26,775 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 12:41:26,787 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 12:41:26,791 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 12:41:26,795 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 12:41:26,797 - ui.app_window - INFO - Application window initialized
+2025-04-01 12:41:41,428 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2023, 'end_year': 2024, 'states': ['MT'], 'gridded_datasets': ['ERA5', 'DAYMET', 'PRISM', 'CHIRPS', 'FLDAS', 'GSMAP', 'GLDAS-Historical'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-04-01 12:41:41,429 - controller.app_controller - INFO - Starting data fetching process
+2025-04-01 12:41:41,430 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-04-01 12:41:41,430 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-04-01 12:41:41,430 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-04-01 12:41:41,431 - src.data.ground_fetcher - INFO - Fetching new station metadata...
+2025-04-01 12:41:41,450 - src.data.ground_fetcher - INFO - Saved station metadata to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\stations_metadata.csv
+2025-04-01 12:42:07,366 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\ground_daily_precipitation.csv
+2025-04-01 12:42:07,366 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-04-01 12:42:07,367 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-04-01 12:42:07,367 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-04-01 12:42:07,368 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-01 12:42:08,133 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-04-01 12:42:08,134 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-04-01 12:42:08,135 - src.data.gridded_fetcher - INFO - Fetching ERA5 data from 2023-01-01 to 2024-12-31
+2025-04-01 12:42:08,145 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-04-01 12:42:34,854 - src.data.gridded_fetcher - INFO - Processed batch 1/8 for ERA5
+2025-04-01 12:42:58,104 - src.data.gridded_fetcher - INFO - Processed batch 2/8 for ERA5
+2025-04-01 12:43:19,274 - src.data.gridded_fetcher - INFO - Processed batch 3/8 for ERA5
+2025-04-01 12:43:40,304 - src.data.gridded_fetcher - INFO - Processed batch 4/8 for ERA5
+2025-04-01 12:44:02,671 - src.data.gridded_fetcher - INFO - Processed batch 5/8 for ERA5
+2025-04-01 12:44:24,080 - src.data.gridded_fetcher - INFO - Processed batch 6/8 for ERA5
+2025-04-01 12:44:46,779 - src.data.gridded_fetcher - INFO - Processed batch 7/8 for ERA5
+2025-04-01 12:44:53,055 - src.data.gridded_fetcher - INFO - Processed batch 8/8 for ERA5
+2025-04-01 12:44:53,059 - src.data.gridded_fetcher - INFO - Fetching DAYMET data...
+2025-04-01 12:44:53,060 - src.data.gridded_fetcher - INFO - Fetching DAYMET data from 2023-01-01 to 2024-12-31
+2025-04-01 12:44:53,064 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-04-01 12:45:09,623 - src.data.gridded_fetcher - INFO - Processed batch 1/4 for DAYMET
+2025-04-01 12:45:25,151 - src.data.gridded_fetcher - INFO - Processed batch 2/4 for DAYMET
+2025-04-01 12:45:39,926 - src.data.gridded_fetcher - INFO - Processed batch 3/4 for DAYMET
+2025-04-01 12:45:49,915 - src.data.gridded_fetcher - INFO - Processed batch 4/4 for DAYMET
+2025-04-01 12:45:49,916 - src.data.gridded_fetcher - INFO - Fetching PRISM data...
+2025-04-01 12:45:49,916 - src.data.gridded_fetcher - INFO - Fetching PRISM data from 2023-01-01 to 2024-12-31
+2025-04-01 12:45:49,919 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-04-01 12:46:05,567 - src.data.gridded_fetcher - INFO - Processed batch 1/8 for PRISM
+2025-04-01 12:46:21,097 - src.data.gridded_fetcher - INFO - Processed batch 2/8 for PRISM
+2025-04-01 12:46:36,327 - src.data.gridded_fetcher - INFO - Processed batch 3/8 for PRISM
+2025-04-01 12:46:51,099 - src.data.gridded_fetcher - INFO - Processed batch 4/8 for PRISM
+2025-04-01 12:47:06,121 - src.data.gridded_fetcher - INFO - Processed batch 5/8 for PRISM
+2025-04-01 12:47:21,709 - src.data.gridded_fetcher - INFO - Processed batch 6/8 for PRISM
+2025-04-01 12:47:37,418 - src.data.gridded_fetcher - INFO - Processed batch 7/8 for PRISM
+2025-04-01 12:47:42,397 - src.data.gridded_fetcher - INFO - Processed batch 8/8 for PRISM
+2025-04-01 12:47:42,398 - src.data.gridded_fetcher - INFO - Fetching CHIRPS data...
+2025-04-01 12:47:42,399 - src.data.gridded_fetcher - INFO - Fetching CHIRPS data from 2023-01-01 to 2024-12-31
+2025-04-01 12:47:42,402 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-04-01 12:47:56,977 - src.data.gridded_fetcher - INFO - Processed batch 1/8 for CHIRPS
+2025-04-01 12:48:12,585 - src.data.gridded_fetcher - INFO - Processed batch 2/8 for CHIRPS
+2025-04-01 12:48:27,740 - src.data.gridded_fetcher - INFO - Processed batch 3/8 for CHIRPS
+2025-04-01 12:48:42,648 - src.data.gridded_fetcher - INFO - Processed batch 4/8 for CHIRPS
+2025-04-01 12:48:57,414 - src.data.gridded_fetcher - INFO - Processed batch 5/8 for CHIRPS
+2025-04-01 12:49:12,032 - src.data.gridded_fetcher - INFO - Processed batch 6/8 for CHIRPS
+2025-04-01 12:49:27,040 - src.data.gridded_fetcher - INFO - Processed batch 7/8 for CHIRPS
+2025-04-01 12:49:31,597 - src.data.gridded_fetcher - INFO - Processed batch 8/8 for CHIRPS
+2025-04-01 12:49:31,598 - src.data.gridded_fetcher - INFO - Fetching FLDAS data...
+2025-04-01 12:49:31,599 - src.data.gridded_fetcher - INFO - Fetching monthly FLDAS data from 2023-01-01 to 2024-12-31
+2025-04-01 12:49:31,603 - src.data.gridded_fetcher - INFO - Extracting monthly data for 48 stations
+2025-04-01 12:49:35,219 - src.data.gridded_fetcher - INFO - Fetching GSMAP data...
+2025-04-01 12:49:35,220 - src.data.gridded_fetcher - INFO - Fetching GSMAP data from 2023 to 2024 using chunked approach
+2025-04-01 12:49:35,223 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-04-01 12:49:35,226 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-01-01
+2025-04-01 12:49:35,227 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 12:49:35,230 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 12:53:30,275 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 12:53:31,192 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 12:53:32,247 - ui.app_window - INFO - Switched to Data Selection tab
+2025-04-01 12:53:36,180 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-02-01
+2025-04-01 12:53:36,183 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 12:53:36,186 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 12:56:59,990 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-03-01
+2025-04-01 12:56:59,992 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 12:56:59,993 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:01:16,715 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-04-01
+2025-04-01 13:01:16,716 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:01:16,719 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:05:10,803 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-05-01
+2025-04-01 13:05:10,804 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:05:10,806 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:09:26,115 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-06-01
+2025-04-01 13:09:26,118 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:09:26,122 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:13:18,592 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-07-01
+2025-04-01 13:13:18,594 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:13:18,597 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:17:24,884 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-08-01
+2025-04-01 13:17:24,886 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:17:24,889 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:21:42,115 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-09-01
+2025-04-01 13:21:42,116 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:21:42,119 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:25:33,250 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-10-01
+2025-04-01 13:25:33,253 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:25:33,255 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:29:57,853 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-11-01
+2025-04-01 13:29:57,871 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:29:57,873 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:33:38,014 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2023-12-01
+2025-04-01 13:33:38,016 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:33:38,025 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:37:34,507 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-01-01
+2025-04-01 13:37:34,510 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:37:34,518 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:41:37,015 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-02-01
+2025-04-01 13:41:37,016 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:41:37,020 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:44:46,223 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-03-01
+2025-04-01 13:44:46,226 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:44:46,232 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:49:05,399 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-04-01
+2025-04-01 13:49:05,402 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:49:05,408 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:52:54,280 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-05-01
+2025-04-01 13:52:54,282 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:52:54,285 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 13:56:54,916 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-06-01
+2025-04-01 13:56:54,918 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 13:56:54,923 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 14:00:43,004 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-07-01
+2025-04-01 14:00:43,006 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 14:00:43,007 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 14:05:02,834 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-08-01
+2025-04-01 14:05:02,836 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 14:05:02,839 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 14:09:14,690 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-09-01
+2025-04-01 14:09:14,691 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 14:09:14,693 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 14:13:00,584 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-10-01
+2025-04-01 14:13:00,586 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 14:13:00,591 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 14:17:02,544 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-11-01
+2025-04-01 14:17:02,545 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 14:17:02,549 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 14:20:43,950 - src.data.gridded_fetcher - INFO - Processing GSMAP for 2024-12-01
+2025-04-01 14:20:43,953 - src.data.gridded_fetcher - INFO - Aggregating hourly data to daily in Earth Engine for GSMAP...
+2025-04-01 14:20:43,955 - src.data.gridded_fetcher - INFO - Successfully aggregated GSMAP to daily data in Earth Engine
+2025-04-01 14:24:57,528 - src.data.gridded_fetcher - INFO - Fetching GLDAS-Historical data...
+2025-04-01 14:24:57,530 - src.data.gridded_fetcher - WARNING - Skipping GLDAS-Historical - outside valid date range
+2025-04-01 14:24:57,579 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\era5_precipitation.csv
+2025-04-01 14:24:57,594 - src.data.gridded_fetcher - INFO - Saved DAYMET data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\daymet_precipitation.csv
+2025-04-01 14:24:57,620 - src.data.gridded_fetcher - INFO - Saved PRISM data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\prism_precipitation.csv
+2025-04-01 14:24:57,642 - src.data.gridded_fetcher - INFO - Saved CHIRPS data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\chirps_precipitation.csv
+2025-04-01 14:24:57,648 - src.data.gridded_fetcher - INFO - Saved FLDAS data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\fldas_precipitation.csv
+2025-04-01 14:24:57,670 - src.data.gridded_fetcher - INFO - Saved GSMAP data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\gsmap_precipitation.csv
+2025-04-01 14:24:57,673 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-04-01 14:24:57,691 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground   731        47 2023-01-01 2024-12-31     1.175888
+   ERA5   731        48 2023-01-01 2024-12-31     0.136799
+ DAYMET   731        48 2023-01-01 2024-12-31    50.068399
+  PRISM   731        48 2023-01-01 2024-12-31     0.136799
+ CHIRPS   731        48 2023-01-01 2024-12-31     0.136799
+  FLDAS    24        48 2023-01-01 2024-12-01     0.000000
+  GSMAP   731        48 2023-01-01 2024-12-31     0.000000
+2025-04-01 14:36:48,420 - controller.app_controller - INFO - Data fetching completed
+2025-04-01 14:37:17,478 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'gridded', 'start_year': 2023, 'end_year': 2024, 'states': ['MT'], 'gridded_datasets': ['GLDAS-Current'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-04-01 14:37:17,479 - controller.app_controller - INFO - Starting data fetching process
+2025-04-01 14:37:17,481 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-04-01 14:37:17,481 - controller.data_fetching_controller - INFO - Started data fetching thread for gridded data
+2025-04-01 14:37:17,481 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-04-01 14:37:17,482 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-01 14:37:17,876 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-04-01 14:37:17,877 - src.data.gridded_fetcher - INFO - Fetching GLDAS-Current data...
+2025-04-01 14:37:17,877 - src.data.gridded_fetcher - INFO - Fetching GLDAS-Current data from 2023 to 2024 using chunked approach
+2025-04-01 14:37:17,881 - src.data.gridded_fetcher - INFO - Extracting data for 48 stations
+2025-04-01 14:37:17,882 - src.data.gridded_fetcher - INFO - Processing GLDAS-Current for 2023-01-01
+2025-04-01 14:37:17,883 - src.data.gridded_fetcher - INFO - Aggregating 3-hourly data to daily in Earth Engine for GLDAS-Current...
+2025-04-01 14:37:17,885 - src.data.gridded_fetcher - INFO - Successfully aggregated GLDAS-Current to daily data in Earth Engine
+2025-04-01 14:39:13,923 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 14:39:13,939 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 14:39:13,940 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 14:39:13,940 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 14:39:13,941 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 14:39:13,941 - controller.app_controller - INFO - Found existing data files
+2025-04-01 14:39:13,941 - controller.app_controller - INFO - AppController initialized
+2025-04-01 14:39:14,393 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 14:39:14,414 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 14:39:14,422 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 14:39:14,428 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 14:39:14,432 - ui.app_window - INFO - Application window initialized
+2025-04-01 14:39:23,827 - ui.panels.data_selection_panel - ERROR - Error loading HUC metadata: 'DataSelectionPanel' object has no attribute 'on_huc_metadata_failed'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 546, in load_huc_metadata
+    worker.failed.connect(self.on_huc_metadata_failed)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataSelectionPanel' object has no attribute 'on_huc_metadata_failed'. Did you mean: 'on_huc_metadata_loaded'?
+2025-04-01 14:52:00,852 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 14:52:00,867 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 14:52:00,868 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 14:52:00,868 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 14:52:00,870 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 14:52:00,870 - controller.app_controller - INFO - Found existing data files
+2025-04-01 14:52:00,870 - controller.app_controller - INFO - AppController initialized
+2025-04-01 14:52:01,329 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 14:52:01,348 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 14:52:01,354 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 14:52:01,360 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 14:52:01,366 - ui.app_window - INFO - Application window initialized
+2025-04-01 14:52:10,049 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 14:52:10,058 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 14:52:10,058 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 14:52:10,058 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 14:52:10,059 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 14:52:10,059 - controller.app_controller - INFO - Found existing data files
+2025-04-01 14:52:10,059 - controller.app_controller - INFO - AppController initialized
+2025-04-01 14:52:10,308 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 14:52:10,317 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 14:52:10,322 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 14:52:10,326 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 14:52:10,328 - ui.app_window - INFO - Application window initialized
+2025-04-01 14:54:10,285 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 14:54:10,294 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 14:54:10,295 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 14:54:10,295 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 14:54:10,295 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 14:54:10,295 - controller.app_controller - INFO - Found existing data files
+2025-04-01 14:54:10,296 - controller.app_controller - INFO - AppController initialized
+2025-04-01 14:54:10,651 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 14:54:10,666 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 14:54:10,673 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 14:54:10,677 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 14:54:10,680 - ui.app_window - INFO - Application window initialized
+2025-04-01 14:54:18,303 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 14:54:18,317 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 14:54:18,318 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 14:54:18,319 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 14:54:18,319 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 14:54:18,319 - controller.app_controller - INFO - Found existing data files
+2025-04-01 14:54:18,319 - controller.app_controller - INFO - AppController initialized
+2025-04-01 14:54:18,709 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 14:54:18,726 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 14:54:18,732 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 14:54:18,736 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 14:54:18,740 - ui.app_window - INFO - Application window initialized
+2025-04-01 14:55:06,640 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 14:55:06,654 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 14:55:06,654 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 14:55:06,654 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 14:55:06,655 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 14:55:06,655 - controller.app_controller - INFO - Found existing data files
+2025-04-01 14:55:06,655 - controller.app_controller - INFO - AppController initialized
+2025-04-01 14:55:07,087 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 14:55:07,108 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 14:55:07,116 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 14:55:07,120 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 14:55:07,124 - ui.app_window - INFO - Application window initialized
+2025-04-01 14:57:07,430 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 14:57:07,443 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 14:57:07,443 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 14:57:07,444 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 14:57:07,444 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 14:57:07,445 - controller.app_controller - INFO - Found existing data files
+2025-04-01 14:57:07,445 - controller.app_controller - INFO - AppController initialized
+2025-04-01 14:57:07,902 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 14:57:07,920 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 14:57:07,927 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 14:57:07,931 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 14:57:07,936 - ui.app_window - INFO - Application window initialized
+2025-04-01 14:57:09,714 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-01 14:57:09,714 - utils.huc_utils - ERROR - Error fetching HUC metadata: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 34, in fetch_huc_metadata
+    ee.Initialize()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\_utils.py", line 38, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\__init__.py", line 229, in Initialize
+    raise EEException(NO_PROJECT_EXCEPTION) from None
+ee.ee_exception.EEException: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-01 14:57:09,737 - utils.workers - ERROR - Error in HUC data loading: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 29, in run
+    metadata = provider.fetch_huc_metadata()
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 34, in fetch_huc_metadata
+    ee.Initialize()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\_utils.py", line 38, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\__init__.py", line 229, in Initialize
+    raise EEException(NO_PROJECT_EXCEPTION) from None
+ee.ee_exception.EEException: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-01 15:02:44,791 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:02:44,804 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:02:44,804 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:02:44,804 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:02:44,805 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:02:44,805 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:02:44,805 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:02:45,227 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:02:45,245 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:02:45,250 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:02:45,256 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:02:45,261 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:02:50,304 - ui.panels.data_selection_panel - ERROR - Error loading HUC metadata: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 545, in load_huc_metadata
+    worker = HUCLoadWorker(project_id)
+TypeError: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+2025-04-01 15:03:14,185 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:03:14,197 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:03:14,198 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:03:14,198 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:03:14,198 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:03:14,199 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:03:14,199 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:03:14,640 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:03:14,657 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:03:14,664 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:03:14,669 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:03:14,672 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:03:17,558 - ui.panels.data_selection_panel - ERROR - Error loading HUC metadata: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 545, in load_huc_metadata
+    worker = HUCLoadWorker(project_id)
+TypeError: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+2025-04-01 15:05:01,261 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:05:01,273 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:05:01,273 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:05:01,274 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:05:01,274 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:05:01,275 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:05:01,275 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:05:01,720 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:05:01,740 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:05:01,746 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:05:01,750 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:05:01,755 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:05:04,567 - ui.panels.data_selection_panel - ERROR - Error loading HUC metadata: 'HUCLoadWorker' object has no attribute 'set_project_id'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 546, in load_huc_metadata
+    worker.set_project_id(project_id)  # Set project_id through a method
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'HUCLoadWorker' object has no attribute 'set_project_id'
+2025-04-01 15:05:53,276 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:05:53,289 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:05:53,290 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:05:53,290 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:05:53,290 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:05:53,291 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:05:53,291 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:05:53,737 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:05:53,751 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:05:53,759 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:05:53,763 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:05:53,768 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:06:12,917 - utils.huc_utils - ERROR - Error fetching HUC metadata: Response size exceeds limit
+Traceback (most recent call last):
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 408, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json returned "Response size exceeds limit". Details: "Response size exceeds limit">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 44, in fetch_huc_metadata
+    huc_list = huc_collection.getInfo()['features']
+               ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\collection.py", line 560, in getInfo
+    return super().getInfo()
+           ~~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\computedobject.py", line 107, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 1128, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 410, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Response size exceeds limit
+2025-04-01 15:06:13,028 - utils.workers - ERROR - Error in HUC data loading: Response size exceeds limit
+Traceback (most recent call last):
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 408, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json returned "Response size exceeds limit". Details: "Response size exceeds limit">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 37, in run
+    metadata = provider.fetch_huc_metadata()
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 44, in fetch_huc_metadata
+    huc_list = huc_collection.getInfo()['features']
+               ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\collection.py", line 560, in getInfo
+    return super().getInfo()
+           ~~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\computedobject.py", line 107, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 1128, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 410, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Response size exceeds limit
+2025-04-01 15:10:40,026 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:10:40,036 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:10:40,037 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:10:40,037 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:10:40,038 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:10:40,038 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:10:40,038 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:10:40,310 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:10:40,321 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:10:40,324 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:10:40,327 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:10:40,329 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:10:54,390 - utils.huc_utils - ERROR - Error fetching HUC metadata: Response size exceeds limit
+Traceback (most recent call last):
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 408, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json returned "Response size exceeds limit". Details: "Response size exceeds limit">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 44, in fetch_huc_metadata
+    huc_list = huc_collection.getInfo()['features']
+               ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\collection.py", line 560, in getInfo
+    return super().getInfo()
+           ~~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\computedobject.py", line 107, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 1128, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 410, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Response size exceeds limit
+2025-04-01 15:10:54,397 - utils.workers - ERROR - Error in HUC data loading: Response size exceeds limit
+Traceback (most recent call last):
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 408, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json returned "Response size exceeds limit". Details: "Response size exceeds limit">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 37, in run
+    metadata = provider.fetch_huc_metadata()
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 44, in fetch_huc_metadata
+    huc_list = huc_collection.getInfo()['features']
+               ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\collection.py", line 560, in getInfo
+    return super().getInfo()
+           ~~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\computedobject.py", line 107, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 1128, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 410, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Response size exceeds limit
+2025-04-01 15:11:13,306 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:11:13,315 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:11:13,315 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:11:13,315 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:11:13,315 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:11:13,316 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:11:13,316 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:11:13,560 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:11:13,568 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:11:13,573 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:11:13,576 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:11:13,579 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:12:33,854 - utils.huc_utils - INFO - Saved HUC metadata to cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:16:23,778 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:16:23,787 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:16:23,787 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:16:23,787 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:16:23,788 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:16:23,788 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:16:23,788 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:16:24,046 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:16:24,055 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:16:24,059 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:16:24,062 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:16:24,065 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:17:35,675 - utils.huc_utils - INFO - Saved HUC metadata to cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:25:10,456 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:25:10,464 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:25:10,465 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:25:10,465 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:25:10,465 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:25:10,465 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:25:10,465 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:25:10,730 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:25:10,739 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:25:10,743 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:25:10,745 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:25:10,748 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:25:11,737 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:25:15,061 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:25:51,873 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:25:51,882 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:25:51,882 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:25:51,882 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:25:51,883 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:25:51,883 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:25:51,883 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:25:52,145 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:25:52,154 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:25:52,157 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:25:52,160 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:25:52,162 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:25:53,153 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:25:53,709 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:26:07,170 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:26:10,375 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'selection_type': 'huc', 'states': None, 'huc_id': {'area_sqkm': 22299.81, 'huc_id': 102, 'name': 'Penobscot', 'states': 'CN,ME'}, 'gridded_datasets': ['ERA5'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-04-01 15:26:10,376 - controller.app_controller - INFO - Starting data fetching process
+2025-04-01 15:26:10,378 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-04-01 15:26:10,378 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-04-01 15:26:10,378 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-04-01 15:26:10,380 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-04-01 15:26:10,904 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\ground_daily_precipitation.csv
+2025-04-01 15:26:10,904 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-04-01 15:26:10,905 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-04-01 15:26:10,905 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-04-01 15:26:10,905 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-01 15:26:11,897 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-04-01 15:26:11,898 - src.data.gridded_fetcher - INFO - Fetching ERA5 data...
+2025-04-01 15:26:11,898 - src.data.gridded_fetcher - INFO - Loading existing ERA5 data from C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\era5_precipitation.csv
+2025-04-01 15:26:11,925 - src.data.gridded_fetcher - INFO - Saved ERA5 data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\era5_precipitation.csv
+2025-04-01 15:26:11,925 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-04-01 15:26:11,929 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437        47 1980-01-01 2024-12-31    68.177141
+   ERA5   731        48 2023-01-01 2024-12-31     0.136799
+2025-04-01 15:26:13,373 - controller.app_controller - INFO - Data fetching completed
+2025-04-01 15:26:58,953 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:26:58,963 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:26:58,963 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:26:58,963 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:26:58,964 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:26:58,964 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:26:58,964 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:26:58,983 - __main__ - ERROR - Error starting application: 'DataSelectionPanel' object has no attribute 'on_huc_region_changed'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\main.py", line 35, in main
+    main_window = ClimateDataApp()
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\app_window.py", line 29, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\app_window.py", line 53, in init_ui
+    self.data_selection_panel = DataSelectionPanel(self.controller)
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 47, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 226, in init_ui
+    self.huc_region_combo.currentIndexChanged.connect(self.on_huc_region_changed)
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataSelectionPanel' object has no attribute 'on_huc_region_changed'
+2025-04-01 15:27:25,855 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:27:25,866 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:27:25,867 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:27:25,867 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:27:25,867 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:27:25,867 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:27:25,868 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:27:26,144 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:27:26,153 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:27:26,157 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:27:26,160 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:27:26,163 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:27:27,157 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:27:27,159 - utils.workers - ERROR - Error in HUC data loading: 'int' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 45, in run
+    region_id = huc_id[:2]
+                ~~~~~~^^^^
+TypeError: 'int' object is not subscriptable
+2025-04-01 15:27:43,119 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:27:43,128 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:27:43,128 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:27:43,128 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:27:43,129 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:27:43,129 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:27:43,129 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:27:43,371 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:27:43,380 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:27:43,384 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:27:43,387 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:27:43,389 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:27:45,508 - ui.panels.data_selection_panel - ERROR - Error loading HUC metadata: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 545, in load_huc_metadata
+    worker = HUCLoadWorker(project_id)
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 19, in __init__
+    super().__init__(parent)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+2025-04-01 15:27:56,812 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:27:56,820 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:27:56,821 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:27:56,821 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:27:56,821 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:27:56,822 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:27:56,822 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:27:57,083 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:27:57,095 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:27:57,100 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:27:57,103 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:27:57,107 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:27:58,965 - ui.panels.data_selection_panel - ERROR - Error loading HUC metadata: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 547, in load_huc_metadata
+    worker = HUCLoadWorker(project_id)
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 19, in __init__
+    super().__init__(parent)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+2025-04-01 15:28:31,624 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:28:31,633 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:28:31,633 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:28:31,633 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:28:31,634 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:28:31,634 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:28:31,635 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:28:31,907 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:28:31,916 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:28:31,921 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:28:31,923 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:28:31,926 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:28:33,870 - ui.panels.data_selection_panel - ERROR - Error loading HUC metadata: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 547, in load_huc_metadata
+    worker = HUCLoadWorker(project_id)
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 19, in __init__
+    super().__init__(parent)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+2025-04-01 15:29:08,430 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:29:08,439 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:29:08,439 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:29:08,440 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:29:08,440 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:29:08,440 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:29:08,440 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:29:08,736 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:29:08,746 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:29:08,750 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:29:08,753 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:29:08,755 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:29:09,746 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:29:10,994 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:31:56,589 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:31:56,598 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:31:56,598 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:31:56,599 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:31:56,599 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:31:56,599 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:31:56,599 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:31:56,883 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:31:56,892 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:31:56,896 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:31:56,899 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:31:56,901 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:32:10,279 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:32:10,288 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:32:10,288 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:32:10,289 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:32:10,289 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:32:10,290 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:32:10,290 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:32:10,564 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:32:10,573 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:32:10,577 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:32:10,580 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:32:10,583 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:33:09,642 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:33:09,651 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:33:09,651 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:33:09,651 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:33:09,652 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:33:09,652 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:33:09,652 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:33:09,890 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:33:09,899 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:33:09,903 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:33:09,906 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:33:09,908 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:33:35,331 - ui.panels.data_selection_panel - ERROR - Error loading HUC metadata: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 545, in load_huc_metadata
+    worker = HUCLoadWorker(project_id)
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 19, in __init__
+    super().__init__(parent)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: QThread(parent: Optional[QObject] = None): argument 1 has unexpected type 'str'
+2025-04-01 15:34:12,894 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:34:12,903 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:34:12,903 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:34:12,904 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:34:12,904 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:34:12,905 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:34:12,905 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:34:13,150 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:34:13,161 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:34:13,165 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:34:13,168 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:34:13,171 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:36:03,407 - utils.huc_utils - INFO - Saved HUC metadata to cache: Data\HUC\huc_metadata.csv
