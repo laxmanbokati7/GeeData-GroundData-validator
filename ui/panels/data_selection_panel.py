@@ -622,12 +622,21 @@ class DataSelectionPanel(QWidget):
             if region_data and huc_id in region_data:
                 huc_info = region_data[huc_id]
                 
+                # Handle area_sqkm whether it's a string or float
+                try:
+                    # Try to format it as a float
+                    area_sqkm = float(huc_info['area_sqkm'])
+                    area_display = f"{area_sqkm:.2f} km²"
+                except (ValueError, TypeError):
+                    # If conversion fails, just use it as is
+                    area_display = f"{huc_info['area_sqkm']} km²"
+                
                 # Update info display
                 info_text = (
                     f"HUC ID: {huc_id}\n"
                     f"Name: {huc_info['name']}\n"
                     f"States: {huc_info['states']}\n"
-                    f"Area: {huc_info['area_sqkm']:.2f} km²"
+                    f"Area: {area_display}"
                 )
                 self.huc_info_text.setText(info_text)
                 
@@ -656,6 +665,13 @@ class DataSelectionPanel(QWidget):
         worker.finished.connect(lambda: self.on_huc_boundary_loaded(huc_id))
         worker.failed.connect(lambda e: self.on_huc_boundary_failed(huc_id, e))
         
+        # Add cleanup handlers
+        worker.finished.connect(lambda: self.cleanup_thread(worker))
+        worker.failed.connect(lambda e: self.cleanup_thread(worker))
+        
+        # Keep reference to prevent garbage collection
+        self.active_threads.append(worker)
+        
         # Start worker
         worker.start()
 
@@ -666,12 +682,21 @@ class DataSelectionPanel(QWidget):
         if region_data and huc_id in region_data:
             huc_info = region_data[huc_id]
             
+            # Handle area_sqkm whether it's a string or float
+            try:
+                # Try to format it as a float
+                area_sqkm = float(huc_info['area_sqkm'])
+                area_display = f"{area_sqkm:.2f} km²"
+            except (ValueError, TypeError):
+                # If conversion fails, just use it as is
+                area_display = f"{huc_info['area_sqkm']} km²"
+            
             # Update info display with success
             info_text = (
                 f"HUC ID: {huc_id}\n"
                 f"Name: {huc_info['name']}\n"
                 f"States: {huc_info['states']}\n"
-                f"Area: {huc_info['area_sqkm']:.2f} km²\n"
+                f"Area: {area_display}\n"
                 f"Status: Boundary loaded successfully"
             )
             self.huc_info_text.setText(info_text)

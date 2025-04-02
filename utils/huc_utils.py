@@ -27,7 +27,8 @@ class HUCDataProvider:
         
         if not force_refresh and cache_file.exists():
             logger.info(f"Loading HUC metadata from cache: {cache_file}")
-            return pd.read_csv(cache_file)
+            # Explicitly set dtype for huc_id column to string
+            return pd.read_csv(cache_file, dtype={'huc_id': str})
         
         try:
             # Initialize Earth Engine

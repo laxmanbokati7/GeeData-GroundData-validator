@@ -34,14 +34,25 @@ class HUCLoadWorker(QThread):
             
             # Fetch metadata
             self.progress_updated.emit(30)
-            metadata = provider.fetch_huc_metadata()
+            
+            try:
+                # When loading existing metadata, ensure HUC IDs are strings
+                metadata = provider.fetch_huc_metadata(force_refresh=False)
+                # Convert huc_id column to string if it exists and isn't already
+                if 'huc_id' in metadata.columns and metadata['huc_id'].dtype != 'object':
+                    metadata['huc_id'] = metadata['huc_id'].astype(str)
+            except Exception as e:
+                logger.error(f"Error loading metadata: {str(e)}", exc_info=True)
+                self.failed.emit(e)
+                return
             
             # Group by region (first 2 digits of HUC code)
             self.progress_updated.emit(60)
             regions = {}
             
             for _, row in metadata.iterrows():
-                huc_id = row['huc_id']
+                # Ensure huc_id is a string before slicing
+                huc_id = str(row['huc_id'])
                 region_id = huc_id[:2]
                 
                 # Create region name based on ID ranges
@@ -53,7 +64,7 @@ class HUCLoadWorker(QThread):
                 regions[region_id][huc_id] = {
                     'name': row['name'],
                     'states': row['states'],
-                    'area_sqkm': row['area_sqkm']
+                    'area_sqkm': float(row['area_sqkm']) if isinstance(row['area_sqkm'], (int, float, str)) else row['area_sqkm']
                 }
             
             # Sort regions by ID

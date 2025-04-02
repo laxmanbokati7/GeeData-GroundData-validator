@@ -9328,3 +9328,122 @@ TypeError: QThread(parent: Optional[QObject] = None): argument 1 has unexpected 
 2025-04-01 15:34:13,168 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
 2025-04-01 15:34:13,171 - ui.app_window - INFO - Application window initialized
 2025-04-01 15:36:03,407 - utils.huc_utils - INFO - Saved HUC metadata to cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:38:05,318 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:38:05,327 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:38:05,327 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:38:05,327 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:38:05,328 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:38:05,328 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:38:05,328 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:38:05,583 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:38:05,592 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:38:05,595 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:38:05,598 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:38:05,600 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:38:06,591 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:38:06,593 - utils.workers - ERROR - Error in HUC data loading: 'int' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 45, in run
+    region_id = huc_id[:2]
+                ~~~~~~^^^^
+TypeError: 'int' object is not subscriptable
+2025-04-01 15:45:22,824 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:45:22,834 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:45:22,835 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:45:22,835 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:45:22,835 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:45:22,835 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:45:22,836 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:45:23,213 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:45:23,224 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:45:23,229 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:45:23,232 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:45:23,235 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:45:24,219 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:45:24,222 - utils.workers - ERROR - Error in HUC data loading: 'int' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 45, in run
+    region_id = huc_id[:2]
+                ~~~~~~^^^^
+TypeError: 'int' object is not subscriptable
+2025-04-01 15:47:41,326 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:47:41,335 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:47:41,335 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:47:41,335 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:47:41,336 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:47:41,336 - controller.app_controller - INFO - Found existing data files
+2025-04-01 15:47:41,336 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:47:41,637 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:47:41,648 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:47:41,652 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:47:41,655 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:47:41,657 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:47:42,648 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:48:15,524 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:48:15,534 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:48:15,535 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:48:15,535 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:48:15,535 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:48:15,536 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:48:15,798 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:48:15,806 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:48:15,811 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:48:15,814 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:48:15,817 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:49:31,667 - utils.huc_utils - INFO - Saved HUC metadata to cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:51:16,215 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 15:51:16,224 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 15:51:16,224 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 15:51:16,224 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 15:51:16,224 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 15:51:16,225 - controller.app_controller - INFO - AppController initialized
+2025-04-01 15:51:16,570 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 15:51:16,579 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 15:51:16,588 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 15:51:16,591 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 15:51:16,593 - ui.app_window - INFO - Application window initialized
+2025-04-01 15:51:17,578 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 15:51:27,270 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-01 15:51:27,270 - utils.huc_utils - ERROR - Error fetching HUC boundary: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 82, in get_huc_boundary
+    ee.Initialize()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\_utils.py", line 38, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\__init__.py", line 229, in Initialize
+    raise EEException(NO_PROJECT_EXCEPTION) from None
+ee.ee_exception.EEException: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-01 15:51:27,272 - utils.workers - ERROR - Error loading HUC boundary: Failed to fetch boundary for HUC 0101
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 104, in run
+    raise ValueError(f"Failed to fetch boundary for HUC {self.huc_id}")
+ValueError: Failed to fetch boundary for HUC 0101
+2025-04-01 22:31:24,644 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 22:31:24,654 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 22:31:24,654 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 22:31:24,654 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 22:31:24,655 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 22:31:24,655 - controller.app_controller - INFO - AppController initialized
+2025-04-01 22:31:25,230 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 22:31:25,240 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 22:31:25,245 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 22:31:25,254 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 22:31:25,260 - ui.app_window - INFO - Application window initialized
+2025-04-01 22:31:26,238 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 22:31:33,351 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-01 22:31:33,351 - utils.huc_utils - ERROR - Error fetching HUC boundary: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 82, in get_huc_boundary
+    ee.Initialize()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\_utils.py", line 38, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\__init__.py", line 229, in Initialize
+    raise EEException(NO_PROJECT_EXCEPTION) from None
+ee.ee_exception.EEException: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-01 22:31:33,371 - utils.workers - ERROR - Error loading HUC boundary: Failed to fetch boundary for HUC 0101
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 104, in run
+    raise ValueError(f"Failed to fetch boundary for HUC {self.huc_id}")
+ValueError: Failed to fetch boundary for HUC 0101
