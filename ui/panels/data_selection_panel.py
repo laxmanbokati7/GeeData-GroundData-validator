@@ -651,7 +651,6 @@ class DataSelectionPanel(QWidget):
 
     def on_load_huc_clicked(self):
         """Handle load HUC button click"""
-        # This will trigger loading/displaying the HUC boundary
         huc_id = self.huc_selection_combo.currentData()
         
         if not huc_id:
@@ -660,8 +659,12 @@ class DataSelectionPanel(QWidget):
         # Show loading message
         self.huc_info_text.setText(f"Loading HUC {huc_id} boundary...")
         
+        # Get project ID from controller
+        project_id = getattr(self.controller, 'ee_config', {}).get('ee_project_id', "ee-sauravbhattarai1999")
+        
         # Create worker to load boundary
         worker = HUCBoundaryWorker(huc_id)
+        worker.set_project_id(project_id)  # Set project ID
         worker.finished.connect(lambda: self.on_huc_boundary_loaded(huc_id))
         worker.failed.connect(lambda e: self.on_huc_boundary_failed(huc_id, e))
         

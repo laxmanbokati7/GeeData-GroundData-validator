@@ -124,7 +124,9 @@ class VisualizationPanel(QWidget):
             "Box Plots",
             "Time Series",
             "Seasonal Comparison",
-            "Error Distribution"
+            "Error Distribution",
+            "Dataset Comparison",
+            "Radar Comparison"
         ])
         
         type_layout.addWidget(type_label)

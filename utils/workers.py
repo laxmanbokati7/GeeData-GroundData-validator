@@ -87,15 +87,20 @@ class HUCBoundaryWorker(QThread):
     finished = pyqtSignal()
     failed = pyqtSignal(Exception)
     
-    def __init__(self, huc_id):
+    def __init__(self, huc_id, project_id=None):
         super().__init__()
         self.huc_id = huc_id
+        self.project_id = project_id
+    
+    def set_project_id(self, project_id):
+        """Set the project ID for the worker"""
+        self.project_id = project_id
     
     def run(self):
         """Run the worker"""
         try:
-            # Create HUC provider
-            provider = HUCDataProvider()
+            # Create HUC provider with project ID
+            provider = HUCDataProvider(project_id=self.project_id)
             
             # Fetch boundary with simplification
             boundary = provider.get_huc_boundary(self.huc_id, simplify_tolerance=0.01)

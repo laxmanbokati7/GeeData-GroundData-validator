@@ -77,13 +77,18 @@ class HUCDataProvider:
             return gpd.read_file(cache_file)
         
         try:
-            # Initialize Earth Engine
+            # Initialize Earth Engine with project ID
             import ee
-            ee.Initialize()
+            if self.project_id:
+                ee.Initialize(project=self.project_id)
+            else:
+                ee.Initialize()
             
-            # Get the specific HUC feature
-            huc_collection = ee.FeatureCollection("USGS/WBD/2017/HUC08")
-            huc_feature = huc_collection.filter(ee.Filter.eq('huc8', huc_id)).first()
+            # Use the same HUC04 collection as in fetch_huc_metadata
+            huc_collection = ee.FeatureCollection("USGS/WBD/2017/HUC04")
+            
+            # Use 'huc4' property for filtering instead of 'huc8'
+            huc_feature = huc_collection.filter(ee.Filter.eq('huc4', huc_id)).first()
             
             # Get the geometry
             huc_geom = huc_feature.geometry()

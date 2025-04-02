@@ -186,10 +186,11 @@ class VisualizationController(QObject):
                                 stats_df = load_stats_file(stats_file)
                                 parameters = get_plot_parameters(stats_type)
                                 
+                                # Call create_boxplots with group_by=None for the grid layout of single boxplots
                                 fig_box = create_boxplots(
                                     stats_df,
                                     parameters,
-                                    'station',
+                                    None,  # No grouping by station
                                     f"{dataset_name} - {stats_type.title()} Statistics Distribution"
                                 )
                                 fig_box.savefig(
@@ -207,6 +208,154 @@ class VisualizationController(QObject):
                                 logger.error(f"Error creating box plot: {str(e)}", exc_info=True)
                                 self.status_updated.emit(f"Error creating box plot: {str(e)}")
                 
+                elif vis_type == "Time Series":
+                    import pandas as pd
+                    # Create time series plots
+                    self.status_updated.emit(f"Creating time series plots...")
+                    
+                    try:
+                        from utils.plotting_utils import create_time_series_plots
+                        
+                        # First, we need the original data, not just statistics
+                        # Load ground data
+                        ground_data_path = Path(data_dir) / 'ground_daily_precipitation.csv'
+                        if ground_data_path.exists():
+                            ground_data = pd.read_csv(ground_data_path, index_col=0)
+                            ground_data.index = pd.to_datetime(ground_data.index)
+                            
+                            # Load gridded data for this dataset
+                            gridded_data_path = Path(data_dir) / f"{dataset_name.lower()}_precipitation.csv"
+                            if gridded_data_path.exists():
+                                gridded_data = pd.read_csv(gridded_data_path, index_col=0)
+                                gridded_data.index = pd.to_datetime(gridded_data.index)
+                                
+                                # Create plots for different time aggregations
+                                for agg_level in ['daily', 'monthly', 'yearly']:
+                                    # Skip daily for FLDAS which is monthly data
+                                    if dataset_name == "FLDAS" and agg_level == "daily":
+                                        continue
+                                        
+                                    # Create time series plot
+                                    fig_ts = create_time_series_plots(
+                                        ground_data,
+                                        gridded_data,
+                                        aggregate=agg_level,
+                                        title=f"{dataset_name} - {agg_level.title()} Time Series Comparison"
+                                    )
+                                    
+                                    ts_file = dataset_plots_dir / f'timeseries_{agg_level}.png'
+                                    fig_ts.savefig(
+                                        ts_file,
+                                        bbox_inches='tight',
+                                        dpi=plt.rcParams['figure.dpi']
+                                    )
+                                    plt.close(fig_ts)
+                                    
+                                    self.visualization_created.emit(
+                                        f"Created {agg_level} time series plot for {dataset_name}"
+                                    )
+                            else:
+                                self.status_updated.emit(f"Gridded data file not found for {dataset_name}")
+                        else:
+                            self.status_updated.emit("Ground data file not found")
+                            
+                    except Exception as e:
+                        logger.error(f"Error creating time series plots: {str(e)}", exc_info=True)
+                        self.status_updated.emit(f"Error creating time series plots: {str(e)}")
+                
+                elif vis_type == "Dataset Comparison":
+                    # Create dataset comparison visualizations
+                    self.status_updated.emit(f"Creating dataset comparison visualizations...")
+                    
+                    # Create comparison plots directory
+                    comparison_plots_dir = plotter.plots_dir / "Comparisons"
+                    comparison_plots_dir.mkdir(exist_ok=True)
+                    
+                    try:
+                        # Import the function
+                        from utils.plotting_utils import create_multi_dataset_comparison
+                        
+                        # Get results directory (parent of the current dataset directory)
+                        results_path = dataset_dir.parent
+                        
+                        # Create comparison boxplots for different metrics and time periods
+                        metrics = ['rmse', 'r2', 'bias', 'mae']
+                        periods = ['daily', 'monthly', 'yearly']
+                        
+                        for metric in metrics:
+                            for period in periods:
+                                # Skip daily for FLDAS which is monthly data
+                                if dataset_name == "FLDAS" and period == "daily":
+                                    continue
+                                    
+                                self.status_updated.emit(f"Creating {period} {metric} comparison...")
+                                
+                                fig = create_multi_dataset_comparison(
+                                    results_path,
+                                    comparison_plots_dir,
+                                    metric=metric,
+                                    stats_type=period,
+                                    title="Gridded Dataset Comparison"
+                                )
+                                
+                                # Save the plot
+                                output_file = comparison_plots_dir / f'comparison_{period}_{metric}.png'
+                                fig.savefig(
+                                    output_file,
+                                    bbox_inches='tight',
+                                    dpi=plt.rcParams['figure.dpi']
+                                )
+                                plt.close(fig)
+                                
+                                self.visualization_created.emit(
+                                    f"Created {period} {metric} dataset comparison"
+                                )
+                                
+                    except Exception as e:
+                        logger.error(f"Error creating dataset comparison: {str(e)}", exc_info=True)
+                        self.status_updated.emit(f"Error creating dataset comparison: {str(e)}")
+
+                elif vis_type == "Radar Comparison":
+                    # Create radar chart comparison visualizations
+                    self.status_updated.emit(f"Creating radar comparison visualizations...")
+                    
+                    # Create comparison plots directory
+                    comparison_plots_dir = plotter.plots_dir / "Comparisons"
+                    comparison_plots_dir.mkdir(exist_ok=True)
+                    
+                    try:
+                        # Import the function
+                        from utils.plotting_utils import create_radar_chart_comparison
+                        
+                        # Create radar charts for sum, mean, and max
+                        value_types = ['sum', 'mean', 'max']
+                        
+                        for value_type in value_types:
+                            self.status_updated.emit(f"Creating {value_type} radar comparison...")
+                            
+                            fig = create_radar_chart_comparison(
+                                data_dir,
+                                comparison_plots_dir,
+                                value_type=value_type,
+                                title="Multi-Dataset Time Series Comparison"
+                            )
+                            
+                            # Save the plot
+                            output_file = comparison_plots_dir / f'radar_{value_type}.png'
+                            fig.savefig(
+                                output_file,
+                                bbox_inches='tight',
+                                dpi=plt.rcParams['figure.dpi']
+                            )
+                            plt.close(fig)
+                            
+                            self.visualization_created.emit(
+                                f"Created radar chart for {value_type} precipitation"
+                            )
+                            
+                    except Exception as e:
+                        logger.error(f"Error creating radar comparison: {str(e)}", exc_info=True)
+                        self.status_updated.emit(f"Error creating radar comparison: {str(e)}")
                 elif vis_type == "Seasonal Comparison":
                     # Only create seasonal plots
                     self.status_updated.emit(f"Creating seasonal plots...")

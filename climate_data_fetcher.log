@@ -9447,3 +9447,1289 @@ Traceback (most recent call last):
   File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 104, in run
     raise ValueError(f"Failed to fetch boundary for HUC {self.huc_id}")
 ValueError: Failed to fetch boundary for HUC 0101
+2025-04-01 22:34:11,573 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 22:34:11,585 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 22:34:11,585 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 22:34:11,585 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 22:34:11,586 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 22:34:11,587 - controller.app_controller - INFO - AppController initialized
+2025-04-01 22:34:11,883 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 22:34:11,893 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 22:34:11,897 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 22:34:11,900 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 22:34:11,903 - ui.app_window - INFO - Application window initialized
+2025-04-01 22:34:12,892 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 22:34:18,096 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-01 22:34:18,097 - utils.huc_utils - ERROR - Error fetching HUC boundary: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 82, in get_huc_boundary
+    ee.Initialize()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\_utils.py", line 38, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\__init__.py", line 229, in Initialize
+    raise EEException(NO_PROJECT_EXCEPTION) from None
+ee.ee_exception.EEException: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-01 22:34:18,099 - utils.workers - ERROR - Error loading HUC boundary: Failed to fetch boundary for HUC 0101
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 104, in run
+    raise ValueError(f"Failed to fetch boundary for HUC {self.huc_id}")
+ValueError: Failed to fetch boundary for HUC 0101
+2025-04-01 22:35:20,172 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-04-01 22:35:21,734 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-04-01 22:35:21,735 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-04-01 22:35:24,896 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-01 22:35:24,897 - utils.earth_engine_utils - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-01 22:35:26,231 - utils.earth_engine_utils - INFO - Earth Engine initialized successfully
+2025-04-01 22:35:29,902 - ui.app_window - INFO - Switched to Data Selection tab
+2025-04-01 22:35:31,859 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-01 22:35:31,860 - utils.huc_utils - ERROR - Error fetching HUC boundary: Caller does not have required permission to use project 517222506229. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=517222506229 and then retry. Propagation of the new permission may take a few minutes.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 408, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 403 when requesting https://earthengine.googleapis.com/v1/projects/517222506229/value:compute?prettyPrint=false&alt=json returned "Caller does not have required permission to use project 517222506229. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=517222506229 and then retry. Propagation of the new permission may take a few minutes.". Details: "[{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'USER_PROJECT_DENIED', 'domain': 'googleapis.com', 'metadata': {'containerInfo': '517222506229', 'consumer': 'projects/517222506229', 'service': 'earthengine.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'Caller does not have required permission to use project 517222506229. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=517222506229 and then retry. Propagation of the new permission may take a few minutes.'}, {'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Google developer console IAM admin', 'url': 'https://console.developers.google.com/iam-admin/iam/project?project=517222506229'}]}]">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 95, in get_huc_boundary
+    geojson = simplified_geom.getInfo()
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\computedobject.py", line 107, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 1128, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 410, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Caller does not have required permission to use project 517222506229. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=517222506229 and then retry. Propagation of the new permission may take a few minutes.
+2025-04-01 22:35:31,898 - utils.workers - ERROR - Error loading HUC boundary: Failed to fetch boundary for HUC 0101
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 104, in run
+    raise ValueError(f"Failed to fetch boundary for HUC {self.huc_id}")
+ValueError: Failed to fetch boundary for HUC 0101
+2025-04-01 22:39:31,772 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 22:39:31,782 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 22:39:31,782 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 22:39:31,782 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 22:39:31,783 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 22:39:31,783 - controller.app_controller - INFO - AppController initialized
+2025-04-01 22:39:32,107 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 22:39:32,115 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 22:39:32,121 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 22:39:32,124 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 22:39:32,126 - ui.app_window - INFO - Application window initialized
+2025-04-01 22:39:33,116 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 22:39:39,552 - utils.huc_utils - ERROR - Error fetching HUC boundary: Element.geometry: Parameter 'feature' is required and may not be null.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 408, in _execute_cloud_call
+    return call.execute(num_retries=num_retries)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\googleapiclient\http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://earthengine.googleapis.com/v1/projects/ee-sauravbhattarai1999/value:compute?prettyPrint=false&alt=json returned "Element.geometry: Parameter 'feature' is required and may not be null.". Details: "Element.geometry: Parameter 'feature' is required and may not be null.">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\huc_utils.py", line 98, in get_huc_boundary
+    geojson = simplified_geom.getInfo()
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\computedobject.py", line 107, in getInfo
+    return data.computeValue(self)
+           ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 1128, in computeValue
+    return _execute_cloud_call(
+           ~~~~~~~~~~~~~~~~~~~^
+        _get_cloud_projects()
+        ^^^^^^^^^^^^^^^^^^^^^
+        .value()
+        ^^^^^^^^
+        .compute(body=body, project=_get_projects_path(), prettyPrint=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['result']
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\data.py", line 410, in _execute_cloud_call
+    raise _translate_cloud_exception(e)  # pylint: disable=raise-missing-from
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ee.ee_exception.EEException: Element.geometry: Parameter 'feature' is required and may not be null.
+2025-04-01 22:39:39,558 - utils.workers - ERROR - Error loading HUC boundary: Failed to fetch boundary for HUC 0101
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\workers.py", line 109, in run
+    raise ValueError(f"Failed to fetch boundary for HUC {self.huc_id}")
+ValueError: Failed to fetch boundary for HUC 0101
+2025-04-01 22:41:11,604 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 22:41:11,617 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 22:41:11,617 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 22:41:11,617 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 22:41:11,618 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 22:41:11,618 - controller.app_controller - INFO - AppController initialized
+2025-04-01 22:41:11,949 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 22:41:11,960 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 22:41:11,966 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 22:41:11,969 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 22:41:11,973 - ui.app_window - INFO - Application window initialized
+2025-04-01 22:41:12,964 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 22:41:22,792 - pyogrio._io - INFO - Created 1 records
+2025-04-01 22:41:22,794 - utils.huc_utils - INFO - Saved HUC boundary to cache: Data\HUC\huc_0101_boundary.geojson
+2025-04-01 22:41:42,532 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'selection_type': 'huc', 'states': None, 'huc_id': '0101', 'gridded_datasets': ['DAYMET'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-04-01 22:41:42,533 - controller.app_controller - INFO - Starting data fetching process
+2025-04-01 22:41:42,535 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-04-01 22:41:42,536 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-04-01 22:41:42,536 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-04-01 22:41:42,536 - src.data.ground_fetcher - INFO - Fetching new station metadata...
+2025-04-01 22:41:42,917 - src.data.ground_fetcher - INFO - Filtering stations by HUC: 0101
+2025-04-01 22:41:42,918 - utils.huc_utils - INFO - Loading HUC boundary from cache: Data\HUC\huc_0101_boundary.geojson
+2025-04-01 22:41:43,061 - src.data.ground_fetcher - INFO - Filtered to 5 stations within HUC
+2025-04-01 22:41:43,065 - src.data.ground_fetcher - INFO - Saved station metadata to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\stations_metadata.csv
+2025-04-01 22:41:46,311 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\ground_daily_precipitation.csv
+2025-04-01 22:41:46,312 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-04-01 22:41:46,312 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-04-01 22:41:46,312 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-04-01 22:41:46,313 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-01 22:41:46,612 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-04-01 22:41:46,613 - src.data.gridded_fetcher - INFO - Fetching DAYMET data...
+2025-04-01 22:41:46,613 - src.data.gridded_fetcher - INFO - Fetching DAYMET data from 1980-01-01 to 2024-12-31
+2025-04-01 22:41:46,617 - src.data.gridded_fetcher - INFO - Extracting data for 5 stations
+2025-04-01 22:42:15,326 - src.data.gridded_fetcher - INFO - Processed batch 1/161 for DAYMET
+2025-04-01 22:42:37,182 - src.data.gridded_fetcher - INFO - Processed batch 2/161 for DAYMET
+2025-04-01 22:42:57,027 - src.data.gridded_fetcher - INFO - Processed batch 3/161 for DAYMET
+2025-04-01 22:43:16,516 - src.data.gridded_fetcher - INFO - Processed batch 4/161 for DAYMET
+2025-04-01 22:43:34,867 - src.data.gridded_fetcher - INFO - Processed batch 5/161 for DAYMET
+2025-04-01 22:43:52,803 - src.data.gridded_fetcher - INFO - Processed batch 6/161 for DAYMET
+2025-04-01 22:44:11,241 - src.data.gridded_fetcher - INFO - Processed batch 7/161 for DAYMET
+2025-04-01 22:44:29,178 - src.data.gridded_fetcher - INFO - Processed batch 8/161 for DAYMET
+2025-04-01 22:44:46,914 - src.data.gridded_fetcher - INFO - Processed batch 9/161 for DAYMET
+2025-04-01 22:45:04,773 - src.data.gridded_fetcher - INFO - Processed batch 10/161 for DAYMET
+2025-04-01 22:45:21,878 - src.data.gridded_fetcher - INFO - Processed batch 11/161 for DAYMET
+2025-04-01 22:45:39,039 - src.data.gridded_fetcher - INFO - Processed batch 12/161 for DAYMET
+2025-04-01 22:45:56,915 - src.data.gridded_fetcher - INFO - Processed batch 13/161 for DAYMET
+2025-04-01 22:46:15,959 - src.data.gridded_fetcher - INFO - Processed batch 14/161 for DAYMET
+2025-04-01 22:46:35,793 - src.data.gridded_fetcher - INFO - Processed batch 15/161 for DAYMET
+2025-04-01 22:46:54,844 - src.data.gridded_fetcher - INFO - Processed batch 16/161 for DAYMET
+2025-04-01 22:47:13,866 - src.data.gridded_fetcher - INFO - Processed batch 17/161 for DAYMET
+2025-04-01 22:47:33,598 - src.data.gridded_fetcher - INFO - Processed batch 18/161 for DAYMET
+2025-04-01 22:47:53,848 - src.data.gridded_fetcher - INFO - Processed batch 19/161 for DAYMET
+2025-04-01 22:48:12,166 - src.data.gridded_fetcher - INFO - Processed batch 20/161 for DAYMET
+2025-04-01 22:48:31,253 - src.data.gridded_fetcher - INFO - Processed batch 21/161 for DAYMET
+2025-04-01 22:48:51,781 - src.data.gridded_fetcher - INFO - Processed batch 22/161 for DAYMET
+2025-04-01 22:49:09,787 - src.data.gridded_fetcher - INFO - Processed batch 23/161 for DAYMET
+2025-04-01 22:49:27,518 - src.data.gridded_fetcher - INFO - Processed batch 24/161 for DAYMET
+2025-04-01 22:49:44,635 - src.data.gridded_fetcher - INFO - Processed batch 25/161 for DAYMET
+2025-04-01 22:50:02,434 - src.data.gridded_fetcher - INFO - Processed batch 26/161 for DAYMET
+2025-04-01 22:50:19,617 - src.data.gridded_fetcher - INFO - Processed batch 27/161 for DAYMET
+2025-04-01 22:50:36,524 - src.data.gridded_fetcher - INFO - Processed batch 28/161 for DAYMET
+2025-04-01 22:50:53,455 - src.data.gridded_fetcher - INFO - Processed batch 29/161 for DAYMET
+2025-04-01 22:51:14,281 - src.data.gridded_fetcher - INFO - Processed batch 30/161 for DAYMET
+2025-04-01 22:51:32,219 - src.data.gridded_fetcher - INFO - Processed batch 31/161 for DAYMET
+2025-04-01 22:51:51,571 - src.data.gridded_fetcher - INFO - Processed batch 32/161 for DAYMET
+2025-04-01 22:52:09,231 - src.data.gridded_fetcher - INFO - Processed batch 33/161 for DAYMET
+2025-04-01 22:52:26,852 - src.data.gridded_fetcher - INFO - Processed batch 34/161 for DAYMET
+2025-04-01 22:52:45,299 - src.data.gridded_fetcher - INFO - Processed batch 35/161 for DAYMET
+2025-04-01 22:53:03,304 - src.data.gridded_fetcher - INFO - Processed batch 36/161 for DAYMET
+2025-04-01 22:53:20,675 - src.data.gridded_fetcher - INFO - Processed batch 37/161 for DAYMET
+2025-04-01 22:53:39,025 - src.data.gridded_fetcher - INFO - Processed batch 38/161 for DAYMET
+2025-04-01 22:53:56,662 - src.data.gridded_fetcher - INFO - Processed batch 39/161 for DAYMET
+2025-04-01 22:54:13,917 - src.data.gridded_fetcher - INFO - Processed batch 40/161 for DAYMET
+2025-04-01 22:54:31,461 - src.data.gridded_fetcher - INFO - Processed batch 41/161 for DAYMET
+2025-04-01 22:54:48,567 - src.data.gridded_fetcher - INFO - Processed batch 42/161 for DAYMET
+2025-04-01 22:55:05,328 - src.data.gridded_fetcher - INFO - Processed batch 43/161 for DAYMET
+2025-04-01 22:55:21,992 - src.data.gridded_fetcher - INFO - Processed batch 44/161 for DAYMET
+2025-04-01 22:55:38,376 - src.data.gridded_fetcher - INFO - Processed batch 45/161 for DAYMET
+2025-04-01 22:55:55,567 - src.data.gridded_fetcher - INFO - Processed batch 46/161 for DAYMET
+2025-04-01 22:56:13,486 - src.data.gridded_fetcher - INFO - Processed batch 47/161 for DAYMET
+2025-04-01 22:56:30,460 - src.data.gridded_fetcher - INFO - Processed batch 48/161 for DAYMET
+2025-04-01 22:56:47,228 - src.data.gridded_fetcher - INFO - Processed batch 49/161 for DAYMET
+2025-04-01 22:57:04,484 - src.data.gridded_fetcher - INFO - Processed batch 50/161 for DAYMET
+2025-04-01 22:57:22,488 - src.data.gridded_fetcher - INFO - Processed batch 51/161 for DAYMET
+2025-04-01 22:57:40,294 - src.data.gridded_fetcher - INFO - Processed batch 52/161 for DAYMET
+2025-04-01 22:57:59,206 - src.data.gridded_fetcher - INFO - Processed batch 53/161 for DAYMET
+2025-04-01 22:58:16,822 - src.data.gridded_fetcher - INFO - Processed batch 54/161 for DAYMET
+2025-04-01 22:58:33,802 - src.data.gridded_fetcher - INFO - Processed batch 55/161 for DAYMET
+2025-04-01 22:58:51,571 - src.data.gridded_fetcher - INFO - Processed batch 56/161 for DAYMET
+2025-04-01 22:59:08,498 - src.data.gridded_fetcher - INFO - Processed batch 57/161 for DAYMET
+2025-04-01 22:59:25,916 - src.data.gridded_fetcher - INFO - Processed batch 58/161 for DAYMET
+2025-04-01 22:59:44,308 - src.data.gridded_fetcher - INFO - Processed batch 59/161 for DAYMET
+2025-04-01 23:00:01,629 - src.data.gridded_fetcher - INFO - Processed batch 60/161 for DAYMET
+2025-04-01 23:00:19,396 - src.data.gridded_fetcher - INFO - Processed batch 61/161 for DAYMET
+2025-04-01 23:00:36,558 - src.data.gridded_fetcher - INFO - Processed batch 62/161 for DAYMET
+2025-04-01 23:00:53,615 - src.data.gridded_fetcher - INFO - Processed batch 63/161 for DAYMET
+2025-04-01 23:01:10,955 - src.data.gridded_fetcher - INFO - Processed batch 64/161 for DAYMET
+2025-04-01 23:01:27,992 - src.data.gridded_fetcher - INFO - Processed batch 65/161 for DAYMET
+2025-04-01 23:01:45,514 - src.data.gridded_fetcher - INFO - Processed batch 66/161 for DAYMET
+2025-04-01 23:02:03,504 - src.data.gridded_fetcher - INFO - Processed batch 67/161 for DAYMET
+2025-04-01 23:02:21,530 - src.data.gridded_fetcher - INFO - Processed batch 68/161 for DAYMET
+2025-04-01 23:02:40,341 - src.data.gridded_fetcher - INFO - Processed batch 69/161 for DAYMET
+2025-04-01 23:02:59,169 - src.data.gridded_fetcher - INFO - Processed batch 70/161 for DAYMET
+2025-04-01 23:03:17,494 - src.data.gridded_fetcher - INFO - Processed batch 71/161 for DAYMET
+2025-04-01 23:03:35,973 - src.data.gridded_fetcher - INFO - Processed batch 72/161 for DAYMET
+2025-04-01 23:03:54,755 - src.data.gridded_fetcher - INFO - Processed batch 73/161 for DAYMET
+2025-04-01 23:04:13,481 - src.data.gridded_fetcher - INFO - Processed batch 74/161 for DAYMET
+2025-04-01 23:04:32,368 - src.data.gridded_fetcher - INFO - Processed batch 75/161 for DAYMET
+2025-04-01 23:04:50,731 - src.data.gridded_fetcher - INFO - Processed batch 76/161 for DAYMET
+2025-04-01 23:05:09,439 - src.data.gridded_fetcher - INFO - Processed batch 77/161 for DAYMET
+2025-04-01 23:05:28,969 - src.data.gridded_fetcher - INFO - Processed batch 78/161 for DAYMET
+2025-04-01 23:05:48,119 - src.data.gridded_fetcher - INFO - Processed batch 79/161 for DAYMET
+2025-04-01 23:06:08,369 - src.data.gridded_fetcher - INFO - Processed batch 80/161 for DAYMET
+2025-04-01 23:06:28,629 - src.data.gridded_fetcher - INFO - Processed batch 81/161 for DAYMET
+2025-04-01 23:06:47,439 - src.data.gridded_fetcher - INFO - Processed batch 82/161 for DAYMET
+2025-04-01 23:07:07,691 - src.data.gridded_fetcher - INFO - Processed batch 83/161 for DAYMET
+2025-04-01 23:07:26,501 - src.data.gridded_fetcher - INFO - Processed batch 84/161 for DAYMET
+2025-04-01 23:07:45,778 - src.data.gridded_fetcher - INFO - Processed batch 85/161 for DAYMET
+2025-04-01 23:08:05,829 - src.data.gridded_fetcher - INFO - Processed batch 86/161 for DAYMET
+2025-04-01 23:08:23,875 - src.data.gridded_fetcher - INFO - Processed batch 87/161 for DAYMET
+2025-04-01 23:08:42,207 - src.data.gridded_fetcher - INFO - Processed batch 88/161 for DAYMET
+2025-04-01 23:09:00,497 - src.data.gridded_fetcher - INFO - Processed batch 89/161 for DAYMET
+2025-04-01 23:09:18,727 - src.data.gridded_fetcher - INFO - Processed batch 90/161 for DAYMET
+2025-04-01 23:09:38,719 - src.data.gridded_fetcher - INFO - Processed batch 91/161 for DAYMET
+2025-04-01 23:09:55,978 - src.data.gridded_fetcher - INFO - Processed batch 92/161 for DAYMET
+2025-04-01 23:10:14,093 - src.data.gridded_fetcher - INFO - Processed batch 93/161 for DAYMET
+2025-04-01 23:10:31,607 - src.data.gridded_fetcher - INFO - Processed batch 94/161 for DAYMET
+2025-04-01 23:10:49,494 - src.data.gridded_fetcher - INFO - Processed batch 95/161 for DAYMET
+2025-04-01 23:11:07,194 - src.data.gridded_fetcher - INFO - Processed batch 96/161 for DAYMET
+2025-04-01 23:11:25,063 - src.data.gridded_fetcher - INFO - Processed batch 97/161 for DAYMET
+2025-04-01 23:11:42,476 - src.data.gridded_fetcher - INFO - Processed batch 98/161 for DAYMET
+2025-04-01 23:12:00,157 - src.data.gridded_fetcher - INFO - Processed batch 99/161 for DAYMET
+2025-04-01 23:12:17,498 - src.data.gridded_fetcher - INFO - Processed batch 100/161 for DAYMET
+2025-04-01 23:12:34,393 - src.data.gridded_fetcher - INFO - Processed batch 101/161 for DAYMET
+2025-04-01 23:12:51,646 - src.data.gridded_fetcher - INFO - Processed batch 102/161 for DAYMET
+2025-04-01 23:13:10,259 - src.data.gridded_fetcher - INFO - Processed batch 103/161 for DAYMET
+2025-04-01 23:13:28,221 - src.data.gridded_fetcher - INFO - Processed batch 104/161 for DAYMET
+2025-04-01 23:13:45,594 - src.data.gridded_fetcher - INFO - Processed batch 105/161 for DAYMET
+2025-04-01 23:14:03,303 - src.data.gridded_fetcher - INFO - Processed batch 106/161 for DAYMET
+2025-04-01 23:14:20,822 - src.data.gridded_fetcher - INFO - Processed batch 107/161 for DAYMET
+2025-04-01 23:14:38,349 - src.data.gridded_fetcher - INFO - Processed batch 108/161 for DAYMET
+2025-04-01 23:14:55,554 - src.data.gridded_fetcher - INFO - Processed batch 109/161 for DAYMET
+2025-04-01 23:15:13,159 - src.data.gridded_fetcher - INFO - Processed batch 110/161 for DAYMET
+2025-04-01 23:15:30,204 - src.data.gridded_fetcher - INFO - Processed batch 111/161 for DAYMET
+2025-04-01 23:15:47,604 - src.data.gridded_fetcher - INFO - Processed batch 112/161 for DAYMET
+2025-04-01 23:16:05,694 - src.data.gridded_fetcher - INFO - Processed batch 113/161 for DAYMET
+2025-04-01 23:16:23,235 - src.data.gridded_fetcher - INFO - Processed batch 114/161 for DAYMET
+2025-04-01 23:16:40,540 - src.data.gridded_fetcher - INFO - Processed batch 115/161 for DAYMET
+2025-04-01 23:16:58,112 - src.data.gridded_fetcher - INFO - Processed batch 116/161 for DAYMET
+2025-04-01 23:17:14,965 - src.data.gridded_fetcher - INFO - Processed batch 117/161 for DAYMET
+2025-04-01 23:17:34,305 - src.data.gridded_fetcher - INFO - Processed batch 118/161 for DAYMET
+2025-04-01 23:17:50,800 - src.data.gridded_fetcher - INFO - Processed batch 119/161 for DAYMET
+2025-04-01 23:18:22,016 - src.data.gridded_fetcher - INFO - Processed batch 120/161 for DAYMET
+2025-04-01 23:18:40,169 - src.data.gridded_fetcher - INFO - Processed batch 121/161 for DAYMET
+2025-04-01 23:18:57,429 - src.data.gridded_fetcher - INFO - Processed batch 122/161 for DAYMET
+2025-04-01 23:19:14,781 - src.data.gridded_fetcher - INFO - Processed batch 123/161 for DAYMET
+2025-04-01 23:19:32,924 - src.data.gridded_fetcher - INFO - Processed batch 124/161 for DAYMET
+2025-04-01 23:19:50,613 - src.data.gridded_fetcher - INFO - Processed batch 125/161 for DAYMET
+2025-04-01 23:20:09,658 - src.data.gridded_fetcher - INFO - Processed batch 126/161 for DAYMET
+2025-04-01 23:20:27,174 - src.data.gridded_fetcher - INFO - Processed batch 127/161 for DAYMET
+2025-04-01 23:20:45,396 - src.data.gridded_fetcher - INFO - Processed batch 128/161 for DAYMET
+2025-04-01 23:21:03,199 - src.data.gridded_fetcher - INFO - Processed batch 129/161 for DAYMET
+2025-04-01 23:21:21,712 - src.data.gridded_fetcher - INFO - Processed batch 130/161 for DAYMET
+2025-04-01 23:21:39,147 - src.data.gridded_fetcher - INFO - Processed batch 131/161 for DAYMET
+2025-04-01 23:21:56,550 - src.data.gridded_fetcher - INFO - Processed batch 132/161 for DAYMET
+2025-04-01 23:22:14,628 - src.data.gridded_fetcher - INFO - Processed batch 133/161 for DAYMET
+2025-04-01 23:22:32,468 - src.data.gridded_fetcher - INFO - Processed batch 134/161 for DAYMET
+2025-04-01 23:22:50,405 - src.data.gridded_fetcher - INFO - Processed batch 135/161 for DAYMET
+2025-04-01 23:23:08,329 - src.data.gridded_fetcher - INFO - Processed batch 136/161 for DAYMET
+2025-04-01 23:23:27,040 - src.data.gridded_fetcher - INFO - Processed batch 137/161 for DAYMET
+2025-04-01 23:23:44,625 - src.data.gridded_fetcher - INFO - Processed batch 138/161 for DAYMET
+2025-04-01 23:24:02,915 - src.data.gridded_fetcher - INFO - Processed batch 139/161 for DAYMET
+2025-04-01 23:24:19,995 - src.data.gridded_fetcher - INFO - Processed batch 140/161 for DAYMET
+2025-04-01 23:24:37,552 - src.data.gridded_fetcher - INFO - Processed batch 141/161 for DAYMET
+2025-04-01 23:24:54,943 - src.data.gridded_fetcher - INFO - Processed batch 142/161 for DAYMET
+2025-04-01 23:25:12,832 - src.data.gridded_fetcher - INFO - Processed batch 143/161 for DAYMET
+2025-04-01 23:25:30,508 - src.data.gridded_fetcher - INFO - Processed batch 144/161 for DAYMET
+2025-04-01 23:25:47,898 - src.data.gridded_fetcher - INFO - Processed batch 145/161 for DAYMET
+2025-04-01 23:26:05,896 - src.data.gridded_fetcher - INFO - Processed batch 146/161 for DAYMET
+2025-04-01 23:26:24,176 - src.data.gridded_fetcher - INFO - Processed batch 147/161 for DAYMET
+2025-04-01 23:26:42,279 - src.data.gridded_fetcher - INFO - Processed batch 148/161 for DAYMET
+2025-04-01 23:27:00,484 - src.data.gridded_fetcher - INFO - Processed batch 149/161 for DAYMET
+2025-04-01 23:27:18,571 - src.data.gridded_fetcher - INFO - Processed batch 150/161 for DAYMET
+2025-04-01 23:27:36,240 - src.data.gridded_fetcher - INFO - Processed batch 151/161 for DAYMET
+2025-04-01 23:27:53,813 - src.data.gridded_fetcher - INFO - Processed batch 152/161 for DAYMET
+2025-04-01 23:28:11,662 - src.data.gridded_fetcher - INFO - Processed batch 153/161 for DAYMET
+2025-04-01 23:28:29,493 - src.data.gridded_fetcher - INFO - Processed batch 154/161 for DAYMET
+2025-04-01 23:28:47,504 - src.data.gridded_fetcher - INFO - Processed batch 155/161 for DAYMET
+2025-04-01 23:29:05,128 - src.data.gridded_fetcher - INFO - Processed batch 156/161 for DAYMET
+2025-04-01 23:29:22,217 - src.data.gridded_fetcher - INFO - Processed batch 157/161 for DAYMET
+2025-04-01 23:29:40,643 - src.data.gridded_fetcher - INFO - Processed batch 158/161 for DAYMET
+2025-04-01 23:29:58,492 - src.data.gridded_fetcher - INFO - Processed batch 159/161 for DAYMET
+2025-04-01 23:30:18,042 - src.data.gridded_fetcher - INFO - Processed batch 160/161 for DAYMET
+2025-04-01 23:30:28,974 - src.data.gridded_fetcher - INFO - Processed batch 161/161 for DAYMET
+2025-04-01 23:30:29,011 - src.data.gridded_fetcher - INFO - Saved DAYMET data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\daymet_precipitation.csv
+2025-04-01 23:30:29,011 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-04-01 23:30:29,017 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437         5 1980-01-01 2024-12-31    64.478920
+ DAYMET 16437         5 1980-01-01 2024-12-31     2.293606
+2025-04-01 23:35:31,340 - controller.app_controller - INFO - Data fetching completed
+2025-04-01 23:35:32,927 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:35:37,656 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:35:37,656 - controller.app_controller - INFO - Starting data analysis process
+2025-04-01 23:35:37,657 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:35:37,658 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:35:37,670 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:35:37,684 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:35:37,685 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-01 23:35:37,686 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:35:37,697 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:35:37,711 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:35:37,712 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-01 23:35:37,712 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:35:37,714 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:35:37,715 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-01 23:35:37,723 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-01 23:35:37,729 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-01 23:35:37,744 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-01 23:35:37,769 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-01 23:35:37,782 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-01 23:35:37,815 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-01 23:35:37,822 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-01 23:35:39,126 - controller.app_controller - INFO - Analysis completed
+2025-04-01 23:35:41,319 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:35:52,759 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Spatial Distribution', 'high_res': True}
+2025-04-01 23:35:52,760 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:35:52,763 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Spatial Distribution', 'high_res': True}
+2025-04-01 23:35:52,764 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:35:52,766 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:35:52,768 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:36:02,624 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Spatial Distribution', 'high_res': True}
+2025-04-01 23:36:02,625 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:36:02,626 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Spatial Distribution', 'high_res': True}
+2025-04-01 23:36:02,626 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:36:02,627 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:36:02,629 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:36:09,469 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:36:11,849 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:36:11,850 - controller.app_controller - INFO - Starting data analysis process
+2025-04-01 23:36:11,851 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:36:11,851 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:36:11,862 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:36:11,876 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:36:11,876 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-01 23:36:11,877 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:36:11,888 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:36:11,903 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:36:11,903 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-01 23:36:11,904 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:36:11,905 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:36:11,907 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-01 23:36:11,913 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-01 23:36:11,920 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-01 23:36:11,935 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-01 23:36:11,960 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-01 23:36:11,974 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-01 23:36:12,008 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-01 23:36:12,011 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-01 23:36:13,431 - controller.app_controller - INFO - Analysis completed
+2025-04-01 23:36:15,092 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:36:18,883 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Spatial Distribution', 'high_res': True}
+2025-04-01 23:36:18,884 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:36:18,885 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:36:18,885 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Spatial Distribution', 'high_res': True}
+2025-04-01 23:36:18,885 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:36:18,887 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:36:49,030 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:36:49,031 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:36:49,032 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:36:49,032 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:36:49,032 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:36:49,035 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:36:49,035 - src.visualization.plot_results - INFO - Processing DAYMET...
+2025-04-01 23:36:49,036 - src.visualization.plot_results - INFO - Creating plots for daily statistics...
+2025-04-01 23:36:49,037 - src.visualization.plot_results - INFO - Creating spatial plots for daily...
+2025-04-01 23:36:49,788 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - daily
+2025-04-01 23:36:49,788 - src.visualization.plot_results - INFO - Creating box plots for daily...
+2025-04-01 23:36:50,501 - src.visualization.plot_results - INFO - Created box plot for DAYMET - daily
+2025-04-01 23:36:50,501 - src.visualization.plot_results - INFO - Creating plots for fall statistics...
+2025-04-01 23:36:50,503 - src.visualization.plot_results - INFO - Creating spatial plots for fall...
+2025-04-01 23:36:51,150 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - fall
+2025-04-01 23:36:51,150 - src.visualization.plot_results - INFO - Creating box plots for fall...
+2025-04-01 23:36:51,851 - src.visualization.plot_results - INFO - Created box plot for DAYMET - fall
+2025-04-01 23:36:51,851 - src.visualization.plot_results - INFO - Creating plots for high_extreme statistics...
+2025-04-01 23:36:51,853 - src.visualization.plot_results - INFO - Creating spatial plots for high_extreme...
+2025-04-01 23:36:52,610 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - high_extreme
+2025-04-01 23:36:52,610 - src.visualization.plot_results - INFO - Creating box plots for high_extreme...
+2025-04-01 23:36:53,307 - src.visualization.plot_results - INFO - Created box plot for DAYMET - high_extreme
+2025-04-01 23:36:53,307 - src.visualization.plot_results - INFO - Creating plots for low_extreme statistics...
+2025-04-01 23:36:53,309 - src.visualization.plot_results - INFO - Creating spatial plots for low_extreme...
+2025-04-01 23:36:53,966 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - low_extreme
+2025-04-01 23:36:53,967 - src.visualization.plot_results - INFO - Creating box plots for low_extreme...
+2025-04-01 23:36:54,246 - src.visualization.plot_results - ERROR - Error processing C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET\low_extreme_stats.csv: List of boxplot statistics and `positions` values must have same the length
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\visualization\plot_results.py", line 120, in process_regular_stats
+    fig_box = create_boxplots(
+        stats_df,
+    ...<2 lines>...
+        f"{dataset_dir.name} - {stats_type.title()} Statistics Distribution"
+    )
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\plotting_utils.py", line 168, in create_boxplots
+    sns.boxplot(
+    ~~~~~~~~~~~^
+        data=stats_df,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        ax=ax
+        ^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\seaborn\categorical.py", line 1634, in boxplot
+    p.plot_boxes(
+    ~~~~~~~~~~~~^
+        width=width,
+        ^^^^^^^^^^^^
+    ...<8 lines>...
+        plot_kws=kwargs,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\seaborn\categorical.py", line 700, in plot_boxes
+    artists = ax.bxp(**boxplot_kws)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\matplotlib\_api\deprecation.py", line 453, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\matplotlib\axes\_axes.py", line 4457, in bxp
+    raise ValueError(datashape_message.format("positions"))
+ValueError: List of boxplot statistics and `positions` values must have same the length
+2025-04-01 23:36:54,285 - src.visualization.plot_results - INFO - Error creating plots for low_extreme: List of boxplot statistics and `positions` values must have same the length
+2025-04-01 23:36:54,285 - src.visualization.plot_results - INFO - Creating plots for monthly statistics...
+2025-04-01 23:36:54,287 - src.visualization.plot_results - INFO - Creating spatial plots for monthly...
+2025-04-01 23:36:54,929 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - monthly
+2025-04-01 23:36:54,929 - src.visualization.plot_results - INFO - Creating box plots for monthly...
+2025-04-01 23:36:55,631 - src.visualization.plot_results - INFO - Created box plot for DAYMET - monthly
+2025-04-01 23:36:55,632 - src.visualization.plot_results - INFO - Creating plots for spring statistics...
+2025-04-01 23:36:55,634 - src.visualization.plot_results - INFO - Creating spatial plots for spring...
+2025-04-01 23:36:56,364 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - spring
+2025-04-01 23:36:56,364 - src.visualization.plot_results - INFO - Creating box plots for spring...
+2025-04-01 23:36:57,086 - src.visualization.plot_results - INFO - Created box plot for DAYMET - spring
+2025-04-01 23:36:57,087 - src.visualization.plot_results - INFO - Creating plots for summer statistics...
+2025-04-01 23:36:57,089 - src.visualization.plot_results - INFO - Creating spatial plots for summer...
+2025-04-01 23:36:57,812 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - summer
+2025-04-01 23:36:57,812 - src.visualization.plot_results - INFO - Creating box plots for summer...
+2025-04-01 23:36:58,537 - src.visualization.plot_results - INFO - Created box plot for DAYMET - summer
+2025-04-01 23:36:58,537 - src.visualization.plot_results - INFO - Creating plots for winter statistics...
+2025-04-01 23:36:58,539 - src.visualization.plot_results - INFO - Creating spatial plots for winter...
+2025-04-01 23:36:59,187 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - winter
+2025-04-01 23:36:59,187 - src.visualization.plot_results - INFO - Creating box plots for winter...
+2025-04-01 23:37:00,095 - src.visualization.plot_results - INFO - Created box plot for DAYMET - winter
+2025-04-01 23:37:00,096 - src.visualization.plot_results - INFO - Creating plots for yearly statistics...
+2025-04-01 23:37:00,098 - src.visualization.plot_results - INFO - Creating spatial plots for yearly...
+2025-04-01 23:37:00,580 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - yearly
+2025-04-01 23:37:00,580 - src.visualization.plot_results - INFO - Creating box plots for yearly...
+2025-04-01 23:37:01,198 - src.visualization.plot_results - INFO - Created box plot for DAYMET - yearly
+2025-04-01 23:37:01,199 - src.visualization.plot_results - INFO - Creating seasonal plots...
+2025-04-01 23:37:01,200 - src.visualization.plot_results - ERROR - Error processing seasonal stats: 'numpy.ndarray' object is not callable
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\visualization\plot_results.py", line 158, in process_seasonal_stats
+    fig_seasonal = create_seasonal_comparison(
+        stats_df,
+        parameters,
+        dataset_dir.name
+    )
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\plotting_utils.py", line 184, in create_seasonal_comparison
+    all_data = pd.concat(seasonal_stats.values(), keys=seasonal_stats.keys())
+                         ~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'numpy.ndarray' object is not callable
+2025-04-01 23:37:01,201 - src.visualization.plot_results - INFO - Error creating seasonal plots: 'numpy.ndarray' object is not callable
+2025-04-01 23:37:01,201 - src.visualization.plot_results - INFO - Created 17 plots for DAYMET
+2025-04-01 23:37:13,577 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Seasonal Comparison', 'high_res': True}
+2025-04-01 23:37:13,578 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:37:13,579 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Seasonal Comparison', 'high_res': True}
+2025-04-01 23:37:13,579 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:37:13,580 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:37:13,584 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:37:13,585 - src.visualization.plot_results - INFO - Creating seasonal plots...
+2025-04-01 23:37:13,586 - src.visualization.plot_results - ERROR - Error processing seasonal stats: 'numpy.ndarray' object is not callable
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\visualization\plot_results.py", line 158, in process_seasonal_stats
+    fig_seasonal = create_seasonal_comparison(
+        stats_df,
+        parameters,
+        dataset_dir.name
+    )
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\plotting_utils.py", line 184, in create_seasonal_comparison
+    all_data = pd.concat(seasonal_stats.values(), keys=seasonal_stats.keys())
+                         ~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'numpy.ndarray' object is not callable
+2025-04-01 23:37:13,587 - src.visualization.plot_results - INFO - Error creating seasonal plots: 'numpy.ndarray' object is not callable
+2025-04-01 23:37:19,634 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:37:19,634 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:37:19,635 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:37:19,635 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:37:19,636 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:37:19,638 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:37:19,638 - src.visualization.plot_results - INFO - Processing DAYMET...
+2025-04-01 23:37:19,639 - src.visualization.plot_results - INFO - Creating plots for daily statistics...
+2025-04-01 23:37:19,640 - src.visualization.plot_results - INFO - Creating spatial plots for daily...
+2025-04-01 23:37:20,273 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - daily
+2025-04-01 23:37:20,273 - src.visualization.plot_results - INFO - Creating box plots for daily...
+2025-04-01 23:37:20,942 - src.visualization.plot_results - INFO - Created box plot for DAYMET - daily
+2025-04-01 23:37:20,942 - src.visualization.plot_results - INFO - Creating plots for fall statistics...
+2025-04-01 23:37:20,944 - src.visualization.plot_results - INFO - Creating spatial plots for fall...
+2025-04-01 23:37:21,584 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - fall
+2025-04-01 23:37:21,584 - src.visualization.plot_results - INFO - Creating box plots for fall...
+2025-04-01 23:37:22,266 - src.visualization.plot_results - INFO - Created box plot for DAYMET - fall
+2025-04-01 23:37:22,266 - src.visualization.plot_results - INFO - Creating plots for high_extreme statistics...
+2025-04-01 23:37:22,268 - src.visualization.plot_results - INFO - Creating spatial plots for high_extreme...
+2025-04-01 23:37:22,889 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - high_extreme
+2025-04-01 23:37:22,890 - src.visualization.plot_results - INFO - Creating box plots for high_extreme...
+2025-04-01 23:37:23,859 - src.visualization.plot_results - INFO - Created box plot for DAYMET - high_extreme
+2025-04-01 23:37:23,860 - src.visualization.plot_results - INFO - Creating plots for low_extreme statistics...
+2025-04-01 23:37:23,862 - src.visualization.plot_results - INFO - Creating spatial plots for low_extreme...
+2025-04-01 23:37:24,495 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - low_extreme
+2025-04-01 23:37:24,495 - src.visualization.plot_results - INFO - Creating box plots for low_extreme...
+2025-04-01 23:37:24,594 - src.visualization.plot_results - ERROR - Error processing C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET\low_extreme_stats.csv: List of boxplot statistics and `positions` values must have same the length
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\visualization\plot_results.py", line 120, in process_regular_stats
+    fig_box = create_boxplots(
+        stats_df,
+    ...<2 lines>...
+        f"{dataset_dir.name} - {stats_type.title()} Statistics Distribution"
+    )
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\plotting_utils.py", line 168, in create_boxplots
+    sns.boxplot(
+    ~~~~~~~~~~~^
+        data=stats_df,
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        ax=ax
+        ^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\seaborn\categorical.py", line 1634, in boxplot
+    p.plot_boxes(
+    ~~~~~~~~~~~~^
+        width=width,
+        ^^^^^^^^^^^^
+    ...<8 lines>...
+        plot_kws=kwargs,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\seaborn\categorical.py", line 700, in plot_boxes
+    artists = ax.bxp(**boxplot_kws)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\matplotlib\_api\deprecation.py", line 453, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\matplotlib\axes\_axes.py", line 4457, in bxp
+    raise ValueError(datashape_message.format("positions"))
+ValueError: List of boxplot statistics and `positions` values must have same the length
+2025-04-01 23:37:24,597 - src.visualization.plot_results - INFO - Error creating plots for low_extreme: List of boxplot statistics and `positions` values must have same the length
+2025-04-01 23:37:24,597 - src.visualization.plot_results - INFO - Creating plots for monthly statistics...
+2025-04-01 23:37:24,598 - src.visualization.plot_results - INFO - Creating spatial plots for monthly...
+2025-04-01 23:37:25,235 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - monthly
+2025-04-01 23:37:25,235 - src.visualization.plot_results - INFO - Creating box plots for monthly...
+2025-04-01 23:37:25,909 - src.visualization.plot_results - INFO - Created box plot for DAYMET - monthly
+2025-04-01 23:37:25,910 - src.visualization.plot_results - INFO - Creating plots for spring statistics...
+2025-04-01 23:37:25,911 - src.visualization.plot_results - INFO - Creating spatial plots for spring...
+2025-04-01 23:37:26,551 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - spring
+2025-04-01 23:37:26,552 - src.visualization.plot_results - INFO - Creating box plots for spring...
+2025-04-01 23:37:27,228 - src.visualization.plot_results - INFO - Created box plot for DAYMET - spring
+2025-04-01 23:37:27,228 - src.visualization.plot_results - INFO - Creating plots for summer statistics...
+2025-04-01 23:37:27,230 - src.visualization.plot_results - INFO - Creating spatial plots for summer...
+2025-04-01 23:37:27,866 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - summer
+2025-04-01 23:37:27,866 - src.visualization.plot_results - INFO - Creating box plots for summer...
+2025-04-01 23:37:28,770 - src.visualization.plot_results - INFO - Created box plot for DAYMET - summer
+2025-04-01 23:37:28,770 - src.visualization.plot_results - INFO - Creating plots for winter statistics...
+2025-04-01 23:37:28,772 - src.visualization.plot_results - INFO - Creating spatial plots for winter...
+2025-04-01 23:37:29,435 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - winter
+2025-04-01 23:37:29,437 - src.visualization.plot_results - INFO - Creating box plots for winter...
+2025-04-01 23:37:30,121 - src.visualization.plot_results - INFO - Created box plot for DAYMET - winter
+2025-04-01 23:37:30,121 - src.visualization.plot_results - INFO - Creating plots for yearly statistics...
+2025-04-01 23:37:30,123 - src.visualization.plot_results - INFO - Creating spatial plots for yearly...
+2025-04-01 23:37:30,594 - src.visualization.plot_results - INFO - Created spatial plot for DAYMET - yearly
+2025-04-01 23:37:30,594 - src.visualization.plot_results - INFO - Creating box plots for yearly...
+2025-04-01 23:37:31,242 - src.visualization.plot_results - INFO - Created box plot for DAYMET - yearly
+2025-04-01 23:37:31,243 - src.visualization.plot_results - INFO - Creating seasonal plots...
+2025-04-01 23:37:31,246 - src.visualization.plot_results - ERROR - Error processing seasonal stats: 'numpy.ndarray' object is not callable
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\visualization\plot_results.py", line 158, in process_seasonal_stats
+    fig_seasonal = create_seasonal_comparison(
+        stats_df,
+        parameters,
+        dataset_dir.name
+    )
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\plotting_utils.py", line 184, in create_seasonal_comparison
+    all_data = pd.concat(seasonal_stats.values(), keys=seasonal_stats.keys())
+                         ~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'numpy.ndarray' object is not callable
+2025-04-01 23:37:31,247 - src.visualization.plot_results - INFO - Error creating seasonal plots: 'numpy.ndarray' object is not callable
+2025-04-01 23:37:31,247 - src.visualization.plot_results - INFO - Created 17 plots for DAYMET
+2025-04-01 23:37:32,042 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:38:01,480 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:38:03,218 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-04-01 23:38:04,470 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:38:05,126 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:38:05,679 - ui.app_window - INFO - Switched to Data Selection tab
+2025-04-01 23:38:17,742 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'selection_type': 'huc', 'states': None, 'huc_id': '0101', 'gridded_datasets': ['FLDAS'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-04-01 23:38:17,743 - controller.app_controller - INFO - Starting data fetching process
+2025-04-01 23:38:17,744 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-04-01 23:38:17,744 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-04-01 23:38:17,744 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-04-01 23:38:17,746 - src.data.ground_fetcher - INFO - Using existing metadata file
+2025-04-01 23:38:17,825 - src.data.ground_fetcher - INFO - Saved ground data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\ground_daily_precipitation.csv
+2025-04-01 23:38:17,826 - controller.data_fetching_controller - INFO - Ground data fetching completed
+2025-04-01 23:38:17,827 - controller.data_fetching_controller - INFO - Fetching gridded data
+2025-04-01 23:38:17,828 - src.data.gridded_fetcher - INFO - Fetching gridded data...
+2025-04-01 23:38:17,828 - src.data.gridded_fetcher - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-01 23:38:18,360 - src.data.gridded_fetcher - INFO - Earth Engine initialized successfully
+2025-04-01 23:38:18,361 - src.data.gridded_fetcher - INFO - Fetching FLDAS data...
+2025-04-01 23:38:18,361 - src.data.gridded_fetcher - INFO - Fetching monthly FLDAS data from 1980-01-01 to 2024-12-31
+2025-04-01 23:38:18,364 - src.data.gridded_fetcher - INFO - Extracting monthly data for 5 stations
+2025-04-01 23:38:31,446 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:39:36,980 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:40:29,855 - src.data.gridded_fetcher - INFO - Saved FLDAS data to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\fldas_precipitation.csv
+2025-04-01 23:40:29,856 - controller.data_fetching_controller - INFO - Gridded data fetching completed
+2025-04-01 23:40:29,858 - controller.data_fetching_controller - INFO - Data fetching completed: Data Summary:
+Dataset  Rows  Stations Start Date   End Date  Missing (%)
+ Ground 16437         5 1980-01-01 2024-12-31    64.478920
+  FLDAS   540         5 1980-01-01 2024-12-01     4.444444
+2025-04-01 23:42:35,831 - controller.app_controller - INFO - Data fetching completed
+2025-04-01 23:42:38,361 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:42:42,105 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:42:42,106 - controller.app_controller - INFO - Starting data analysis process
+2025-04-01 23:42:42,107 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:42:42,107 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:42:42,119 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:42:42,133 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:42:42,136 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-01 23:42:42,136 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-01 23:42:42,136 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:42:42,148 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:42:42,162 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:42:42,164 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-01 23:42:42,165 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-01 23:42:42,165 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:42:42,166 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:42:42,167 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-01 23:42:42,174 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-01 23:42:42,180 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-01 23:42:42,195 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-01 23:42:42,430 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-01 23:42:42,444 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-01 23:42:42,479 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-01 23:42:42,482 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-01 23:42:42,482 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:42:42,484 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-01 23:42:42,484 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-01 23:42:42,494 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-01 23:42:42,494 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-01 23:42:43,709 - controller.app_controller - INFO - Analysis completed
+2025-04-01 23:42:45,883 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:42:49,546 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'FLDAS', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:42:49,547 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:42:49,548 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'FLDAS', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:42:49,548 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:42:49,549 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:42:49,551 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:45:44,367 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 23:45:44,377 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 23:45:44,377 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 23:45:44,377 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 23:45:44,377 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 23:45:44,378 - controller.app_controller - INFO - Found existing data files
+2025-04-01 23:45:44,378 - controller.app_controller - INFO - AppController initialized
+2025-04-01 23:45:44,707 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 23:45:44,715 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 23:45:44,722 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 23:45:44,725 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 23:45:44,727 - ui.app_window - INFO - Application window initialized
+2025-04-01 23:45:45,720 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 23:45:46,126 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:45:47,539 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:45:49,609 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:45:49,609 - controller.app_controller - INFO - Starting data analysis process
+2025-04-01 23:45:49,610 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:45:49,610 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:45:49,623 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:45:49,637 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:45:49,640 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-01 23:45:49,640 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-01 23:45:49,640 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:45:49,651 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:45:49,665 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:45:49,667 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-01 23:45:49,667 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-01 23:45:49,667 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:45:49,669 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:45:49,670 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-01 23:45:49,679 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-01 23:45:49,684 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-01 23:45:49,698 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-01 23:45:49,722 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-01 23:45:49,735 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-01 23:45:49,768 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-01 23:45:49,771 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-01 23:45:49,772 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:45:49,773 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-01 23:45:49,773 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-01 23:45:49,775 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-01 23:45:49,775 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-01 23:45:51,202 - controller.app_controller - INFO - Analysis completed
+2025-04-01 23:45:57,525 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:46:05,606 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'DAYMET', 'type': 'Box Plots', 'high_res': True}
+2025-04-01 23:46:05,606 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:46:05,608 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'DAYMET', 'type': 'Box Plots', 'high_res': True}
+2025-04-01 23:46:05,608 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:46:05,608 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:46:05,611 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:46:06,865 - controller.visualization_controller - ERROR - Error creating box plot: List of boxplot statistics and `positions` values must have same the length
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 190, in custom_process_dataset
+    fig_box = create_boxplots(
+        stats_df,
+    ...<2 lines>...
+        f"{dataset_name} - {stats_type.title()} Statistics Distribution"
+    )
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\plotting_utils.py", line 192, in create_boxplots
+    sns.boxplot(
+    ~~~~~~~~~~~^
+        y=stats_df[param].values,  # Get just the values as a 1D array
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        ax=ax
+        ^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\seaborn\categorical.py", line 1634, in boxplot
+    p.plot_boxes(
+    ~~~~~~~~~~~~^
+        width=width,
+        ^^^^^^^^^^^^
+    ...<8 lines>...
+        plot_kws=kwargs,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\seaborn\categorical.py", line 700, in plot_boxes
+    artists = ax.bxp(**boxplot_kws)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\matplotlib\_api\deprecation.py", line 453, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\matplotlib\axes\_axes.py", line 4457, in bxp
+    raise ValueError(datashape_message.format("positions"))
+ValueError: List of boxplot statistics and `positions` values must have same the length
+2025-04-01 23:49:11,431 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 23:49:11,440 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 23:49:11,440 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 23:49:11,440 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 23:49:11,441 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 23:49:11,442 - controller.app_controller - INFO - Found existing data files
+2025-04-01 23:49:11,442 - controller.app_controller - INFO - AppController initialized
+2025-04-01 23:49:11,732 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 23:49:11,742 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 23:49:11,746 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 23:49:11,750 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 23:49:11,754 - ui.app_window - INFO - Application window initialized
+2025-04-01 23:49:12,742 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 23:49:18,111 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:49:19,930 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:49:19,931 - controller.app_controller - INFO - Starting data analysis process
+2025-04-01 23:49:19,932 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:49:19,932 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:49:19,945 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:49:19,960 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:49:19,962 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-01 23:49:19,962 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-01 23:49:19,963 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:49:19,974 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:49:19,988 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:49:19,990 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-01 23:49:19,990 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-01 23:49:19,990 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:49:19,992 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:49:19,993 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-01 23:49:20,002 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-01 23:49:20,008 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-01 23:49:20,022 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-01 23:49:20,046 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-01 23:49:20,059 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-01 23:49:20,092 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-01 23:49:20,095 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-01 23:49:20,096 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:49:20,097 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-01 23:49:20,097 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-01 23:49:20,099 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-01 23:49:20,099 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-01 23:49:21,302 - controller.app_controller - INFO - Analysis completed
+2025-04-01 23:49:22,197 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:49:27,007 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'DAYMET', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:49:27,008 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:49:27,009 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'DAYMET', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:49:27,009 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:49:27,009 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:49:27,013 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:49:27,014 - controller.visualization_controller - ERROR - Error creating time series plots: name 'pd' is not defined
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 222, in custom_process_dataset
+    ground_data = pd.read_csv(ground_data_path, index_col=0)
+                  ^^
+NameError: name 'pd' is not defined
+2025-04-01 23:49:52,582 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-01 23:49:52,590 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-01 23:49:52,591 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-01 23:49:52,591 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-01 23:49:52,591 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-01 23:49:52,591 - controller.app_controller - INFO - Found existing data files
+2025-04-01 23:49:52,592 - controller.app_controller - INFO - AppController initialized
+2025-04-01 23:49:52,893 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-01 23:49:52,903 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-01 23:49:52,909 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-01 23:49:52,913 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-01 23:49:52,916 - ui.app_window - INFO - Application window initialized
+2025-04-01 23:49:53,904 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-01 23:49:55,438 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-01 23:49:58,265 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:49:58,266 - controller.app_controller - INFO - Starting data analysis process
+2025-04-01 23:49:58,267 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-01 23:49:58,267 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:49:58,280 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:49:58,294 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:49:58,296 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-01 23:49:58,296 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-01 23:49:58,297 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-01 23:49:58,308 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-01 23:49:58,322 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-01 23:49:58,324 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-01 23:49:58,324 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-01 23:49:58,325 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:49:58,326 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:49:58,327 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-01 23:49:58,336 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-01 23:49:58,341 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-01 23:49:58,356 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-01 23:49:58,378 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-01 23:49:58,391 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-01 23:49:58,425 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-01 23:49:58,428 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-01 23:49:58,429 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-01 23:49:58,430 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-01 23:49:58,430 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-01 23:49:58,432 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-01 23:49:58,432 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-01 23:49:59,745 - controller.app_controller - INFO - Analysis completed
+2025-04-01 23:50:00,516 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-01 23:50:06,579 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'DAYMET', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:50:06,580 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:50:06,581 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:50:06,581 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'DAYMET', 'type': 'Time Series', 'high_res': True}
+2025-04-01 23:50:06,581 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:50:06,585 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:52:34,675 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'DAYMET', 'type': 'Seasonal Comparison', 'high_res': True}
+2025-04-01 23:52:34,676 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-01 23:52:34,677 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'DAYMET', 'type': 'Seasonal Comparison', 'high_res': True}
+2025-04-01 23:52:34,677 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-01 23:52:34,678 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-01 23:52:34,680 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-01 23:52:34,681 - src.visualization.plot_results - INFO - Creating seasonal plots...
+2025-04-01 23:52:34,682 - src.visualization.plot_results - ERROR - Error processing seasonal stats: 'numpy.ndarray' object is not callable
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\visualization\plot_results.py", line 158, in process_seasonal_stats
+    fig_seasonal = create_seasonal_comparison(
+        stats_df,
+        parameters,
+        dataset_dir.name
+    )
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\plotting_utils.py", line 232, in create_seasonal_comparison
+    all_data = pd.concat(seasonal_stats.values(), keys=seasonal_stats.keys())
+                         ~~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'numpy.ndarray' object is not callable
+2025-04-01 23:52:34,684 - src.visualization.plot_results - INFO - Error creating seasonal plots: 'numpy.ndarray' object is not callable
+2025-04-02 00:42:06,393 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 00:42:06,404 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 00:42:06,404 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 00:42:06,404 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 00:42:06,405 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 00:42:06,405 - controller.app_controller - INFO - Found existing data files
+2025-04-02 00:42:06,406 - controller.app_controller - INFO - AppController initialized
+2025-04-02 00:42:06,700 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 00:42:06,709 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 00:42:06,715 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 00:42:06,724 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 00:42:06,729 - ui.app_window - INFO - Application window initialized
+2025-04-02 00:42:07,710 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 00:42:10,844 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 00:42:12,231 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 00:42:14,931 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 00:42:14,931 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 00:42:14,933 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 00:42:14,933 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 00:42:14,953 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-02 00:42:14,973 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-02 00:42:14,981 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-02 00:42:14,982 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 00:42:14,982 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 00:42:14,994 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-02 00:42:15,008 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-02 00:42:15,010 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-02 00:42:15,010 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 00:42:15,010 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:42:15,012 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:42:15,013 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 00:42:15,021 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 00:42:15,027 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 00:42:15,042 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 00:42:15,066 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 00:42:15,079 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 00:42:15,113 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 00:42:15,121 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 00:42:15,122 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:42:15,123 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 00:42:15,123 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 00:42:15,132 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 00:42:15,132 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 00:42:16,485 - controller.app_controller - INFO - Analysis completed
+2025-04-02 00:42:17,241 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 00:42:20,759 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Dataset Comparison', 'high_res': True}
+2025-04-02 00:42:20,759 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 00:42:20,760 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Dataset Comparison', 'high_res': True}
+2025-04-02 00:42:20,760 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 00:42:20,762 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 00:42:20,769 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 00:42:20,770 - controller.visualization_controller - ERROR - Error generating visualizations: 'VisualizationController' object has no attribute 'results_dir'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 365, in _visualization_thread
+    plotter.process_dataset(dataset_dir)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 344, in custom_process_dataset
+    self.process_dataset_comparison("Dataset Comparison", data_dir, self.results_dir, plots_dir)
+                                                                    ^^^^^^^^^^^^^^^^
+AttributeError: 'VisualizationController' object has no attribute 'results_dir'
+2025-04-02 00:44:36,855 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 00:44:36,869 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 00:44:36,869 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 00:44:36,869 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 00:44:36,870 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 00:44:36,870 - controller.app_controller - INFO - Found existing data files
+2025-04-02 00:44:36,870 - controller.app_controller - INFO - AppController initialized
+2025-04-02 00:44:37,194 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 00:44:37,204 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 00:44:37,208 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 00:44:37,211 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 00:44:37,214 - ui.app_window - INFO - Application window initialized
+2025-04-02 00:44:38,205 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 00:44:39,666 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 00:44:41,030 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 00:44:43,797 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 00:44:43,797 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 00:44:43,798 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 00:44:43,798 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 00:44:43,811 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-02 00:44:43,825 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-02 00:44:43,827 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-02 00:44:43,828 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 00:44:43,828 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 00:44:43,839 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-02 00:44:43,853 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-02 00:44:43,855 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-02 00:44:43,856 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 00:44:43,856 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:44:43,857 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:44:43,858 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 00:44:43,867 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 00:44:43,872 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 00:44:43,886 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 00:44:43,909 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 00:44:43,923 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 00:44:43,956 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 00:44:43,960 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 00:44:43,960 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:44:43,961 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 00:44:43,961 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 00:44:43,963 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 00:44:43,963 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 00:44:45,953 - controller.app_controller - INFO - Analysis completed
+2025-04-02 00:44:47,215 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 00:44:50,611 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Dataset Comparison', 'high_res': True}
+2025-04-02 00:44:50,612 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 00:44:50,613 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 00:44:50,613 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Dataset Comparison', 'high_res': True}
+2025-04-02 00:44:50,613 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 00:44:50,616 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 00:44:50,616 - controller.visualization_controller - ERROR - Error generating visualizations: 'VisualizationController' object has no attribute 'controller'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 368, in _visualization_thread
+    plotter.process_dataset(dataset_dir)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 347, in custom_process_dataset
+    self.process_dataset_comparison("Dataset Comparison", data_dir, plots_dir)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 70, in process_dataset_comparison
+    results_dir = Path(self.controller.results_dir)
+                       ^^^^^^^^^^^^^^^
+AttributeError: 'VisualizationController' object has no attribute 'controller'
+2025-04-02 00:48:17,327 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 00:48:17,344 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 00:48:17,344 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 00:48:17,344 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 00:48:17,345 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 00:48:17,345 - controller.app_controller - INFO - Found existing data files
+2025-04-02 00:48:17,345 - controller.app_controller - INFO - AppController initialized
+2025-04-02 00:48:17,667 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 00:48:17,679 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 00:48:17,684 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 00:48:17,687 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 00:48:17,690 - ui.app_window - INFO - Application window initialized
+2025-04-02 00:48:18,681 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 00:48:19,913 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 00:48:21,300 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 00:48:23,106 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 00:48:23,107 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 00:48:23,108 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 00:48:23,108 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 00:48:23,122 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-02 00:48:23,136 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-02 00:48:23,138 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-02 00:48:23,138 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 00:48:23,139 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 00:48:23,150 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-02 00:48:23,163 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-02 00:48:23,165 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-02 00:48:23,165 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 00:48:23,166 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:48:23,167 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:48:23,169 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 00:48:23,177 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 00:48:23,183 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 00:48:23,197 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 00:48:23,221 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 00:48:23,236 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 00:48:23,272 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 00:48:23,275 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 00:48:23,276 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:48:23,277 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 00:48:23,277 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 00:48:23,279 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 00:48:23,279 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 00:48:24,719 - controller.app_controller - INFO - Analysis completed
+2025-04-02 00:48:25,301 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 00:48:29,126 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Dataset Comparison', 'high_res': True}
+2025-04-02 00:48:29,126 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 00:48:29,127 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Dataset Comparison', 'high_res': True}
+2025-04-02 00:48:29,127 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 00:48:29,131 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 00:48:29,133 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 00:48:48,630 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 00:48:48,631 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 00:48:48,632 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 00:48:48,632 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 00:48:48,633 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 00:48:48,635 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 00:48:48,637 - controller.visualization_controller - ERROR - Error creating radar comparison: unsupported operand type(s) for /: 'str' and 'str'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    fig = create_radar_chart_comparison(
+        data_dir,
+    ...<2 lines>...
+        title="Multi-Dataset Time Series Comparison"
+    )
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\plotting_utils.py", line 486, in create_radar_chart_comparison
+    ground_file = data_dir / 'ground_daily_precipitation.csv'
+                  ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+2025-04-02 00:50:43,244 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 00:50:43,255 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 00:50:43,255 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 00:50:43,255 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 00:50:43,256 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 00:50:43,256 - controller.app_controller - INFO - Found existing data files
+2025-04-02 00:50:43,256 - controller.app_controller - INFO - AppController initialized
+2025-04-02 00:50:43,542 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 00:50:43,554 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 00:50:43,559 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 00:50:43,562 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 00:50:43,564 - ui.app_window - INFO - Application window initialized
+2025-04-02 00:50:44,552 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 00:50:45,661 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 00:50:48,046 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 00:50:48,047 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 00:50:48,049 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 00:50:48,049 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 00:50:48,063 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-02 00:50:48,076 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-02 00:50:48,078 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-02 00:50:48,079 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 00:50:48,079 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 00:50:48,090 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 5)
+2025-04-02 00:50:48,103 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (16437, 5)
+2025-04-02 00:50:48,105 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (540, 5)
+2025-04-02 00:50:48,106 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 00:50:48,106 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:50:48,108 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:50:48,109 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 00:50:48,117 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 00:50:48,123 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 00:50:48,137 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 00:50:48,161 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 00:50:48,174 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 00:50:48,207 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 00:50:48,210 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 00:50:48,210 - src.analysis.statistical_analyzer - INFO - Found 5 common stations
+2025-04-02 00:50:48,211 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 00:50:48,211 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 00:50:48,214 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 00:50:48,214 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 00:50:49,621 - controller.app_controller - INFO - Analysis completed
+2025-04-02 00:50:50,309 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 00:50:53,581 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 00:50:53,582 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 00:50:53,583 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 00:50:53,583 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 00:50:53,585 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 00:50:53,587 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 11:46:32,709 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 11:46:32,720 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 11:46:32,720 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 11:46:32,720 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 11:46:32,721 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 11:46:32,724 - controller.app_controller - INFO - Found existing data files
+2025-04-02 11:46:32,724 - controller.app_controller - INFO - AppController initialized
+2025-04-02 11:46:33,040 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 11:46:33,050 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 11:46:33,055 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 11:46:33,059 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 11:46:33,061 - ui.app_window - INFO - Application window initialized
+2025-04-02 11:46:34,049 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 11:46:34,538 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 11:46:36,160 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 11:46:36,161 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 11:46:36,162 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 11:46:36,162 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 11:46:36,199 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 11:46:36,211 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 11:46:36,219 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 11:46:36,230 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 11:46:36,237 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 11:46:36,247 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 11:46:36,259 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 11:46:36,260 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 11:46:36,261 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 11:46:36,291 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 11:46:36,296 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 11:46:36,300 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 11:46:36,305 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 11:46:36,307 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 11:46:36,312 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 11:46:36,316 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 11:46:36,317 - src.analysis.statistical_analyzer - INFO - Analyzing CHIRPS...
+2025-04-02 11:46:36,317 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:36,321 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:36,324 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 11:46:36,351 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 11:46:36,380 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 11:46:36,468 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 11:46:36,501 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 11:46:36,508 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 11:46:36,625 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\CHIRPS
+2025-04-02 11:46:36,633 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 11:46:36,634 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:36,638 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:36,641 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 11:46:36,671 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 11:46:36,698 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 11:46:36,783 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 11:46:36,815 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 11:46:36,822 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 11:46:36,939 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 11:46:36,943 - src.analysis.statistical_analyzer - INFO - Analyzing ERA5...
+2025-04-02 11:46:36,943 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:36,947 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:36,950 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 11:46:36,980 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 11:46:37,008 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 11:46:37,093 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 11:46:37,125 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 11:46:37,131 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 11:46:37,247 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\ERA5
+2025-04-02 11:46:37,251 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 11:46:37,251 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:37,255 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 11:46:37,255 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 11:46:37,257 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 11:46:37,257 - src.analysis.statistical_analyzer - INFO - Analyzing GSMAP...
+2025-04-02 11:46:37,257 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:37,261 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:37,265 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 11:46:37,297 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 11:46:37,325 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 11:46:37,411 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 11:46:37,444 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 11:46:37,451 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 11:46:37,566 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\GSMAP
+2025-04-02 11:46:37,569 - src.analysis.statistical_analyzer - INFO - Analyzing PRISM...
+2025-04-02 11:46:37,570 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:37,574 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 11:46:37,577 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 11:46:37,609 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 11:46:37,640 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 11:46:37,726 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 11:46:37,757 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 11:46:37,764 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 11:46:37,883 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\PRISM
+2025-04-02 11:46:37,886 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 11:46:38,791 - controller.app_controller - INFO - Analysis completed
+2025-04-02 11:46:40,570 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 11:46:44,241 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Dataset Comparison', 'high_res': True}
+2025-04-02 11:46:44,242 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 11:46:44,244 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Dataset Comparison', 'high_res': True}
+2025-04-02 11:46:44,244 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 11:46:44,246 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 11:46:44,260 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 11:47:06,882 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 11:47:06,883 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 11:47:06,884 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 11:47:06,884 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 11:47:06,884 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 11:47:06,888 - src.visualization.plot_results - INFO - Metadata loaded successfully
