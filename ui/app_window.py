@@ -72,7 +72,7 @@ class ClimateDataApp(QMainWindow):
             self.tabs.addTab(self.earth_engine_panel, "Earth Engine")
             
             # Connect Earth Engine configuration updates
-            self.earth_engine_panel.config_updated.connect(self.on_ee_config_updated)
+            self.earth_engine_panel.config_updated.connect(self.controller.update_ee_project_id)
         
         # Connect tab signals
         self.tabs.currentChanged.connect(self.on_tab_changed)

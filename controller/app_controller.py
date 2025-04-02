@@ -242,3 +242,13 @@ class AppController(QObject):
     def is_analysis_complete(self):
         """Check if analysis is complete"""
         return self.analysis_complete
+
+    def update_ee_project_id(self, config):
+        """Update Earth Engine project ID across all components"""
+        project_id = config.get('ee_project_id')
+        logger.info(f"Updating Earth Engine project ID across all components: {project_id}")
+        
+        # Store in controller
+        self.ee_config = {'ee_project_id': project_id}
+        
+        self.status_updated.emit(f"Earth Engine project ID updated to: {project_id}")

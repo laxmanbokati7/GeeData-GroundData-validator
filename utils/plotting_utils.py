@@ -610,3 +610,268 @@ def create_radar_chart_comparison(data_dir: Path, plots_dir: Path,
     plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1.0))
     
     return fig
+
+def create_multi_metric_radar_chart(results_dir: Path, plots_dir: Path, 
+                               metrics: List[str] = None,
+                               stats_type: str = 'daily',
+                               normalize: bool = True,
+                               title: str = "Dataset Performance Comparison") -> plt.Figure:
+    """
+    Create a radar chart comparing multiple datasets across multiple statistical metrics
+    
+    Args:
+        results_dir: Path to results directory containing dataset subdirectories
+        plots_dir: Path to save visualization 
+        metrics: List of metrics to compare (if None, uses ['r2', 'rmse', 'bias', 'mae', 'nse'])
+        stats_type: Type of statistics to use ('daily', 'monthly', 'yearly')
+        normalize: Whether to normalize metrics to 0-1 scale
+        title: Plot title
+        
+    Returns:
+        Figure object with the radar chart
+    """
+    # Default metrics
+    if metrics is None:
+        metrics = ['r2', 'rmse', 'bias', 'mae', 'nse']
+    
+    # Set up normalization directions (1 is better or -1 is better)
+    metric_directions = {
+        'r2': 1,    # Higher is better
+        'rmse': -1, # Lower is better
+        'bias': -1, # Lower absolute value is better
+        'mae': -1,  # Lower is better
+        'nse': 1,   # Higher is better
+        'pbias': -1 # Lower absolute value is better
+    }
+    
+    # Prepare to collect data from all datasets
+    dataset_metrics = {}
+    
+    # Scan through results directory for all datasets
+    for dataset_dir in results_dir.glob('*'):
+        if dataset_dir.is_dir():
+            dataset_name = dataset_dir.name
+            stats_file = dataset_dir / f'{stats_type}_stats.csv'
+            
+            if stats_file.exists():
+                try:
+                    # Load statistics
+                    stats_df = pd.read_csv(stats_file)
+                    if 'station' in stats_df.columns:
+                        stats_df.set_index('station', inplace=True)
+                    
+                    # Calculate average metrics across all stations
+                    dataset_values = {}
+                    for metric in metrics:
+                        if metric in stats_df.columns:
+                            # For bias and pbias, use absolute values for better comparison
+                            if metric in ['bias', 'pbias']:
+                                dataset_values[metric] = stats_df[metric].abs().mean()
+                            else:
+                                dataset_values[metric] = stats_df[metric].mean()
+                        else:
+                            # Use NaN if metric not available
+                            dataset_values[metric] = np.nan
+                    
+                    dataset_metrics[dataset_name] = dataset_values
+                except Exception as e:
+                    print(f"Error loading {dataset_name}: {str(e)}")
+    
+    # Check if we have data
+    if not dataset_metrics:
+        # Create an empty figure with a message
+        fig, ax = plt.subplots(figsize=(10, 10))
+        ax.text(0.5, 0.5, f"No data found for {stats_type} statistics", 
+                ha='center', va='center', fontsize=14)
+        ax.axis('off')
+        return fig
+    
+    # Normalize metrics if requested
+    if normalize:
+        # Find min and max for each metric across all datasets
+        metric_min = {metric: float('inf') for metric in metrics}
+        metric_max = {metric: float('-inf') for metric in metrics}
+        
+        for dataset_values in dataset_metrics.values():
+            for metric, value in dataset_values.items():
+                if not np.isnan(value):
+                    metric_min[metric] = min(metric_min[metric], value)
+                    metric_max[metric] = max(metric_max[metric], value)
+        
+        # Apply normalization
+        for dataset_name, dataset_values in dataset_metrics.items():
+            for metric, value in dataset_values.items():
+                if not np.isnan(value) and metric_max[metric] > metric_min[metric]:
+                    # Normalize to 0-1 range
+                    norm_value = (value - metric_min[metric]) / (metric_max[metric] - metric_min[metric])
+                    
+                    # Adjust direction (1 is always better after normalization)
+                    if metric_directions.get(metric, 1) < 0:
+                        norm_value = 1 - norm_value
+                    
+                    dataset_metrics[dataset_name][metric] = norm_value
+    
+    # Create the radar chart
+    # Number of variables
+    N = len(metrics)
+    
+    # Create figure
+    fig = plt.figure(figsize=(10, 10))
+    ax = fig.add_subplot(111, polar=True)
+    
+    # Set ticks and labels
+    angles = [n / float(N) * 2 * np.pi for n in range(N)]
+    angles += angles[:1]  # Close the loop
+    
+    # Set labels
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels([metric.upper() for metric in metrics])
+    
+    # Add grid
+    ax.grid(True)
+    
+    # Add title
+    plt.title(title, fontsize=16, y=1.1)
+    
+    # Plot each dataset
+    colors = plt.cm.tab10.colors
+    for i, (dataset_name, dataset_values) in enumerate(dataset_metrics.items()):
+        values = [dataset_values.get(metric, 0) for metric in metrics]
+        values += values[:1]  # Close the loop
+        
+        # Plot
+        ax.plot(angles, values, 'o-', linewidth=2, label=dataset_name, color=colors[i % len(colors)])
+        ax.fill(angles, values, alpha=0.1, color=colors[i % len(colors)])
+    
+    # Add legend
+    plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1.0))
+    
+    return fig
+
+
+def create_seasonal_radar_chart(results_dir: Path, plots_dir: Path, 
+                              metric: str = 'r2',
+                              normalize: bool = True,
+                              title: str = "Seasonal Performance Comparison") -> plt.Figure:
+    """
+    Create radar chart comparing multiple datasets across different seasons
+    
+    Args:
+        results_dir: Path to results directory containing dataset subdirectories
+        plots_dir: Path to save visualization 
+        metric: Metric to compare (default 'r2')
+        normalize: Whether to normalize metrics to 0-1 scale
+        title: Plot title
+        
+    Returns:
+        Figure object with the radar chart
+    """
+    # Define seasons
+    seasons = ['Winter', 'Spring', 'Summer', 'Fall']
+    
+    # Prepare to collect data from all datasets
+    dataset_metrics = {}
+    
+    # Scan through results directory for all datasets
+    for dataset_dir in results_dir.glob('*'):
+        if dataset_dir.is_dir():
+            dataset_name = dataset_dir.name
+            stats_file = dataset_dir / 'seasonal_stats.csv'
+            
+            if stats_file.exists():
+                try:
+                    # Load statistics
+                    stats_df = pd.read_csv(stats_file)
+                    
+                    # Calculate average metric by season
+                    dataset_values = {}
+                    for season in seasons:
+                        season_data = stats_df[stats_df['season'] == season]
+                        if not season_data.empty and metric in season_data.columns:
+                            # For bias and pbias, use absolute value
+                            if metric in ['bias', 'pbias']:
+                                dataset_values[season] = season_data[metric].abs().mean()
+                            else:
+                                dataset_values[season] = season_data[metric].mean()
+                        else:
+                            dataset_values[season] = np.nan
+                    
+                    # Add to dataset metrics if we have at least one valid value
+                    if any(not np.isnan(v) for v in dataset_values.values()):
+                        dataset_metrics[dataset_name] = dataset_values
+                except Exception as e:
+                    print(f"Error loading seasonal data for {dataset_name}: {str(e)}")
+    
+    # Check if we have data
+    if not dataset_metrics:
+        # Create an empty figure with a message
+        fig, ax = plt.subplots(figsize=(10, 10))
+        ax.text(0.5, 0.5, f"No seasonal data found for {metric}", 
+                ha='center', va='center', fontsize=14)
+        ax.axis('off')
+        return fig
+    
+    # Determine if metric is "higher is better" or "lower is better"
+    higher_is_better = metric in ['r2', 'nse']
+    
+    # Normalize if requested
+    if normalize:
+        # Find min and max for each season across all datasets
+        season_min = {season: float('inf') for season in seasons}
+        season_max = {season: float('-inf') for season in seasons}
+        
+        for dataset_values in dataset_metrics.values():
+            for season, value in dataset_values.items():
+                if not np.isnan(value):
+                    season_min[season] = min(season_min[season], value)
+                    season_max[season] = max(season_max[season], value)
+        
+        # Apply normalization
+        for dataset_name, dataset_values in dataset_metrics.items():
+            for season, value in dataset_values.items():
+                if not np.isnan(value) and season_max[season] > season_min[season]:
+                    # Normalize to 0-1 range
+                    norm_value = (value - season_min[season]) / (season_max[season] - season_min[season])
+                    
+                    # Adjust direction (1 is always better after normalization)
+                    if not higher_is_better:
+                        norm_value = 1 - norm_value
+                    
+                    dataset_metrics[dataset_name][season] = norm_value
+    
+    # Create the radar chart
+    # Number of variables
+    N = len(seasons)
+    
+    # Create figure
+    fig = plt.figure(figsize=(10, 10))
+    ax = fig.add_subplot(111, polar=True)
+    
+    # Set ticks and labels
+    angles = [n / float(N) * 2 * np.pi for n in range(N)]
+    angles += angles[:1]  # Close the loop
+    
+    # Set labels
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(seasons)
+    
+    # Add grid
+    ax.grid(True)
+    
+    # Add title
+    plt.title(f"{title} - {metric.upper()}", fontsize=16, y=1.1)
+    
+    # Plot each dataset
+    colors = plt.cm.tab10.colors
+    for i, (dataset_name, dataset_values) in enumerate(dataset_metrics.items()):
+        values = [dataset_values.get(season, 0) for season in seasons]
+        values += values[:1]  # Close the loop
+        
+        # Plot
+        ax.plot(angles, values, 'o-', linewidth=2, label=dataset_name, color=colors[i % len(colors)])
+        ax.fill(angles, values, alpha=0.1, color=colors[i % len(colors)])
+    
+    # Add legend
+    plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1.0))
+    
+    return fig

@@ -315,33 +315,35 @@ class VisualizationController(QObject):
                         logger.error(f"Error creating dataset comparison: {str(e)}", exc_info=True)
                         self.status_updated.emit(f"Error creating dataset comparison: {str(e)}")
 
+                # In the custom_process_dataset function, add this case after the "Dataset Comparison" case:
                 elif vis_type == "Radar Comparison":
-                    # Create radar chart comparison visualizations
-                    self.status_updated.emit(f"Creating radar comparison visualizations...")
-                    
                     # Create comparison plots directory
                     comparison_plots_dir = plotter.plots_dir / "Comparisons"
                     comparison_plots_dir.mkdir(exist_ok=True)
                     
+                    self.status_updated.emit(f"Creating radar chart visualizations...")
+                    
                     try:
                         # Import the function
-                        from utils.plotting_utils import create_radar_chart_comparison
+                        from utils.plotting_utils import create_multi_metric_radar_chart, create_seasonal_radar_chart
                         
-                        # Create radar charts for sum, mean, and max
-                        value_types = ['sum', 'mean', 'max']
+                        results_path = dataset_dir.parent
                         
-                        for value_type in value_types:
-                            self.status_updated.emit(f"Creating {value_type} radar comparison...")
+                        # Create multi-metric radar chart
+                        metrics = ['r2', 'rmse', 'bias', 'mae', 'nse']
+                        for period in ['daily', 'monthly', 'yearly']:
+                            self.status_updated.emit(f"Creating {period} multi-metric radar chart...")
                             
-                            fig = create_radar_chart_comparison(
-                                data_dir,
+                            fig = create_multi_metric_radar_chart(
+                                results_path,
                                 comparison_plots_dir,
-                                value_type=value_type,
-                                title="Multi-Dataset Time Series Comparison"
+                                metrics=metrics,
+                                stats_type=period,
+                                title=f"Dataset Performance Comparison ({period.title()})"
                             )
                             
                             # Save the plot
-                            output_file = comparison_plots_dir / f'radar_{value_type}.png'
+                            output_file = comparison_plots_dir / f'radar_metrics_{period}.png'
                             fig.savefig(
                                 output_file,
                                 bbox_inches='tight',
@@ -350,7 +352,31 @@ class VisualizationController(QObject):
                             plt.close(fig)
                             
                             self.visualization_created.emit(
-                                f"Created radar chart for {value_type} precipitation"
+                                f"Created multi-metric radar chart for {period} data"
+                            )
+                        
+                        # Create seasonal radar chart for different metrics
+                        for metric in ['r2', 'rmse', 'bias', 'mae']:
+                            self.status_updated.emit(f"Creating seasonal {metric} radar chart...")
+                            
+                            fig = create_seasonal_radar_chart(
+                                results_path,
+                                comparison_plots_dir,
+                                metric=metric,
+                                title="Seasonal Performance Comparison"
+                            )
+                            
+                            # Save the plot
+                            output_file = comparison_plots_dir / f'radar_seasonal_{metric}.png'
+                            fig.savefig(
+                                output_file,
+                                bbox_inches='tight',
+                                dpi=plt.rcParams['figure.dpi']
+                            )
+                            plt.close(fig)
+                            
+                            self.visualization_created.emit(
+                                f"Created seasonal radar chart for {metric}"
                             )
                             
                     except Exception as e:

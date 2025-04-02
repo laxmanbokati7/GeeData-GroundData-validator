@@ -11,6 +11,9 @@ from utils.huc_utils import HUCDataProvider
 from PyQt5.QtWidgets import QMessageBox, QProgressDialog
 from PyQt5.QtCore import QTimer
 from utils.workers import HUCLoadWorker, HUCBoundaryWorker
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from utils.drawing_utils import filter_stations_by_polygon
+from utils.geemap_integration import DrawMapWidget
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +28,13 @@ class DataSelectionPanel(QWidget):
         
         self.controller = controller
         self.active_threads = []
+        self.drawn_feature = None
+        
+        # Get Earth Engine project ID from configuration
+        self.ee_project_id = getattr(self.controller, 'ee_config', {}).get('ee_project_id')
+        if not self.ee_project_id:
+            logger.warning("No Earth Engine project ID configured, using default")
+            self.ee_project_id = "ee-sauravbhattarai1999"
         
         # US states dictionary
         self.us_states = {
@@ -138,11 +148,13 @@ class DataSelectionPanel(QWidget):
         selection_method_label = QLabel("Selection Method:")
         self.rb_states = QRadioButton("States")
         self.rb_huc = QRadioButton("HUC Watershed")
+        self.rb_draw = QRadioButton("Draw Area")
         self.rb_states.setChecked(True)  # Default selection
         
         selection_method_layout.addWidget(selection_method_label)
         selection_method_layout.addWidget(self.rb_states)
         selection_method_layout.addWidget(self.rb_huc)
+        selection_method_layout.addWidget(self.rb_draw)
         
         area_layout.addLayout(selection_method_layout)
         
@@ -211,9 +223,17 @@ class DataSelectionPanel(QWidget):
         huc_selection_layout.addWidget(self.load_huc_button)
         huc_selection_layout.addWidget(self.huc_info_text)
         
-        # Add both selection widgets to the area group
+        # Create drawing selection widget with project ID - Add after HUC selection widget code
+        project_id = getattr(self.controller, 'ee_config', {}).get('ee_project_id', "ee-sauravbhattarai1999")
+        self.draw_selection_widget = DrawMapWidget()
+        self.draw_selection_widget.set_project_id(project_id)  # Pass project ID
+        self.draw_selection_widget.setVisible(False)  # Initially hidden
+        self.draw_selection_widget.polygon_drawn.connect(self.on_polygon_drawn)
+        
+        # Add all selection widgets to the area group
         area_layout.addWidget(self.state_selection_widget)
         area_layout.addWidget(self.huc_selection_widget)
+        area_layout.addWidget(self.draw_selection_widget)  # <=== ADD THIS LINE
         
         area_group.setLayout(area_layout)
         scroll_layout.addWidget(area_group)
@@ -221,6 +241,7 @@ class DataSelectionPanel(QWidget):
         # Connect signals for area selection
         self.rb_states.toggled.connect(self.on_selection_method_changed)
         self.rb_huc.toggled.connect(self.on_selection_method_changed)
+        self.rb_draw.toggled.connect(self.on_selection_method_changed)  # <=== ADD THIS LINE
         self.rb_all_states.toggled.connect(self.on_state_scope_changed)
         self.rb_specific_states.toggled.connect(self.on_state_scope_changed)
         self.huc_region_combo.currentIndexChanged.connect(self.on_huc_region_changed)
@@ -411,6 +432,7 @@ class DataSelectionPanel(QWidget):
                 'end_year': self.end_year_slider.value(),
                 'selection_type': selection_type,
                 'states': self.get_selected_states() if selection_type == 'states' else None,
+                'drawn_feature': self.drawn_feature if selection_type == 'draw' else None,
                 'huc_id': self.get_selected_huc() if selection_type == 'huc' else None,
                 'gridded_datasets': self.get_selected_datasets(),
                 'ee_project_id': getattr(self.controller, 'ee_config', {}).get('ee_project_id', "ee-sauravbhattarai1999")
@@ -524,9 +546,15 @@ class DataSelectionPanel(QWidget):
         if self.rb_states.isChecked():
             self.state_selection_widget.setVisible(True)
             self.huc_selection_widget.setVisible(False)
-        else:  # HUC selected
+            self.draw_selection_widget.setVisible(False)
+        elif self.rb_huc.isChecked():  # HUC selected
             self.state_selection_widget.setVisible(False)
             self.huc_selection_widget.setVisible(True)
+            self.draw_selection_widget.setVisible(False)
+        else:
+            self.state_selection_widget.setVisible(False)
+            self.huc_selection_widget.setVisible(False)
+            self.draw_selection_widget.setVisible(True)
             
             # If HUC metadata not loaded yet, load it
             if self.huc_region_combo.count() <= 1:
@@ -711,8 +739,13 @@ class DataSelectionPanel(QWidget):
 
     # Update the get_selection_type method
     def get_selection_type(self):
-        """Get the current selection type (states or huc)"""
-        return "huc" if self.rb_huc.isChecked() else "states"
+        """Get the current selection type"""
+        if self.rb_draw.isChecked():
+            return "draw"
+        elif self.rb_huc.isChecked():
+            return "huc"
+        else:
+            return "states"
 
     # Update the get_selected_huc method
     def get_selected_huc(self):
@@ -721,6 +754,18 @@ class DataSelectionPanel(QWidget):
             return None
             
         return self.huc_selection_combo.currentData()
+    
+    def on_polygon_drawn(self, feature):
+        """Handle polygon drawn on the map"""
+        # Store the drawn feature
+        self.drawn_feature = feature
+        
+        # Show a confirmation to the user
+        QMessageBox.information(
+            self,
+            "Area Selected",
+            "Study area selection has been confirmed. You can now proceed with data download."
+        )
     
     def cleanup_thread(self, worker):
         """Remove completed thread from active threads list"""

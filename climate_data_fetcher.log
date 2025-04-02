@@ -10733,3 +10733,1143 @@ AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_mont
 2025-04-02 11:47:06,884 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
 2025-04-02 11:47:06,884 - src.visualization.plot_results - INFO - Loading station metadata...
 2025-04-02 11:47:06,888 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 12:16:25,904 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 12:16:25,913 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 12:16:25,914 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 12:16:25,914 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 12:16:25,914 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 12:16:25,915 - controller.app_controller - INFO - Found existing data files
+2025-04-02 12:16:25,915 - controller.app_controller - INFO - AppController initialized
+2025-04-02 12:16:26,204 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 12:16:26,216 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 12:16:26,221 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 12:16:26,225 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 12:16:26,227 - ui.app_window - INFO - Application window initialized
+2025-04-02 12:16:27,210 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 12:16:55,352 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 12:16:57,052 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 12:16:57,052 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 12:16:57,054 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 12:16:57,054 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 12:16:57,087 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 12:16:57,093 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 12:16:57,096 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 12:16:57,102 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 12:16:57,104 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 12:16:57,108 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 12:16:57,113 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 12:16:57,114 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 12:16:57,114 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 12:16:57,144 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 12:16:57,149 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 12:16:57,152 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 12:16:57,157 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 12:16:57,159 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 12:16:57,164 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 12:16:57,168 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 12:16:57,168 - src.analysis.statistical_analyzer - INFO - Analyzing CHIRPS...
+2025-04-02 12:16:57,169 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:57,173 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:57,176 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:16:57,204 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:16:57,234 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:16:57,322 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:16:57,357 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:16:57,364 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:16:57,485 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\CHIRPS
+2025-04-02 12:16:57,489 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 12:16:57,489 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:57,493 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:57,497 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:16:57,528 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:16:57,557 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:16:57,644 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:16:57,677 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:16:57,683 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:16:57,807 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 12:16:57,810 - src.analysis.statistical_analyzer - INFO - Analyzing ERA5...
+2025-04-02 12:16:57,811 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:57,814 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:57,817 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:16:57,848 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:16:57,877 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:16:57,964 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:16:57,997 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:16:58,004 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:16:58,121 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\ERA5
+2025-04-02 12:16:58,125 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 12:16:58,126 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:58,129 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 12:16:58,129 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 12:16:58,131 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 12:16:58,131 - src.analysis.statistical_analyzer - INFO - Analyzing GSMAP...
+2025-04-02 12:16:58,132 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:58,135 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:58,139 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:16:58,170 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:16:58,200 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:16:58,287 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:16:58,320 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:16:58,326 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:16:58,445 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\GSMAP
+2025-04-02 12:16:58,448 - src.analysis.statistical_analyzer - INFO - Analyzing PRISM...
+2025-04-02 12:16:58,448 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:58,452 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:16:58,455 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:16:58,486 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:16:58,515 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:16:58,602 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:16:58,635 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:16:58,642 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:16:58,773 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\PRISM
+2025-04-02 12:16:58,777 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 12:17:01,130 - controller.app_controller - INFO - Analysis completed
+2025-04-02 12:17:02,872 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 12:17:05,158 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 12:17:05,159 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 12:17:05,161 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 12:17:05,161 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 12:17:05,163 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 12:17:05,164 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 12:17:05,166 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:17:05,169 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:17:05,170 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:17:05,171 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:17:05,173 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:17:55,844 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 12:17:55,853 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 12:17:55,854 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 12:17:55,854 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 12:17:55,855 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 12:17:55,855 - controller.app_controller - INFO - Found existing data files
+2025-04-02 12:17:55,855 - controller.app_controller - INFO - AppController initialized
+2025-04-02 12:17:56,127 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 12:17:56,136 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 12:17:56,140 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 12:17:56,143 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 12:17:56,146 - ui.app_window - INFO - Application window initialized
+2025-04-02 12:17:57,134 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 12:17:58,768 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 12:17:59,741 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 12:18:01,228 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 12:18:01,228 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 12:18:01,230 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 12:18:01,230 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 12:18:01,263 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 12:18:01,268 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 12:18:01,271 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 12:18:01,277 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 12:18:01,279 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 12:18:01,284 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 12:18:01,289 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 12:18:01,289 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 12:18:01,290 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 12:18:01,321 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 12:18:01,326 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 12:18:01,329 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 12:18:01,334 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 12:18:01,336 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 12:18:01,340 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 12:18:01,345 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 12:18:01,345 - src.analysis.statistical_analyzer - INFO - Analyzing CHIRPS...
+2025-04-02 12:18:01,346 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:01,349 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:01,352 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:18:01,379 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:18:01,409 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:18:01,498 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:18:01,531 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:18:01,537 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:18:01,655 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\CHIRPS
+2025-04-02 12:18:01,658 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 12:18:01,659 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:01,662 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:01,666 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:18:01,698 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:18:01,726 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:18:01,813 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:18:01,846 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:18:01,853 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:18:01,971 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 12:18:01,974 - src.analysis.statistical_analyzer - INFO - Analyzing ERA5...
+2025-04-02 12:18:01,975 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:01,979 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:01,983 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:18:02,015 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:18:02,043 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:18:02,130 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:18:02,162 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:18:02,169 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:18:02,292 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\ERA5
+2025-04-02 12:18:02,296 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 12:18:02,296 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:02,300 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 12:18:02,300 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 12:18:02,302 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 12:18:02,302 - src.analysis.statistical_analyzer - INFO - Analyzing GSMAP...
+2025-04-02 12:18:02,302 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:02,306 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:02,310 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:18:02,343 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:18:02,371 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:18:02,455 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:18:02,488 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:18:02,495 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:18:02,612 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\GSMAP
+2025-04-02 12:18:02,615 - src.analysis.statistical_analyzer - INFO - Analyzing PRISM...
+2025-04-02 12:18:02,616 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:02,620 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:18:02,623 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:18:02,654 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:18:02,683 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:18:02,769 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:18:02,803 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:18:02,809 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:18:02,928 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\PRISM
+2025-04-02 12:18:02,932 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 12:18:04,028 - controller.app_controller - INFO - Analysis completed
+2025-04-02 12:18:04,535 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 12:18:12,967 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 12:18:12,967 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 12:18:12,968 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 12:18:12,968 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 12:18:12,969 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 12:18:12,973 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 12:18:12,974 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:18:12,976 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:18:12,977 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:18:12,979 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:18:12,980 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:41:45,599 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 12:41:45,611 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 12:41:45,611 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 12:41:45,612 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 12:41:45,612 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 12:41:45,613 - controller.app_controller - INFO - Found existing data files
+2025-04-02 12:41:45,613 - controller.app_controller - INFO - AppController initialized
+2025-04-02 12:41:45,959 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 12:41:45,970 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 12:41:45,974 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 12:41:45,977 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 12:41:45,980 - ui.app_window - INFO - Application window initialized
+2025-04-02 12:41:46,968 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 12:41:47,027 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 12:41:48,490 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 12:41:48,491 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 12:41:48,493 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 12:41:48,493 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 12:41:48,526 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 12:41:48,532 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 12:41:48,535 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 12:41:48,541 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 12:41:48,543 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 12:41:48,547 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 12:41:48,552 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 12:41:48,553 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 12:41:48,553 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 12:41:48,585 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 12:41:48,590 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 12:41:48,593 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 12:41:48,599 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 12:41:48,601 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 12:41:48,605 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 12:41:48,610 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 12:41:48,610 - src.analysis.statistical_analyzer - INFO - Analyzing CHIRPS...
+2025-04-02 12:41:48,610 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:48,614 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:48,618 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:41:48,644 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:41:48,674 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:41:48,761 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:41:48,794 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:41:48,801 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:41:48,921 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\CHIRPS
+2025-04-02 12:41:48,924 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 12:41:48,924 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:48,928 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:48,931 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:41:48,961 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:41:48,991 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:41:49,076 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:41:49,109 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:41:49,116 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:41:49,234 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 12:41:49,238 - src.analysis.statistical_analyzer - INFO - Analyzing ERA5...
+2025-04-02 12:41:49,239 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:49,242 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:49,245 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:41:49,276 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:41:49,305 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:41:49,393 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:41:49,426 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:41:49,433 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:41:49,555 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\ERA5
+2025-04-02 12:41:49,559 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 12:41:49,559 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:49,563 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 12:41:49,563 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 12:41:49,565 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 12:41:49,566 - src.analysis.statistical_analyzer - INFO - Analyzing GSMAP...
+2025-04-02 12:41:49,566 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:49,571 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:49,574 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:41:49,605 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:41:49,636 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:41:49,722 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:41:49,755 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:41:49,762 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:41:49,881 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\GSMAP
+2025-04-02 12:41:49,885 - src.analysis.statistical_analyzer - INFO - Analyzing PRISM...
+2025-04-02 12:41:49,885 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:49,888 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:41:49,892 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:41:49,924 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:41:49,953 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:41:50,039 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:41:50,073 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:41:50,079 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:41:50,208 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\PRISM
+2025-04-02 12:41:50,212 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 12:41:51,192 - controller.app_controller - INFO - Analysis completed
+2025-04-02 12:41:51,765 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 12:41:52,252 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-04-02 12:41:52,780 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 12:42:29,747 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 12:42:29,748 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 12:42:29,749 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 12:42:29,749 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 12:42:29,749 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 12:42:29,752 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 12:42:29,753 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:42:29,754 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:42:29,756 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:42:29,759 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:42:29,760 - controller.visualization_controller - ERROR - Error creating radar comparison: cannot access local variable 'results_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\visualization_controller.py", line 336, in custom_process_dataset
+    results_path,
+    ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'results_path' where it is not associated with a value
+2025-04-02 12:44:08,315 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 12:44:08,324 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 12:44:08,324 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 12:44:08,324 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 12:44:08,325 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 12:44:08,325 - controller.app_controller - INFO - Found existing data files
+2025-04-02 12:44:08,325 - controller.app_controller - INFO - AppController initialized
+2025-04-02 12:44:08,552 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 12:44:08,563 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 12:44:08,568 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 12:44:08,571 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 12:44:08,573 - ui.app_window - INFO - Application window initialized
+2025-04-02 12:44:09,561 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 12:44:10,196 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 12:44:11,920 - ui.panels.analysis_panel - INFO - Starting analysis with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 12:44:11,921 - controller.app_controller - INFO - Starting data analysis process
+2025-04-02 12:44:11,923 - controller.analysis_controller - INFO - Started analysis thread with settings: {'type': 'Standard Analysis', 'include_seasonal': True, 'include_extreme': True}
+2025-04-02 12:44:11,923 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 12:44:11,956 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 12:44:11,961 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 12:44:11,964 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 12:44:11,970 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 12:44:11,972 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 12:44:11,976 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 12:44:11,981 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 12:44:11,982 - src.analysis.statistical_analyzer - INFO - Starting statistical analysis...
+2025-04-02 12:44:11,983 - src.analysis.statistical_analyzer - INFO - Loading data...
+2025-04-02 12:44:12,014 - src.analysis.statistical_analyzer - INFO - Loaded ground data: (16437, 47)
+2025-04-02 12:44:12,019 - src.analysis.statistical_analyzer - INFO - Loaded CHIRPS data: (731, 48)
+2025-04-02 12:44:12,022 - src.analysis.statistical_analyzer - INFO - Loaded DAYMET data: (731, 48)
+2025-04-02 12:44:12,028 - src.analysis.statistical_analyzer - INFO - Loaded ERA5 data: (731, 48)
+2025-04-02 12:44:12,030 - src.analysis.statistical_analyzer - INFO - Loaded FLDAS data: (24, 48)
+2025-04-02 12:44:12,035 - src.analysis.statistical_analyzer - INFO - Loaded GSMAP data: (731, 48)
+2025-04-02 12:44:12,039 - src.analysis.statistical_analyzer - INFO - Loaded PRISM data: (731, 48)
+2025-04-02 12:44:12,040 - src.analysis.statistical_analyzer - INFO - Analyzing CHIRPS...
+2025-04-02 12:44:12,040 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,044 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,048 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:44:12,075 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:44:12,103 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:44:12,190 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:44:12,222 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:44:12,228 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:44:12,345 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\CHIRPS
+2025-04-02 12:44:12,348 - src.analysis.statistical_analyzer - INFO - Analyzing DAYMET...
+2025-04-02 12:44:12,349 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,353 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,356 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:44:12,387 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:44:12,416 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:44:12,502 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:44:12,534 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:44:12,540 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:44:12,657 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\DAYMET
+2025-04-02 12:44:12,661 - src.analysis.statistical_analyzer - INFO - Analyzing ERA5...
+2025-04-02 12:44:12,661 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,665 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,668 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:44:12,697 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:44:12,727 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:44:12,812 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:44:12,845 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:44:12,852 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:44:12,970 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\ERA5
+2025-04-02 12:44:12,973 - src.analysis.statistical_analyzer - INFO - Analyzing FLDAS...
+2025-04-02 12:44:12,974 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,977 - src.analysis.statistical_analyzer - INFO - FLDAS detected - aggregating ground data to monthly...
+2025-04-02 12:44:12,977 - src.analysis.statistical_analyzer - ERROR - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\src\analysis\statistical_analyzer.py", line 128, in analyze_dataset
+    ground = self.aggregate_to_monthly(ground)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 12:44:12,979 - src.analysis.statistical_analyzer - INFO - Error analyzing FLDAS: 'GriddedDataAnalyzer' object has no attribute 'aggregate_to_monthly'
+2025-04-02 12:44:12,979 - src.analysis.statistical_analyzer - INFO - Analyzing GSMAP...
+2025-04-02 12:44:12,979 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,983 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:12,988 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:44:13,020 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:44:13,049 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:44:13,134 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:44:13,167 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:44:13,174 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:44:13,293 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\GSMAP
+2025-04-02 12:44:13,297 - src.analysis.statistical_analyzer - INFO - Analyzing PRISM...
+2025-04-02 12:44:13,297 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:13,301 - src.analysis.statistical_analyzer - INFO - Found 47 common stations
+2025-04-02 12:44:13,304 - src.analysis.statistical_analyzer - INFO - Validating data length for each station...
+2025-04-02 12:44:13,337 - src.analysis.statistical_analyzer - INFO - Calculating daily statistics...
+2025-04-02 12:44:13,367 - src.analysis.statistical_analyzer - INFO - Calculating extreme value statistics...
+2025-04-02 12:44:13,453 - src.analysis.statistical_analyzer - INFO - Calculating monthly statistics...
+2025-04-02 12:44:13,489 - src.analysis.statistical_analyzer - INFO - Calculating yearly statistics...
+2025-04-02 12:44:13,496 - src.analysis.statistical_analyzer - INFO - Calculating seasonal statistics...
+2025-04-02 12:44:13,617 - src.analysis.statistical_analyzer - INFO - Results saved to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results\PRISM
+2025-04-02 12:44:13,620 - src.analysis.statistical_analyzer - INFO - Analysis complete!
+2025-04-02 12:44:14,606 - controller.app_controller - INFO - Analysis completed
+2025-04-02 12:44:15,499 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-04-02 12:44:16,122 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 12:44:18,474 - ui.panels.visualization_panel - INFO - Generating visualizations with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 12:44:18,475 - controller.app_controller - INFO - Starting visualization generation process
+2025-04-02 12:44:18,476 - controller.visualization_controller - INFO - Started visualization thread with settings: {'dataset': 'All', 'type': 'Radar Comparison', 'high_res': True}
+2025-04-02 12:44:18,476 - src.visualization.plot_results - INFO - Setting up visualization environment...
+2025-04-02 12:44:18,476 - src.visualization.plot_results - INFO - Loading station metadata...
+2025-04-02 12:44:18,480 - src.visualization.plot_results - INFO - Metadata loaded successfully
+2025-04-02 13:24:26,852 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 13:24:27,229 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 13:24:27,229 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 13:24:27,230 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 13:24:27,230 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 13:24:27,230 - controller.app_controller - INFO - Found existing data files
+2025-04-02 13:24:27,231 - controller.app_controller - INFO - AppController initialized
+2025-04-02 13:24:27,533 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 13:24:27,541 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 13:24:27,545 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 13:24:27,549 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 13:24:27,551 - ui.app_window - INFO - Application window initialized
+2025-04-02 13:24:28,548 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 13:24:43,277 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 13:24:43,564 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 13:24:43,564 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 13:24:43,564 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 13:24:43,565 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 13:24:43,565 - controller.app_controller - INFO - Found existing data files
+2025-04-02 13:24:43,565 - controller.app_controller - INFO - AppController initialized
+2025-04-02 13:24:43,933 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 13:24:43,942 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 13:24:43,947 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 13:24:43,951 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 13:24:43,956 - ui.app_window - INFO - Application window initialized
+2025-04-02 13:24:44,945 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 13:24:53,024 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 13:24:53,259 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 13:24:53,260 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 13:24:53,260 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 13:24:53,260 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 13:24:53,261 - controller.app_controller - INFO - Found existing data files
+2025-04-02 13:24:53,261 - controller.app_controller - INFO - AppController initialized
+2025-04-02 13:24:53,521 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 13:24:53,530 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 13:24:53,536 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 13:24:53,539 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 13:24:53,542 - ui.app_window - INFO - Application window initialized
+2025-04-02 13:24:54,529 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 13:25:09,688 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 13:25:09,932 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 13:25:09,933 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 13:25:09,933 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 13:25:09,933 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 13:25:09,934 - controller.app_controller - INFO - Found existing data files
+2025-04-02 13:25:09,934 - controller.app_controller - INFO - AppController initialized
+2025-04-02 13:25:10,229 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 13:25:10,238 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 13:25:10,243 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 13:25:10,245 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 13:25:10,247 - ui.app_window - INFO - Application window initialized
+2025-04-02 13:25:11,244 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 13:42:35,038 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 13:42:35,315 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 13:42:35,315 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 13:42:35,315 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 13:42:35,316 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 13:42:35,316 - controller.app_controller - INFO - Found existing data files
+2025-04-02 13:42:35,316 - controller.app_controller - INFO - AppController initialized
+2025-04-02 13:42:35,334 - __main__ - ERROR - Error starting application: 'DataSelectionPanel' object has no attribute 'huc_info_text'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\main.py", line 35, in main
+    main_window = ClimateDataApp()
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\app_window.py", line 29, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\app_window.py", line 53, in init_ui
+    self.data_selection_panel = DataSelectionPanel(self.controller)
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 51, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 183, in init_ui
+    huc_selection_layout.addWidget(self.huc_info_text)
+                                   ^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataSelectionPanel' object has no attribute 'huc_info_text'
+2025-04-02 13:48:57,840 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 13:48:58,184 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 13:48:58,184 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 13:48:58,184 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 13:48:58,185 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 13:48:58,185 - controller.app_controller - INFO - Found existing data files
+2025-04-02 13:48:58,185 - controller.app_controller - INFO - AppController initialized
+2025-04-02 13:48:59,035 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 13:48:59,036 - utils.geemap_integration - ERROR - Error creating map: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 114, in create_map
+    self.map = geemap.Map(center=[39.8283, -98.5795], zoom=4)
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\geemap\geemap.py", line 159, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\geemap\core.py", line 729, in __init__
+    coreutils.ee_initialize(user_agent_prefix=self._USER_AGENT_PREFIX)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\geemap\coreutils.py", line 114, in ee_initialize
+    ee.Initialize(**kwargs)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\_utils.py", line 38, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ee\__init__.py", line 229, in Initialize
+    raise EEException(NO_PROJECT_EXCEPTION) from None
+ee.ee_exception.EEException: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 13:48:59,336 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 13:48:59,345 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 13:48:59,351 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 13:48:59,713 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 13:48:59,714 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 13:48:59,719 - ui.app_window - INFO - Application window initialized
+2025-04-02 13:49:00,344 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:15:24,560 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:15:24,925 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:15:24,925 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:15:24,926 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:15:24,926 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:15:24,926 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:15:24,927 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:15:24,945 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:15:25,786 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:15:25,786 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:15:25,786 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:15:26,857 - utils.geemap_integration - ERROR - Error creating map: Map.add_gdf() got an unexpected keyword argument 'fill_color'. Did you mean 'fill_colors'?
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_gdf() got an unexpected keyword argument 'fill_color'. Did you mean 'fill_colors'?
+2025-04-02 14:15:27,121 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:15:27,131 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:15:27,137 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:15:27,294 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:15:27,296 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:15:28,130 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:16:48,401 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:16:48,679 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:16:48,680 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:16:48,680 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:16:48,680 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:16:48,681 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:16:48,681 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:16:48,698 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:16:49,397 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:16:49,398 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:16:49,399 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:16:50,505 - utils.geemap_integration - ERROR - Error creating map: Map.add_gdf() got an unexpected keyword argument 'border_color'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_gdf() got an unexpected keyword argument 'border_color'
+2025-04-02 14:16:50,793 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:16:50,810 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:16:50,817 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:16:50,952 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:16:50,955 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:16:51,801 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:16:59,452 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 193, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:17:01,276 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 193, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:22:42,082 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:22:42,347 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:22:42,348 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:22:42,348 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:22:42,348 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:22:42,349 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:22:42,349 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:22:42,366 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:22:42,993 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:22:42,995 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:22:42,996 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:22:44,157 - utils.geemap_integration - ERROR - Error creating map: Map.add_gdf() got an unexpected keyword argument 'border_color'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_gdf() got an unexpected keyword argument 'border_color'
+2025-04-02 14:22:44,447 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:22:44,463 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:22:44,469 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:22:44,627 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:22:44,632 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:22:45,457 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:23:45,200 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:23:45,468 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:23:45,468 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:23:45,468 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:23:45,469 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:23:45,469 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:23:45,469 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:23:45,487 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:23:46,047 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:23:46,048 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:23:46,049 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:23:47,109 - utils.geemap_integration - ERROR - Error creating map: object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\geemap\geemap.py", line 3455, in add_gdf
+    self.add_geojson(
+    ~~~~~~~~~~~~~~~~^
+        data,
+        ^^^^^
+    ...<6 lines>...
+        encoding,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\geemap\geemap.py", line 2899, in add_geojson
+    geojson = ipyleaflet.GeoJSON(
+        data=data,
+    ...<3 lines>...
+        name=layer_name,
+    )
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipyleaflet\leaflet.py", line 1673, in __init__
+    self.data = self._get_data()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipyleaflet\leaflet.py", line 1716, in _get_data
+    self._apply_style(feature, style_callback)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipyleaflet\leaflet.py", line 1740, in _apply_style
+    properties["style"] = style_callback(feature)
+                          ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\geemap\geemap.py", line 2822, in random_color
+    "fillColor": random.choice(fill_colors),
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\random.py", line 350, in choice
+    if not len(seq):
+           ~~~^^^^^
+TypeError: object of type 'NoneType' has no len()
+2025-04-02 14:23:47,516 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:23:47,531 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:23:47,537 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:23:47,767 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:23:47,770 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:23:48,530 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:24:13,291 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:24:13,577 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:24:13,577 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:24:13,577 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:24:13,578 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:24:13,578 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:24:13,578 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:24:13,596 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:24:14,095 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:24:14,096 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:24:14,097 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:24:15,315 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:24:15,327 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:24:15,332 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:24:15,460 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:24:15,463 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:24:16,325 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:25:08,071 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 184, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:25:11,102 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 184, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:41:28,186 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:41:28,502 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:41:28,502 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:41:28,502 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:41:28,502 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:41:28,503 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:41:28,503 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:41:28,522 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:41:29,201 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:41:29,202 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:41:29,202 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:41:30,863 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:41:30,879 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:41:30,885 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:41:31,209 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:41:31,212 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:41:31,872 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:41:51,929 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-04-02 14:41:53,034 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-04-02 14:41:53,035 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-04-02 14:41:53,035 - controller.app_controller - INFO - Updating Earth Engine project ID across all components: ee-sauravbhattarai1999
+2025-04-02 14:41:53,875 - ui.panels.earth_engine_panel - INFO - Updated draw_selection_widget with new project ID: ee-sauravbhattarai1999
+2025-04-02 14:41:57,451 - utils.earth_engine_utils - INFO - Earth Engine already initialized
+2025-04-02 14:42:03,019 - ui.app_window - INFO - Switched to Data Selection tab
+2025-04-02 14:42:20,091 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 14:42:20,465 - ui.app_window - INFO - Switched to Data Selection tab
+2025-04-02 14:42:37,976 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 184, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:42:48,872 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 184, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:42:53,001 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 184, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:45:41,764 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:45:42,050 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:45:42,050 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:45:42,050 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:45:42,050 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:45:42,051 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:45:42,051 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:45:42,068 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:45:42,728 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:45:42,728 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:45:42,728 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:45:43,639 - utils.geemap_integration - ERROR - Error creating map: Map.add_draw_control() got an unexpected keyword argument 'draw_options'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 158, in create_map
+    self.map.add_draw_control(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        draw_options={
+        ^^^^^^^^^^^^^^
+    ...<7 lines>...
+        export=False
+        ^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_draw_control() got an unexpected keyword argument 'draw_options'
+2025-04-02 14:45:43,963 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:45:43,980 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:45:43,987 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:45:44,271 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:45:44,275 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:45:44,974 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:47:04,919 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:47:05,155 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:47:05,155 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:47:05,155 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:47:05,155 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:47:05,156 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:47:05,156 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:47:05,174 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:47:05,691 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:47:05,692 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:47:05,692 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:47:06,511 - utils.geemap_integration - ERROR - Error creating map: 'Map' object has no attribute 'add_js_script'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 174, in create_map
+    self.map.add_js_script(draw_control_script)
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Map' object has no attribute 'add_js_script'
+2025-04-02 14:47:06,788 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:47:06,798 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:47:06,803 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:47:06,940 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:47:06,943 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:47:07,800 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:47:17,295 - utils.geemap_integration - ERROR - Error starting drawing: 'Map' object has no attribute 'on_draw'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 203, in start_drawing
+    self.map.on_draw(self.handle_draw)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Map' object has no attribute 'on_draw'
+2025-04-02 14:47:20,561 - utils.geemap_integration - ERROR - Error creating map: 'Map' object has no attribute 'add_js_script'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 174, in create_map
+    self.map.add_js_script(draw_control_script)
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Map' object has no attribute 'add_js_script'
+2025-04-02 14:48:42,023 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:48:42,258 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:48:42,258 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:48:42,258 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:48:42,258 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:48:42,259 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:48:42,259 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:48:42,276 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:48:42,726 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:48:42,726 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:48:42,727 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:48:43,659 - utils.geemap_integration - ERROR - Error creating map: property 'draw_features' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 171, in create_map
+    self.map.draw_features = []  # Store drawn features
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_features' of 'Map' object has no setter
+2025-04-02 14:48:44,027 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:48:44,036 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:48:44,041 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:48:44,407 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:48:44,410 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:48:45,036 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:49:05,763 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:49:06,006 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:49:06,006 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:49:06,006 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:49:06,007 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:49:06,007 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:49:06,007 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:49:06,025 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:49:06,497 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:49:06,497 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:49:06,498 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:49:07,514 - utils.geemap_integration - ERROR - Error creating map: Map.add_gdf() got an unexpected keyword argument 'border_color'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_gdf() got an unexpected keyword argument 'border_color'
+2025-04-02 14:49:07,836 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:49:07,845 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:49:07,849 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:49:07,985 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:49:07,988 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:49:08,846 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:49:13,413 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 193, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:49:15,102 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 193, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 14:50:17,804 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:50:18,046 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:50:18,046 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:50:18,046 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:50:18,047 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:50:18,047 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:50:18,047 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:50:18,065 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:50:18,531 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:50:18,532 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:50:18,532 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:50:19,418 - utils.geemap_integration - ERROR - Error creating map: Map.add_gdf() got an unexpected keyword argument 'border_color'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_gdf() got an unexpected keyword argument 'border_color'
+2025-04-02 14:50:19,710 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:50:19,728 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:50:19,733 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:50:19,998 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:50:20,002 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:50:20,720 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 14:53:50,323 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:53:50,630 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:53:50,631 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:53:50,631 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:53:50,631 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:53:50,631 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:53:50,632 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:53:51,391 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:53:51,391 - utils.geemap_integration - ERROR - Error creating map: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:53:51,717 - __main__ - ERROR - Error starting application: 'DrawMapWidget' object has no attribute 'set_project_id'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\main.py", line 35, in main
+    main_window = ClimateDataApp()
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\app_window.py", line 29, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\app_window.py", line 53, in init_ui
+    self.data_selection_panel = DataSelectionPanel(self.controller)
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 51, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 223, in init_ui
+    self.draw_selection_widget.set_project_id(project_id)  # Pass project ID
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DrawMapWidget' object has no attribute 'set_project_id'
+2025-04-02 14:55:28,495 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:55:28,743 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:55:28,744 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:55:28,744 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:55:28,744 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:55:28,744 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:55:28,745 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:55:28,758 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 14:55:28,763 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:55:29,690 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:55:29,691 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:55:29,691 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:55:30,740 - utils.geemap_integration - ERROR - Error creating map: Map.add_gdf() got an unexpected keyword argument 'border_color'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_gdf() got an unexpected keyword argument 'border_color'
+2025-04-02 14:55:31,047 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:55:31,061 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:55:31,068 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:55:31,227 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:55:31,230 - __main__ - ERROR - Error starting application: 'AppController' object has no attribute 'update_ee_project_id'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\main.py", line 35, in main
+    main_window = ClimateDataApp()
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\app_window.py", line 29, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\app_window.py", line 75, in init_ui
+    self.earth_engine_panel.config_updated.connect(self.controller.update_ee_project_id)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AppController' object has no attribute 'update_ee_project_id'
+2025-04-02 14:55:53,274 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 14:55:53,511 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 14:55:53,512 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 14:55:53,512 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 14:55:53,512 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 14:55:53,512 - controller.app_controller - INFO - Found existing data files
+2025-04-02 14:55:53,513 - controller.app_controller - INFO - AppController initialized
+2025-04-02 14:55:53,525 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 14:55:53,530 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 14:55:53,989 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 14:55:53,990 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 14:55:53,991 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 14:55:54,989 - utils.geemap_integration - ERROR - Error creating map: Map.add_gdf() got an unexpected keyword argument 'border_color'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_gdf() got an unexpected keyword argument 'border_color'
+2025-04-02 14:55:55,270 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 14:55:55,279 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 14:55:55,286 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 14:55:55,422 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 14:55:55,425 - ui.app_window - INFO - Application window initialized
+2025-04-02 14:55:56,285 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:07:48,987 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:07:49,325 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:07:49,325 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:07:49,325 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:07:49,326 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:07:49,326 - controller.app_controller - INFO - Found existing data files
+2025-04-02 18:07:49,326 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:07:49,339 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:07:49,345 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:07:50,035 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:07:50,035 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:07:50,035 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:07:51,088 - utils.geemap_integration - ERROR - Error creating map: Map.add_gdf() got an unexpected keyword argument 'border_color'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 169, in create_map
+    self.map.add_gdf(
+    ~~~~~~~~~~~~~~~~^
+        conus_gdf,
+        ^^^^^^^^^^
+    ...<3 lines>...
+        info_mode=None
+        ^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_gdf() got an unexpected keyword argument 'border_color'
+2025-04-02 18:07:51,366 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:07:51,374 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:07:51,379 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:07:51,661 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:07:51,678 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:07:52,376 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv

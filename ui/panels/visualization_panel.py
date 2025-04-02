@@ -124,7 +124,6 @@ class VisualizationPanel(QWidget):
             "Box Plots",
             "Time Series",
             "Seasonal Comparison",
-            "Error Distribution",
             "Dataset Comparison",
             "Radar Comparison"
         ])

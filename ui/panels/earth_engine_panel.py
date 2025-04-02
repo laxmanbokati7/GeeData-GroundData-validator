@@ -154,7 +154,7 @@ class EarthEnginePanel(QWidget):
                 self.status_details.setText(f"Error: {status['error']}")
             else:
                 self.status_details.setText("Use the Authenticate button to authenticate")
-    
+
     @pyqtSlot()
     def on_save_clicked(self):
         """Handle save button click"""
@@ -178,8 +178,22 @@ class EarthEnginePanel(QWidget):
         # Emit signal
         self.config_updated.emit(config)
         
+        # Show confirmation
         QMessageBox.information(self, "Configuration Saved", 
                             "Earth Engine configuration has been saved.\nThe new configuration will apply to future data fetching operations.")
+        
+        # If the app_window has a data_selection_panel with a draw_selection_widget, update it
+        try:
+            parent = self.parent()
+            while parent and not hasattr(parent, 'data_selection_panel'):
+                parent = parent.parent()
+                
+            if parent and hasattr(parent, 'data_selection_panel'):
+                if hasattr(parent.data_selection_panel, 'draw_selection_widget'):
+                    parent.data_selection_panel.draw_selection_widget.set_project_id(project_id)
+                    logger.info(f"Updated draw_selection_widget with new project ID: {project_id}")
+        except Exception as e:
+            logger.error(f"Error updating draw_selection_widget: {str(e)}", exc_info=True)
     
     @pyqtSlot()
     def on_auth_clicked(self):
