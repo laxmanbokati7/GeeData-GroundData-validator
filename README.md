@@ -155,8 +155,9 @@ Multi-threading is implemented for long-running operations to ensure a responsiv
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/username/climate-data-fetcher.git
-cd climate-data-fetcher
+git clone https://github.com/Saurav-JSU/GeeData-GroundData-validator.git
+cd GeeData-GroundData-validator
+```
 
 2. Create and activate a virtual environment:
 
