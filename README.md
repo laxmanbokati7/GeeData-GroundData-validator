@@ -270,5 +270,5 @@ MIT License - See LICENSE for details.
 
 ## Contact
 - **Saurav Bhattarai** - ORISE Fellow
-- GitHub: [your-github-username]
-- Email: [your-email@example.com]
+- GitHub: [Saurav-JSU]
+- Email: [saurav.bhattarai.1999@gmail.com]
