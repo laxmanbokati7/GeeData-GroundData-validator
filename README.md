@@ -2,7 +2,7 @@
 
 A comprehensive PyQt5-based desktop application for fetching, analyzing, and visualizing climate data. The tool allows researchers to compare ground station precipitation measurements with various gridded datasets from Google Earth Engine, offering powerful statistical analysis and visualization capabilities.
 
-![Main UI Screenshot](main_ui_screenshot.png)
+![Main UI Screenshot](docs/screenshots/main_ui_screenshot.png)
 
 ## Table of Contents
 - [Overview](#overview)
@@ -64,7 +64,7 @@ All gridded datasets are accessed via Google Earth Engine API and converted to c
 - Multi-select capability for regional studies
 - Familiar interface for US-focused research
 
-![State Selection UI](state_selection_ui.png)
+![State Selection UI](docs/screenshots/state_selection_ui.png)
 
 #### HUC Watershed Selection
 - Select by Hydrologic Unit Code (HUC) watersheds
@@ -72,7 +72,7 @@ All gridded datasets are accessed via Google Earth Engine API and converted to c
 - Essential for hydrological and water resource studies
 - Provides watershed metadata (area, states covered)
 
-![HUC Selection UI](huc_selection_ui.png)
+![HUC Selection UI](docs/screenshots/huc_selection_ui.png)
 
 #### Custom Boundary Drawing
 - Define study area using precise coordinates
@@ -80,7 +80,7 @@ All gridded datasets are accessed via Google Earth Engine API and converted to c
 - Predefined regions (Northeast, Midwest, etc.)
 - Most flexible option for specific study areas
 
-![Drawing Selection UI](drawing_selection_ui.png)
+![Drawing Selection UI](docs/screenshots/drawing_selection_ui.png)
 
 #### User-provided Station Data (Under Development)
 - Support for custom station data and metadata
@@ -117,21 +117,21 @@ All gridded datasets are accessed via Google Earth Engine API and converted to c
 - Includes contextual base maps
 - Station-level performance analysis
 
-![Spatial Visualization Example](spatial_viz_example.png)
+![Spatial Visualization Example](docs/screenshots/spatial_viz_example.png)
 
 #### Statistical Visualizations
 - **Box Plots**: Distribution of metrics across stations
 - **Time Series**: Direct comparison of ground vs. gridded data
 - **Radar Charts**: Multi-metric and seasonal performance visualization
 
-![Statistical Visualization Examples](stats_viz_examples.png)
+![Statistical Visualization Examples](docs/screenshots/stats_viz_examples.png)
 
 #### Dataset Comparison
 - Side-by-side comparison of multiple datasets
 - Consistent metrics across datasets
 - Identification of best-performing datasets
 
-![Dataset Comparison Visualization](dataset_comparison_viz.png)
+![Dataset Comparison Visualization](docs/screenshots/dataset_comparison_viz.png)
 
 ## Architecture
 
