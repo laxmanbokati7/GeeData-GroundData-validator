@@ -11873,3 +11873,422 @@ TypeError: Map.add_gdf() got an unexpected keyword argument 'border_color'
 2025-04-02 18:07:51,661 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
 2025-04-02 18:07:51,678 - ui.app_window - INFO - Application window initialized
 2025-04-02 18:07:52,376 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:24:22,397 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:24:22,672 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:24:22,672 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:24:22,673 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:24:22,673 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:24:22,673 - controller.app_controller - INFO - Found existing data files
+2025-04-02 18:24:22,674 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:24:22,686 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:24:22,692 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:24:23,426 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:24:23,427 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:24:23,427 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:24:24,841 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:24:24,857 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:24:24,862 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:24:25,168 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:24:25,172 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:24:25,860 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:24:44,249 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-04-02 18:24:46,008 - utils.config_manager - INFO - Configuration saved to C:\Users\J01013381\.climate_data_fetcher\config.json
+2025-04-02 18:24:46,009 - ui.panels.earth_engine_panel - INFO - Earth Engine configuration saved
+2025-04-02 18:24:46,009 - controller.app_controller - INFO - Updating Earth Engine project ID across all components: ee-sauravbhattarai1999
+2025-04-02 18:24:47,131 - ui.panels.earth_engine_panel - INFO - Updated draw_selection_widget with new project ID: ee-sauravbhattarai1999
+2025-04-02 18:24:49,716 - utils.earth_engine_utils - INFO - Earth Engine already initialized
+2025-04-02 18:24:52,464 - ui.app_window - INFO - Switched to Data Selection tab
+2025-04-02 18:25:09,859 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 218, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 18:25:27,864 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 218, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 18:26:30,469 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:26:30,749 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:26:30,749 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:26:30,749 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:26:30,750 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:26:30,750 - controller.app_controller - INFO - Found existing data files
+2025-04-02 18:26:30,750 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:26:30,762 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:26:30,768 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:26:31,531 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:26:31,532 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:26:31,532 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:26:32,852 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:26:32,865 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:26:32,871 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:26:33,151 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:26:33,154 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:26:33,865 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:26:48,180 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 180, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 18:27:32,109 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:27:32,373 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:27:32,373 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:27:32,373 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:27:32,374 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:27:32,374 - controller.app_controller - INFO - Found existing data files
+2025-04-02 18:27:32,374 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:27:32,385 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:27:32,392 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:27:32,945 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:27:32,947 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:27:32,948 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:27:34,211 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:27:34,225 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:27:34,229 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:27:34,510 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:27:34,514 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:27:35,221 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:27:36,462 - ui.app_window - INFO - Switched to Earth Engine tab
+2025-04-02 18:27:41,088 - utils.earth_engine_utils - INFO - Earth Engine already initialized
+2025-04-02 18:27:43,829 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 18:27:45,279 - ui.app_window - INFO - Switched to Data Selection tab
+2025-04-02 18:27:46,421 - ui.app_window - INFO - Switched to Visualization tab
+2025-04-02 18:27:47,706 - ui.app_window - INFO - Switched to Analysis tab
+2025-04-02 18:27:49,325 - ui.app_window - INFO - Switched to Data Selection tab
+2025-04-02 18:28:24,513 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:28:24,785 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:28:24,785 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:28:24,785 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:28:24,786 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:28:24,786 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:28:24,799 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:28:24,804 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:28:25,527 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:28:25,528 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:28:25,529 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:28:27,043 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:28:27,056 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:28:27,062 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:28:27,199 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:28:27,205 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:29:57,088 - utils.huc_utils - INFO - Saved HUC metadata to cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:30:15,123 - utils.geemap_integration - ERROR - Error starting drawing: property 'draw_control' of 'Map' object has no setter
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 180, in start_drawing
+    self.map.draw_control = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: property 'draw_control' of 'Map' object has no setter
+2025-04-02 18:33:50,461 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:33:50,745 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:33:50,745 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:33:50,745 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:33:50,746 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:33:50,746 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:33:50,758 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:33:50,764 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:33:51,630 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:33:51,632 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:33:51,633 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:33:52,995 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:33:53,009 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:33:53,014 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:33:53,282 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:33:53,287 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:33:54,008 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:34:15,152 - utils.geemap_integration - ERROR - Error starting drawing: Map.add_draw_control() got an unexpected keyword argument 'export'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 182, in start_drawing
+    self.map.add_draw_control(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        export=False,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        draw_circle=False
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_draw_control() got an unexpected keyword argument 'export'
+2025-04-02 18:34:29,061 - utils.geemap_integration - ERROR - Error starting drawing: Map.add_draw_control() got an unexpected keyword argument 'export'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 182, in start_drawing
+    self.map.add_draw_control(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        export=False,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        draw_circle=False
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: Map.add_draw_control() got an unexpected keyword argument 'export'
+2025-04-02 18:45:35,810 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:45:36,256 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:45:36,256 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:45:36,256 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:45:36,256 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:45:36,257 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:45:36,269 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:45:36,275 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:45:36,837 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:45:36,838 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:45:36,839 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:45:38,194 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:45:38,208 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:45:38,213 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:45:38,369 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:45:38,375 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:45:39,205 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:55:03,965 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:55:04,237 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:55:04,238 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:55:04,238 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:55:04,238 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:55:04,238 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:55:04,251 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:55:04,257 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:55:04,897 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:55:04,899 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:55:04,900 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:55:06,178 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:55:06,192 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:55:06,197 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:55:06,355 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:55:06,362 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:55:07,188 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 18:55:16,419 - utils.geemap_integration - ERROR - Error starting drawing: The 'polyline' trait of a MapDrawControl instance expected a dict, not the bool True.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 213, in start_drawing
+    setattr(new_map._draw_control, option, value)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 716, in __set__
+    self.set(obj, value)
+    ~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 690, in set
+    new_value = self._validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 722, in _validate
+    value = self.validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 3998, in validate
+    value = super().validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 2311, in validate
+    self.error(obj, value)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 831, in error
+    raise TraitError(e)
+traitlets.traitlets.TraitError: The 'polyline' trait of a MapDrawControl instance expected a dict, not the bool True.
+2025-04-02 18:55:21,543 - utils.geemap_integration - ERROR - Error starting drawing: The 'polyline' trait of a MapDrawControl instance expected a dict, not the bool True.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 213, in start_drawing
+    setattr(new_map._draw_control, option, value)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 716, in __set__
+    self.set(obj, value)
+    ~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 690, in set
+    new_value = self._validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 722, in _validate
+    value = self.validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 3998, in validate
+    value = super().validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 2311, in validate
+    self.error(obj, value)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 831, in error
+    raise TraitError(e)
+traitlets.traitlets.TraitError: The 'polyline' trait of a MapDrawControl instance expected a dict, not the bool True.
+2025-04-02 18:58:39,194 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 18:58:39,470 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 18:58:39,470 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 18:58:39,470 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 18:58:39,471 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 18:58:39,471 - controller.app_controller - INFO - AppController initialized
+2025-04-02 18:58:39,483 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 18:58:39,489 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 18:58:40,195 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 18:58:40,195 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 18:58:40,195 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 18:58:41,269 - utils.geemap_integration - ERROR - Error creating map: The 'circle' trait of a DrawControl instance expected a dict, not the bool False.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 166, in create_map
+    draw_control = DrawControl(
+        rectangle={
+    ...<25 lines>...
+        remove=True
+    )
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipyleaflet\leaflet.py", line 2283, in __init__
+    super(DrawControl, self).__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipyleaflet\leaflet.py", line 2219, in __init__
+    super(DrawControlBase, self).__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipywidgets\widgets\widget.py", line 503, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 1355, in __init__
+    setattr(self, key, value)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 716, in __set__
+    self.set(obj, value)
+    ~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 690, in set
+    new_value = self._validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 722, in _validate
+    value = self.validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 3998, in validate
+    value = super().validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 2311, in validate
+    self.error(obj, value)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 831, in error
+    raise TraitError(e)
+traitlets.traitlets.TraitError: The 'circle' trait of a DrawControl instance expected a dict, not the bool False.
+2025-04-02 18:58:41,583 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 18:58:41,600 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 18:58:41,604 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 18:58:41,872 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 18:58:41,880 - ui.app_window - INFO - Application window initialized
+2025-04-02 18:58:42,588 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 19:00:17,657 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 19:00:17,933 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 19:00:17,933 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 19:00:17,933 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 19:00:17,933 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 19:00:17,934 - controller.app_controller - INFO - AppController initialized
+2025-04-02 19:00:17,946 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 19:00:17,952 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 19:00:18,584 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 19:00:18,585 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 19:00:18,586 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 19:00:19,752 - utils.geemap_integration - ERROR - Error creating map: The 'circle' trait of a DrawControl instance expected a dict, not the bool False.
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\utils\geemap_integration.py", line 167, in create_map
+    draw_control = DrawControl(
+        rectangle={
+    ...<25 lines>...
+        remove=True
+    )
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipyleaflet\leaflet.py", line 2283, in __init__
+    super(DrawControl, self).__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipyleaflet\leaflet.py", line 2219, in __init__
+    super(DrawControlBase, self).__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\ipywidgets\widgets\widget.py", line 503, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 1355, in __init__
+    setattr(self, key, value)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 716, in __set__
+    self.set(obj, value)
+    ~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 690, in set
+    new_value = self._validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 722, in _validate
+    value = self.validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 3998, in validate
+    value = super().validate(obj, value)
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 2311, in validate
+    self.error(obj, value)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\J01013381\AppData\Local\miniconda3\envs\orise_compare\Lib\site-packages\traitlets\traitlets.py", line 831, in error
+    raise TraitError(e)
+traitlets.traitlets.TraitError: The 'circle' trait of a DrawControl instance expected a dict, not the bool False.
+2025-04-02 19:00:20,071 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 19:00:20,080 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 19:00:20,084 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 19:00:20,338 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 19:00:20,341 - ui.app_window - INFO - Application window initialized
+2025-04-02 19:00:21,081 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 19:02:02,359 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 19:02:02,649 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 19:02:02,649 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 19:02:02,650 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 19:02:02,650 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 19:02:02,650 - controller.app_controller - INFO - AppController initialized
+2025-04-02 19:02:02,663 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 19:02:02,668 - utils.geemap_integration - INFO - Initializing Earth Engine with default credentials
+2025-04-02 19:02:03,167 - googleapiclient.http - WARNING - Encountered 403 Forbidden with reason "PERMISSION_DENIED"
+2025-04-02 19:02:03,169 - utils.geemap_integration - ERROR - Failed to initialize Earth Engine: ee.Initialize: no project found. Call with project= or see http://goo.gle/ee-auth.
+2025-04-02 19:02:03,170 - utils.geemap_integration - INFO - Initializing Earth Engine with project ID: ee-sauravbhattarai1999
+2025-04-02 19:02:04,379 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 19:02:04,396 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 19:02:04,400 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 19:02:04,546 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 19:02:04,552 - ui.app_window - INFO - Application window initialized
+2025-04-02 19:02:05,393 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 19:09:13,577 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 19:09:13,921 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 19:09:13,921 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 19:09:13,921 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 19:09:13,922 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 19:09:13,922 - controller.app_controller - INFO - AppController initialized
+2025-04-02 19:09:13,934 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 19:09:14,207 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 19:09:14,216 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 19:09:14,221 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 19:09:14,224 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 19:09:14,226 - ui.app_window - INFO - Application window initialized
+2025-04-02 19:09:15,219 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 19:11:57,057 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2023, 'end_year': 2024, 'selection_type': 'draw', 'states': None, 'drawn_feature': {'type': 'Feature', 'geometry': {'type': 'Polygon', 'coordinates': [[[-97.0346, 32.5468], [-97.0346, 33.0238], [-96.4633, 33.0238], [-96.4633, 32.5468], [-97.0346, 32.5468]]]}, 'properties': {'area_sqkm': np.float64(2839.0491894604993)}}, 'huc_id': None, 'gridded_datasets': ['FLDAS'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-04-02 19:11:57,058 - controller.app_controller - INFO - Starting data fetching process
+2025-04-02 19:11:57,060 - controller.data_fetching_controller - INFO - Started data fetching thread for both data
+2025-04-02 19:11:57,060 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-04-02 19:11:57,060 - src.data.ground_fetcher - INFO - Fetching ground data...
+2025-04-02 19:11:57,061 - src.data.ground_fetcher - INFO - Fetching new station metadata...
+2025-04-02 19:11:57,090 - src.data.ground_fetcher - INFO - Saved station metadata to C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data\stations_metadata.csv
+2025-04-02 19:24:14,558 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 19:24:14,791 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 19:24:14,791 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 19:24:14,791 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 19:24:14,792 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 19:24:14,792 - controller.app_controller - INFO - AppController initialized
+2025-04-02 19:24:14,804 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 19:24:15,058 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 19:24:15,071 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 19:24:15,076 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 19:24:15,079 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 19:24:15,081 - ui.app_window - INFO - Application window initialized
+2025-04-02 19:24:16,065 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 19:25:53,034 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 2022, 'end_year': 2024, 'selection_type': 'draw', 'states': None, 'drawn_feature': {'type': 'Feature', 'geometry': {'type': 'Polygon', 'coordinates': [[[-97.0345, 32.5468], [-97.0345, 33.0238], [-96.4633, 33.0238], [-96.4633, 32.5468], [-97.0345, 32.5468]]]}, 'properties': {'area_sqkm': np.float64(2838.552244039607)}}, 'huc_id': None, 'gridded_datasets': ['FLDAS'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-04-02 19:25:53,035 - ui.panels.data_selection_panel - ERROR - Error starting download: AppController.fetch_data() got an unexpected keyword argument 'drawn_feature'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\ui\panels\data_selection_panel.py", line 444, in on_download_clicked
+    self.controller.fetch_data(data_config, drawn_feature=self.drawn_feature)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AppController.fetch_data() got an unexpected keyword argument 'drawn_feature'
+2025-04-02 19:32:47,960 - __main__ - INFO - Starting Climate Data Fetcher Application
+2025-04-02 19:32:48,296 - controller.data_fetching_controller - INFO - DataFetchingController initialized
+2025-04-02 19:32:48,296 - controller.analysis_controller - INFO - AnalysisController initialized
+2025-04-02 19:32:48,296 - controller.visualization_controller - INFO - VisualizationController initialized
+2025-04-02 19:32:48,297 - controller.app_controller - INFO - Created directories: C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Data, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Results, C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\Plots
+2025-04-02 19:32:48,297 - controller.app_controller - INFO - AppController initialized
+2025-04-02 19:32:48,309 - ui.panels.data_selection_panel - WARNING - No Earth Engine project ID configured, using default
+2025-04-02 19:32:48,574 - ui.panels.data_selection_panel - INFO - Data Selection Panel initialized
+2025-04-02 19:32:48,582 - ui.panels.analysis_panel - INFO - Analysis Panel initialized
+2025-04-02 19:32:48,588 - ui.panels.visualization_panel - INFO - Visualization Panel initialized
+2025-04-02 19:32:48,590 - ui.panels.earth_engine_panel - INFO - Earth Engine Panel initialized
+2025-04-02 19:32:48,594 - ui.app_window - INFO - Application window initialized
+2025-04-02 19:32:49,586 - utils.huc_utils - INFO - Loading HUC metadata from cache: Data\HUC\huc_metadata.csv
+2025-04-02 19:33:43,506 - ui.panels.data_selection_panel - INFO - Starting data download with config: {'data_type': 'both', 'start_year': 1980, 'end_year': 2024, 'selection_type': 'draw', 'states': None, 'drawn_feature': {'type': 'Feature', 'geometry': {'type': 'Polygon', 'coordinates': [[[-97.0346, 32.5468], [-97.0346, 33.0238], [-96.4633, 33.0238], [-96.4633, 32.5468], [-97.0346, 32.5468]]]}, 'properties': {'area_sqkm': np.float64(2839.0491894604993)}}, 'huc_id': None, 'gridded_datasets': ['ERA5', 'DAYMET', 'PRISM'], 'ee_project_id': 'ee-sauravbhattarai1999'}
+2025-04-02 19:33:43,507 - controller.app_controller - INFO - Starting data fetching process
+2025-04-02 19:33:43,507 - controller.data_fetching_controller - INFO - Fetching ground data
+2025-04-02 19:33:43,507 - controller.app_controller - ERROR - Error in fetch_data: 'DataFetchingController' object has no attribute '_start_ground_data_thread'
+Traceback (most recent call last):
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\app_controller.py", line 135, in fetch_data
+    self.data_controller.fetch_data(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        data_config.get('data_type', 'both'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        drawn_feature
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\J01013381\Desktop\Manual\GeeData-GroundData-validator\controller\data_fetching_controller.py", line 50, in fetch_data
+    self._start_ground_data_thread(ground_config, drawn_feature)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataFetchingController' object has no attribute '_start_ground_data_thread'

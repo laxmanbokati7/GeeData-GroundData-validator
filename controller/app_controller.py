@@ -97,12 +97,13 @@ class AppController(QObject):
         self.analysis_completed.emit()
         logger.info("Analysis completed")
     
-    def fetch_data(self, data_config):
+    def fetch_data(self, data_config, drawn_feature=None):
         """
         Start the data fetching process
         
         Args:
             data_config (dict): Configuration for data fetching
+            drawn_feature (dict, optional): GeoJSON feature for filtering stations
         """
         try:
             logger.info("Starting data fetching process")
@@ -130,11 +131,12 @@ class AppController(QObject):
             for name, dataset in gridded_config.datasets.items():
                 dataset.enabled = name in data_config.get('gridded_datasets', [])
             
-            # Start data fetching
+            # Start data fetching with drawn feature
             self.data_controller.fetch_data(
                 data_config.get('data_type', 'both'),
                 ground_config,
-                gridded_config
+                gridded_config,
+                drawn_feature
             )
             
         except Exception as e:

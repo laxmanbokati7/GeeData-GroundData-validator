@@ -7,23 +7,20 @@ import json
 import tempfile
 import logging
 from pathlib import Path
-import pandas as pd
-import geopandas as gpd
-from shapely.geometry import Point, Polygon, MultiPolygon
+import numpy as np
 from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, 
-                             QRadioButton, QPushButton, QMessageBox, QFileDialog)
-from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QUrl
-from PyQt5.QtWebEngineWidgets import QWebEngineView
+                             QRadioButton, QPushButton, QMessageBox, 
+                             QTabWidget, QFormLayout, QLineEdit, QGroupBox)
+from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot
 
 logger = logging.getLogger(__name__)
 
 try:
-    import geemap
     import ee
     GEEMAP_AVAILABLE = True
 except ImportError:
     GEEMAP_AVAILABLE = False
-    logger.warning("geemap is not available. Install with: pip install geemap")
+    logger.warning("ee is not available. Install with: pip install earthengine-api")
 
 # Define CONUS (Continental US) bounding box
 CONUS_BOUNDS = {
@@ -34,10 +31,10 @@ CONUS_BOUNDS = {
 }
 
 class DrawMapWidget(QWidget):
-    """Widget for drawing study area boundaries on a map using geemap"""
+    """Widget for defining study area boundaries using a form interface"""
     
-    # Signal emitted when a valid polygon is drawn
-    polygon_drawn = pyqtSignal(object)  # Emits the GeoJSON of the drawn polygon
+    # Signal emitted when a valid polygon is defined
+    polygon_drawn = pyqtSignal(object)  # Emits the GeoJSON of the defined polygon
     
     def __init__(self, parent=None, project_id=None):
         super().__init__(parent)
@@ -45,13 +42,6 @@ class DrawMapWidget(QWidget):
         # Store the Earth Engine project ID
         self.project_id = project_id
         self.ee_initialized = False
-        
-        if not GEEMAP_AVAILABLE:
-            self.init_placeholder_ui()
-            return
-            
-        self.temp_dir = tempfile.TemporaryDirectory()
-        self.temp_html = os.path.join(self.temp_dir.name, "map.html")
         self.drawn_features = None
         
         self.init_ui()
@@ -59,9 +49,6 @@ class DrawMapWidget(QWidget):
     def set_project_id(self, project_id):
         """Set the Earth Engine project ID"""
         self.project_id = project_id
-        # If the map is already created, recreate it with the new project ID
-        if hasattr(self, 'web_view'):
-            self.create_map()
     
     def initialize_earth_engine(self):
         """Initialize Earth Engine with the project ID"""
@@ -87,43 +74,83 @@ class DrawMapWidget(QWidget):
             self.status_label.setText(f"Error initializing Earth Engine: {str(e)}")
             return False
         
-    def init_placeholder_ui(self):
-        """Initialize a placeholder UI when geemap is not available"""
-        layout = QVBoxLayout(self)
-        
-        message = QLabel(
-            "The map drawing feature requires the geemap package, which is not installed. "
-            "Please install it with: pip install geemap"
-        )
-        message.setWordWrap(True)
-        message.setStyleSheet("color: red;")
-        
-        layout.addWidget(message)
-        
     def init_ui(self):
         """Initialize the UI components"""
         layout = QVBoxLayout(self)
         
         # Instructions
         instructions_label = QLabel(
-            "Draw a polygon on the map to select your study area. "
-            "The selection must be within the Continental United States."
+            "Define your study area by entering coordinates or selecting a predefined region."
         )
         instructions_label.setWordWrap(True)
         layout.addWidget(instructions_label)
         
-        # Map container
-        self.web_view = QWebEngineView()
-        self.web_view.setMinimumHeight(400)
-        layout.addWidget(self.web_view)
+        # Create tabs for different input methods
+        tab_widget = QTabWidget()
         
-        # Button layout
+        # Tab 1: Bounding Box
+        bbox_tab = QWidget()
+        bbox_layout = QFormLayout(bbox_tab)
+        
+        # Create form fields
+        self.min_lon = QLineEdit("-95.0")  # Default to center of US
+        self.min_lat = QLineEdit("35.0")
+        self.max_lon = QLineEdit("-85.0")
+        self.max_lat = QLineEdit("45.0")
+        
+        # Add fields to form
+        bbox_layout.addRow("Min Longitude:", self.min_lon)
+        bbox_layout.addRow("Min Latitude:", self.min_lat)
+        bbox_layout.addRow("Max Longitude:", self.max_lon)
+        bbox_layout.addRow("Max Latitude:", self.max_lat)
+        
+        # Tab 2: Predefined Areas
+        predef_tab = QWidget()
+        predef_layout = QVBoxLayout(predef_tab)
+        
+        # Create buttons for common US regions
+        northeast_btn = QPushButton("Northeast US")
+        southeast_btn = QPushButton("Southeast US")
+        midwest_btn = QPushButton("Midwest US")
+        southwest_btn = QPushButton("Southwest US")
+        northwest_btn = QPushButton("Northwest US")
+        
+        # Connect buttons
+        northeast_btn.clicked.connect(lambda: self.set_predefined_region("northeast"))
+        southeast_btn.clicked.connect(lambda: self.set_predefined_region("southeast"))
+        midwest_btn.clicked.connect(lambda: self.set_predefined_region("midwest"))
+        southwest_btn.clicked.connect(lambda: self.set_predefined_region("southwest"))
+        northwest_btn.clicked.connect(lambda: self.set_predefined_region("northwest"))
+        
+        # Add buttons to layout
+        predef_layout.addWidget(northeast_btn)
+        predef_layout.addWidget(southeast_btn)
+        predef_layout.addWidget(midwest_btn)
+        predef_layout.addWidget(southwest_btn)
+        predef_layout.addWidget(northwest_btn)
+        predef_layout.addStretch()
+        
+        # Add tabs to tab widget
+        tab_widget.addTab(bbox_tab, "Bounding Box")
+        tab_widget.addTab(predef_tab, "Predefined Regions")
+        
+        # Add tab widget to main layout
+        layout.addWidget(tab_widget)
+        
+        # Preview area
+        preview_group = QGroupBox("Area Preview")
+        preview_layout = QVBoxLayout(preview_group)
+        self.preview_label = QLabel("Coordinates: Not yet defined")
+        self.preview_label.setWordWrap(True)
+        preview_layout.addWidget(self.preview_label)
+        layout.addWidget(preview_group)
+        
+        # Buttons at bottom
         button_layout = QHBoxLayout()
-        
         self.draw_button = QPushButton("Draw New Polygon")
         self.clear_button = QPushButton("Clear")
         self.confirm_button = QPushButton("Confirm Selection")
-        self.confirm_button.setEnabled(False)  # Disabled until a valid polygon is drawn
+        self.confirm_button.setEnabled(False)
         
         button_layout.addWidget(self.draw_button)
         button_layout.addWidget(self.clear_button)
@@ -132,158 +159,128 @@ class DrawMapWidget(QWidget):
         layout.addLayout(button_layout)
         
         # Status label
-        self.status_label = QLabel("Ready. Click 'Draw New Polygon' to start.")
+        self.status_label = QLabel("Enter coordinates and click 'Draw New Polygon'")
         layout.addWidget(self.status_label)
         
         # Connect signals
-        self.draw_button.clicked.connect(self.start_drawing)
-        self.clear_button.clicked.connect(self.clear_map)
+        self.draw_button.clicked.connect(self.calculate_area)
+        self.clear_button.clicked.connect(self.clear_form)
         self.confirm_button.clicked.connect(self.confirm_selection)
         
-        # Create and display the map
-        self.create_map()
+    def set_predefined_region(self, region):
+        """Set coordinates for predefined regions"""
+        regions = {
+            "northeast": {"min_lon": -80.0, "min_lat": 37.0, "max_lon": -70.0, "max_lat": 45.0},
+            "southeast": {"min_lon": -90.0, "min_lat": 30.0, "max_lon": -75.0, "max_lat": 37.0},
+            "midwest": {"min_lon": -97.0, "min_lat": 36.0, "max_lon": -80.0, "max_lat": 49.0},
+            "southwest": {"min_lon": -115.0, "min_lat": 31.0, "max_lon": -102.0, "max_lat": 42.0},
+            "northwest": {"min_lon": -125.0, "min_lat": 42.0, "max_lon": -110.0, "max_lat": 49.0}
+        }
         
-    def create_map(self):
-        """Create geemap and display it in the web view"""
+        if region in regions:
+            coords = regions[region]
+            self.min_lon.setText(str(coords["min_lon"]))
+            self.min_lat.setText(str(coords["min_lat"]))
+            self.max_lon.setText(str(coords["max_lon"]))
+            self.max_lat.setText(str(coords["max_lat"]))
+            
+            self.calculate_area()
+    
+    def calculate_area(self):
+        """Calculate area from coordinates and create polygon"""
         try:
-            # Initialize Earth Engine - this will use the project ID if set
-            if not self.initialize_earth_engine():
-                self.status_label.setText("Failed to initialize Earth Engine. Check your project ID.")
-                return
+            # Get coordinates
+            min_lon = float(self.min_lon.text())
+            min_lat = float(self.min_lat.text())
+            max_lon = float(self.max_lon.text())
+            max_lat = float(self.max_lat.text())
             
-            # Create a map centered on the US
-            self.map = geemap.Map(center=[39.8283, -98.5795], zoom=4)
+            # Validate coordinates
+            if not (-180 <= min_lon <= 180 and -180 <= max_lon <= 180):
+                raise ValueError("Longitude must be between -180 and 180")
+            if not (-90 <= min_lat <= 90 and -90 <= max_lat <= 90):
+                raise ValueError("Latitude must be between -90 and 90")
+            if min_lon >= max_lon or min_lat >= max_lat:
+                raise ValueError("Min values must be less than max values")
             
-            # Add CONUS boundary
-            conus_coords = [
-                [CONUS_BOUNDS['west'], CONUS_BOUNDS['south']],
-                [CONUS_BOUNDS['west'], CONUS_BOUNDS['north']],
-                [CONUS_BOUNDS['east'], CONUS_BOUNDS['north']],
-                [CONUS_BOUNDS['east'], CONUS_BOUNDS['south']],
-                [CONUS_BOUNDS['west'], CONUS_BOUNDS['south']]
-            ]
-            conus_poly = Polygon(conus_coords)
-            conus_gdf = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[conus_poly])
+            # Calculate area (approximate)
+            # 1 degree of latitude ≈ 111.32 km
+            # 1 degree of longitude at the equator ≈ 111.32 km, decreases with latitude
+            lat_distance = (max_lat - min_lat) * 111.32
+            # Average latitude for longitude calculation
+            avg_lat = (min_lat + max_lat) / 2
+            # Correction factor for longitude
+            lon_correction = abs(np.cos(np.radians(avg_lat)))
+            lon_distance = (max_lon - min_lon) * 111.32 * lon_correction
             
-            # Add CONUS outline to the map
-            self.map.add_gdf(
-                conus_gdf, 
-                layer_name="CONUS Boundary",
-                fill_colors=None,  # CHANGED fill_color to fill_colors
-                border_color="red",
-                info_mode=None
-            )
+            area_sqkm = lat_distance * lon_distance
             
-            # Add a basemap
-            self.map.add_basemap("ROADMAP")
-            
-            # Save the map to a temporary HTML file
-            self.map.to_html(self.temp_html)
-            
-            # Load the HTML into the web view
-            self.web_view.load(QUrl.fromLocalFile(self.temp_html))
-        except Exception as e:
-            logger.error(f"Error creating map: {str(e)}", exc_info=True)
-            self.status_label.setText(f"Error creating map: {str(e)}")
-        
-    def start_drawing(self):
-        """Start the drawing tool in geemap"""
-        try:
-            # Enable drawing tools
-            self.map.draw_control = True
-            self.map.draw_control_options = {
-                'polyline': False,
-                'circlemarker': False,
-                'marker': False,
-                'circle': False,
-                'rectangle': True,
-                'polygon': True
+            # Create GeoJSON for the bounding box
+            self.drawn_features = {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [[
+                        [min_lon, min_lat],
+                        [min_lon, max_lat],
+                        [max_lon, max_lat],
+                        [max_lon, min_lat],
+                        [min_lon, min_lat]  # Close the polygon
+                    ]]
+                },
+                "properties": {
+                    "area_sqkm": area_sqkm
+                }
             }
             
-            # Add callback for drawing completion
-            self.map.on_draw(self.handle_draw)
+            # Update preview
+            self.preview_label.setText(
+                f"Coordinates: [{min_lon}, {min_lat}, {max_lon}, {max_lat}]\n"
+                f"Area: {area_sqkm:.2f} km²"
+            )
             
-            # Update map
-            self.map.to_html(self.temp_html)
-            self.web_view.load(QUrl.fromLocalFile(self.temp_html))
+            # Enable confirm button
+            self.confirm_button.setEnabled(True)
             
-            self.status_label.setText("Drawing mode active. Draw a polygon or rectangle on the map.")
+            # Update status
+            self.status_label.setText("Area defined. Click 'Confirm Selection' to proceed.")
+            
+        except ValueError as e:
+            QMessageBox.warning(self, "Invalid Input", str(e))
+            self.status_label.setText(f"Error: {str(e)}")
         except Exception as e:
-            logger.error(f"Error starting drawing: {str(e)}", exc_info=True)
-            self.status_label.setText(f"Error starting drawing: {str(e)}")
-        
-    def handle_draw(self, feature, feature_type):
-        """Handle the draw event from geemap"""
-        try:
-            self.drawn_features = feature
-            
-            # Convert feature to GeoJSON
-            if feature_type in ['polygon', 'rectangle']:
-                # Validate if the drawn polygon is within CONUS
-                if self.validate_is_within_conus(feature):
-                    self.status_label.setText("Valid selection within CONUS. Click 'Confirm Selection' to proceed.")
-                    self.confirm_button.setEnabled(True)
-                else:
-                    self.status_label.setText("Selection must be entirely within the Continental US. Please try again.")
-                    self.confirm_button.setEnabled(False)
-                    
-                    # Clear the invalid drawing
-                    self.clear_map()
-            else:
-                self.status_label.setText("Please draw a polygon or rectangle.")
-                self.confirm_button.setEnabled(False)
-        except Exception as e:
-            logger.error(f"Error handling draw event: {str(e)}", exc_info=True)
-            self.status_label.setText(f"Error handling draw event: {str(e)}")
+            QMessageBox.warning(self, "Error", f"Unexpected error: {str(e)}")
+            self.status_label.setText(f"Error: {str(e)}")
     
-    def validate_is_within_conus(self, feature):
-        """Check if the drawn polygon is within the CONUS boundaries"""
-        try:
-            # Extract coordinates from feature
-            coordinates = feature['geometry']['coordinates']
-            
-            # Create a shapely polygon
-            if feature['geometry']['type'] == 'Polygon':
-                polygon = Polygon(coordinates[0])
-            else:
-                # Handle multipolygon or other geometry types
-                return False
-            
-            # Create CONUS polygon
-            conus_coords = [
-                [CONUS_BOUNDS['west'], CONUS_BOUNDS['south']],
-                [CONUS_BOUNDS['west'], CONUS_BOUNDS['north']],
-                [CONUS_BOUNDS['east'], CONUS_BOUNDS['north']],
-                [CONUS_BOUNDS['east'], CONUS_BOUNDS['south']],
-                [CONUS_BOUNDS['west'], CONUS_BOUNDS['south']]
-            ]
-            conus_poly = Polygon(conus_coords)
-            
-            # Check if polygon is within CONUS
-            return conus_poly.contains(polygon)
-        except Exception as e:
-            logger.error(f"Error validating polygon: {str(e)}", exc_info=True)
-            return False
-    
-    def clear_map(self):
-        """Clear drawn features from the map"""
-        try:
-            # Reset the map
-            self.create_map()
-            self.drawn_features = None
-            self.confirm_button.setEnabled(False)
-            self.status_label.setText("Map cleared. Click 'Draw New Polygon' to start again.")
-        except Exception as e:
-            logger.error(f"Error clearing map: {str(e)}", exc_info=True)
-            self.status_label.setText(f"Error clearing map: {str(e)}")
+    def clear_form(self):
+        """Clear the form fields"""
+        self.min_lon.setText("")
+        self.min_lat.setText("")
+        self.max_lon.setText("")
+        self.max_lat.setText("")
+        self.preview_label.setText("Coordinates: Not yet defined")
+        self.drawn_features = None
+        self.confirm_button.setEnabled(False)
+        self.status_label.setText("Form cleared.")
     
     def confirm_selection(self):
-        """Confirm the selected polygon and emit signal"""
+        """Confirm the selection and emit the signal"""
         if self.drawn_features:
             self.polygon_drawn.emit(self.drawn_features)
             self.status_label.setText("Selection confirmed!")
         else:
-            self.status_label.setText("No valid selection to confirm.")
+            self.status_label.setText("No area defined yet. Please calculate an area first.")
+    
+    def start_drawing(self):
+        """
+        Compatibility method with the original DrawMapWidget interface
+        Just calculates the area from current values
+        """
+        self.calculate_area()
+    
+    def clear_map(self):
+        """Compatibility method - just clears the form"""
+        self.clear_form()
     
     def get_drawn_feature(self):
         """Get the current drawn feature"""

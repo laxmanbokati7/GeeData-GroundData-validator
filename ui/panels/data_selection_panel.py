@@ -440,8 +440,8 @@ class DataSelectionPanel(QWidget):
             
             logger.info(f"Starting data download with config: {data_config}")
             
-            # Start data fetching
-            self.controller.fetch_data(data_config)
+            # Start data fetching, passing the drawn_feature for station filtering
+            self.controller.fetch_data(data_config, drawn_feature=self.drawn_feature)
             
         except Exception as e:
             logger.error(f"Error starting download: {str(e)}", exc_info=True)

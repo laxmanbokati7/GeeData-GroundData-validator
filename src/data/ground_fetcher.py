@@ -81,6 +81,15 @@ class GroundDataFetcher(DataFetcher):
         """
         self.progress_callback = callback
 
+    def set_filter_polygon(self, polygon_feature):
+        """
+        Set a polygon feature to filter stations
+        
+        Args:
+            polygon_feature (dict): GeoJSON feature for filtering stations
+        """
+        self.filter_polygon = polygon_feature
+
     def fetch_data(self) -> pd.DataFrame:
         """Fetch ground precipitation data with progress reporting"""
         # Get or load metadata
@@ -104,7 +113,18 @@ class GroundDataFetcher(DataFetcher):
                     raise ValueError(f"No stations found within HUC {self.config.huc_id}")
                     
                 logger.info(f"Filtered to {len(metadata)} stations within HUC")
-            
+                
+            # Apply polygon filtering if specified
+            if hasattr(self, 'filter_polygon') and self.filter_polygon:
+                logger.info("Filtering stations by custom polygon")
+                from utils.drawing_utils import filter_stations_by_polygon
+                metadata = filter_stations_by_polygon(metadata, self.filter_polygon)
+                
+                if metadata.empty:
+                    raise ValueError("No stations found within the specified polygon")
+                    
+                logger.info(f"Filtered to {len(metadata)} stations within polygon")
+                
             self.metadata_provider.save_metadata(metadata, self.config.get_metadata_path())
             
             if self.progress_callback:
@@ -195,3 +215,21 @@ class GroundDataFetcher(DataFetcher):
             'data_type': 'Ground',
             'missing_percentage': (data.isna().sum().sum() / (data.shape[0] * data.shape[1])) * 100
         }
+
+    def fetch_ground_data(self, config, drawn_feature=None):
+        """
+        Fetch ground data based on the configuration and optional drawn feature.
+        
+        Args:
+            config (GroundDataConfig): Configuration for ground data fetching
+            drawn_feature (dict, optional): GeoJSON feature for filtering stations
+        """
+        logger.info("Fetching ground data...")
+        if drawn_feature:
+            logger.info(f"Using drawn feature for filtering: {drawn_feature}")
+            # Apply filtering logic using the drawn feature
+            self.filter_stations_by_drawn_feature(drawn_feature)
+
+        # Proceed with fetching ground data
+        self._fetch_station_metadata(config)
+        self._fetch_station_data(config)

@@ -1,26 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import logging
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point, Polygon
-from pathlib import Path
+import logging
 
 logger = logging.getLogger(__name__)
 
-def filter_stations_by_polygon(stations_df, feature):
+def filter_stations_by_polygon(stations_df, geojson_feature):
     """
     Filter stations dataframe to only include stations within the given polygon
     
     Args:
         stations_df: DataFrame with station metadata including latitude and longitude
-        feature: GeoJSON feature representing the polygon
+        geojson_feature: GeoJSON feature representing the polygon
         
     Returns:
         DataFrame with filtered stations
     """
-    if not feature:
+    if not geojson_feature:
         return stations_df
         
     try:
@@ -32,19 +31,18 @@ def filter_stations_by_polygon(stations_df, feature):
         )
         
         # Extract polygon from feature
-        coordinates = feature['geometry']['coordinates']
+        coordinates = geojson_feature['geometry']['coordinates'][0]
         
-        if feature['geometry']['type'] == 'Polygon':
-            polygon = Polygon(coordinates[0])
-        else:
-            # Handle multipolygon or other geometry types
-            return stations_df
+        # Create polygon
+        polygon = Polygon(coordinates)
         
         # Create polygon GeoDataFrame
         polygon_gdf = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[polygon])
         
         # Spatial join to get stations within polygon
         stations_in_poly = gpd.sjoin(gdf, polygon_gdf, predicate='within')
+        
+        logger.info(f"Filtered stations: {len(stations_in_poly)} out of {len(stations_df)}")
         
         # Return filtered stations dataframe
         return stations_df.loc[stations_in_poly.index]

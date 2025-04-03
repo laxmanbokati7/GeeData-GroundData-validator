@@ -35,7 +35,7 @@ class DataFetchingController(QObject):
         
         logger.info("DataFetchingController initialized")
     
-    def fetch_data(self, data_type, ground_config, gridded_config):
+    def fetch_data(self, data_type, ground_config, gridded_config, polygon_feature=None):
         """
         Start the data fetching process in a background thread
         
@@ -43,6 +43,7 @@ class DataFetchingController(QObject):
             data_type (str): Type of data to fetch ('ground', 'gridded', or 'both')
             ground_config (GroundDataConfig): Configuration for ground data
             gridded_config (GriddedDataConfig): Configuration for gridded data
+            polygon_feature (dict, optional): GeoJSON feature for filtering stations
         """
         if self.fetch_thread and self.fetch_thread.is_alive():
             logger.warning("Data fetching already in progress")
@@ -52,14 +53,14 @@ class DataFetchingController(QObject):
         # Start a new thread for fetching
         self.fetch_thread = threading.Thread(
             target=self._fetch_data_thread,
-            args=(data_type, ground_config, gridded_config),
+            args=(data_type, ground_config, gridded_config, polygon_feature),
             daemon=True
         )
         self.fetch_thread.start()
         
         logger.info(f"Started data fetching thread for {data_type} data")
     
-    def _fetch_data_thread(self, data_type, ground_config, gridded_config):
+    def _fetch_data_thread(self, data_type, ground_config, gridded_config, polygon_feature=None):
         """
         Thread function for fetching data
         
@@ -67,6 +68,7 @@ class DataFetchingController(QObject):
             data_type (str): Type of data to fetch ('ground', 'gridded', or 'both')
             ground_config (GroundDataConfig): Configuration for ground data
             gridded_config (GriddedDataConfig): Configuration for gridded data
+            polygon_feature (dict, optional): GeoJSON feature for filtering stations
         """
         try:
             results = {}
@@ -79,6 +81,11 @@ class DataFetchingController(QObject):
                 logger.info("Fetching ground data")
                 
                 fetcher = GroundDataFetcher(ground_config)
+                
+                # If polygon is provided, set it for filtering
+                if polygon_feature:
+                    fetcher.set_filter_polygon(polygon_feature)
+                    
                 self.ground_data = fetcher.process()
                 results['Ground'] = self.ground_data
                 
@@ -87,7 +94,7 @@ class DataFetchingController(QObject):
                 
                 logger.info("Ground data fetching completed")
                 self.status_updated.emit("Ground data fetching completed")
-            
+
             # Fetch gridded data if requested
             if data_type in ['gridded', 'both']:
                 if gridded_config.is_valid():
