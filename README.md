@@ -1,274 +1,181 @@
 # Climate Data Fetcher GUI
 
-A comprehensive PyQt5-based desktop application for fetching, analyzing, and visualizing climate data. The tool allows researchers to compare ground station precipitation measurements with various gridded datasets from Google Earth Engine, offering powerful statistical analysis and visualization capabilities.
+A comprehensive PyQt5 application for retrieving, analyzing, and visualizing precipitation data from multiple sources. This tool enables researchers to systematically compare ground station measurements with gridded precipitation products such as ERA5, DAYMET, PRISM, CHIRPS, FLDAS, GSMAP, and GLDAS.
 
-![Main UI Screenshot](docs/screenshots/main_ui_screenshot.png)
+![Climate Data Fetcher GUI](ui/resources/app_screenshot.png)
 
-## Table of Contents
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Usage Guide](#usage-guide)
-- [Data Selection](#data-selection)
-- [Analysis Capabilities](#analysis-capabilities)
-- [Visualization Features](#visualization-features)
-- [Configuration](#configuration)
-- [Dependencies](#dependencies)
-- [Development Status](#development-status)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## 🔧 Installation
 
-## Overview
+### Option 1: Using Conda (Recommended)
 
-Climate Data Fetcher GUI bridges the gap between ground-based weather station data and gridded climate datasets. It provides researchers, hydrologists, and climatologists with a user-friendly interface to:
-
-- Download precipitation data from ground stations via Meteostat
-- Access multiple gridded precipitation datasets from Google Earth Engine
-- Compare data using statistical methods across various temporal scales
-- Generate publication-ready visualizations
-- Validate gridded products against ground truth data
-
-The tool streamlines the entire workflow from data acquisition to visualization, enabling efficient climate data analysis.
-
-## Key Features
-
-### Data Sources
-
-#### Ground Data
-- **Source**: Meteostat weather station network
-- **Variables**: Daily precipitation measurements
-- **Coverage**: Continental US (with expansion to global coverage in development)
-- **Period**: 1980-2024 (varies by station)
-- **Selection**: By geographic region (states, watersheds, or custom boundaries)
-
-#### Gridded Datasets
-| Dataset | Resolution | Temporal Scale | Coverage | Period | Variable |
-|---------|------------|----------------|----------|--------|----------|
-| ERA5 | 0.25° | Daily | Global | 1979-present | total_precipitation_sum |
-| DAYMET | 1km | Daily | North America | 1980-present | prcp |
-| PRISM | 4km | Daily | Continental US | 1981-present | ppt |
-| CHIRPS | 5.5km | Daily | Global (50°S-50°N) | 1981-present | precipitation |
-| FLDAS | 11km | Monthly | Global | 1982-present | Rainf_f_tavg |
-| GSMAP | 11km | Hourly→Daily | Global (60°S-60°N) | 2000-present | hourlyPrecipRateGC |
-| GLDAS-Historical | 28km | 3-hourly→Daily | Global | 1948-2014 | Rainf_f_tavg |
-| GLDAS-Current | 28km | 3-hourly→Daily | Global | 2000-present | Rainf_f_tavg |
-
-All gridded datasets are accessed via Google Earth Engine API and converted to consistent units (mm/day).
-
-### Data Selection Methods
-
-#### State-based Selection
-- Select all US states or specific states
-- Multi-select capability for regional studies
-- Familiar interface for US-focused research
-
-![State Selection UI](docs/screenshots/state_selection_ui.png)
-
-#### HUC Watershed Selection
-- Select by Hydrologic Unit Code (HUC) watersheds
-- Organized by region for easy navigation
-- Essential for hydrological and water resource studies
-- Provides watershed metadata (area, states covered)
-
-![HUC Selection UI](docs/screenshots/huc_selection_ui.png)
-
-#### Custom Boundary Drawing
-- Define study area using precise coordinates
-- Bounding box definition
-- Predefined regions (Northeast, Midwest, etc.)
-- Most flexible option for specific study areas
-
-![Drawing Selection UI](docs/screenshots/drawing_selection_ui.png)
-
-#### User-provided Station Data (Under Development)
-- Support for custom station data and metadata
-- Recognition of latitude/longitude coordinates
-- Enables use beyond Continental US
-- Backend functionality implemented, UI integration in progress
-
-### Analysis Capabilities
-
-#### Statistical Metrics
-- **R²**: Correlation coefficient (goodness of fit)
-- **RMSE**: Root Mean Square Error (absolute error magnitude)
-- **Bias**: Systematic error (over/under-estimation)
-- **MAE**: Mean Absolute Error (average absolute difference)
-- **NSE**: Nash-Sutcliffe Efficiency (model performance)
-- **PBIAS**: Percent Bias (percent deviation)
-
-#### Temporal Analysis Options
-- **Daily**: Direct comparison of daily values
-- **Monthly**: Aggregated monthly totals with threshold for valid data
-- **Yearly**: Aggregated yearly totals with threshold for valid data
-- **Seasonal**: Breakdown by meteorological seasons:
-  - Winter (Dec-Feb)
-  - Spring (Mar-May)
-  - Summer (Jun-Aug)
-  - Fall (Sep-Nov)
-- **Extreme Value Analysis**: Performance for high/low precipitation values
-
-### Visualization Features
-
-#### Spatial Distribution Maps
-- Shows spatial patterns of performance metrics
-- Color-coded for easy interpretation
-- Includes contextual base maps
-- Station-level performance analysis
-
-![Spatial Visualization Example](docs/screenshots/spatial_viz_example.png)
-
-#### Statistical Visualizations
-- **Box Plots**: Distribution of metrics across stations
-- **Time Series**: Direct comparison of ground vs. gridded data
-- **Radar Charts**: Multi-metric and seasonal performance visualization
-
-![Statistical Visualization Examples](docs/screenshots/stats_viz_examples.png)
-
-#### Dataset Comparison
-- Side-by-side comparison of multiple datasets
-- Consistent metrics across datasets
-- Identification of best-performing datasets
-
-![Dataset Comparison Visualization](docs/screenshots/dataset_comparison_viz.png)
-
-## Architecture
-
-The application follows an MVC-like architecture with clear separation between UI, controllers, and data processing:
-
-- **UI Layer**: PyQt5-based user interface with modular panels
-- **Controller Layer**: Manages application flow and connects UI with business logic
-- **Business Logic Layer**: Core functionality for data fetching, analysis, and visualization
-- **Data Layer**: Handles data storage, loading, and configuration management
-
-Multi-threading is implemented for long-running operations to ensure a responsive UI.
-
-## Installation
-
-### Prerequisites
-- Python 3.7 or higher
-- Google Earth Engine account (for gridded datasets)
-- Git (for cloning the repository)
-
-### Steps
-
-1. Clone the repository:
 ```bash
+# Clone the repository
 git clone https://github.com/Saurav-JSU/GeeData-GroundData-validator.git
 cd GeeData-GroundData-validator
+
+# Create and activate conda environment
+conda create -n climate-data-fetcher python=3.8
+conda activate climate-data-fetcher
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up Earth Engine authentication
+earthengine authenticate
 ```
 
-2. Create and activate a virtual environment:
+### Option 2: Using Pip and venv
 
-   ```bash
-   # Windows
-   python -m venv venv
-   venv\Scripts\activate
+```bash
+# Clone the repository
+git clone https://github.com/Saurav-JSU/GeeData-GroundData-validator.git
+cd GeeData-GroundData-validator
 
-   # macOS/Linux
-   python -m venv venv
-   source venv/bin/activate
-   ```
+# Create and activate virtual environment
+python -m venv venv
 
-3. Install dependencies:
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-4. Authenticate with Google Earth Engine:
+# Set up Earth Engine authentication
+earthengine authenticate
+```
 
-   ```bash
-   earthengine authenticate
-   ```
+### System Dependencies for Non-Conda Users
 
-### Usage
+If you're not using Conda, you might need additional system libraries for the geospatial dependencies:
 
-#### Basic Workflow
+**Windows:**
+- Download and install [GDAL](https://www.gisinternals.com/release.php) binaries
+- Add GDAL to your system PATH
 
-1. Run the application:
+**Ubuntu/Debian:**
+```bash
+sudo apt-get install python3-dev libgdal-dev libproj-dev libgeos-dev
+```
 
-   ```bash
-   python main.py
-   ```
+**macOS:**
+```bash
+brew install gdal geos proj
+```
 
-2. Select your region of interest:
-   - US States
-   - HUC Watersheds
-   - Custom boundaries
+### Google Earth Engine Authentication
 
-3. Choose datasets from available options.
+This application uses Google Earth Engine for accessing gridded datasets. To use these features:
 
-4. Specify date range (1980-2024).
+1. Sign up for Google Earth Engine at https://earthengine.google.com/signup/
+2. Once approved, run `earthengine authenticate` to set up your credentials
+3. Note your Earth Engine project ID for use in the application
 
-5. Download and analyze data.
+## 🚀 Quick Start
 
-6. Generate visualizations.
+### Method 1: Using run_pipeline.bat (Windows)
 
-## Configuration
+1. Double-click `run_pipeline.bat` in the project folder
+2. Follow the prompts to set up the environment and launch the application
+3. The GUI will open automatically once setup is complete
 
-### Earth Engine Setup
-- Requires an authenticated Google Earth Engine account.
-- Optional project ID can be specified in the Earth Engine tab.
+### Method 2: Running directly
 
-### Application Settings
-- Config file location: `~/.climate-data-fetcher/config.json`
-- Project files use `.cdp` extension.
+```bash
+# Activate your environment first, then:
+python main.py
+```
 
-## Dependencies
+### Expected Output
 
-### Core Packages
-- `PyQt5` (>=5.15)
-- `pandas` (>=1.3)
-- `numpy` (>=1.21)
-- `geopandas` (>=0.10)
-- `matplotlib` (>=3.5)
-- `seaborn` (>=0.11)
+Upon successful launch, you'll see the Climate Data Fetcher GUI with three main tabs:
 
-### External Services
-- Google Earth Engine API
-- Meteostat API
+1. **Data Selection Tab**: Here you can:
+   - Select your area of interest (states, HUC watersheds, or custom polygon)
+   - Set the time period for analysis
+   - Choose which gridded datasets to download
+   - Start the data fetching process
 
-## Development
+2. **Analysis Tab**: After downloading data, you can:
+   - Run statistical analysis to compare gridded products with ground observations
+   - View summary statistics and detailed metrics tables
+   - Analyze performance at daily, monthly, and seasonal scales
 
-### Current Features
-- State and HUC-based region selection.
-- Multi-dataset comparison.
-- Data caching system.
-- Interactive visualizations.
+3. **Visualization Tab**: With analysis complete, you can:
+   - Generate various visualization types (maps, time series, box plots, etc.)
+   - Browse the visualization gallery
+   - Export images for use in reports or presentations
 
-### Planned Features
-- User-provided station data support.
-- Global coverage expansion.
-- Additional climate variables.
-- Machine learning integration.
+## 📁 Project Structure
 
-## Contributing
+```
+GeeData-GroundData-validator/
+├── main.py                   # Application entry point
+├── config.py                 # Configuration classes
+├── controller/               # MVC controllers
+│   ├── app_controller.py     # Main application controller
+│   ├── data_fetching_controller.py
+│   ├── analysis_controller.py
+│   └── visualization_controller.py
+├── src/                      # Core functionality
+│   ├── data/                 # Data fetching modules
+│   │   ├── ground_fetcher.py # Ground station data retrieval
+│   │   └── gridded_fetcher.py # Gridded data retrieval
+│   ├── analysis/             # Analysis modules
+│   │   └── statistical_analyzer.py # Statistical analysis
+│   └── visualization/        # Visualization modules
+│       └── plot_results.py   # Plotting functions
+├── ui/                       # PyQt5 UI components
+│   ├── app_window.py         # Main application window
+│   └── panels/               # UI panels for different functions
+├── utils/                    # Utility functions
+│   ├── statistical_utils.py  # Statistical calculation utilities
+│   ├── plotting_utils.py     # Plotting utilities
+│   ├── earth_engine_utils.py # Earth Engine integration
+│   └── huc_utils.py          # HUC watershed utilities
+├── Data/                     # Downloaded data (created on first run)
+├── Results/                  # Analysis results (created during analysis)
+└── Plots/                    # Generated visualizations
+```
 
-### Guidelines
-1. Fork the repository.
-2. Create a feature branch:
-   ```bash
-   git checkout -b feature/new-feature
-   ```
-3. Commit your changes with descriptive messages.
-4. Push to your branch:
-   ```bash
-   git push origin feature/new-feature
-   ```
-5. Open a pull request.
+## 📝 Notes
 
-### Code Standards
-- Follow PEP 8 style guide.
-- Include docstrings for all functions.
-- Write unit tests for new features.
-- Update documentation accordingly.
+### System Requirements
 
-## License
-MIT License - See LICENSE for details.
+- **Python Version**: 3.7 - 3.9 recommended (3.8 optimal)
+- **Operating System**: Windows 10/11, macOS, or Linux
+- **RAM**: Minimum 4GB, 8GB+ recommended for larger datasets
+- **Disk Space**: At least 2GB free space for data, results, and visualizations
 
-## Contact
-- **Saurav Bhattarai** - ORISE Fellow
-- GitHub: [Saurav-JSU]
-- Email: [saurav.bhattarai.1999@gmail.com]
+### Known Issues
+
+- Earth Engine authentication may time out after extended periods. Re-run `earthengine authenticate` if you encounter API errors.
+- High-resolution visualizations may require significant memory, especially for large study areas.
+- The application is currently optimized for the Continental United States; other regions may have limited data availability.
+- FLDAS dataset is monthly only and cannot provide daily statistics.
+
+### Common Setup Problems
+
+1. **PyQt5 Installation Issues**: 
+   - On some Linux distributions, you might need additional packages: `sudo apt-get install python3-pyqt5`
+   - On macOS, you might need to install Qt first: `brew install qt`
+
+2. **Earth Engine Authentication Failed**:
+   - Ensure you have an approved Earth Engine account
+   - Try running `earthengine authenticate --quiet` in a separate terminal
+   - Verify your internet connection and firewall settings
+
+3. **GeoPandas/GDAL Issues**:
+   - These packages can be tricky to install with pip. If you encounter problems, consider using conda instead
+   - Make sure system libraries are installed (see installation section)
+   - Use `conda install -c conda-forge geopandas` for the most reliable installation
+
+4. **Application Crashes When Drawing Areas**:
+   - Ensure you've provided a valid Earth Engine project ID in the settings
+   - Try restarting the application after authentication
+   - Use predefined regions instead of custom drawing if problems persist
+
+## 📚 Documentation
+
+For detailed documentation, refer to the ERDC Technical Note accompanying this software package.

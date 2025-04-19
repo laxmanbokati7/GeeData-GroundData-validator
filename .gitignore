@@ -1,11 +1,17 @@
 # Data, results and plots folders
-Data/
+Data/*
+# But NOT the HUC subfolder
+!Data/HUC/
+# And also don't ignore the contents inside HUC
+!Data/HUC/**
 Data_1/
 Data_2(updated_gsmap)/
 Data_HUC/
 Results/
 Plots/
 Data_3/
+
+*.log
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -56,3 +62,4 @@ Thumbs.db
 
 !src/data/
 !src/data/gridded_fetcher.py
+!Data/HUC/
