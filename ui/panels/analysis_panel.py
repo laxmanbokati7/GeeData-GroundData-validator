@@ -7,9 +7,11 @@ from pathlib import Path
 from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton,
                             QProgressBar, QTableWidget, QTableWidgetItem, QTabWidget,
                             QGroupBox, QComboBox, QSplitter, QPlainTextEdit,
-                            QHeaderView, QCheckBox, QFrame, QMessageBox)
+                            QHeaderView, QCheckBox, QFrame, QMessageBox, QLineEdit)
 from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import QFont, QColor
+from config import AnalysisConfig
+from PyQt5.QtWidgets import QSpacerItem, QSizePolicy
 
 logger = logging.getLogger(__name__)
 
@@ -93,6 +95,60 @@ class AnalysisPanel(QWidget):
         options_layout.addWidget(self.include_extreme)
         options_layout.addStretch()
         settings_layout.addLayout(options_layout)
+        
+        # Filtering options
+        filtering_layout = QHBoxLayout()
+        self.filter_extremes = QCheckBox("Filter Extreme Values")
+        self.filter_extremes.setChecked(True)
+        self.filter_extremes.setToolTip(
+            "Filter extreme statistical values that could distort visualization and summary statistics.\n"
+            "Only filters in the 'bad' direction - preserves good performance metrics."
+        )
+
+        percentile_label = QLabel("Percentile Range:")
+        percentile_label.setToolTip("Threshold percentiles for filtering extreme values")
+
+        self.lower_percentile = QLineEdit("1.0")
+        self.lower_percentile.setFixedWidth(40)
+        self.lower_percentile.setToolTip(
+            "Lower percentile (1-10 recommended).\n"
+            "For metrics like R² where higher is better,\n"
+            "this removes the worst performing stations."
+        )
+
+        percentile_dash = QLabel("-")
+
+        self.upper_percentile = QLineEdit("99.0")
+        self.upper_percentile.setFixedWidth(40)
+        self.upper_percentile.setToolTip(
+            "Upper percentile (90-99 recommended).\n"
+            "For metrics like RMSE where lower is better,\n"
+            "this removes the worst performing stations."
+        )
+
+        # Add help button with tooltip
+        help_button = QPushButton("?")
+        help_button.setFixedSize(20, 20)
+        help_button.setToolTip("Show more information about filtering")
+        help_button.clicked.connect(self.show_filtering_help)
+
+        filtering_layout.addWidget(self.filter_extremes)
+        filtering_layout.addWidget(percentile_label)
+        filtering_layout.addWidget(self.lower_percentile)
+        filtering_layout.addWidget(percentile_dash)
+        filtering_layout.addWidget(self.upper_percentile)
+        filtering_layout.addWidget(help_button)
+        filtering_layout.addStretch()
+
+        # Add an information text label
+        filtering_info = QLabel(
+            "Filtering removes extreme statistical values while preserving good performance metrics."
+        )
+        filtering_info.setStyleSheet("font-size: 9pt; color: #666;")
+        filtering_info.setWordWrap(True)
+
+        settings_layout.addLayout(filtering_layout)
+        settings_layout.addWidget(filtering_info)
         
         # Run button
         self.run_button = QPushButton("Run Analysis")
@@ -357,11 +413,35 @@ class AnalysisPanel(QWidget):
                 'include_extreme': self.include_extreme.isChecked()
             }
             
+            # Create analysis config
+            try:
+                lower_percentile = float(self.lower_percentile.text().strip())
+                upper_percentile = float(self.upper_percentile.text().strip())
+                
+                if not (0 <= lower_percentile < upper_percentile <= 100):
+                    raise ValueError("Invalid percentile range")
+                    
+                analysis_config = AnalysisConfig(
+                    filter_extremes=self.filter_extremes.isChecked(),
+                    lower_percentile=lower_percentile,
+                    upper_percentile=upper_percentile
+                )
+            except ValueError as e:
+                # Show error and use default config
+                QMessageBox.warning(
+                    self,
+                    "Invalid Settings",
+                    f"Invalid percentile values: {str(e)}. Using default values (1-99%)."
+                )
+                analysis_config = AnalysisConfig()
+            
             logger.info(f"Starting analysis with settings: {settings}")
+            logger.info(f"Analysis config: {analysis_config}")
             
             # Run analysis
             self.controller.analysis_controller.settings = settings
-            self.controller.run_analysis()
+            self.controller.run_analysis(analysis_config)
+            print(f"UI values: lower={lower_percentile}, upper={upper_percentile}")
             
         except Exception as e:
             logger.error(f"Error running analysis: {str(e)}", exc_info=True)
@@ -629,3 +709,57 @@ class AnalysisPanel(QWidget):
             "<p><b>Note:</b> Analysis results are saved to the Results directory and can be visualized in the Visualization tab.</p>",
             QMessageBox.Ok
         )
+
+    def show_filtering_help(self):
+        """Show help dialog explaining the filtering feature"""
+        help_text = """
+        <h3>Statistical Filtering Help</h3>
+        
+        <p><b>Purpose:</b> The filtering feature removes extreme statistical values that can distort visualizations and summary statistics.</p>
+        
+        <p><b>Direction-Aware Filtering:</b> The implementation is "direction-aware" - it only filters in the "bad" direction:</p>
+        
+        <ul>
+        <li>For metrics where <b>higher is better</b> (R², NSE, correlation):
+            <ul>
+            <li>Only filters out extremely <i>low</i> values below the lower percentile</li>
+            <li>Preserves all high values, even outliers</li>
+            </ul>
+        </li>
+        <li>For metrics where <b>lower is better</b> (RMSE, MAE, bias):
+            <ul>
+            <li>Only filters out extremely <i>high</i> values above the upper percentile</li>
+            <li>Preserves all low values, even outliers</li>
+            </ul>
+        </li>
+        </ul>
+        
+        <p><b>Recommended Settings:</b></p>
+        <ul>
+        <li><b>Lower percentile:</b> 1-10 (determines threshold for filtering poor-performing stations for metrics like R²)</li>
+        <li><b>Upper percentile:</b> 90-99 (determines threshold for filtering poor-performing stations for metrics like RMSE)</li>
+        </ul>
+        
+        <p><b>Example:</b> Using 5-95 percentile range means:</p>
+        <ul>
+        <li>For R², values below the 5th percentile will be filtered out</li>
+        <li>For RMSE, values above the 95th percentile will be filtered out</li>
+        <li>Stations with good metrics (high R², low RMSE) will <i>never</i> be filtered out</li>
+        </ul>
+        
+        <p><b>Note:</b> Filtering is applied during analysis, so filtered values don't appear in statistics files or visualizations.</p>
+        """
+        
+        # Create message box with rich text
+        msg_box = QMessageBox(self)
+        msg_box.setWindowTitle("Filtering Help")
+        msg_box.setTextFormat(Qt.RichText)
+        msg_box.setText(help_text)
+        msg_box.setStandardButtons(QMessageBox.Ok)
+        
+        # Make the dialog wider
+        horizontal_spacer = QSpacerItem(500, 0, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        layout = msg_box.layout()
+        layout.addItem(horizontal_spacer, layout.rowCount(), 0, 1, layout.columnCount())
+        
+        msg_box.exec_()

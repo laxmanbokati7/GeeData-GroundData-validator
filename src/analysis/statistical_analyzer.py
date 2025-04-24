@@ -9,13 +9,15 @@ from utils.statistical_utils import (
     calculate_percentile_stats_by_station,
     aggregate_to_monthly,
     aggregate_to_yearly,
-    validate_data_length
+    validate_data_length,
+    filter_extreme_stats  # Add this line
 )
 from utils.seasonal_utils import (
     calculate_seasonal_stats,
     save_seasonal_stats,
     get_seasonal_summary
 )
+from config import AnalysisConfig
 
 # Temporarily suppress the FutureWarning about parse_dates
 warnings.filterwarnings("ignore", message="Support for nested sequences for 'parse_dates'", category=FutureWarning)
@@ -32,6 +34,11 @@ class GriddedDataAnalyzer:
         self.gridded_datasets = {}
         self.progress_callback = None
         self.status_callback = None
+
+    def set_analysis_config(self, config: 'AnalysisConfig'):
+        """Set the analysis configuration"""
+        self.analysis_config = config
+        logger.info(f"Analysis configuration set: {config}")
         
     def set_progress_callback(self, callback: Callable[[int], None]) -> None:
         """Set callback for progress updates"""
@@ -139,6 +146,17 @@ class GriddedDataAnalyzer:
                 # Skip daily stats, only compute monthly and yearly stats
                 self._update_status("Computing monthly statistics for FLDAS...")
                 monthly_stats = calculate_stats_for_all_stations(ground, gridded)
+                
+                # Apply filtering if configured
+                if hasattr(self, 'analysis_config') and self.analysis_config.filter_extremes:
+                    self._update_status(f"Filtering extreme values ({self.analysis_config.lower_percentile}-{self.analysis_config.upper_percentile} percentiles)...")
+                    monthly_stats = filter_extreme_stats(
+                        monthly_stats,
+                        lower_percentile=self.analysis_config.lower_percentile,
+                        upper_percentile=self.analysis_config.upper_percentile,
+                        columns_to_filter=self.analysis_config.metrics_to_filter
+                    )
+                
                 monthly_stats.to_csv(output_dir / 'monthly_stats.csv')
                 
                 # Add metadata about temporal resolution
@@ -165,11 +183,38 @@ class GriddedDataAnalyzer:
                 # Calculate and save regular statistics
                 self._update_status("Calculating daily statistics...")
                 daily_stats = calculate_stats_for_all_stations(ground, gridded)
+                
+                # Apply filtering if configured
+                if hasattr(self, 'analysis_config') and self.analysis_config.filter_extremes:
+                    self._update_status(f"Filtering extreme values ({self.analysis_config.lower_percentile}-{self.analysis_config.upper_percentile} percentiles)...")
+                    daily_stats = filter_extreme_stats(
+                        daily_stats,
+                        lower_percentile=self.analysis_config.lower_percentile,
+                        upper_percentile=self.analysis_config.upper_percentile,
+                        columns_to_filter=self.analysis_config.metrics_to_filter
+                    )
+                
                 daily_stats.to_csv(output_dir / 'daily_stats.csv')
                 
                 self._update_status("Calculating extreme value statistics...")
                 low_extreme_stats = calculate_percentile_stats_by_station(ground, gridded, 10, False)
                 high_extreme_stats = calculate_percentile_stats_by_station(ground, gridded, 90, True)
+                
+                # Apply filtering to extreme stats
+                if hasattr(self, 'analysis_config') and self.analysis_config.filter_extremes:
+                    low_extreme_stats = filter_extreme_stats(
+                        low_extreme_stats,
+                        lower_percentile=self.analysis_config.lower_percentile,
+                        upper_percentile=self.analysis_config.upper_percentile,
+                        columns_to_filter=self.analysis_config.metrics_to_filter
+                    )
+                    high_extreme_stats = filter_extreme_stats(
+                        high_extreme_stats,
+                        lower_percentile=self.analysis_config.lower_percentile,
+                        upper_percentile=self.analysis_config.upper_percentile,
+                        columns_to_filter=self.analysis_config.metrics_to_filter
+                    )
+                
                 low_extreme_stats.to_csv(output_dir / 'low_extreme_stats.csv')
                 high_extreme_stats.to_csv(output_dir / 'high_extreme_stats.csv')
                 
@@ -177,20 +222,51 @@ class GriddedDataAnalyzer:
                 ground_monthly = aggregate_to_monthly(ground)
                 gridded_monthly = aggregate_to_monthly(gridded)
                 monthly_stats = calculate_stats_for_all_stations(ground_monthly, gridded_monthly)
+                
+                # Apply filtering to monthly stats
+                if hasattr(self, 'analysis_config') and self.analysis_config.filter_extremes:
+                    monthly_stats = filter_extreme_stats(
+                        monthly_stats,
+                        lower_percentile=self.analysis_config.lower_percentile,
+                        upper_percentile=self.analysis_config.upper_percentile,
+                        columns_to_filter=self.analysis_config.metrics_to_filter
+                    )
+                
                 monthly_stats.to_csv(output_dir / 'monthly_stats.csv')
                 
                 self._update_status("Calculating yearly statistics...")
                 ground_yearly = aggregate_to_yearly(ground)
                 gridded_yearly = aggregate_to_yearly(gridded)
                 yearly_stats = calculate_stats_for_all_stations(ground_yearly, gridded_yearly)
+                
+                # Apply filtering to yearly stats
+                if hasattr(self, 'analysis_config') and self.analysis_config.filter_extremes:
+                    yearly_stats = filter_extreme_stats(
+                        yearly_stats,
+                        lower_percentile=self.analysis_config.lower_percentile,
+                        upper_percentile=self.analysis_config.upper_percentile,
+                        columns_to_filter=self.analysis_config.metrics_to_filter
+                    )
+                
                 yearly_stats.to_csv(output_dir / 'yearly_stats.csv')
                 
                 # Calculate and save seasonal statistics
                 self._update_status("Calculating seasonal statistics...")
                 seasonal_stats = calculate_seasonal_stats(ground, gridded)
+                
+                # Apply filtering to seasonal stats
+                if hasattr(self, 'analysis_config') and self.analysis_config.filter_extremes:
+                    for season in seasonal_stats:
+                        seasonal_stats[season] = filter_extreme_stats(
+                            seasonal_stats[season],
+                            lower_percentile=self.analysis_config.lower_percentile,
+                            upper_percentile=self.analysis_config.upper_percentile,
+                            columns_to_filter=self.analysis_config.metrics_to_filter
+                        )
+                
                 save_seasonal_stats(seasonal_stats, output_dir)
                 
-                # Create summary for seasons
+                # Create seasonal summary
                 seasonal_summary = get_seasonal_summary(seasonal_stats)
                 seasonal_summary.to_csv(output_dir / 'seasonal_summary.csv', index=False)
                 
@@ -208,7 +284,7 @@ class GriddedDataAnalyzer:
                 
                 summary_df = pd.DataFrame([summary])
                 summary_df.to_csv(output_dir / 'analysis_summary.csv', index=False)
-                
+            print(f"Analyzer values: lower={self.analysis_config.lower_percentile}, upper={self.analysis_config.upper_percentile}")   
             return summary
                     
         except Exception as e:

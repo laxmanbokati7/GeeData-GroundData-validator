@@ -1,4 +1,4 @@
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional, Tuple, List
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -147,3 +147,62 @@ def validate_station_data(data: pd.Series) -> Dict[str, bool]:
 def validate_data_length(df: pd.DataFrame) -> Dict[str, Dict[str, bool]]:
     """Check if data length is sufficient for each station"""
     return {col: validate_station_data(df[col]) for col in df.columns}
+
+def filter_extreme_stats(stats_df: pd.DataFrame, lower_percentile: float = 1.0, 
+                         upper_percentile: float = 99.0, 
+                         columns_to_filter: List[str] = None) -> pd.DataFrame:
+    """
+    Filter extreme values in statistics DataFrame - only in the "bad" direction
+    """
+    if stats_df.empty:
+        return stats_df
+        
+    # Create a copy to avoid modifying the original
+    filtered_df = stats_df.copy()
+    
+    # Define metrics where higher is better vs lower is better
+    higher_is_better = ['r2', 'nse', 'corr']  # Higher values are better
+    lower_is_better = ['rmse', 'mae', 'bias', 'pbias', 'rel_bias', 'rel_rmse']  # Lower values are better
+    
+    # Identify columns to filter
+    if columns_to_filter is None:
+        columns_to_filter = stats_df.select_dtypes(include=['number']).columns.tolist()
+    else:
+        # Ensure all specified columns exist in the DataFrame
+        columns_to_filter = [col for col in columns_to_filter if col in stats_df.columns]
+    
+    # Apply filtering to each column, only in the "bad" direction
+    for col in columns_to_filter:
+        if col in filtered_df.columns:
+            # For metrics where higher is better (like R²), only filter the lower tail
+            if col.lower() in higher_is_better:
+                lower_bound = np.nanpercentile(filtered_df[col], lower_percentile)
+                mask_lower = filtered_df[col] < lower_bound
+                filtered_df.loc[mask_lower, col] = np.nan
+                num_filtered = mask_lower.sum()
+                if num_filtered > 0:
+                    print(f"Filtered {num_filtered} low {col} values below {lower_bound:.3f}")
+            
+            # For metrics where lower is better (like RMSE), only filter the upper tail
+            elif col.lower() in lower_is_better:
+                upper_bound = np.nanpercentile(filtered_df[col], upper_percentile)
+                mask_upper = filtered_df[col] > upper_bound
+                filtered_df.loc[mask_upper, col] = np.nan
+                num_filtered = mask_upper.sum()
+                if num_filtered > 0:
+                    print(f"Filtered {num_filtered} high {col} values above {upper_bound:.3f}")
+            
+            # For other metrics, apply filtering in both directions
+            else:
+                lower_bound = np.nanpercentile(filtered_df[col], lower_percentile)
+                upper_bound = np.nanpercentile(filtered_df[col], upper_percentile)
+                
+                mask_lower = filtered_df[col] < lower_bound
+                mask_upper = filtered_df[col] > upper_bound
+                
+                filtered_df.loc[mask_lower | mask_upper, col] = np.nan
+                num_filtered = (mask_lower | mask_upper).sum()
+                if num_filtered > 0:
+                    print(f"Filtered {num_filtered} extreme {col} values outside {lower_bound:.3f} to {upper_bound:.3f}")
+    
+    return filtered_df

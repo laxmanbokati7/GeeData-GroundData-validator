@@ -6,6 +6,7 @@ import threading
 from pathlib import Path
 import pandas as pd
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
+from config import AnalysisConfig
 
 from src.analysis.statistical_analyzer import GriddedDataAnalyzer
 
@@ -24,8 +25,11 @@ class AnalysisController(QObject):
     analysis_completed = pyqtSignal()
     dataset_analyzed = pyqtSignal(str, dict)
     
-    def __init__(self):
+    def __init__(self, analysis_config: AnalysisConfig = None):
         super().__init__()
+        
+        # Use default config if none provided
+        self.config = analysis_config or AnalysisConfig()
         
         # Thread for background processing
         self.analysis_thread = None
@@ -39,42 +43,51 @@ class AnalysisController(QObject):
         
         logger.info("AnalysisController initialized")
     
-    def run_analysis(self, data_dir, results_dir):
+    def run_analysis(self, data_dir, results_dir, analysis_config: AnalysisConfig = None):
         """
         Start the analysis process in a background thread
         
         Args:
             data_dir (str): Directory containing the data
             results_dir (str): Directory to store results
+            analysis_config (AnalysisConfig, optional): Analysis configuration
         """
         if self.analysis_thread and self.analysis_thread.is_alive():
             logger.warning("Analysis already in progress")
             self.status_updated.emit("Analysis already in progress")
             return
             
+        # Use default config if none provided
+        if analysis_config is None:
+            analysis_config = self.config
+            
         # Start a new thread for analysis
         self.analysis_thread = threading.Thread(
             target=self._analysis_thread,
-            args=(data_dir, results_dir),
+            args=(data_dir, results_dir, analysis_config),
             daemon=True
         )
         self.analysis_thread.start()
         
         logger.info(f"Started analysis thread with settings: {self.settings}")
     
-    def _analysis_thread(self, data_dir, results_dir):
+    def _analysis_thread(self, data_dir, results_dir, analysis_config: AnalysisConfig = None):
         """
         Thread function for running analysis
         
         Args:
             data_dir (str): Directory containing the data
             results_dir (str): Directory to store results
+            analysis_config (AnalysisConfig, optional): Analysis configuration
         """
         try:
             self.status_updated.emit("Initializing analysis...")
             
             # Create analyzer
             analyzer = GriddedDataAnalyzer(data_dir=data_dir, results_dir=results_dir)
+            
+            # Pass the analysis config to analyzer
+            analyzer.set_analysis_config(analysis_config)
             
             # Set up progress tracking
             original_analyze_dataset = analyzer.analyze_dataset
@@ -158,6 +171,8 @@ class AnalysisController(QObject):
             
             # Run the analysis
             analyzer.run_analysis()
+
+            print(f"AnalysisController values: lower={analysis_config.lower_percentile}, upper={analysis_config.upper_percentile}")
             
         except Exception as e:
             logger.error(f"Error running analysis: {str(e)}", exc_info=True)

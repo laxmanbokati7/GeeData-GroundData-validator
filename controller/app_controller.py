@@ -7,6 +7,7 @@ import json
 import pickle
 from pathlib import Path
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
+from config import GroundDataConfig, GriddedDataConfig, AnalysisConfig
 
 from config import GroundDataConfig, GriddedDataConfig
 from controller.data_fetching_controller import DataFetchingController
@@ -143,7 +144,7 @@ class AppController(QObject):
             logger.error(f"Error in fetch_data: {str(e)}", exc_info=True)
             self.error_occurred.emit("Data Fetching Error", str(e))
     
-    def run_analysis(self):
+    def run_analysis(self, analysis_config: AnalysisConfig = None):
         """Start the data analysis process"""
         try:
             if not self.data_available:
@@ -152,10 +153,15 @@ class AppController(QObject):
             logger.info("Starting data analysis process")
             self.status_updated.emit("Starting data analysis...")
             
+            # Use default config if none provided
+            config = analysis_config or AnalysisConfig()
+            
             self.analysis_controller.run_analysis(
                 str(self.data_dir),
-                str(self.results_dir)
+                str(self.results_dir),
+                config
             )
+            print(f"AppController values: lower={analysis_config.lower_percentile}, upper={analysis_config.upper_percentile}")
             
         except Exception as e:
             logger.error(f"Error in run_analysis: {str(e)}", exc_info=True)

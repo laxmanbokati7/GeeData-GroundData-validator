@@ -3,6 +3,38 @@ from dataclasses import dataclass
 from pathlib import Path
 
 @dataclass
+@dataclass
+class AnalysisConfig:
+    """
+    Configuration for data analysis and filtering
+    
+    The filtering is 'direction-aware' - it only filters in the 'bad' direction:
+    - For metrics where higher is better (R², NSE), only filters low values
+    - For metrics where lower is better (RMSE, MAE), only filters high values
+    
+    This preserves stations with good performance metrics (high R², low RMSE)
+    while removing only problematic outliers.
+    """
+    # Filtering settings
+    filter_extremes: bool = True  # Whether to filter extreme values
+    lower_percentile: float = 1.0  # Lower percentile threshold 
+    upper_percentile: float = 99.0  # Upper percentile threshold
+    # Which metrics to filter (None means all numeric columns)
+    metrics_to_filter: Optional[List[str]] = None
+    
+    def __post_init__(self):
+        # Validate percentile values
+        if not 0 <= self.lower_percentile < self.upper_percentile <= 100:
+            raise ValueError("Invalid percentile range: must have 0 <= lower < upper <= 100")
+        
+        # Default metrics to filter if not specified
+        if self.metrics_to_filter is None:
+            self.metrics_to_filter = [
+                'r2', 'rmse', 'bias', 'mae', 'nse', 'pbias', 
+                'rel_bias', 'rel_rmse', 'corr'
+            ]
+
+@dataclass
 class DataConfig:
     """Base configuration for data fetching"""
     start_year: int = 1980
