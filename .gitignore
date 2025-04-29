@@ -10,6 +10,9 @@ Data_HUC/
 Results/
 Plots/
 Data_3/
+California/
+Montana/
+Southeast/
 
 *.log
 
