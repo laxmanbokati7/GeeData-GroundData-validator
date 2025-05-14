@@ -13,7 +13,8 @@ Data_3/
 California/
 Montana/
 Southeast/
-
+# Ignore Python virtual environment
+.venv/
 *.log
 
 # Jupyter Notebook
